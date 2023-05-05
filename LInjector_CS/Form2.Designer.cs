@@ -137,7 +137,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel9.Location = new System.Drawing.Point(357, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(77, 26);
+            this.panel9.Size = new System.Drawing.Size(118, 26);
             this.panel9.TabIndex = 6;
             // 
             // button4
@@ -153,9 +153,9 @@
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.Location = new System.Drawing.Point(0, 0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(77, 26);
+            this.button4.Size = new System.Drawing.Size(118, 26);
             this.button4.TabIndex = 0;
-            this.button4.Text = "Top Most";
+            this.button4.Text = "Toggle TopMost";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
