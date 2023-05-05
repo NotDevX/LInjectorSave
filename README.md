@@ -10,5 +10,7 @@
 </p>
 <h3 align="center">A Light Injector for your Roblox Scripts.</h3>
 
-<h4>LExploits is not fully developed and can't be tested due Byfron, Roblox Antichet.</h4>
-<h4>🔴 All Exploits, including LInjector are currently patched.</h4>
+<br>
+
+<h4>LExploits is not fully developed and can't be tested due Byfron, Roblox Anticheat.<br>
+🔴 All Exploits, including LInjector are currently patched.</h4>
