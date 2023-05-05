@@ -34,6 +34,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.supportDisc = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -44,17 +46,15 @@
             this.injectButton = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -126,13 +126,41 @@
             this.panel2.Size = new System.Drawing.Size(921, 26);
             this.panel2.TabIndex = 2;
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.button2);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.Location = new System.Drawing.Point(219, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(138, 26);
+            this.panel8.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.button2.FlatAppearance.BorderSize = 2;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = global::LInjector.Properties.Resources.injecticon1;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(138, 26);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Kill RBLX Process";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.supportDisc);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(851, 0);
+            this.panel7.Location = new System.Drawing.Point(783, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(70, 26);
+            this.panel7.Size = new System.Drawing.Size(138, 26);
             this.panel7.TabIndex = 4;
             // 
             // supportDisc
@@ -148,9 +176,9 @@
             this.supportDisc.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.supportDisc.Location = new System.Drawing.Point(0, 0);
             this.supportDisc.Name = "supportDisc";
-            this.supportDisc.Size = new System.Drawing.Size(70, 26);
+            this.supportDisc.Size = new System.Drawing.Size(138, 26);
             this.supportDisc.TabIndex = 0;
-            this.supportDisc.Text = "Support";
+            this.supportDisc.Text = "Support (Discord)";
             this.supportDisc.UseVisualStyleBackColor = false;
             this.supportDisc.Click += new System.EventHandler(this.supportDisc_Click);
             // 
@@ -264,34 +292,6 @@
             this.webView21.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.webView21_CoreWebView2InitializationCompleted);
             this.webView21.Click += new System.EventHandler(this.webView21_Click);
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.button2);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(219, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(138, 26);
-            this.panel8.TabIndex = 5;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::LInjector.Properties.Resources.injecticon1;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 26);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Kill RBLX Process";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,13 +308,13 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
-            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
