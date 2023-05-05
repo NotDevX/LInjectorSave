@@ -111,7 +111,11 @@ namespace LInjector_CS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("taskkill /f /im RobloxPlayerBeta.exe");
+            Process[] processes = Process.GetProcessesByName("RobloxPlayerBeta");
+            foreach (Process process in processes)
+            {
+                process.Kill();
+            }
         }
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
