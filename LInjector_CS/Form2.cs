@@ -14,12 +14,15 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.WinForms;
 using System.Runtime.InteropServices;
+using KrnlAPI;
 
 namespace LInjector_CS
 {
-    public partial class Form2 : Form
 
+    public partial class Form2 : Form
     {
+        KrnlApi krnlApi = new KrnlApi();
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -35,7 +38,8 @@ namespace LInjector_CS
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 1, 15));
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
+            
             webView21.EnsureCoreWebView2Async();
         }
 
@@ -61,7 +65,6 @@ namespace LInjector_CS
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             
         }
 
@@ -88,7 +91,8 @@ namespace LInjector_CS
 
         private void injectButton_Click(object sender, EventArgs e)
         {
-
+            krnlApi.Initialize();
+            krnlApi.Inject();
         }
 
         private void supportDisc_Click(object sender, EventArgs e)
@@ -134,6 +138,24 @@ namespace LInjector_CS
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void executeButton_Click(object sender, EventArgs e)
+        {
+
+            dynamic editor = webView21.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].editor").GetAwaiter().GetResult();
+            string scriptString = editor.getValue();
+
+            if (!krnlApi.IsInjected())
+            {
+                MessageBox.Show("Inject to execute first.");
+            }
+            else { krnlApi.Execute(scriptString); }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            TopMost = !TopMost;
         }
     }
 }

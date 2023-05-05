@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KrnlAPI;
 
 namespace LInjector_CS
 {
@@ -18,6 +19,9 @@ namespace LInjector_CS
 
         static void Main()
         {
+
+            KrnlApi krnlApi = new KrnlApi();
+
             WebClient WebClient = new WebClient();
 
             string LInjKey = WebClient.DownloadString("https://lexploits.netlify.app/extra/key");
@@ -30,6 +34,7 @@ namespace LInjector_CS
                 string fileContent = File.ReadAllText(keyPath);
                 if (fileContent.Trim() == LInjKey) {
                     Application.Run(new Form2());
+                    krnlApi.Initialize();
                 } else {
                     Application.Run(new Form1());
                 }
