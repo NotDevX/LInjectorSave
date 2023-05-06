@@ -90,6 +90,7 @@ namespace LInjector_CS
             this.panel2.Controls.Add(this.keyTextBox);
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // approveKey
             // 
@@ -120,6 +121,7 @@ namespace LInjector_CS
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // keyTextBox
             // 

@@ -7,6 +7,8 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KrnlAPI;
+using DiscordRPC;
+using System.Threading;
 
 namespace LInjector_CS
 {
@@ -20,6 +22,24 @@ namespace LInjector_CS
 
         static void Main()
         {
+
+            var presence = new RichPresence()
+            {
+                Details = "Using LInjector.",
+                State = "Exploiting.",
+                Assets = new Assets()
+                {
+                    LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
+                    LargeImageText = "by LExploits.",
+                }
+            };
+
+            DiscordRpcClient client;
+
+            client = new DiscordRpcClient("1104489169314660363");
+            client.Initialize();
+
+            client.SetPresence(presence);
 
             String thisprocessname = Process.GetCurrentProcess().ProcessName;
             if (Process.GetProcesses().Count(p => p.ProcessName == thisprocessname) > 1)
