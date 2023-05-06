@@ -24,7 +24,7 @@ namespace LInjector_CS
             String thisprocessname = Process.GetCurrentProcess().ProcessName;
             if (Process.GetProcesses().Count(p => p.ProcessName == thisprocessname) > 1)
             { 
-                MessageBox.Show("LInjector is already open.");
+                MessageBox.Show("A LInjector Instance is already running.");
                 Application.Exit(); return;
             }
 
