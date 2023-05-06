@@ -109,6 +109,7 @@ namespace LInjector_CS
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string fileContent = File.ReadAllText(openFileDialog.FileName);
+                webView21.ExecuteScriptAsync("editor.setValue('');");
                 webView21.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
             }
         }
