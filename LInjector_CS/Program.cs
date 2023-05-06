@@ -22,11 +22,10 @@ namespace LInjector_CS
 
         static void Main()
         {
-
-            var presence = new RichPresence()
+            var inmainpresence = new RichPresence()
             {
-                Details = "Using LInjector.",
-                State = "Exploiting.",
+                Details = "Using LInjector by LExploits",
+                State = "Exploiting",
                 Assets = new Assets()
                 {
                     LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
@@ -38,8 +37,7 @@ namespace LInjector_CS
 
             client = new DiscordRpcClient("1104489169314660363");
             client.Initialize();
-
-            client.SetPresence(presence);
+            client.SetPresence(inmainpresence);
 
             String thisprocessname = Process.GetCurrentProcess().ProcessName;
             if (Process.GetProcesses().Count(p => p.ProcessName == thisprocessname) > 1)
@@ -62,10 +60,11 @@ namespace LInjector_CS
                 if (fileContent.Trim() == LInjKey) {
                     Application.Run(new Form2());
                     krnlApi.Initialize();
+                    client.SetPresence(inmainpresence);
                 } else {
                     Application.Run(new Form1());
                 }
-            } else {Application.Run(new Form1());}
+            } else { Application.Run(new Form1());}
         }
     }
 }
