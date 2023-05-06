@@ -30,7 +30,7 @@ namespace LInjector_CS
                 Assets = new Assets()
                 {
                     LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
-                    LargeImageText = "by LExploits.",
+                    LargeImageText = "by The LExploits Project.",
                 }
             };
 
