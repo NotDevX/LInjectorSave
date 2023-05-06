@@ -95,6 +95,7 @@ namespace LInjector_CS
             // 
             this.approveKey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.approveKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.approveKey.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.approveKey, "approveKey");
             this.approveKey.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.approveKey.Name = "approveKey";

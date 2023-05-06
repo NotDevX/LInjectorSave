@@ -202,6 +202,7 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="Linjectorico.ico" />
+    <None Include="Resources\Linjectorico.ico" />
     <None Include="resource\injecticon.png" />
   </ItemGroup>
   <ItemGroup>

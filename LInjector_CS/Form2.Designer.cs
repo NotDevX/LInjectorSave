@@ -71,6 +71,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(921, 35);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // button3
@@ -109,11 +110,13 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Mono", 11.25F);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(12, 6);
+            this.label1.Location = new System.Drawing.Point(7, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 20);
+            this.label1.Size = new System.Drawing.Size(306, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "LInjector | WinForms Release";
+            this.label1.Text = "LInjector | Windows Forms Release";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
             // panel2
             // 
@@ -130,6 +133,7 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.panel2.Size = new System.Drawing.Size(921, 26);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel9
             // 
@@ -139,6 +143,7 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(118, 26);
             this.panel9.TabIndex = 6;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             // 
             // button4
             // 
@@ -167,6 +172,7 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(138, 26);
             this.panel8.TabIndex = 5;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // button2
             // 
@@ -195,6 +201,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(138, 26);
             this.panel7.TabIndex = 4;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // supportDisc
             // 
@@ -223,6 +230,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(74, 26);
             this.panel6.TabIndex = 3;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // openFileButton
             // 
@@ -251,6 +259,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(72, 26);
             this.panel4.TabIndex = 2;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint_1);
             // 
             // executeButton
             // 
@@ -279,6 +288,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(72, 26);
             this.panel3.TabIndex = 1;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // injectButton
             // 
