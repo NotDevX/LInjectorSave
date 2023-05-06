@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -20,8 +21,14 @@ namespace LInjector_CS
         static void Main()
         {
 
-            KrnlApi krnlApi = new KrnlApi();
+            String thisprocessname = Process.GetCurrentProcess().ProcessName;
+            if (Process.GetProcesses().Count(p => p.ProcessName == thisprocessname) > 1)
+            { 
+                MessageBox.Show("LInjector is already open.");
+                Application.Exit(); return;
+            }
 
+            KrnlApi krnlApi = new KrnlApi();
             WebClient WebClient = new WebClient();
 
             string LInjKey = WebClient.DownloadString("https://lexploits.netlify.app/extra/key");
