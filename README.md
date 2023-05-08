@@ -13,4 +13,5 @@
 <br>
 
 <h4>LExploits is not fully developed and can't be tested due Byfron, Roblox Anticheat.<br>
-🔴 All Exploits, including LInjector are currently patched.<br>Use any executor at your own risk.</h4>
+🔴 All Exploits, including LInjector are currently patched.<br>Use any executor at your own risk.<br>
+Fluxus is working with UWP Roblox.</h4>
