@@ -39,8 +39,8 @@ namespace LInjector_CS
             client.Initialize();
             client.SetPresence(inmainpresence);
 
-            String thisprocessname = Process.GetCurrentProcess().ProcessName;
-            if (Process.GetProcesses().Count(p => p.ProcessName == thisprocessname) > 1)
+            String LInjInstance = Process.GetCurrentProcess().ProcessName;
+            if (Process.GetProcesses().Count(p => p.ProcessName == LInjInstance) > 1)
             { 
                 MessageBox.Show("A LInjector Instance is already running.");
                 Application.Exit(); return;
