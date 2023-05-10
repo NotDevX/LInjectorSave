@@ -81,6 +81,7 @@ namespace LInjector_CS
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Name = "label1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
             // panel2
             // 
