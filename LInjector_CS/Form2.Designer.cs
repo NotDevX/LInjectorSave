@@ -48,6 +48,9 @@
             this.injectButton = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -58,6 +61,7 @@
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -139,7 +143,7 @@
             // 
             this.panel9.Controls.Add(this.button4);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel9.Location = new System.Drawing.Point(357, 0);
+            this.panel9.Location = new System.Drawing.Point(322, 0);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(118, 26);
             this.panel9.TabIndex = 6;
@@ -170,7 +174,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(219, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(138, 26);
+            this.panel8.Size = new System.Drawing.Size(103, 26);
             this.panel8.TabIndex = 5;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
@@ -187,9 +191,9 @@
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.Location = new System.Drawing.Point(0, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 26);
+            this.button2.Size = new System.Drawing.Size(103, 26);
             this.button2.TabIndex = 0;
-            this.button2.Text = "Kill RBLX Process";
+            this.button2.Text = "Kill Roblox";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -197,9 +201,10 @@
             // 
             this.panel7.Controls.Add(this.supportDisc);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(783, 0);
+            this.panel7.Location = new System.Drawing.Point(839, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(138, 26);
+            this.panel7.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.panel7.Size = new System.Drawing.Size(82, 26);
             this.panel7.TabIndex = 4;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
@@ -216,9 +221,9 @@
             this.supportDisc.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.supportDisc.Location = new System.Drawing.Point(0, 0);
             this.supportDisc.Name = "supportDisc";
-            this.supportDisc.Size = new System.Drawing.Size(138, 26);
+            this.supportDisc.Size = new System.Drawing.Size(81, 26);
             this.supportDisc.TabIndex = 0;
-            this.supportDisc.Text = "Support (Discord)";
+            this.supportDisc.Text = "Discord";
             this.supportDisc.UseVisualStyleBackColor = false;
             this.supportDisc.Click += new System.EventHandler(this.supportDisc_Click);
             // 
@@ -336,12 +341,63 @@
             this.webView21.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.webView21_CoreWebView2InitializationCompleted);
             this.webView21.Click += new System.EventHandler(this.webView21_Click);
             // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.panel10.Controls.Add(this.linkLabel2);
+            this.panel10.Controls.Add(this.linkLabel1);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel10.Location = new System.Drawing.Point(0, 442);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(921, 26);
+            this.panel10.TabIndex = 5;
+            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.MediumSlateBlue;
+            this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Consolas", 10.5F);
+            this.linkLabel2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel2.LinkColor = System.Drawing.Color.MediumSlateBlue;
+            this.linkLabel2.Location = new System.Drawing.Point(69, 4);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(80, 17);
+            this.linkLabel2.TabIndex = 4;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "LExploits";
+            this.linkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLabel2.VisitedLinkColor = System.Drawing.Color.MediumSlateBlue;
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.MediumSlateBlue;
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Consolas", 10.5F);
+            this.linkLabel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.MediumSlateBlue;
+            this.linkLabel1.Location = new System.Drawing.Point(7, 4);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(56, 17);
+            this.linkLabel1.TabIndex = 3;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "GitHub";
+            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.MediumSlateBlue;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(921, 468);
+            this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -349,6 +405,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
             this.Text = "LInjector | Main";
+            this.TopMost = true;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -360,6 +417,8 @@
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -376,14 +435,17 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button injectButton;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button supportDisc;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button openFileButton;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button executeButton;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button supportDisc;
+        private System.Windows.Forms.Button openFileButton;
+        private System.Windows.Forms.Button executeButton;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

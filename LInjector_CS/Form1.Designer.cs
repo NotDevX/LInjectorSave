@@ -36,14 +36,18 @@ namespace LInjector_CS
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.approveKey = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.keyTextBox = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.approveKey = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,15 +87,35 @@ namespace LInjector_CS
             this.label1.Click += new System.EventHandler(this.label1_Click);
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
-            // panel2
+            // keyTextBox
             // 
-            this.panel2.Controls.Add(this.approveKey);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.keyTextBox);
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.keyTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.keyTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.keyTextBox, "keyTextBox");
+            this.keyTextBox.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.keyTextBox.Name = "keyTextBox";
+            this.keyTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
+            this.keyTextBox.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.keyTextBox.Leave += new System.EventHandler(this.textBox1_Leave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LInjector.Properties.Resources.asset_linjns;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.textBox2, "textBox2");
+            this.textBox2.ForeColor = System.Drawing.Color.MediumPurple;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
             // 
             // approveKey
             // 
@@ -105,35 +129,45 @@ namespace LInjector_CS
             this.approveKey.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox3_MouseClick);
             this.approveKey.TextChanged += new System.EventHandler(this.approveKey_TextChanged);
             // 
-            // textBox2
+            // panel2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.ForeColor = System.Drawing.Color.MediumPurple;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.approveKey);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.keyTextBox);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // pictureBox1
+            // panel3
             // 
-            this.pictureBox1.Image = global::LInjector.Properties.Resources.asset_linjns;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.panel3.Controls.Add(this.linkLabel2);
+            this.panel3.Controls.Add(this.linkLabel1);
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Name = "panel3";
             // 
-            // keyTextBox
+            // linkLabel1
             // 
-            this.keyTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.keyTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.keyTextBox, "keyTextBox");
-            this.keyTextBox.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.keyTextBox.Name = "keyTextBox";
-            this.keyTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
-            this.keyTextBox.Enter += new System.EventHandler(this.textBox1_Enter);
-            this.keyTextBox.Leave += new System.EventHandler(this.textBox1_Leave);
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.MediumSlateBlue;
+            resources.ApplyResources(this.linkLabel1, "linkLabel1");
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.MediumSlateBlue;
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.MediumSlateBlue;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.MediumSlateBlue;
+            resources.ApplyResources(this.linkLabel2, "linkLabel2");
+            this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel2.LinkColor = System.Drawing.Color.MediumSlateBlue;
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.VisitedLinkColor = System.Drawing.Color.MediumSlateBlue;
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // Form1
             // 
@@ -151,9 +185,11 @@ namespace LInjector_CS
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -164,11 +200,14 @@ namespace LInjector_CS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
-        private Panel panel2;
         private TextBox keyTextBox;
-        private TextBox textBox2;
         private PictureBox pictureBox1;
+        private TextBox textBox2;
         private TextBox approveKey;
+        private Panel panel2;
+        private Panel panel3;
+        private LinkLabel linkLabel1;
+        private LinkLabel linkLabel2;
     }
 }
 
