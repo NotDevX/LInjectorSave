@@ -343,7 +343,7 @@
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.panel10.Controls.Add(this.linkLabel2);
             this.panel10.Controls.Add(this.linkLabel1);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
