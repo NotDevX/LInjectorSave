@@ -14,4 +14,4 @@
 
 <h4>LInjector, including The LExploits Tools are not fully developed and can't be tested due to Hyperion Byfron, Roblox Anticheat.<br>
 🔴 All Exploits, including LInjector are currently patched.<br>Use any executor at your own risk.<br>
-Fluxus is working with UWP Roblox.</h4>
+Fluxus, Electron and Comet is working with UWP Roblox.</h4>
