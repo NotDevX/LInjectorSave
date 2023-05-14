@@ -35,12 +35,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -126,6 +126,32 @@
             this.panel3.TabIndex = 5;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label4.Font = new System.Drawing.Font("Anonymous Pro", 10F);
+            this.label4.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.label4.Location = new System.Drawing.Point(0, 292);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(175, 15);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "LInjector vdd/MM/yyyy";
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(0, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(286, 281);
+            this.label5.TabIndex = 7;
+            this.label5.Text = resources.GetString("label5.Text");
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -186,32 +212,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.Font = new System.Drawing.Font("Anonymous Pro", 10F);
-            this.label4.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.label4.Location = new System.Drawing.Point(0, 292);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(175, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "LInjector vdd/MM/yyyy";
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(0, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(286, 281);
-            this.label5.TabIndex = 7;
-            this.label5.Text = resources.GetString("label5.Text");
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Form3
             // 
