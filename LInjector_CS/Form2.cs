@@ -15,6 +15,7 @@ using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.WinForms;
 using System.Runtime.InteropServices;
 using KrnlAPI;
+using LInjector;
 
 namespace LInjector_CS
 {
@@ -223,6 +224,34 @@ namespace LInjector_CS
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://lexploits.netlify.app");
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void linkLabel3_MouseClick(object sender, MouseEventArgs e)
+        {
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form formToShow = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x.Name == "Form3");
+
+            if (formToShow == null)
+            {
+                formToShow = new Form3();
+                formToShow.Show();
+            }
+            else
+            {
+                formToShow.BringToFront();
+            }
         }
     }
 }

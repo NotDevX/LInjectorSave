@@ -93,6 +93,16 @@ namespace LInjector.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LInjector_ico {
+            get {
+                object obj = ResourceManager.GetObject("LInjector ico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Linjectorico {
             get {
                 object obj = ResourceManager.GetObject("Linjectorico", resourceCulture);
