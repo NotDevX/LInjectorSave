@@ -184,5 +184,14 @@ namespace LInjector_CS
         {
             System.Diagnostics.Process.Start("https://lexploits.netlify.app");
         }
+
+        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
     }
 }

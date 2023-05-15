@@ -60,7 +60,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Linjectorico.ico</ApplicationIcon>
+    <ApplicationIcon>Linjector.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -231,6 +231,7 @@
     <None Include="resource\asset_linjns.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Linjector.ico" />
     <Content Include="Linjectorico.ico" />
     <None Include="Resources\LInjector ico.png" />
     <None Include="Resources\Linjectorico.ico" />
