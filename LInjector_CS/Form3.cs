@@ -73,7 +73,6 @@ namespace LInjector {
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/ItzzExcel/");
-            System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector");
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
