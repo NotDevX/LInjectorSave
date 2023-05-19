@@ -21,7 +21,7 @@ namespace LInjector_CS
         /// </summary>
         /// 
 
-        private const string currentVersion = "v18.05.2023"; // Tu versión actual (cliente)
+        private const string currentVersion = "v18.05.2023"; // Current LInjector Version
 
         [STAThread]
 
