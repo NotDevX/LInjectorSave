@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using KrnlAPI;
 using DiscordRPC;
 using System.Threading;
+using CheckGitHubRelease;
 
 namespace LInjector_CS
 {
@@ -18,10 +19,21 @@ namespace LInjector_CS
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+
+        private const string currentVersion = "v18.05.2023"; // Tu versión actual (cliente)
+
         [STAThread]
 
         static void Main()
         {
+
+            if (GitHubVersionChecker.IsOutdatedVersion(currentVersion))
+            {
+                MessageBox.Show("LInjector is outdated, please, check github.com/ItzzExcel/LInjector and download the latest release.",
+                    "LInjector | Outadted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             var inmainpresence = new RichPresence()
             {
                 Details = "Using LInjector by LExploits",
@@ -41,7 +53,7 @@ namespace LInjector_CS
 
             String LInjInstance = Process.GetCurrentProcess().ProcessName;
             if (Process.GetProcesses().Count(p => p.ProcessName == LInjInstance) > 1)
-            { 
+            {
                 MessageBox.Show("A LInjector Instance is already running.");
                 Application.Exit(); return;
             }
@@ -57,14 +69,18 @@ namespace LInjector_CS
             if (File.Exists(keyPath))
             {
                 string fileContent = File.ReadAllText(keyPath);
-                if (fileContent.Trim() == LInjKey) {
+                if (fileContent.Trim() == LInjKey)
+                {
                     Application.Run(new Form2());
                     krnlApi.Initialize();
                     client.SetPresence(inmainpresence);
-                } else {
+                }
+                else
+                {
                     Application.Run(new Form1());
                 }
-            } else { Application.Run(new Form1());}
+            }
+            else { Application.Run(new Form1()); }
         }
     }
 }
