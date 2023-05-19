@@ -137,7 +137,8 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(175, 15);
             this.label4.TabIndex = 6;
-            this.label4.Text = "LInjector vdd/MM/yyyy";
+            this.label4.Text = "LInjector v15.05.2023";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -176,7 +177,7 @@
             this.linkLabel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel1.LinkColor = System.Drawing.Color.MediumSlateBlue;
-            this.linkLabel1.Location = new System.Drawing.Point(126, 1);
+            this.linkLabel1.Location = new System.Drawing.Point(121, 1);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(70, 14);
             this.linkLabel1.TabIndex = 4;
