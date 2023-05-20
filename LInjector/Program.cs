@@ -12,7 +12,7 @@ using System.Threading;
 using LInjector;
 using CheckGitHubRelease;
 
-namespace LInjector_CS
+namespace LInjector
 {
     internal static class Program
     {
