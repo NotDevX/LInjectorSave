@@ -17,7 +17,7 @@ using System.Runtime.InteropServices;
 using KrnlAPI;
 using LInjector;
 
-namespace LInjector_CS
+namespace LInjector
 {
 
     public partial class Form2 : Form

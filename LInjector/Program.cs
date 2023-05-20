@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using KrnlAPI;
 using DiscordRPC;
 using System.Threading;
+using LInjector;
 using CheckGitHubRelease;
 
 namespace LInjector_CS

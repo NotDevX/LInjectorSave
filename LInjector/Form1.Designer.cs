@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace LInjector_CS
+namespace LInjector
 {
     partial class Form1
     {

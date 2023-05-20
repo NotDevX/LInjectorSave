@@ -1,4 +1,4 @@
-﻿namespace LInjector_CS
+﻿namespace LInjector
 {
     partial class Form2
     {

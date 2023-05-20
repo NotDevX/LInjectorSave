@@ -13,10 +13,7 @@ using Microsoft.Web.WebView2.Core;
 using System.Net;
 using System.IO;
 
-namespace LInjector_CS
-
-    
-
+namespace LInjector
 {
     public partial class Form1 : Form
     {
