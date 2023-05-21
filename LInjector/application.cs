@@ -63,7 +63,7 @@ namespace LInjector
 
         private async void application_Load(object sender, EventArgs e)
         {
-            await notificationManager.FireNotification("LInjector Dev System loaded", infSettings);
+            await notificationManager.FireNotification("LInjector Developing System loaded", infSettings);
         }
 
         private bool isMaximized = false;
