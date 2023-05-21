@@ -2,7 +2,7 @@
 using System.Linq;
 using Octokit;
 
-namespace CheckGitHubRelease
+namespace LInjector
 {
     public class GitHubVersionChecker
     {

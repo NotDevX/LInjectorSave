@@ -63,49 +63,9 @@ namespace LInjector.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap asset_linjns {
+        internal static System.Drawing.Bitmap LInjector {
             get {
-                object obj = ResourceManager.GetObject("asset_linjns", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap injecticon {
-            get {
-                object obj = ResourceManager.GetObject("injecticon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap injecticon1 {
-            get {
-                object obj = ResourceManager.GetObject("injecticon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap LInjector_ico {
-            get {
-                object obj = ResourceManager.GetObject("LInjector ico", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Linjectorico {
-            get {
-                object obj = ResourceManager.GetObject("Linjectorico", resourceCulture);
+                object obj = ResourceManager.GetObject("LInjector", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
