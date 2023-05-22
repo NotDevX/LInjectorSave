@@ -216,7 +216,7 @@ namespace LInjector
         private async void copyTextbox_Click(object sender, EventArgs e)
         {
             editSubmenu.Visible = false;
-            filesub.Visible = !filesub.Visible;
+            filesub.Visible = false;
             try
             {
                 dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
