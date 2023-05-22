@@ -147,6 +147,7 @@
     <Compile Include="rotativeGradient.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="singleInstance.cs" />
     <Compile Include="splashscr.cs">
       <SubType>Form</SubType>
     </Compile>

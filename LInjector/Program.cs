@@ -17,7 +17,7 @@ namespace LInjector
         /// </summary>
         /// 
 
-        private const string currentVersion = "v27.05.2023";
+        private const string currentVersion = "v21.05.2023";
 
         [STAThread]
         static void Main()
@@ -30,11 +30,9 @@ namespace LInjector
 
             DiscordRPCManager discordRPCManager = new DiscordRPCManager();
             discordRPCManager.InitRPC();
-
-            KrnlApi krnlApi = new KrnlApi();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new splashscr());
+            SingleInstanceChecker.CheckInstance();
 
         }
     }
