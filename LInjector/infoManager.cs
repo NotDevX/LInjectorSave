@@ -8,7 +8,7 @@ namespace LInjector
     {
         private bool isBusy;
 
-        public async Task FireNotification(string message, Button targetLabel)
+        public async Task FireNotification<T>(string message, T targetControl) where T : Control
         {
             if (isBusy)
             {
@@ -20,20 +20,20 @@ namespace LInjector
 
             isBusy = true;
 
-            targetLabel.Text = "";
+            targetControl.Text = "";
 
             foreach (char character in message)
             {
-                targetLabel.Text += character;
+                targetControl.Text += character;
                 await Task.Delay(30);
             }
 
             await Task.Delay(2500);
 
-            targetLabel.Text = "";
+            targetControl.Text = "";
             foreach (char character in ". . .")
             {
-                targetLabel.Text += character;
+                targetControl.Text += character;
                 await Task.Delay(30);
             }
 
