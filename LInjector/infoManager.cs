@@ -6,24 +6,38 @@ namespace LInjector
 {
     public class NotificationManager
     {
-        public async Task FireNotification(string message, Button targetButton)
+        private bool isBusy;
+
+        public async Task FireNotification(string message, Button targetLabel)
         {
-            targetButton.Text = "";
+            if (isBusy)
+            {
+                while (isBusy)
+                {
+                    await Task.Delay(100);
+                }
+            }
+
+            isBusy = true;
+
+            targetLabel.Text = "";
 
             foreach (char character in message)
             {
-                targetButton.Text += character;
+                targetLabel.Text += character;
                 await Task.Delay(30);
             }
 
             await Task.Delay(2500);
 
-            targetButton.Text = "";
+            targetLabel.Text = "";
             foreach (char character in ". . .")
             {
-                targetButton.Text += character;
+                targetLabel.Text += character;
                 await Task.Delay(30);
             }
+
+            isBusy = false;
         }
     }
 }
