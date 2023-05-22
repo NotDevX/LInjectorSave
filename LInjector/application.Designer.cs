@@ -180,7 +180,7 @@
             // 
             // infSettings
             // 
-            this.infSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.infSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.infSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.infSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.infSettings.FlatAppearance.BorderSize = 0;
