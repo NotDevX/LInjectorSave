@@ -136,8 +136,12 @@ namespace LInjector
 
         private async void ClearTB_Click(object sender, EventArgs e)
         {
-            await webView2.ExecuteScriptAsync("editor.setValue('');");
-            await notificationManager.FireNotification("TextBox Cleared", infSettings);
+            try {
+                await webView2.ExecuteScriptAsync("editor.setValue('');");
+                await notificationManager.FireNotification("TextBox Cleared", infSettings);
+            } catch (Exception) {
+                await notificationManager.FireNotification("Error", infSettings);
+            }
         }
 
         private async void Execute_Click(object sender, EventArgs e)

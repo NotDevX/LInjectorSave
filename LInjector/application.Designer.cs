@@ -42,6 +42,7 @@
             this.Maximize = new System.Windows.Forms.Button();
             this.Minimize = new System.Windows.Forms.Button();
             this.icon = new System.Windows.Forms.Panel();
+            this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
             this.editSubmenu = new System.Windows.Forms.Panel();
             this.copyTextbox = new System.Windows.Forms.Button();
@@ -52,8 +53,6 @@
             this.Execute = new System.Windows.Forms.Button();
             this.holder = new System.Windows.Forms.Panel();
             this.webView2 = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.LInjectorIcon = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             EditButton = new System.Windows.Forms.Button();
             FileButton = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
@@ -62,13 +61,12 @@
             this.menuSettings.SuspendLayout();
             this.controlmenu.SuspendLayout();
             this.icon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.execinjPanel.SuspendLayout();
             this.editSubmenu.SuspendLayout();
             this.filesub.SuspendLayout();
             this.holder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // EditButton
@@ -184,10 +182,10 @@
             // 
             this.infSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.infSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.infSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.infSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.infSettings.FlatAppearance.BorderSize = 0;
-            this.infSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.infSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.infSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.infSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.infSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.infSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infSettings.Location = new System.Drawing.Point(10, 1);
@@ -305,6 +303,18 @@
             this.icon.Name = "icon";
             this.icon.Size = new System.Drawing.Size(29, 29);
             this.icon.TabIndex = 0;
+            // 
+            // LInjectorIcon
+            // 
+            this.LInjectorIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LInjectorIcon.Image = global::LInjector.Properties.Resources.LInjector;
+            this.LInjectorIcon.Location = new System.Drawing.Point(0, 0);
+            this.LInjectorIcon.Name = "LInjectorIcon";
+            this.LInjectorIcon.Size = new System.Drawing.Size(29, 29);
+            this.LInjectorIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LInjectorIcon.TabIndex = 0;
+            this.LInjectorIcon.TabStop = false;
+            this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorIcon_MouseDown);
             // 
             // execinjPanel
             // 
@@ -434,7 +444,6 @@
             // 
             // holder
             // 
-            this.holder.Controls.Add(this.pictureBox1);
             this.holder.Controls.Add(this.webView2);
             this.holder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.holder.Location = new System.Drawing.Point(5, 68);
@@ -446,6 +455,7 @@
             // webView2
             // 
             this.webView2.AllowExternalDrop = false;
+            this.webView2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.webView2.CreationProperties = null;
             this.webView2.DefaultBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.webView2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -456,31 +466,6 @@
             this.webView2.Source = new System.Uri("https://lexploits.netlify.app/extra/monaco", System.UriKind.Absolute);
             this.webView2.TabIndex = 0;
             this.webView2.ZoomFactor = 1D;
-            // 
-            // LInjectorIcon
-            // 
-            this.LInjectorIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LInjectorIcon.Image = global::LInjector.Properties.Resources.LInjector;
-            this.LInjectorIcon.Location = new System.Drawing.Point(0, 0);
-            this.LInjectorIcon.Name = "LInjectorIcon";
-            this.LInjectorIcon.Size = new System.Drawing.Size(29, 29);
-            this.LInjectorIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LInjectorIcon.TabIndex = 0;
-            this.LInjectorIcon.TabStop = false;
-            this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorIcon_MouseDown);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.pictureBox1.Image = global::LInjector.Properties.Resources.resize;
-            this.pictureBox1.Location = new System.Drawing.Point(778, 415);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(15, 15);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
             // 
             // application
             // 
@@ -503,13 +488,12 @@
             this.menuSettings.ResumeLayout(false);
             this.controlmenu.ResumeLayout(false);
             this.icon.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
             this.editSubmenu.ResumeLayout(false);
             this.filesub.ResumeLayout(false);
             this.holder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.webView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -537,6 +521,5 @@
         private System.Windows.Forms.Button copyTextbox;
         private System.Windows.Forms.Panel menuSettings;
         private System.Windows.Forms.Button infSettings;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
