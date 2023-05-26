@@ -15,3 +15,25 @@
 <h4>LInjector, including The LExploits Tools are not fully developed and can't be tested due to Hyperion Byfron, Roblox Anticheat.<br>
 🔴 All Exploits, including LInjector are currently patched.<br>Use any executor at your own risk.<br>
 Fluxus, Electron and Comet is working with UWP Roblox.</h4>
+
+## About
+LInjector, developed mainly by [ItzzExcel](https://github.com/ItzzExcel). Using Krnl API to work.
+Created by the necessity to have a secure & open-source executor without getting the risks of popular ones.
+
+About LInjector
+
+- [ItzzExcel's GitHub Profile](https://github.com/ItzzExcel/LInjector/)
+- [Excel's Coding Corporation (Discord Server)](https://discord.gg/NQY28YSVAb)
+
+LInjector is a Development Tool.
+Windows Forms Application.
+Written in C#, with .NET Framework 4.8
+
+The latest LInjector Release is v21.05.2023. (dd/MM/yyyy)
+The LInjector Project is under the MIT License.
+
+- [LInjector, uses the Krnl API to work.](https://krnl.ca/)
+- [Using Microsoft Edge WebView2 to view Monaco.](https://developer.microsoft.com/microsoft-edge/webview2/)
+- [The text editor is Monaco.](https://microsoft.github.io/monaco-editor/)
+- [Monaco Editor, edited by Supercomet Labs for Comet 3.](https://cometrbx.xyz/)
+- Spinning Gradient by me.

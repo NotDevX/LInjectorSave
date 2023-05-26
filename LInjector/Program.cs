@@ -17,7 +17,7 @@ namespace LInjector
         /// </summary>
         /// 
 
-        private const string currentVersion = "05.05.2023";
+        private const string currentVersion = "21.05.2023";
 
         [STAThread]
         static void Main()
