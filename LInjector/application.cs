@@ -63,7 +63,7 @@ namespace LInjector
 
         private async void application_Load(object sender, EventArgs e)
         {
-            await notificationManager.FireNotification("LInjector Developing System Loaded", infSettings);
+            await notificationManager.FireNotification("Welcome to LInjector", infSettings);
         }
 
         private bool isMaximized = false;
@@ -138,7 +138,7 @@ namespace LInjector
         {
             try {
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
-                await notificationManager.FireNotification("TextBox Cleared", infSettings);
+                await notificationManager.FireNotification("TextBox cleared", infSettings);
             } catch (Exception) {
                 await notificationManager.FireNotification("Error", infSettings);
             }
@@ -149,7 +149,7 @@ namespace LInjector
             dynamic editor = webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].editor").GetAwaiter().GetResult();
             string scriptString = editor.getValue();
             krnlApi.Execute(scriptString);
-            await notificationManager.FireNotification("Executed Script", infSettings);
+            await notificationManager.FireNotification("Script executed", infSettings);
 
         }
 
@@ -179,7 +179,7 @@ namespace LInjector
                 await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
             }
             filesub.Visible =! filesub.Visible;
-            await notificationManager.FireNotification("Content Loaded", infSettings);
+            await notificationManager.FireNotification("Content loaded", infSettings);
         }
 
         private async void saveFile_Click(object sender, EventArgs e)
@@ -201,16 +201,16 @@ namespace LInjector
 
                     if (string.IsNullOrEmpty(scriptString))
                     {
-                        await notificationManager.FireNotification("No Content Detected", infSettings);
+                        await notificationManager.FireNotification("No content detected", infSettings);
                         return;
                     }
 
                     File.WriteAllText(filePath, scriptString);
-                    await notificationManager.FireNotification("File Saved", infSettings);
+                    await notificationManager.FireNotification("File saved", infSettings);
                 }
                 catch (Exception)
                 {
-                    await notificationManager.FireNotification("Error Saving the File", infSettings);
+                    await notificationManager.FireNotification("Error saving the file", infSettings);
                 }
             }
             previousFocus.Focus();
@@ -228,12 +228,17 @@ namespace LInjector
 
 
                 Clipboard.SetText(scriptString);
-                await notificationManager.FireNotification("Content Copied to Clipboard", infSettings);
+                await notificationManager.FireNotification("Content copied to clipboard", infSettings);
             }
             catch (Exception)
             {
-                await notificationManager.FireNotification("Error Copying to Clipboard", infSettings);
+                await notificationManager.FireNotification("Error on copy to clipboard", infSettings);
             }
+        }
+
+        private void LInjectorLabel_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector");
         }
     }
 }

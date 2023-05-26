@@ -136,6 +136,7 @@
             LInjectorLabel.Text = "LInjector";
             LInjectorLabel.UseMnemonic = false;
             LInjectorLabel.UseVisualStyleBackColor = false;
+            LInjectorLabel.Click += new System.EventHandler(this.LInjectorLabel_Click);
             // 
             // titlebar
             // 
