@@ -22,6 +22,8 @@ namespace LInjector
     public partial class application : Form {
 
         KrnlApi krnlApi = new KrnlApi();
+        NotificationManager notificationManager = new NotificationManager();
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
@@ -29,8 +31,6 @@ namespace LInjector
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
-
-        NotificationManager notificationManager = new NotificationManager();
 
         public application()
         {
