@@ -74,7 +74,6 @@ namespace LInjector
                     timer.Stop();
                     return;
                 }
-
                 angle += RotationSpeed;
                 Invalidate();
             }
