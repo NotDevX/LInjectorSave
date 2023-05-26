@@ -19,7 +19,6 @@ namespace LInjector
 
             if (!isNewInstance)
             {
-                // Cerrar el proceso si ya hay una instancia en ejecución
                 Process currentProcess = Process.GetCurrentProcess();
                 foreach (Process process in Process.GetProcessesByName(currentProcess.ProcessName))
                 {
