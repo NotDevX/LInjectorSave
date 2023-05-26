@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using LInjector;
 using DiscordRPC;
 using KrnlAPI;
+using System.Runtime.CompilerServices;
 
 namespace LInjector
 {
@@ -17,15 +18,16 @@ namespace LInjector
         /// </summary>
         /// 
 
-        private const string currentVersion = "26.05.2023";
+        public const string currentVersion = "26.05.2023";
 
         [STAThread]
         static void Main()
         {
             if (GitHubVersionChecker.IsOutdatedVersion(currentVersion))
             {
-                MessageBox.Show("LInjector is outdated, please, check github.com/ItzzExcel/LInjector and download the latest release.",
+                MessageBox.Show("LInjector is outdated, please, check https://github.com/ItzzExcel/LInjector and download the latest release.",
                     "LInjector | Outdated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector/releases");
             }
 
             DiscordRPCManager discordRPCManager = new DiscordRPCManager();
