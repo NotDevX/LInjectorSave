@@ -63,7 +63,7 @@ namespace LInjector
 
         private async void application_Load(object sender, EventArgs e)
         {
-            await notificationManager.FireNotification("Welcome to LInjector", infSettings);
+            await notificationManager.FireNotification("Welcome to LInjector v26.05.2023", infSettings);
         }
 
         private bool isMaximized = false;
