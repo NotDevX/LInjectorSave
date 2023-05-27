@@ -9,6 +9,7 @@
 </a>
 </p>
 <h3 align="center">A Light Injector for your Roblox Scripts.</h3>
+### Don't ask why I like hashes pls.
 
 <br>
 
@@ -36,4 +37,4 @@ The LInjector Project is under the MIT License.
 - [Using Microsoft Edge WebView2 to view Monaco.](https://developer.microsoft.com/microsoft-edge/webview2/)
 - [The text editor is Monaco.](https://microsoft.github.io/monaco-editor/)
 - [Monaco Editor, edited by Supercomet Labs for Comet 3.](https://cometrbx.xyz/)
-- Spinning Gradient by me.
+- Spinning Gradient by me (you can take it and put in into your personal projects, idc).
