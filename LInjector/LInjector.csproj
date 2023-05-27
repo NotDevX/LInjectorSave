@@ -144,9 +144,6 @@
       <DependentUpon>application.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckVersion.cs" />
-    <Compile Include="DwmBlurbehind.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="infoManager.cs" />
     <Compile Include="initrpc.cs" />
     <Compile Include="rotativeGradient.cs">
