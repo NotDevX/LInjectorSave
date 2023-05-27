@@ -38,6 +38,11 @@ namespace LInjector
             this.SetStyle(ControlStyles.ResizeRedraw, true);
         }
 
+        private async void application_Load(object sender, EventArgs e)
+        {
+            await notificationManager.FireNotification("Welcome to LInjector v" + LInjector.Program.currentVersion, infSettings);
+        }
+
         private const int cGrip = 16;
         private const int cCaption = 32;
         protected override void WndProc(ref Message m)
@@ -59,11 +64,6 @@ namespace LInjector
                 }
             }
             base.WndProc(ref m);
-        }
-
-        private async void application_Load(object sender, EventArgs e)
-        {
-            await notificationManager.FireNotification("Welcome to LInjector v" + LInjector.Program.currentVersion, infSettings);
         }
 
         private bool isMaximized = false;
