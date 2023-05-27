@@ -45,6 +45,7 @@
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
             this.editSubmenu = new System.Windows.Forms.Panel();
+            this.reloadApp = new System.Windows.Forms.Button();
             this.copyTextbox = new System.Windows.Forms.Button();
             this.filesub = new System.Windows.Forms.Panel();
             this.saveFile = new System.Windows.Forms.Button();
@@ -333,12 +334,31 @@
             // 
             // editSubmenu
             // 
+            this.editSubmenu.Controls.Add(this.reloadApp);
             this.editSubmenu.Controls.Add(this.copyTextbox);
             this.editSubmenu.Location = new System.Drawing.Point(179, 0);
             this.editSubmenu.Name = "editSubmenu";
-            this.editSubmenu.Size = new System.Drawing.Size(83, 28);
+            this.editSubmenu.Size = new System.Drawing.Size(181, 28);
             this.editSubmenu.TabIndex = 3;
             this.editSubmenu.Visible = false;
+            // 
+            // reloadApp
+            // 
+            this.reloadApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.reloadApp.Dock = System.Windows.Forms.DockStyle.Left;
+            this.reloadApp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.reloadApp.FlatAppearance.BorderSize = 0;
+            this.reloadApp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.reloadApp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.reloadApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reloadApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reloadApp.Location = new System.Drawing.Point(81, 0);
+            this.reloadApp.Name = "reloadApp";
+            this.reloadApp.Size = new System.Drawing.Size(100, 28);
+            this.reloadApp.TabIndex = 2;
+            this.reloadApp.Text = "Reload LInjector";
+            this.reloadApp.UseVisualStyleBackColor = false;
+            this.reloadApp.Click += new System.EventHandler(this.reloadApp_Click);
             // 
             // copyTextbox
             // 
@@ -464,9 +484,10 @@
             this.webView2.Location = new System.Drawing.Point(5, 5);
             this.webView2.Name = "webView2";
             this.webView2.Size = new System.Drawing.Size(780, 417);
-            this.webView2.Source = new System.Uri("https://lexploits.netlify.app/extra/monaco/index.html", System.UriKind.Absolute);
+            this.webView2.Source = new System.Uri("https://lexploits.netlify.app/extra/monaco/", System.UriKind.Absolute);
             this.webView2.TabIndex = 0;
             this.webView2.ZoomFactor = 1D;
+            this.webView2.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.webView2_NavigationCompleted);
             // 
             // application
             // 
@@ -522,5 +543,6 @@
         private System.Windows.Forms.Button copyTextbox;
         private System.Windows.Forms.Panel menuSettings;
         private System.Windows.Forms.Button infSettings;
+        private System.Windows.Forms.Button reloadApp;
     }
 }

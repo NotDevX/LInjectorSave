@@ -11,6 +11,11 @@ namespace LInjector
 
         public static bool IsOutdatedVersion(string currentVersion)
         {
+            if (currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f")
+            {
+                return false;
+            }
+
             var client = new GitHubClient(new ProductHeaderValue("CheckGitHubRelease"));
 
             var releases = client.Repository.Release.GetAll(owner, repo).Result;

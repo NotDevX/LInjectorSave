@@ -40,7 +40,12 @@ namespace LInjector
 
         private async void application_Load(object sender, EventArgs e)
         {
-            await notificationManager.FireNotification("Welcome to LInjector v" + LInjector.Program.currentVersion, infSettings);
+            await notificationManager.FireNotification("Welcome to LInjector v" + LInjector.Program.currentVersion + '.', infSettings);
+        }
+
+        private async void webView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        {
+            await notificationManager.FireNotification("Monaco Text Editor loaded", infSettings);
         }
 
         private const int cGrip = 16;
@@ -178,7 +183,7 @@ namespace LInjector
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
             }
-            filesub.Visible =! filesub.Visible;
+            filesub.Visible = false;
             await notificationManager.FireNotification("Content loaded", infSettings);
         }
 
@@ -207,14 +212,16 @@ namespace LInjector
 
                     File.WriteAllText(filePath, scriptString);
                     await notificationManager.FireNotification("File saved", infSettings);
+                    filesub.Visible = false;
                 }
                 catch (Exception)
                 {
                     await notificationManager.FireNotification("Error saving the file", infSettings);
+                    filesub.Visible = filesub.Visible;
                 }
             }
             previousFocus.Focus();
-            filesub.Visible = !filesub.Visible;
+            filesub.Visible = false;
         }
 
         private async void copyTextbox_Click(object sender, EventArgs e)
@@ -236,9 +243,26 @@ namespace LInjector
             }
         }
 
-        private void LInjectorLabel_Click(object sender, EventArgs e)
+        private void reloadApp_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector");
+            DialogResult result = MessageBox.Show("This will clear the TextBox Content, are you sure to restart?", "[CAUTION] LInjector", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (result == DialogResult.OK)
+            {
+                Application.Restart();
+            }
+
+            editSubmenu.Visible = false;
+        }
+
+        private async void LInjectorLabel_Click(object sender, EventArgs e)
+        {
+            try {
+                System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector");
+            } catch (Exception) {
+                await notificationManager.FireNotification("Couldn't, open LInjector GitHub.", infSettings);
+            }
+
         }
     }
 }
