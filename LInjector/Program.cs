@@ -18,7 +18,7 @@ namespace LInjector
         /// </summary>
         /// 
 
-        public const string currentVersion = "v26.05.2023"; // Put "f81fb0e34f313b6cf0d0fc345890a33f" for skipping TextBox.
+        public const string currentVersion = "f81fb0e34f313b6cf0d0fc345890a33f"; // Put "f81fb0e34f313b6cf0d0fc345890a33f" for skipping TextBox. 
 
         [STAThread]
         static void Main()
@@ -26,7 +26,7 @@ namespace LInjector
             if (GitHubVersionChecker.IsOutdatedVersion(currentVersion))
             {
                 MessageBox.Show("LInjector is outdated, please, check https://github.com/ItzzExcel/LInjector and download the latest release.",
-                    "LInjector | Outdated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    "LInjector | Outdated", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector/releases");
             }
 

@@ -140,10 +140,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="application.cs">
+    <Compile Include="Forms\application.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="application.Designer.cs">
+    <Compile Include="Forms\application.Designer.cs">
       <DependentUpon>application.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\CheckVersion.cs" />
@@ -153,18 +153,18 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Classes\singleInstance.cs" />
-    <Compile Include="splashscr.cs">
+    <Compile Include="Forms\splashscr.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="splashscr.Designer.cs">
+    <Compile Include="Forms\splashscr.Designer.cs">
       <DependentUpon>splashscr.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="application.resx">
+    <EmbeddedResource Include="Forms\application.resx">
       <DependentUpon>application.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="splashscr.resx">
+    <EmbeddedResource Include="Forms\splashscr.resx">
       <DependentUpon>splashscr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
