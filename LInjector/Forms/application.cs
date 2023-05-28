@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using LInjector;
+using System.Threading;
 
 namespace LInjector
 {
@@ -39,7 +40,9 @@ namespace LInjector
             InitializeComponent();
             this.SetStyle(ControlStyles.ResizeRedraw, true);
 
+            #pragma warning disable CS0162 // Unreachable code detected
             if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") { isDevelopment = true; }
+            #pragma warning restore CS0162 // Unreachable code detected
         }
 
         private async void application_Load(object sender, EventArgs e)
