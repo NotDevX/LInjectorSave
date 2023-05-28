@@ -50,7 +50,7 @@ namespace LInjector
             }
             else
             {
-                await notificationManager.FireNotification("Welcome to LInjector v" + Program.currentVersion, infSettings);
+                await notificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings);
             }
 
         }
