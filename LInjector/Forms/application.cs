@@ -45,13 +45,9 @@ namespace LInjector
         private async void application_Load(object sender, EventArgs e)
         {
             if (isDevelopment)
-            {
-                await notificationManager.FireNotification("Welcome to LInjector Development Version", infSettings);
-            }
+            { await notificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
             else
-            {
-                await notificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings);
-            }
+            { await notificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings); }
 
         }
 
