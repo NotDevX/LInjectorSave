@@ -18,7 +18,7 @@ namespace LInjector
         /// </summary>
         /// 
 
-        public const string currentVersion = "f81fb0e34f313b6cf0d0fc345890a33f"; // Put "f81fb0e34f313b6cf0d0fc345890a33f" for skipping TextBox. 
+        public const string currentVersion = "v27.05.2023"; // Put "f81fb0e34f313b6cf0d0fc345890a33f" for skipping TextBox. 
 
         [STAThread]
         static void Main()
