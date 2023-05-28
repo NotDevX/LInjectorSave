@@ -146,13 +146,13 @@
     <Compile Include="application.Designer.cs">
       <DependentUpon>application.cs</DependentUpon>
     </Compile>
-    <Compile Include="CheckVersion.cs" />
-    <Compile Include="infoManager.cs" />
-    <Compile Include="initrpc.cs" />
-    <Compile Include="rotativeGradient.cs">
+    <Compile Include="Classes\CheckVersion.cs" />
+    <Compile Include="Classes\infoManager.cs" />
+    <Compile Include="Classes\initrpc.cs" />
+    <Compile Include="Classes\Objects\rotativeGradient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="singleInstance.cs" />
+    <Compile Include="Classes\singleInstance.cs" />
     <Compile Include="splashscr.cs">
       <SubType>Form</SubType>
     </Compile>
