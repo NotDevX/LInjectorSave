@@ -9,6 +9,13 @@
 </a>
 </p>
 <h3 align="center">A Light Injector for your Roblox Scripts.</h3>
+
+## How to build?
+- Clone the repo `gh repo clone ItzzExcel/LInjector`
+- Open LInjector.sln in Visual Studio 2022.
+- Set Release x64
+- ye
+
 ### Don't ask why I like hashes pls.
 
 <br>
