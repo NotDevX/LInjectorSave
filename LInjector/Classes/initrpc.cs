@@ -1,6 +1,6 @@
 ﻿using DiscordRPC;
 
-namespace LInjector
+namespace LInjector.Classes
 {
     public class DiscordRPCManager
     {
@@ -10,7 +10,7 @@ namespace LInjector
         {
             var inmainpresence = new RichPresence()
             {
-                Details = "Using LInjector by LExploits",
+                Details = "Using LInjector",
                 State = "Exploiting",
                 Assets = new Assets()
                 {

@@ -8,6 +8,7 @@ using LInjector;
 using DiscordRPC;
 using KrnlAPI;
 using System.Runtime.CompilerServices;
+using LInjector.Classes;
 
 namespace LInjector
 {
@@ -38,7 +39,6 @@ namespace LInjector
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             SingleInstanceChecker.CheckInstance();
-
         }
     }
 }

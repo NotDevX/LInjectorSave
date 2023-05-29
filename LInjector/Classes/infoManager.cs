@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LInjector
+namespace LInjector.Classes
 {
     public class NotificationManager
     {
