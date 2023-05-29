@@ -4,10 +4,10 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LInjector;
+using System.Runtime.CompilerServices;
 using DiscordRPC;
 using KrnlAPI;
-using System.Runtime.CompilerServices;
+using LInjector;
 using LInjector.Classes;
 
 namespace LInjector
