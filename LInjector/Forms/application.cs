@@ -146,8 +146,13 @@ namespace LInjector
 
         private async void Attach_Click(object sender, EventArgs e)
         {
-            krnlApi.Inject();
-            await notificationManager.FireNotification("Injected Krnl API", infSettings);
+            if (!krnlApi.IsInjected())
+            {
+                krnlApi.Inject();
+                await notificationManager.FireNotification("Injected Krnl API", infSettings);
+            } else {
+                await notificationManager.FireNotification("Krnl is already injected", infSettings);
+            }    
         }
 
         private async void ClearTB_Click(object sender, EventArgs e)

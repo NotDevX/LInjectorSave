@@ -28,7 +28,7 @@ namespace LInjector
         {
             if (GitHubVersionChecker.IsOutdatedVersion(currentVersion))
             {
-                MessageBox.Show("LInjector is outdated, please, check https://github.com/ItzzExcel/LInjector and download the latest release.",
+                MessageBox.Show("LInjector is outdated, please, check LInjector GitHub and download the latest release.",
                     "LInjector | Outdated", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector/releases");
             }
