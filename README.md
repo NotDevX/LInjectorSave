@@ -14,7 +14,7 @@
 - Clone the repo `gh repo clone ItzzExcel/LInjector`
 - Open LInjector.sln in Visual Studio 2022.
 - Set Release x64
-- ye
+- Ctrl + Shift + B (build)
 
 ### Don't ask why I like hashes pls.
 
