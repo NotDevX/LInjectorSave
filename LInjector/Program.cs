@@ -27,6 +27,8 @@ namespace LInjector
         [STAThread]
         static void Main()
         {
+            DiscordRPCManager discordRPCManager = new DiscordRPCManager();
+
             if (GitHubVersionChecker.IsOutdatedVersion(currentVersion))
             {
                 MessageBox.Show("LInjector is outdated, please, check LInjector GitHub and download the latest release.",
@@ -34,7 +36,7 @@ namespace LInjector
                 System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector/releases");
             }
 
-            DiscordRPCManager discordRPCManager = new DiscordRPCManager();
+            
             discordRPCManager.InitRPC();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
