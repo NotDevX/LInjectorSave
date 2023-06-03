@@ -281,5 +281,20 @@ namespace LInjector
             }
 
         }
+
+        private void dscButton_MouseEnter(object sender, EventArgs e)
+        {
+            dscPanel.BackColor = ColorTranslator.FromHtml("#2e2e2e");
+        }
+
+        private void dscButton_MouseLeave(object sender, EventArgs e)
+        {
+            dscPanel.BackColor = ColorTranslator.FromHtml("#191919");
+        }
+
+        private void dscButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://discord.gg/NQY28YSVAb");
+        }
     }
 }

@@ -44,6 +44,8 @@
             this.icon = new System.Windows.Forms.Panel();
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
+            this.dscPanel = new System.Windows.Forms.Panel();
+            this.dscButton = new System.Windows.Forms.PictureBox();
             this.editSubmenu = new System.Windows.Forms.Panel();
             this.reloadApp = new System.Windows.Forms.Button();
             this.copyTextbox = new System.Windows.Forms.Button();
@@ -64,6 +66,8 @@
             this.icon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.execinjPanel.SuspendLayout();
+            this.dscPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dscButton)).BeginInit();
             this.editSubmenu.SuspendLayout();
             this.filesub.SuspendLayout();
             this.holder.SuspendLayout();
@@ -321,6 +325,7 @@
             // execinjPanel
             // 
             this.execinjPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.execinjPanel.Controls.Add(this.dscPanel);
             this.execinjPanel.Controls.Add(this.editSubmenu);
             this.execinjPanel.Controls.Add(this.filesub);
             this.execinjPanel.Controls.Add(this.Attach);
@@ -331,6 +336,30 @@
             this.execinjPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.execinjPanel.Size = new System.Drawing.Size(790, 28);
             this.execinjPanel.TabIndex = 7;
+            // 
+            // dscPanel
+            // 
+            this.dscPanel.Controls.Add(this.dscButton);
+            this.dscPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dscPanel.Location = new System.Drawing.Point(759, 0);
+            this.dscPanel.Name = "dscPanel";
+            this.dscPanel.Padding = new System.Windows.Forms.Padding(3);
+            this.dscPanel.Size = new System.Drawing.Size(28, 28);
+            this.dscPanel.TabIndex = 4;
+            // 
+            // dscButton
+            // 
+            this.dscButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dscButton.Image = global::LInjector.Properties.Resources.discord_icon;
+            this.dscButton.Location = new System.Drawing.Point(3, 3);
+            this.dscButton.Name = "dscButton";
+            this.dscButton.Size = new System.Drawing.Size(22, 22);
+            this.dscButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dscButton.TabIndex = 0;
+            this.dscButton.TabStop = false;
+            this.dscButton.Click += new System.EventHandler(this.dscButton_Click);
+            this.dscButton.MouseEnter += new System.EventHandler(this.dscButton_MouseEnter);
+            this.dscButton.MouseLeave += new System.EventHandler(this.dscButton_MouseLeave);
             // 
             // editSubmenu
             // 
@@ -512,6 +541,8 @@
             this.icon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
+            this.dscPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dscButton)).EndInit();
             this.editSubmenu.ResumeLayout(false);
             this.filesub.ResumeLayout(false);
             this.holder.ResumeLayout(false);
@@ -544,5 +575,7 @@
         private System.Windows.Forms.Panel menuSettings;
         private System.Windows.Forms.Button infSettings;
         private System.Windows.Forms.Button reloadApp;
+        private System.Windows.Forms.Panel dscPanel;
+        private System.Windows.Forms.PictureBox dscButton;
     }
 }
