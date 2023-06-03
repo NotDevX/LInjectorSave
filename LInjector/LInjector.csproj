@@ -278,31 +278,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\application.cs">
+    <Compile Include="Container\Forms\application.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\application.Designer.cs">
+    <Compile Include="Container\Forms\application.Designer.cs">
       <DependentUpon>application.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\checkVersion.cs" />
-    <Compile Include="Classes\infoManager.cs" />
-    <Compile Include="Classes\initrpc.cs" />
-    <Compile Include="Classes\Objects\rotativeGradient.cs">
+    <Compile Include="Container\Classes\checkVersion.cs" />
+    <Compile Include="Container\Classes\infoManager.cs" />
+    <Compile Include="Container\Classes\initrpc.cs" />
+    <Compile Include="Container\Classes\Objects\rotativeGradient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\singleInstance.cs" />
-    <Compile Include="Forms\splashscr.cs">
+    <Compile Include="Container\Classes\singleInstance.cs" />
+    <Compile Include="Container\Forms\splashscr.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\splashscr.Designer.cs">
+    <Compile Include="Container\Forms\splashscr.Designer.cs">
       <DependentUpon>splashscr.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\application.resx">
+    <EmbeddedResource Include="Container\Forms\application.resx">
       <DependentUpon>application.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\splashscr.resx">
+    <EmbeddedResource Include="Container\Forms\splashscr.resx">
       <DependentUpon>splashscr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
