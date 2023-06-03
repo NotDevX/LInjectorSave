@@ -513,7 +513,7 @@
             this.webView2.Location = new System.Drawing.Point(5, 5);
             this.webView2.Name = "webView2";
             this.webView2.Size = new System.Drawing.Size(780, 417);
-            this.webView2.Source = new System.Uri("https://lexploits.netlify.app/extra/monaco/", System.UriKind.Absolute);
+            this.webView2.Source = new System.Uri("https://lexploits.netlify.app/extra/monaco/index.html", System.UriKind.Absolute);
             this.webView2.TabIndex = 0;
             this.webView2.ZoomFactor = 1D;
             this.webView2.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.webView2_NavigationCompleted);

@@ -29,10 +29,15 @@ namespace LInjector.Classes
             {
                 var latestVersion = latestRelease.TagName.TrimStart('v');
 
-                var current = Version.Parse(currentVersion.TrimStart('v'));
-                var latest = Version.Parse(latestVersion);
-
-                return current < latest;
+                Version current = null;
+                if (Version.TryParse(currentVersion.TrimStart('v'), out current))
+                {
+                    Version latest;
+                    if (Version.TryParse(latestVersion, out latest))
+                    {
+                        return current < latest;
+                    }
+                }
             }
 
             return false;
