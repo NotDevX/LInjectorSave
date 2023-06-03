@@ -486,7 +486,7 @@
             this.Execute.Location = new System.Drawing.Point(3, 0);
             this.Execute.Name = "Execute";
             this.Execute.Size = new System.Drawing.Size(29, 28);
-            this.Execute.TabIndex = 0;
+            this.Execute.TabIndex = 1;
             this.Execute.Text = "▶";
             this.Execute.UseMnemonic = false;
             this.Execute.UseVisualStyleBackColor = true;
