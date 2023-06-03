@@ -343,7 +343,7 @@
             this.dscPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.dscPanel.Location = new System.Drawing.Point(759, 0);
             this.dscPanel.Name = "dscPanel";
-            this.dscPanel.Padding = new System.Windows.Forms.Padding(3);
+            this.dscPanel.Padding = new System.Windows.Forms.Padding(4);
             this.dscPanel.Size = new System.Drawing.Size(28, 28);
             this.dscPanel.TabIndex = 4;
             // 
@@ -351,9 +351,9 @@
             // 
             this.dscButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dscButton.Image = global::LInjector.Properties.Resources.discord_icon;
-            this.dscButton.Location = new System.Drawing.Point(3, 3);
+            this.dscButton.Location = new System.Drawing.Point(4, 4);
             this.dscButton.Name = "dscButton";
-            this.dscButton.Size = new System.Drawing.Size(22, 22);
+            this.dscButton.Size = new System.Drawing.Size(20, 20);
             this.dscButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.dscButton.TabIndex = 0;
             this.dscButton.TabStop = false;
