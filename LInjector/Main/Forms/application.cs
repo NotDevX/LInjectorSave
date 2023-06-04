@@ -167,13 +167,13 @@ namespace LInjector
                 try
                 {
                     krnlApi.Inject();
+                    await notificationManager.FireNotification("Injected Krnl API", infSettings);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await notificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
                 }
-                await notificationManager.FireNotification("Injected Krnl API", infSettings);
             } else {
                 await notificationManager.FireNotification("Krnl is already injected", infSettings);
             }    
