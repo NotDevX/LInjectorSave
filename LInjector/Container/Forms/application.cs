@@ -46,13 +46,27 @@ namespace LInjector
             #pragma warning restore CS0162 // Unreachable code detected
         }
 
+
+        private async void webView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
+        {
+            if (!e.IsSuccess) {
+                await notificationManager.FireNotification("Failed to load webView2", infSettings);
+
+                DialogResult result = MessageBox.Show("CoreWebView2 Failed to load, reload?", "[ERROR] LInjector", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                if (result == DialogResult.OK)
+                {
+                    Application.Restart();
+                }
+            }
+        }
+
         private async void application_Load(object sender, EventArgs e)
         {
             if (isDevelopment)
             { await notificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
             else
             { await notificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings); }
-
         }
 
         private async void webView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
