@@ -288,16 +288,6 @@ namespace LInjector
             editSubmenu.Visible = false;
         }
 
-        private async void LInjectorLabel_Click(object sender, EventArgs e)
-        {
-            try {
-                System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector");
-            } catch (Exception) {
-                await notificationManager.FireNotification("Couldn't, open LInjector GitHub.", infSettings);
-            }
-
-        }
-
         private void dscButton_MouseEnter(object sender, EventArgs e)
         {
             dscPanel.BackColor = ColorTranslator.FromHtml("#2e2e2e");

@@ -132,8 +132,8 @@
             LInjectorLabel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             LInjectorLabel.FlatAppearance.BorderSize = 0;
             LInjectorLabel.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            LInjectorLabel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            LInjectorLabel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            LInjectorLabel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            LInjectorLabel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             LInjectorLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             LInjectorLabel.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
             LInjectorLabel.ForeColor = System.Drawing.Color.White;
@@ -145,7 +145,6 @@
             LInjectorLabel.Text = "LInjector";
             LInjectorLabel.UseMnemonic = false;
             LInjectorLabel.UseVisualStyleBackColor = false;
-            LInjectorLabel.Click += new System.EventHandler(this.LInjectorLabel_Click);
             // 
             // titlebar
             // 
