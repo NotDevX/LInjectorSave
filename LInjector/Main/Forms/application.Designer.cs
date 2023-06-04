@@ -145,6 +145,7 @@
             LInjectorLabel.Text = "LInjector";
             LInjectorLabel.UseMnemonic = false;
             LInjectorLabel.UseVisualStyleBackColor = false;
+            LInjectorLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorLabel_MouseDown);
             // 
             // titlebar
             // 

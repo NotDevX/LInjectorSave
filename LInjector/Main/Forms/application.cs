@@ -98,8 +98,6 @@ namespace LInjector
             base.WndProc(ref m);
         }
 
-        private bool isMaximized = false;
-
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -107,16 +105,9 @@ namespace LInjector
 
         private void Maximize_Click(object sender, EventArgs e)
         {
-            if (isMaximized)
-            {
-                WindowState = FormWindowState.Normal;
-                isMaximized = false;
-            }
-            else
-            {
-                WindowState = FormWindowState.Maximized;
-                isMaximized = true;
-            }
+            if (WindowState == FormWindowState.Maximized)
+            { WindowState = FormWindowState.Normal; }
+            else { WindowState = FormWindowState.Maximized; }
         }
 
         private void Minimize_Click(object sender, EventArgs e)
@@ -160,6 +151,15 @@ namespace LInjector
             }
         }
 
+        private void LInjectorLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
         private async void Attach_Click(object sender, EventArgs e)
         {
             if (!krnlApi.IsInjected())
@@ -170,7 +170,7 @@ namespace LInjector
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex, "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     await notificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
                 }
                 await notificationManager.FireNotification("Injected Krnl API", infSettings);
