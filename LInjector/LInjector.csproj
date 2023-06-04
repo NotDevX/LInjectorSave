@@ -338,6 +338,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Linjector.ico" />
+    <None Include="Resources\github-mark-white.png" />
     <None Include="Resources\discord-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -311,5 +311,10 @@ namespace LInjector
         {
             System.Diagnostics.Process.Start("https://discord.gg/NQY28YSVAb");
         }
+
+        private void githubButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector");
+        }
     }
 }

@@ -42,10 +42,8 @@
             this.Maximize = new System.Windows.Forms.Button();
             this.Minimize = new System.Windows.Forms.Button();
             this.icon = new System.Windows.Forms.Panel();
-            this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
             this.dscPanel = new System.Windows.Forms.Panel();
-            this.dscButton = new System.Windows.Forms.PictureBox();
             this.editSubmenu = new System.Windows.Forms.Panel();
             this.reloadApp = new System.Windows.Forms.Button();
             this.copyTextbox = new System.Windows.Forms.Button();
@@ -56,6 +54,10 @@
             this.Execute = new System.Windows.Forms.Button();
             this.holder = new System.Windows.Forms.Panel();
             this.webView2 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.dscButton = new System.Windows.Forms.PictureBox();
+            this.LInjectorIcon = new System.Windows.Forms.PictureBox();
+            this.githubPanel = new System.Windows.Forms.Panel();
+            this.githubButton = new System.Windows.Forms.PictureBox();
             EditButton = new System.Windows.Forms.Button();
             FileButton = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
@@ -64,14 +66,16 @@
             this.menuSettings.SuspendLayout();
             this.controlmenu.SuspendLayout();
             this.icon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.execinjPanel.SuspendLayout();
             this.dscPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dscButton)).BeginInit();
             this.editSubmenu.SuspendLayout();
             this.filesub.SuspendLayout();
             this.holder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dscButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
+            this.githubPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
             this.SuspendLayout();
             // 
             // EditButton
@@ -310,21 +314,10 @@
             this.icon.Size = new System.Drawing.Size(29, 29);
             this.icon.TabIndex = 0;
             // 
-            // LInjectorIcon
-            // 
-            this.LInjectorIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LInjectorIcon.Image = global::LInjector.Properties.Resources.LInjector;
-            this.LInjectorIcon.Location = new System.Drawing.Point(0, 0);
-            this.LInjectorIcon.Name = "LInjectorIcon";
-            this.LInjectorIcon.Size = new System.Drawing.Size(29, 29);
-            this.LInjectorIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LInjectorIcon.TabIndex = 0;
-            this.LInjectorIcon.TabStop = false;
-            this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorIcon_MouseDown);
-            // 
             // execinjPanel
             // 
             this.execinjPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.execinjPanel.Controls.Add(this.githubPanel);
             this.execinjPanel.Controls.Add(this.dscPanel);
             this.execinjPanel.Controls.Add(this.editSubmenu);
             this.execinjPanel.Controls.Add(this.filesub);
@@ -346,20 +339,6 @@
             this.dscPanel.Padding = new System.Windows.Forms.Padding(4);
             this.dscPanel.Size = new System.Drawing.Size(28, 28);
             this.dscPanel.TabIndex = 4;
-            // 
-            // dscButton
-            // 
-            this.dscButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dscButton.Image = global::LInjector.Properties.Resources.discord_icon;
-            this.dscButton.Location = new System.Drawing.Point(4, 4);
-            this.dscButton.Name = "dscButton";
-            this.dscButton.Size = new System.Drawing.Size(20, 20);
-            this.dscButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dscButton.TabIndex = 0;
-            this.dscButton.TabStop = false;
-            this.dscButton.Click += new System.EventHandler(this.dscButton_Click);
-            this.dscButton.MouseEnter += new System.EventHandler(this.dscButton_MouseEnter);
-            this.dscButton.MouseLeave += new System.EventHandler(this.dscButton_MouseLeave);
             // 
             // editSubmenu
             // 
@@ -519,6 +498,54 @@
             this.webView2.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.webView2_CoreWebView2InitializationCompleted);
             this.webView2.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.webView2_NavigationCompleted);
             // 
+            // dscButton
+            // 
+            this.dscButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dscButton.Image = global::LInjector.Properties.Resources.discord_icon;
+            this.dscButton.Location = new System.Drawing.Point(4, 4);
+            this.dscButton.Name = "dscButton";
+            this.dscButton.Size = new System.Drawing.Size(20, 20);
+            this.dscButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dscButton.TabIndex = 0;
+            this.dscButton.TabStop = false;
+            this.dscButton.Click += new System.EventHandler(this.dscButton_Click);
+            this.dscButton.MouseEnter += new System.EventHandler(this.dscButton_MouseEnter);
+            this.dscButton.MouseLeave += new System.EventHandler(this.dscButton_MouseLeave);
+            // 
+            // LInjectorIcon
+            // 
+            this.LInjectorIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LInjectorIcon.Image = global::LInjector.Properties.Resources.LInjector;
+            this.LInjectorIcon.Location = new System.Drawing.Point(0, 0);
+            this.LInjectorIcon.Name = "LInjectorIcon";
+            this.LInjectorIcon.Size = new System.Drawing.Size(29, 29);
+            this.LInjectorIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LInjectorIcon.TabIndex = 0;
+            this.LInjectorIcon.TabStop = false;
+            this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorIcon_MouseDown);
+            // 
+            // githubPanel
+            // 
+            this.githubPanel.Controls.Add(this.githubButton);
+            this.githubPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.githubPanel.Location = new System.Drawing.Point(731, 0);
+            this.githubPanel.Name = "githubPanel";
+            this.githubPanel.Padding = new System.Windows.Forms.Padding(4);
+            this.githubPanel.Size = new System.Drawing.Size(28, 28);
+            this.githubPanel.TabIndex = 5;
+            // 
+            // githubButton
+            // 
+            this.githubButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.githubButton.Image = global::LInjector.Properties.Resources.github_mark_white;
+            this.githubButton.Location = new System.Drawing.Point(4, 4);
+            this.githubButton.Name = "githubButton";
+            this.githubButton.Size = new System.Drawing.Size(20, 20);
+            this.githubButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.githubButton.TabIndex = 0;
+            this.githubButton.TabStop = false;
+            this.githubButton.Click += new System.EventHandler(this.githubButton_Click);
+            // 
             // application
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -540,14 +567,16 @@
             this.menuSettings.ResumeLayout(false);
             this.controlmenu.ResumeLayout(false);
             this.icon.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
             this.dscPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dscButton)).EndInit();
             this.editSubmenu.ResumeLayout(false);
             this.filesub.ResumeLayout(false);
             this.holder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.webView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dscButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
+            this.githubPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -578,5 +607,7 @@
         private System.Windows.Forms.Button reloadApp;
         private System.Windows.Forms.Panel dscPanel;
         private System.Windows.Forms.PictureBox dscButton;
+        private System.Windows.Forms.Panel githubPanel;
+        private System.Windows.Forms.PictureBox githubButton;
     }
 }
