@@ -52,7 +52,7 @@ namespace LInjector
             if (!e.IsSuccess) {
                 await notificationManager.FireNotification("Failed to load webView2", infSettings);
 
-                DialogResult result = MessageBox.Show("CoreWebView2 Failed to load, reload?", "[ERROR] LInjector", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                DialogResult result = MessageBox.Show("CoreWebView2 Failed to load, relaunch LInjector?", "[ERROR] LInjector", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
                 if (result == DialogResult.OK)
                 {
@@ -71,7 +71,8 @@ namespace LInjector
 
         private async void webView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
-            await notificationManager.FireNotification("Monaco Text Editor loaded", infSettings);
+            await notificationManager.FireNotification("Monaco Editor loaded", infSettings);
+            await notificationManager.FireNotification("LInjector is a free and open-source executor. Developed by ItzzExcel.", infSettings);
         }
 
         private const int cGrip = 16;
