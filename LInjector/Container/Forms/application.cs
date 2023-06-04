@@ -72,7 +72,7 @@ namespace LInjector
         private async void webView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             await notificationManager.FireNotification("Monaco Editor loaded", infSettings);
-            await notificationManager.FireNotification("LInjector is a free and open-source executor. Developed by ItzzExcel.", infSettings);
+            await notificationManager.FireNotification("LInjector is a free and open-source executor.", infSettings);
         }
 
         private const int cGrip = 16;
@@ -315,6 +315,16 @@ namespace LInjector
         private void githubButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector");
+        }
+
+        private void githubButton_MouseEnter(object sender, EventArgs e)
+        {
+            githubPanel.BackColor = ColorTranslator.FromHtml("#2e2e2e");
+        }
+
+        private void githubButton_MouseLeave(object sender, EventArgs e)
+        {
+            githubPanel.BackColor = ColorTranslator.FromHtml("#191919");
         }
     }
 }
