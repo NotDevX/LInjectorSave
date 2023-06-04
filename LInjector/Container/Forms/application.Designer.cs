@@ -132,8 +132,8 @@
             LInjectorLabel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             LInjectorLabel.FlatAppearance.BorderSize = 0;
             LInjectorLabel.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            LInjectorLabel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            LInjectorLabel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            LInjectorLabel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            LInjectorLabel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             LInjectorLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             LInjectorLabel.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
             LInjectorLabel.ForeColor = System.Drawing.Color.White;
@@ -347,7 +347,7 @@
             this.githubPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.githubPanel.Location = new System.Drawing.Point(931, 0);
             this.githubPanel.Name = "githubPanel";
-            this.githubPanel.Padding = new System.Windows.Forms.Padding(4);
+            this.githubPanel.Padding = new System.Windows.Forms.Padding(5);
             this.githubPanel.Size = new System.Drawing.Size(28, 28);
             this.githubPanel.TabIndex = 5;
             // 
@@ -355,9 +355,9 @@
             // 
             this.githubButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.githubButton.Image = global::LInjector.Properties.Resources.github_mark_white;
-            this.githubButton.Location = new System.Drawing.Point(4, 4);
+            this.githubButton.Location = new System.Drawing.Point(5, 5);
             this.githubButton.Name = "githubButton";
-            this.githubButton.Size = new System.Drawing.Size(20, 20);
+            this.githubButton.Size = new System.Drawing.Size(18, 18);
             this.githubButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.githubButton.TabIndex = 0;
             this.githubButton.TabStop = false;
@@ -371,7 +371,7 @@
             this.dscPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.dscPanel.Location = new System.Drawing.Point(959, 0);
             this.dscPanel.Name = "dscPanel";
-            this.dscPanel.Padding = new System.Windows.Forms.Padding(4);
+            this.dscPanel.Padding = new System.Windows.Forms.Padding(5);
             this.dscPanel.Size = new System.Drawing.Size(28, 28);
             this.dscPanel.TabIndex = 4;
             // 
@@ -379,9 +379,9 @@
             // 
             this.dscButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dscButton.Image = global::LInjector.Properties.Resources.discord_icon;
-            this.dscButton.Location = new System.Drawing.Point(4, 4);
+            this.dscButton.Location = new System.Drawing.Point(5, 5);
             this.dscButton.Name = "dscButton";
-            this.dscButton.Size = new System.Drawing.Size(20, 20);
+            this.dscButton.Size = new System.Drawing.Size(18, 18);
             this.dscButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.dscButton.TabIndex = 0;
             this.dscButton.TabStop = false;
@@ -541,7 +541,7 @@
             this.webView2.Location = new System.Drawing.Point(5, 5);
             this.webView2.Name = "webView2";
             this.webView2.Size = new System.Drawing.Size(980, 417);
-            this.webView2.Source = new System.Uri("https://lexploits.netlify.app/extra/monaco/index.html", System.UriKind.Absolute);
+            this.webView2.Source = new System.Uri("https://lexploits.netlify.app/extra/monaco/", System.UriKind.Absolute);
             this.webView2.TabIndex = 0;
             this.webView2.ZoomFactor = 1D;
             this.webView2.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.webView2_CoreWebView2InitializationCompleted);

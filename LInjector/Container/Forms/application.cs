@@ -164,7 +164,15 @@ namespace LInjector
         {
             if (!krnlApi.IsInjected())
             {
-                krnlApi.Inject();
+                try
+                {
+                    krnlApi.Inject();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex, "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    await notificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
+                }
                 await notificationManager.FireNotification("Injected Krnl API", infSettings);
             } else {
                 await notificationManager.FireNotification("Krnl is already injected", infSettings);
