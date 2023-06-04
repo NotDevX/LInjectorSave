@@ -158,7 +158,7 @@
             this.titlebar.Margin = new System.Windows.Forms.Padding(10);
             this.titlebar.Name = "titlebar";
             this.titlebar.Padding = new System.Windows.Forms.Padding(3);
-            this.titlebar.Size = new System.Drawing.Size(790, 35);
+            this.titlebar.Size = new System.Drawing.Size(990, 35);
             this.titlebar.TabIndex = 4;
             // 
             // titleDialog
@@ -173,7 +173,7 @@
             this.titleDialog.Location = new System.Drawing.Point(32, 3);
             this.titleDialog.Name = "titleDialog";
             this.titleDialog.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.titleDialog.Size = new System.Drawing.Size(665, 29);
+            this.titleDialog.Size = new System.Drawing.Size(865, 29);
             this.titleDialog.TabIndex = 6;
             this.titleDialog.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleDialog_MouseDown);
             // 
@@ -184,7 +184,7 @@
             this.menuSettings.Location = new System.Drawing.Point(311, 0);
             this.menuSettings.Name = "menuSettings";
             this.menuSettings.Padding = new System.Windows.Forms.Padding(10, 1, 10, 1);
-            this.menuSettings.Size = new System.Drawing.Size(344, 29);
+            this.menuSettings.Size = new System.Drawing.Size(544, 29);
             this.menuSettings.TabIndex = 9;
             this.menuSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuSettings_MouseDown);
             // 
@@ -200,7 +200,7 @@
             this.infSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infSettings.Location = new System.Drawing.Point(10, 1);
             this.infSettings.Name = "infSettings";
-            this.infSettings.Size = new System.Drawing.Size(324, 27);
+            this.infSettings.Size = new System.Drawing.Size(524, 27);
             this.infSettings.TabIndex = 0;
             this.infSettings.Text = ". . .";
             this.infSettings.UseVisualStyleBackColor = false;
@@ -234,7 +234,7 @@
             this.controlmenu.Controls.Add(this.Maximize);
             this.controlmenu.Controls.Add(this.Minimize);
             this.controlmenu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.controlmenu.Location = new System.Drawing.Point(697, 3);
+            this.controlmenu.Location = new System.Drawing.Point(897, 3);
             this.controlmenu.Name = "controlmenu";
             this.controlmenu.Size = new System.Drawing.Size(90, 29);
             this.controlmenu.TabIndex = 3;
@@ -339,14 +339,14 @@
             this.execinjPanel.Location = new System.Drawing.Point(5, 40);
             this.execinjPanel.Name = "execinjPanel";
             this.execinjPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.execinjPanel.Size = new System.Drawing.Size(790, 28);
+            this.execinjPanel.Size = new System.Drawing.Size(990, 28);
             this.execinjPanel.TabIndex = 7;
             // 
             // githubPanel
             // 
             this.githubPanel.Controls.Add(this.githubButton);
             this.githubPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.githubPanel.Location = new System.Drawing.Point(731, 0);
+            this.githubPanel.Location = new System.Drawing.Point(931, 0);
             this.githubPanel.Name = "githubPanel";
             this.githubPanel.Padding = new System.Windows.Forms.Padding(4);
             this.githubPanel.Size = new System.Drawing.Size(28, 28);
@@ -370,7 +370,7 @@
             // 
             this.dscPanel.Controls.Add(this.dscButton);
             this.dscPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dscPanel.Location = new System.Drawing.Point(759, 0);
+            this.dscPanel.Location = new System.Drawing.Point(959, 0);
             this.dscPanel.Name = "dscPanel";
             this.dscPanel.Padding = new System.Windows.Forms.Padding(4);
             this.dscPanel.Size = new System.Drawing.Size(28, 28);
@@ -528,7 +528,7 @@
             this.holder.Location = new System.Drawing.Point(5, 68);
             this.holder.Name = "holder";
             this.holder.Padding = new System.Windows.Forms.Padding(5);
-            this.holder.Size = new System.Drawing.Size(790, 427);
+            this.holder.Size = new System.Drawing.Size(990, 427);
             this.holder.TabIndex = 8;
             // 
             // webView2
@@ -541,7 +541,7 @@
             this.webView2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.webView2.Location = new System.Drawing.Point(5, 5);
             this.webView2.Name = "webView2";
-            this.webView2.Size = new System.Drawing.Size(780, 417);
+            this.webView2.Size = new System.Drawing.Size(980, 417);
             this.webView2.Source = new System.Uri("https://lexploits.netlify.app/extra/monaco/index.html", System.UriKind.Absolute);
             this.webView2.TabIndex = 0;
             this.webView2.ZoomFactor = 1D;
@@ -553,14 +553,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(800, 500);
+            this.ClientSize = new System.Drawing.Size(1000, 500);
             this.Controls.Add(this.holder);
             this.Controls.Add(this.execinjPanel);
             this.Controls.Add(this.titlebar);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(600, 500);
+            this.MinimumSize = new System.Drawing.Size(1000, 500);
             this.Name = "application";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Load += new System.EventHandler(this.application_Load);
