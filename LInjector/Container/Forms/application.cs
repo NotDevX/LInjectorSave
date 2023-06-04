@@ -214,9 +214,10 @@ namespace LInjector
                 string fileContent = File.ReadAllText(openFileDialog.FileName);
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
+                await notificationManager.FireNotification("Content Loaded", infSettings);
+                filesub.Visible = false;
             }
             filesub.Visible = false;
-            await notificationManager.FireNotification("Content loaded", infSettings);
         }
 
         private async void saveFile_Click(object sender, EventArgs e)
