@@ -11,11 +11,11 @@
 <h3 align="center">A Light Injector for your Roblox Scripts.</h3>
 
 ## How to build?
+To edit the Forms, first compile, for any reason, forms can't load if not compiled. If you opened the forms before compile, restart Visual Studio and your problem should be fixed.
 - Clone the repo `gh repo clone ItzzExcel/LInjector`
 - Open LInjector.sln in Visual Studio 2022.
 - Set Release x64
 - Ctrl + Shift + B (build)
-**[IF YOU WANT TO EDIT OR CHANGE A PROPERTY OF THE UI, FIRST, COMPILE THE SOLUTION, IF AFTER THAT, YOU CAN'T OPEN THE application.cs FORM, RESTART VISUAL STUDIO]**
 
 ### Don't ask why the commits are hashes pls.
 
