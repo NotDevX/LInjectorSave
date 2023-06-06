@@ -44,3 +44,7 @@ The LInjector Project is under the MIT License.
 - [The text editor is Monaco.](https://microsoft.github.io/monaco-editor/)
 - [Monaco Editor, edited by Supercomet Labs for Comet 3.](https://cometrbx.xyz/)
 - [Spinning Gradient by me (you can take it and put in into your personal projects, idc.](https://gist.github.com/ItzzExcel/6bece91fcd3388618dde3de6bcab4a60)
+
+### Screenshots
+<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/6578f654-0bce-48df-8185-31bea26dc479" width="600px">
+<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/25c1381e-653b-4ff9-8f63-4bebb8120277" width="600px">
