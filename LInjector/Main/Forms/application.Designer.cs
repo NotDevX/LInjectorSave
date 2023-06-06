@@ -341,6 +341,7 @@
             this.execinjPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.execinjPanel.Size = new System.Drawing.Size(990, 28);
             this.execinjPanel.TabIndex = 7;
+            this.execinjPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.execinjPanel_MouseDown);
             // 
             // githubPanel
             // 
@@ -564,6 +565,7 @@
             this.Name = "application";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Load += new System.EventHandler(this.application_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.application_MouseDown);
             this.titlebar.ResumeLayout(false);
             this.titleDialog.ResumeLayout(false);
             this.menuSettings.ResumeLayout(false);
