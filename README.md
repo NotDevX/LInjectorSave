@@ -16,11 +16,9 @@
 - Set Release x64
 - Ctrl + Shift + B (build)
 
-### Don't ask why I like hashes pls.
+### Don't ask why the commits are hashes pls.
 
-<br>
-
-<h4>LInjector, including The LExploits Tools are not fully developed and can't be tested due to Hyperion Byfron, Roblox Anticheat.<br>
+#### LInjector, including The LExploits Tools are not fully developed and can't be tested due to Hyperion Byfron, Roblox Anticheat.<br>
 🔴 All Exploits, including LInjector are currently patched.<br>Use any executor at your own risk.<br>
 Fluxus, Electron and Comet is working with UWP Roblox.</h4>
 
@@ -44,4 +42,4 @@ The LInjector Project is under the MIT License.
 - [Using Microsoft Edge WebView2 to view Monaco.](https://developer.microsoft.com/microsoft-edge/webview2/)
 - [The text editor is Monaco.](https://microsoft.github.io/monaco-editor/)
 - [Monaco Editor, edited by Supercomet Labs for Comet 3.](https://cometrbx.xyz/)
-- Spinning Gradient by me (you can take it and put in into your personal projects, idc).
+- [Spinning Gradient by me (you can take it and put in into your personal projects, idc.](https://gist.github.com/ItzzExcel/6bece91fcd3388618dde3de6bcab4a60)
