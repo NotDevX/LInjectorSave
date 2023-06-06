@@ -15,6 +15,7 @@
 - Open LInjector.sln in Visual Studio 2022.
 - Set Release x64
 - Ctrl + Shift + B (build)
+**[IF YOU WANT TO EDIT OR CHANGE A PROPERTY OF THE UI, FIRST, COMPILE THE SOLUTION, IF AFTER THAT, YOU CAN'T OPEN THE application.cs FORM, RESTART VISUAL STUDIO]**
 
 ### Don't ask why the commits are hashes pls.
 
