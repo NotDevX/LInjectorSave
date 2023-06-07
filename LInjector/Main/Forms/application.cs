@@ -67,6 +67,16 @@ namespace LInjector
             { await notificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
             else
             { await notificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings); }
+
+            try
+            {
+                krnlApi.Initialize();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't initialize Krnl API\nException:\n" + ex + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await notificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
+            }
         }
 
         private async void webView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
