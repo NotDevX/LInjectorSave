@@ -211,9 +211,16 @@ namespace LInjector
         {
             dynamic editor = webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].editor").GetAwaiter().GetResult();
             string scriptString = editor.getValue();
-            krnlApi.Execute(scriptString);
-            await notificationManager.FireNotification("Script executed", infSettings);
 
+            try
+            {
+                krnlApi.Execute(scriptString);
+                await notificationManager.FireNotification("Script executed", infSettings);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't execute with Krnl API\nException:\n" + ex + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void FileButton_MouseClick(object sender, MouseEventArgs e)
