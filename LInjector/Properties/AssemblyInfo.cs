@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5")]
+[assembly: AssemblyVersion("3.5")]
 // LInjector UI Version https://github.com/ItzzExcel/LInjector
 
 #pragma warning disable CS7035 // The specified version string does not conform to the recommended format - major.minor.build.revision
