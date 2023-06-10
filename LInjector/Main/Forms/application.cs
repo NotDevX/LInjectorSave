@@ -82,7 +82,6 @@ namespace LInjector
         private async void webView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             await notificationManager.FireNotification("Monaco Editor loaded", infSettings);
-            await notificationManager.FireNotification("LInjector is a free and open-source executor.", infSettings);
         }
 
         private const int cGrip = 16;
@@ -258,8 +257,8 @@ namespace LInjector
                 string fileContent = File.ReadAllText(openFileDialog.FileName);
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
-                await notificationManager.FireNotification("Content Loaded", infSettings);
                 filesub.Visible = false;
+                await notificationManager.FireNotification("Content Loaded", infSettings);
             }
             filesub.Visible = false;
         }
@@ -288,13 +287,13 @@ namespace LInjector
                     }
 
                     File.WriteAllText(filePath, scriptString);
-                    await notificationManager.FireNotification("File saved", infSettings);
                     filesub.Visible = false;
+                    await notificationManager.FireNotification("File saved", infSettings);
                 }
                 catch (Exception)
                 {
-                    await notificationManager.FireNotification("Error saving the file", infSettings);
                     filesub.Visible = filesub.Visible;
+                    await notificationManager.FireNotification("Error saving the file", infSettings);
                 }
             }
             previousFocus.Focus();
