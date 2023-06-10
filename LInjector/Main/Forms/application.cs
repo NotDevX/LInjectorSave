@@ -52,7 +52,7 @@ namespace LInjector
             if (!e.IsSuccess) {
                 await notificationManager.FireNotification("Failed to load webView2", infSettings);
 
-                DialogResult result = MessageBox.Show("CoreWebView2 Failed to load, relaunch LInjector?", "[ERROR] LInjector", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                DialogResult result = MessageBox.Show("CoreWebView2 Failed to load, try relaunching LInjector?", "[ERROR] LInjector", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
                 if (result == DialogResult.OK)
                 {
@@ -77,11 +77,6 @@ namespace LInjector
                 MessageBox.Show("Couldn't initialize Krnl API\nException:\n" + ex + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await notificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
             }
-        }
-
-        private async void webView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
-        {
-            await notificationManager.FireNotification("Monaco Editor loaded", infSettings);
         }
 
         private const int cGrip = 16;
