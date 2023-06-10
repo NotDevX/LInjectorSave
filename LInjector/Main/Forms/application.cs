@@ -110,6 +110,7 @@ namespace LInjector
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
+            WindowState = FormWindowState.Minimized;
             Application.Exit();
         }
 
