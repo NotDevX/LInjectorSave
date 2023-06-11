@@ -47,4 +47,4 @@ The LInjector Project is under the MIT License.
 
 ### Screenshots
 <img src="https://github.com/ItzzExcel/LInjector/assets/98148217/6578f654-0bce-48df-8185-31bea26dc479" width="600px">
-<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/25c1381e-653b-4ff9-8f63-4bebb8120277" width="600px">
+<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/4fc523b1-6fed-49f9-8c3e-56b507c15c45" width="600px">
