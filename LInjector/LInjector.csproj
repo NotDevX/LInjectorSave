@@ -279,6 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main\Classes\tempLog.cs" />
+    <Compile Include="Main\Classes\typeWriteManager.cs" />
     <Compile Include="Main\Forms\application.cs">
       <SubType>Form</SubType>
     </Compile>

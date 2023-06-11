@@ -44,6 +44,7 @@
             this.icon = new System.Windows.Forms.Panel();
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
+            this.fileNameString = new System.Windows.Forms.Button();
             this.githubPanel = new System.Windows.Forms.Panel();
             this.githubButton = new System.Windows.Forms.PictureBox();
             this.dscPanel = new System.Windows.Forms.Panel();
@@ -329,6 +330,7 @@
             // execinjPanel
             // 
             this.execinjPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.execinjPanel.Controls.Add(this.fileNameString);
             this.execinjPanel.Controls.Add(this.githubPanel);
             this.execinjPanel.Controls.Add(this.dscPanel);
             this.execinjPanel.Controls.Add(this.editSubmenu);
@@ -342,6 +344,24 @@
             this.execinjPanel.Size = new System.Drawing.Size(990, 28);
             this.execinjPanel.TabIndex = 7;
             this.execinjPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.execinjPanel_MouseDown);
+            // 
+            // fileNameString
+            // 
+            this.fileNameString.AutoSize = true;
+            this.fileNameString.Dock = System.Windows.Forms.DockStyle.Right;
+            this.fileNameString.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.fileNameString.FlatAppearance.BorderSize = 0;
+            this.fileNameString.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fileNameString.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fileNameString.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fileNameString.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileNameString.Location = new System.Drawing.Point(741, 0);
+            this.fileNameString.Name = "fileNameString";
+            this.fileNameString.Size = new System.Drawing.Size(190, 28);
+            this.fileNameString.TabIndex = 6;
+            this.fileNameString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.fileNameString.UseVisualStyleBackColor = true;
+            this.fileNameString.Visible = false;
             // 
             // githubPanel
             // 
@@ -572,6 +592,7 @@
             this.icon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
+            this.execinjPanel.PerformLayout();
             this.githubPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
             this.dscPanel.ResumeLayout(false);
@@ -597,7 +618,6 @@
         private System.Windows.Forms.Button ClearTB;
         private System.Windows.Forms.Panel execinjPanel;
         protected System.Windows.Forms.Panel holder;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView2;
         private System.Windows.Forms.Button Attach;
         private System.Windows.Forms.Button Execute;
         private System.Windows.Forms.Panel filesub;
@@ -612,5 +632,7 @@
         private System.Windows.Forms.PictureBox dscButton;
         private System.Windows.Forms.Panel githubPanel;
         private System.Windows.Forms.PictureBox githubButton;
+        private System.Windows.Forms.Button fileNameString;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView2;
     }
 }

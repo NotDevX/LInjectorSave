@@ -208,6 +208,7 @@ namespace LInjector
             try {
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 _ = notificationManager.FireNotification("TextBox cleared", infSettings);
+                _ = TypeWriteManager.DoTypeWrite(message: "", fileNameString);
             } catch (Exception) {
                 _ = notificationManager.FireNotification("Error", infSettings);
             }
@@ -217,11 +218,14 @@ namespace LInjector
         {
             dynamic editor = webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].editor").GetAwaiter().GetResult();
             string scriptString = editor.getValue();
+            scriptString = scriptString.Replace("\\n", "\n");
+            scriptString = scriptString.Replace("\\t", "\t");
 
             try
             {
                 krnlApi.Execute(scriptString);
                 _ = notificationManager.FireNotification("Script executed", infSettings);
+
             }
             catch (Exception ex)
             {
@@ -247,14 +251,14 @@ namespace LInjector
             openFileDialog.Title = "Open Script Files | LInjector";
             openFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
             openFileDialog.Multiselect = false;
-
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string fileContent = File.ReadAllText(openFileDialog.FileName);
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
                 filesub.Visible = false;
-                _ = notificationManager.FireNotification("Content Loaded", infSettings);
+                fileNameString.Visible = true;
+                _ = TypeWriteManager.DoTypeWrite(message: openFileDialog.SafeFileName, fileNameString);
             }
             filesub.Visible = false;
         }
