@@ -355,9 +355,9 @@
             this.fileNameString.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fileNameString.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fileNameString.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileNameString.Location = new System.Drawing.Point(741, 0);
+            this.fileNameString.Location = new System.Drawing.Point(781, 0);
             this.fileNameString.Name = "fileNameString";
-            this.fileNameString.Size = new System.Drawing.Size(190, 28);
+            this.fileNameString.Size = new System.Drawing.Size(150, 28);
             this.fileNameString.TabIndex = 6;
             this.fileNameString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.fileNameString.UseVisualStyleBackColor = true;

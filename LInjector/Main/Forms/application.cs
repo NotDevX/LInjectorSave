@@ -209,6 +209,7 @@ namespace LInjector
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 _ = notificationManager.FireNotification("TextBox cleared", infSettings);
                 _ = TypeWriteManager.DoTypeWrite(message: "", fileNameString);
+                fileNameString.Size = new Size(150, 28);
             } catch (Exception) {
                 _ = notificationManager.FireNotification("Error", infSettings);
             }
@@ -257,6 +258,7 @@ namespace LInjector
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
                 filesub.Visible = false;
+                fileNameString.Size = new Size(150, 28);
                 fileNameString.Visible = true;
                 _ = TypeWriteManager.DoTypeWrite(message: openFileDialog.SafeFileName, fileNameString);
             }
