@@ -2,11 +2,11 @@
 
 namespace LInjector.Classes
 {
-    public class DiscordRPCManager
+    public static class DiscordRPCManager
     {
-        private DiscordRpcClient client;
+        private static DiscordRpcClient client;
 
-        public void InitRPC()
+        public static void InitRPC()
         {
             var inmainpresence = new RichPresence()
             {
