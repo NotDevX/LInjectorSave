@@ -249,22 +249,35 @@ namespace LInjector
 
         private async void openFile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Open Script Files | LInjector";
-            openFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
-            openFileDialog.Multiselect = false;
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                string fileContent = File.ReadAllText(openFileDialog.FileName);
-                await webView2.ExecuteScriptAsync("editor.setValue('');");
-                await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Title = "Open Script Files | LInjector";
+                openFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
+                openFileDialog.Multiselect = false;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fileContent = File.ReadAllText(openFileDialog.FileName);
+                    await webView2.ExecuteScriptAsync("editor.setValue('');");
+                    await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
+                    filesub.Visible = false;
+                    fileNameString.Refresh();
+                    fileNameString.Size = new Size(150, 28);
+                    fileNameString.Visible = true;
+                    _ = TypeWriteManager.DoTypeWrite(message: openFileDialog.SafeFileName, fileNameString);
+                }
                 filesub.Visible = false;
-                fileNameString.Refresh();
-                fileNameString.Size = new Size(150, 28);
-                fileNameString.Visible = true;
-                _ = TypeWriteManager.DoTypeWrite(message: openFileDialog.SafeFileName, fileNameString);
             }
-            filesub.Visible = false;
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show("Exception while opening file." + "\nException:\n" + ex.Message.ToString() + "\nTry restarting?",
+                    "[WARNING] LInjector", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (result == DialogResult.Yes)
+                {
+                    Application.Restart();
+                }
+            }
         }
 
         private async void saveFile_Click(object sender, EventArgs e)
@@ -272,6 +285,7 @@ namespace LInjector
             Control previousFocus = ActiveForm.ActiveControl;
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.FileName = fileNameString.Text;
             saveFileDialog.Title = "Save to File | LInjector";
             saveFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
 
