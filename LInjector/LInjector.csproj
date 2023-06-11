@@ -341,6 +341,7 @@
     <None Include="Resources\resize.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
     <Content Include="Linjector.ico" />
     <None Include="Resources\github-mark-white.png" />
     <None Include="Resources\discord-icon.png" />

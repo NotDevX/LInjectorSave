@@ -47,10 +47,11 @@ namespace LInjector
         }
 
 
-        private async void webView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
+        private void webView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
-            if (!e.IsSuccess) {
-                await notificationManager.FireNotification("Failed to load webView2", infSettings);
+            if (!e.IsSuccess)
+            {
+                _ = notificationManager.FireNotification("Failed to load webView2", infSettings);
 
                 DialogResult result = MessageBox.Show("CoreWebView2 Failed to load, try relaunching LInjector?", "[ERROR] LInjector", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
@@ -61,12 +62,12 @@ namespace LInjector
             }
         }
 
-        private async void application_Load(object sender, EventArgs e)
+        private void application_Load(object sender, EventArgs e)
         {
             if (isDevelopment)
-            { await notificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
+            { _ = notificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
             else
-            { await notificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings); }
+            { _ = notificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings); }
 
             try
             {
@@ -75,7 +76,7 @@ namespace LInjector
             catch (Exception ex)
             {
                 MessageBox.Show("Couldn't initialize Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                await notificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
+                _ = notificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
             }
         }
 
@@ -183,22 +184,22 @@ namespace LInjector
             }
         }
 
-        private async void Attach_Click(object sender, EventArgs e)
+        private void Attach_Click(object sender, EventArgs e)
         {
             if (!krnlApi.IsInjected())
             {
                 try
                 {
                     krnlApi.Inject();
-                    await notificationManager.FireNotification("Injected Krnl API", infSettings);
+                    _ = notificationManager.FireNotification("Injected Krnl API", infSettings);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
-                    await notificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
+                    _ =  notificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
                 }
             } else {
-                await notificationManager.FireNotification("Krnl is already injected", infSettings);
+                _ = notificationManager.FireNotification("Krnl is already injected", infSettings);
             }    
         }
 
@@ -206,13 +207,13 @@ namespace LInjector
         {
             try {
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
-                await notificationManager.FireNotification("TextBox cleared", infSettings);
+                _ = notificationManager.FireNotification("TextBox cleared", infSettings);
             } catch (Exception) {
-                await notificationManager.FireNotification("Error", infSettings);
+                _ = notificationManager.FireNotification("Error", infSettings);
             }
         }
 
-        private async void Execute_Click(object sender, EventArgs e)
+        private void Execute_Click(object sender, EventArgs e)
         {
             dynamic editor = webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].editor").GetAwaiter().GetResult();
             string scriptString = editor.getValue();
@@ -220,7 +221,7 @@ namespace LInjector
             try
             {
                 krnlApi.Execute(scriptString);
-                await notificationManager.FireNotification("Script executed", infSettings);
+                _ = notificationManager.FireNotification("Script executed", infSettings);
             }
             catch (Exception ex)
             {
@@ -253,7 +254,7 @@ namespace LInjector
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
                 filesub.Visible = false;
-                await notificationManager.FireNotification("Content Loaded", infSettings);
+                _ = notificationManager.FireNotification("Content Loaded", infSettings);
             }
             filesub.Visible = false;
         }
@@ -277,18 +278,18 @@ namespace LInjector
 
                     if (string.IsNullOrEmpty(scriptString))
                     {
-                        await notificationManager.FireNotification("No content detected", infSettings);
+                        _ = notificationManager.FireNotification("No content detected", infSettings);
                         return;
                     }
 
                     File.WriteAllText(filePath, scriptString);
                     filesub.Visible = false;
-                    await notificationManager.FireNotification("File saved", infSettings);
+                    _ = notificationManager.FireNotification("File saved", infSettings);
                 }
                 catch (Exception)
                 {
                     filesub.Visible = filesub.Visible;
-                    await notificationManager.FireNotification("Error saving the file", infSettings);
+                    _ = notificationManager.FireNotification("Error saving the file", infSettings);
                 }
             }
             previousFocus.Focus();
@@ -306,11 +307,11 @@ namespace LInjector
 
 
                 Clipboard.SetText(scriptString);
-                await notificationManager.FireNotification("Content copied to clipboard", infSettings);
+                _ = notificationManager.FireNotification("Content copied to clipboard", infSettings);
             }
             catch (Exception)
             {
-                await notificationManager.FireNotification("Error on copy to clipboard", infSettings);
+                _ = notificationManager.FireNotification("Error on copy to clipboard", infSettings);
             }
         }
 
