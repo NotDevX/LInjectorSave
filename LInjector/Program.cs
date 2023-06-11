@@ -29,7 +29,7 @@ namespace LInjector
         {
             if (GitHubVersionChecker.IsOutdatedVersion(currentVersion))
             {
-                DialogResult outDatedResult =MessageBox.Show("LInjector is outdated, please, re-run LInjector Updating System or download the latest release via GitHub.\n" +
+                DialogResult outDatedResult = MessageBox.Show("LInjector is outdated, please, re-run LInjector Updating System or download the latest release via GitHub.\n" +
                     "Go to LInjector GitHub?",
                     "LInjector | Outdated", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (outDatedResult == DialogResult.Yes)
