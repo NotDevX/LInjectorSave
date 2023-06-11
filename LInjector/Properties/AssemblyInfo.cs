@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("LInjector")]
-[assembly: AssemblyDescription("The LInjector Application.")]
+[assembly: AssemblyDescription("The LInjector Application")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("The LExploits Development Team")]
 [assembly: AssemblyProduct("LInjector")]
@@ -36,6 +36,10 @@ using System.Runtime.InteropServices;
 // LInjector UI Version https://github.com/ItzzExcel/LInjector
 
 #pragma warning disable CS7035 // The specified version string does not conform to the recommended format - major.minor.build.revision
-[assembly: AssemblyFileVersion("03.06.2023c")]
+[assembly: AssemblyFileVersion("11.06.2023 LInjector")]
+/*
+ * Version format: 'v'+dd/MM/yy, if it's December 31, 1969, the version is "v31.12.1969".
+ * 
+ * 
+ */
 #pragma warning restore CS7035 // The specified version string does not conform to the recommended format - major.minor.build.revision
-                              // Version format: dd/MM/yyy
