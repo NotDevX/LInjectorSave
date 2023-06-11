@@ -282,6 +282,9 @@ namespace LInjector
                         return;
                     }
 
+                    scriptString = scriptString.Replace("\\n", "\n");
+                    scriptString = scriptString.Replace("\\t", "\t");
+
                     File.WriteAllText(filePath, scriptString);
                     filesub.Visible = false;
                     _ = notificationManager.FireNotification("File saved", infSettings);
@@ -292,6 +295,7 @@ namespace LInjector
                     _ = notificationManager.FireNotification("Error saving the file", infSettings);
                 }
             }
+
             previousFocus.Focus();
             filesub.Visible = false;
         }
@@ -305,6 +309,8 @@ namespace LInjector
                 dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
                 string scriptString = editor.ToString().Trim('"');
 
+                scriptString = scriptString.Replace("\\n", "\n");
+                scriptString = scriptString.Replace("\\t", "\t");
 
                 Clipboard.SetText(scriptString);
                 _ = notificationManager.FireNotification("Content copied to clipboard", infSettings);
