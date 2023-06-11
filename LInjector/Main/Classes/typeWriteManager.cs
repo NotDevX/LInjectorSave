@@ -22,15 +22,28 @@ namespace LInjector.Classes
 
             string originalText = targetControl.Text;
 
-            targetControl.Invoke((MethodInvoker)(() =>
+            targetControl.Invoke((MethodInvoker)(async () =>
             {
                 targetControl.Text = "";
 
-                foreach (char character in message)
+                if (message.Length < 50)
                 {
-                    targetControl.Text += character;
-                    targetControl.Refresh();
-                    Task.Delay(30).Wait();
+                    foreach (char character in message)
+                    {
+                        targetControl.Text += character;
+                        targetControl.Refresh();
+                        await Task.Delay(30);
+                    }
+                } 
+                else
+                {
+                    string cutMessage = message.Substring(0, Math.Min(50, message.Length));
+                    foreach (char character in cutMessage)
+                    {
+                        targetControl.Text += character;
+                        targetControl.Refresh();
+                        await Task.Delay(30);
+                    }
                 }
             }));
 

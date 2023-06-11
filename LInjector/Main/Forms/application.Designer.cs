@@ -358,7 +358,7 @@
             this.fileNameString.Location = new System.Drawing.Point(781, 0);
             this.fileNameString.Name = "fileNameString";
             this.fileNameString.Size = new System.Drawing.Size(150, 28);
-            this.fileNameString.TabIndex = 6;
+            this.fileNameString.TabIndex = 1;
             this.fileNameString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.fileNameString.UseVisualStyleBackColor = true;
             this.fileNameString.Visible = false;
@@ -418,7 +418,7 @@
             this.editSubmenu.Location = new System.Drawing.Point(179, 0);
             this.editSubmenu.Name = "editSubmenu";
             this.editSubmenu.Size = new System.Drawing.Size(181, 28);
-            this.editSubmenu.TabIndex = 3;
+            this.editSubmenu.TabIndex = 10;
             this.editSubmenu.Visible = false;
             // 
             // reloadApp
@@ -464,7 +464,7 @@
             this.filesub.Location = new System.Drawing.Point(73, 0);
             this.filesub.Name = "filesub";
             this.filesub.Size = new System.Drawing.Size(106, 28);
-            this.filesub.TabIndex = 2;
+            this.filesub.TabIndex = 10;
             this.filesub.Visible = false;
             // 
             // saveFile
@@ -516,7 +516,7 @@
             this.Attach.Location = new System.Drawing.Point(32, 0);
             this.Attach.Name = "Attach";
             this.Attach.Size = new System.Drawing.Size(29, 28);
-            this.Attach.TabIndex = 1;
+            this.Attach.TabIndex = 10;
             this.Attach.Text = "🧩";
             this.Attach.UseMnemonic = false;
             this.Attach.UseVisualStyleBackColor = true;
@@ -536,7 +536,7 @@
             this.Execute.Location = new System.Drawing.Point(3, 0);
             this.Execute.Name = "Execute";
             this.Execute.Size = new System.Drawing.Size(29, 28);
-            this.Execute.TabIndex = 1;
+            this.Execute.TabIndex = 10;
             this.Execute.Text = "▶";
             this.Execute.UseMnemonic = false;
             this.Execute.UseVisualStyleBackColor = true;

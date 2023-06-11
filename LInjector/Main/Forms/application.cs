@@ -16,8 +16,6 @@ using LInjector.Classes;
 using KrnlAPI;
 using LInjector;
 using Microsoft.Web.WebView2.Core;
-using Microsoft.Web.WebView2.WinForms;
-using Microsoft.Web.WebView2.Wpf;
 
 namespace LInjector
 {
@@ -251,6 +249,9 @@ namespace LInjector
         {
             try
             {
+                fileNameString.Refresh();
+                fileNameString.ResetText();
+                fileNameString.Size = new Size(150, 28);
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Title = "Open Script Files | LInjector";
                 openFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
