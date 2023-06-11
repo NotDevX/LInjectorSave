@@ -36,7 +36,7 @@ LInjector is a Development Tool.
 Windows Forms Application.
 Written in C#, with .NET Framework 4.8
 
-The latest LInjector Release is v26.05.2023. Format: (dd/MM/yyyy)
+The LInjector Releases Format is: (dd/MM/yyyy)
 The LInjector Project is under the MIT License.
 
 - [LInjector, uses the Krnl API to work.](https://krnl.ca/)
