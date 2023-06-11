@@ -27,7 +27,7 @@ namespace LInjector
         [STAThread]
         static void Main()
         {
-            if (!GitHubVersionChecker.IsOutdatedVersion(currentVersion))
+            if (GitHubVersionChecker.IsOutdatedVersion(currentVersion))
             {
                 DialogResult outDatedResult =MessageBox.Show("LInjector is outdated, please, re-run LInjector Updating System or download the latest release via GitHub.\n" +
                     "Go to LInjector GitHub?",
