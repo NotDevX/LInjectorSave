@@ -74,7 +74,7 @@ namespace LInjector
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Couldn't initialize Krnl API\nException:\n" + ex + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Couldn't initialize Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await notificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
             }
         }
@@ -194,7 +194,7 @@ namespace LInjector
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
                     await notificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
                 }
             } else {
@@ -224,7 +224,7 @@ namespace LInjector
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Couldn't execute with Krnl API\nException:\n" + ex + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Couldn't execute with Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

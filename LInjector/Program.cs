@@ -27,11 +27,15 @@ namespace LInjector
         [STAThread]
         static void Main()
         {
-            if (GitHubVersionChecker.IsOutdatedVersion(currentVersion))
+            if (!GitHubVersionChecker.IsOutdatedVersion(currentVersion))
             {
-                MessageBox.Show("LInjector is outdated, please, re-run LInjector Updating System or download the latest release via GitHub.",
-                    "LInjector | Outdated", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector/releases");
+                DialogResult outDatedResult =MessageBox.Show("LInjector is outdated, please, re-run LInjector Updating System or download the latest release via GitHub.\n" +
+                    "Go to LInjector GitHub?",
+                    "LInjector | Outdated", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (outDatedResult == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector/releases");
+                }
             }
 
             tempLog.CreateVersionFile(currentVersion);
