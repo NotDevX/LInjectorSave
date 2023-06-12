@@ -1,14 +1,18 @@
 ﻿using DiscordRPC;
+using DiscordRPC.Logging;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace LInjector.Classes
 {
     public static class DiscordRPCManager
     {
-        private static DiscordRpcClient client;
+        public static DiscordRpcClient client;
 
         public static void InitRPC()
         {
-            var inmainpresence = new RichPresence()
+            var baseRichPresence = new RichPresence()
             {
                 Details = "Using LInjector",
                 State = "Exploiting",
@@ -21,7 +25,60 @@ namespace LInjector.Classes
 
             client = new DiscordRpcClient("1104489169314660363");
             client.Initialize();
-            client.SetPresence(inmainpresence);
+            client.SetPresence(baseRichPresence);
+        }
+
+        public static void SetRpcFile(string currentFile)
+        {
+            if (client.IsInitialized)
+            {
+                try
+                {
+                    var state = "Editing File: " + currentFile;
+                    var presence = new RichPresence()
+                    {
+                        Details = "Using LInjector",
+                        State = state,
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
+                            LargeImageText = "by The LExploits Project.",
+                        }
+                    };
+
+                    client.SetPresence(presence);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Couldn't update LInjector State (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        public static void SetBaseRichPresence()
+        {
+            if (client.IsInitialized)
+            {
+                try
+                {
+                    var baseRichPresence = new RichPresence()
+                    {
+                        Details = "Using LInjector",
+                        State = "Exploiting",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
+                            LargeImageText = "by The LExploits Project.",
+                        }
+                    };
+
+                    client.SetPresence(baseRichPresence);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Couldn't set base Rich Presence (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

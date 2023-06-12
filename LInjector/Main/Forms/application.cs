@@ -16,13 +16,13 @@ using LInjector.Classes;
 using KrnlAPI;
 using LInjector;
 using Microsoft.Web.WebView2.Core;
+using DiscordRPC;
 
 namespace LInjector
 {
     public partial class application : Form {
 
         KrnlApi krnlApi = new KrnlApi();
-        NotificationManager notificationManager = new NotificationManager();
 
         private bool isDevelopment = false;
 
@@ -49,7 +49,7 @@ namespace LInjector
         {
             if (!e.IsSuccess)
             {
-                _ = notificationManager.FireNotification("Failed to load webView2", infSettings);
+                _ = NotificationManager.FireNotification("Failed to load webView2", infSettings);
 
                 DialogResult result = MessageBox.Show("CoreWebView2 Failed to load, try relaunching LInjector?", "[ERROR] LInjector", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
@@ -63,9 +63,9 @@ namespace LInjector
         private void application_Load(object sender, EventArgs e)
         {
             if (isDevelopment)
-            { _ = notificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
+            { _ = NotificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
             else
-            { _ = notificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings); }
+            { _ = NotificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings); }
 
             try
             {
@@ -74,7 +74,7 @@ namespace LInjector
             catch (Exception ex)
             {
                 MessageBox.Show("Couldn't initialize Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _ = notificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
+                _ = NotificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
             }
         }
 
@@ -189,7 +189,7 @@ namespace LInjector
                 try
                 {
                     krnlApi.Inject();
-                    _ = notificationManager.FireNotification("Injected Krnl API", infSettings);
+                    _ = NotificationManager.FireNotification("Injected Krnl API", infSettings);
                 }
                 catch (Exception ex)
                 {
@@ -202,10 +202,10 @@ namespace LInjector
                         Console.WriteLine("Tried to inject, but Krnl not found.");
                     }
                     MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
-                    _ =  notificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
+                    _ =  NotificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
                 }
             } else {
-                _ = notificationManager.FireNotification("Krnl is already injected", infSettings);
+                _ = NotificationManager.FireNotification("Krnl is already injected", infSettings);
             }    
         }
 
@@ -213,13 +213,14 @@ namespace LInjector
         {
             try {
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
-                _ = notificationManager.FireNotification("TextBox cleared", infSettings);
+                _ = NotificationManager.FireNotification("TextBox cleared", infSettings);
                 _ = TypeWriteManager.DoTypeWrite(message: "", fileNameString);
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
             } catch (Exception) {
-                _ = notificationManager.FireNotification("Error", infSettings);
+                _ = NotificationManager.FireNotification("Error", infSettings);
             }
+            DiscordRPCManager.SetBaseRichPresence();
         }
 
         private void Execute_Click(object sender, EventArgs e)
@@ -232,7 +233,7 @@ namespace LInjector
             try
             {
                 krnlApi.Execute(scriptString);
-                _ = notificationManager.FireNotification("Script executed", infSettings);
+                _ = NotificationManager.FireNotification("Script executed", infSettings);
 
             }
             catch (Exception ex)
@@ -309,7 +310,7 @@ namespace LInjector
 
                     if (string.IsNullOrEmpty(scriptString))
                     {
-                        _ = notificationManager.FireNotification("No content detected", infSettings);
+                        _ = NotificationManager.FireNotification("No content detected", infSettings);
                         return;
                     }
 
@@ -318,12 +319,12 @@ namespace LInjector
 
                     File.WriteAllText(filePath, scriptString);
                     filesub.Visible = false;
-                    _ = notificationManager.FireNotification("File saved", infSettings);
+                    _ = NotificationManager.FireNotification("File saved", infSettings);
                 }
                 catch (Exception)
                 {
                     filesub.Visible = filesub.Visible;
-                    _ = notificationManager.FireNotification("Error saving the file", infSettings);
+                    _ = NotificationManager.FireNotification("Error saving the file", infSettings);
                 }
             }
 
@@ -343,11 +344,11 @@ namespace LInjector
                 scriptString = scriptString.Replace("\\n", "\n").ToString().Replace("\\t", "\t");
 
                 Clipboard.SetText(scriptString);
-                _ = notificationManager.FireNotification("Content copied to clipboard", infSettings);
+                _ = NotificationManager.FireNotification("Content copied to clipboard", infSettings);
             }
             catch (Exception)
             {
-                _ = notificationManager.FireNotification("Error on copy to clipboard", infSettings);
+                _ = NotificationManager.FireNotification("Error on copy to clipboard", infSettings);
             }
         }
 

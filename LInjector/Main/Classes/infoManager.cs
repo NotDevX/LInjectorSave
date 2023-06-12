@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace LInjector.Classes
 {
-    public class NotificationManager
+    public static class NotificationManager
     {
-        private bool isBusy;
+        private static bool isBusy;
 
-        public async Task FireNotification<T>(string message, T targetControl) where T : Control
+        public static async Task FireNotification<T>(string message, T targetControl) where T : Control
         {
             if (isBusy)
             {

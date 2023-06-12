@@ -33,6 +33,7 @@ namespace LInjector.Classes
                         targetControl.Text += character;
                         targetControl.Refresh();
                         await Task.Delay(30);
+                        DiscordRPCManager.SetRpcFile(message);
                     }
                 } 
                 else
@@ -43,6 +44,7 @@ namespace LInjector.Classes
                         targetControl.Text += character;
                         targetControl.Refresh();
                         await Task.Delay(30);
+                        DiscordRPCManager.SetRpcFile(message);
                     }
                 }
             }));

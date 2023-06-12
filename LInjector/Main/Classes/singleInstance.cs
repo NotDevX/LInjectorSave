@@ -32,15 +32,7 @@ namespace LInjector.Classes
                 return;
             }
 
-            if (Program.isDevelopment == true)
-            {
-                Application.Run(new application());
-            } else
-            {
-                #pragma warning disable CS0162 // Unreachable code detected
-                Application.Run(new splashscr());
-                #pragma warning restore CS0162 // Unreachable code detected
-            }
+            Application.Run(new splashscr());
 
             Release();
         }
