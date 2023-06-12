@@ -193,6 +193,14 @@ namespace LInjector
                 }
                 catch (Exception ex)
                 {
+                    try
+                    {
+                        KrnlAPI.Injector.inject(".\\\\injector.dll");
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Tried to inject, but Krnl not found.");
+                    }
                     MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
                     _ =  notificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
                 }
@@ -332,8 +340,7 @@ namespace LInjector
                 dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
                 string scriptString = editor.ToString().Trim('"');
 
-                scriptString = scriptString.Replace("\\n", "\n");
-                scriptString = scriptString.Replace("\\t", "\t");
+                scriptString = scriptString.Replace("\\n", "\n").ToString().Replace("\\t", "\t");
 
                 Clipboard.SetText(scriptString);
                 _ = notificationManager.FireNotification("Content copied to clipboard", infSettings);
