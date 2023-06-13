@@ -33,9 +33,6 @@ namespace LInjector
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
-
-            this.spinningRGB.Color1 = checkConfig.SplashColor1;
-            this.spinningRGB.Color1 = checkConfig.SplashColor2;
         }
 
         protected override void OnLoad(EventArgs e)

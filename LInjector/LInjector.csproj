@@ -278,7 +278,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main\Classes\checkConfig.cs" />
     <Compile Include="Main\Classes\createThreadMsgBox.cs" />
     <Compile Include="Main\Classes\tempLog.cs" />
     <Compile Include="Main\Classes\fileManager.cs" />
@@ -323,9 +322,6 @@
       <Link>.editorconfig</Link>
     </None>
     <None Include="app.manifest" />
-    <AdditionalFiles Include="config.cfg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

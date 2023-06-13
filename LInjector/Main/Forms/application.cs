@@ -42,12 +42,7 @@ namespace LInjector
             #pragma warning disable CS0162 // Unreachable code detected
             if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") { isDevelopment = true; }
             #pragma warning restore CS0162 // Unreachable code detected
-
-            if (checkConfig.IsTopMost == true)
-            {
-                this.TopMost = true;
             }
-        }
 
 
         private void webView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
