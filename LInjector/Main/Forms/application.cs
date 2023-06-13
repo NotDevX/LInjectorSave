@@ -42,6 +42,11 @@ namespace LInjector
             #pragma warning disable CS0162 // Unreachable code detected
             if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") { isDevelopment = true; }
             #pragma warning restore CS0162 // Unreachable code detected
+
+            if (checkConfig.IsTopMost == true)
+            {
+                this.TopMost = true;
+            }
         }
 
 
@@ -195,13 +200,13 @@ namespace LInjector
                 {
                     try
                     {
-                        KrnlAPI.Injector.inject(".\\\\injector.dll");
+                        KrnlAPI.Injector.inject(@".\injector.dll");
                     }
                     catch (Exception)
                     {
-                        Console.WriteLine("Tried to inject, but Krnl not found.");
+                        Console.WriteLine("Tried to inject, but Krnl Dynamic-Link library not found.");
                     }
-                    MessageBox.Show("Couldn't inject Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+                    createThreadMsgBox.createMsgThread("Couldn't inject Krnl API\n" + "Exception:\n" + ex.Message + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
                     _ =  NotificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
                 }
             } else {

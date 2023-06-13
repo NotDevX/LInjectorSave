@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LInjector;
+using LInjector.Classes;
 
 namespace LInjector
 {
@@ -32,6 +33,9 @@ namespace LInjector
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
+
+            this.spinningRGB.Color1 = checkConfig.SplashColor1;
+            this.spinningRGB.Color1 = checkConfig.SplashColor2;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -42,10 +46,10 @@ namespace LInjector
 
         private async Task AnimateSplash()
         {
-            await Task.Delay(5000); // Esperar 5 segundos (duración de la animación)
+            await Task.Delay(5000);
 
             DateTime startFadeOutTime = DateTime.Now;
-            double fadeOutDuration = 500; // Duración del fade-out en milisegundos
+            double fadeOutDuration = 500;
 
             while (DateTime.Now - startFadeOutTime < TimeSpan.FromMilliseconds(fadeOutDuration))
             {
@@ -55,7 +59,7 @@ namespace LInjector
                     opacity = 0;
 
                 Opacity = opacity;
-                await Task.Delay(10); // Pequeña pausa para actualizar la opacidad gradualmente
+                await Task.Delay(10);
             }
 
             application mainForm = new application();
