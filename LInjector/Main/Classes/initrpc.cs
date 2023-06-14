@@ -48,6 +48,10 @@ namespace LInjector.Classes
                         {
                             LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
                             LargeImageText = "by The LExploits Project.",
+                        },
+                        Buttons = new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest" }
                         }
                     };
 
