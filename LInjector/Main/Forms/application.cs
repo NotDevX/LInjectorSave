@@ -73,7 +73,7 @@ namespace LInjector
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Couldn't initialize Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                createThreadMsgBox.createMsgThread("Couldn't initialize Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 _ = NotificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
             }
         }
@@ -214,7 +214,7 @@ namespace LInjector
             try {
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 _ = NotificationManager.FireNotification("TextBox cleared", infSettings);
-                _ = TypeWriteManager.DoTypeWrite(message: "", fileNameString);
+                _ = TypeWriteManager.DoTypeWrite("", fileNameString);
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
             } catch (Exception) {
@@ -227,8 +227,7 @@ namespace LInjector
         {
             dynamic editor = webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].editor").GetAwaiter().GetResult();
             string scriptString = editor.getValue();
-            scriptString = scriptString.Replace("\\n", "\n");
-            scriptString = scriptString.Replace("\\t", "\t");
+            scriptString = scriptString.Replace("\\n", ";");
 
             try
             {
@@ -238,7 +237,7 @@ namespace LInjector
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Couldn't execute with Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                createThreadMsgBox.createMsgThread("Couldn't execute with Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -274,7 +273,7 @@ namespace LInjector
                     fileNameString.Refresh();
                     fileNameString.Size = new Size(150, 28);
                     fileNameString.Visible = true;
-                    _ = TypeWriteManager.DoTypeWrite(message: openFileDialog.SafeFileName, fileNameString);
+                    _ = TypeWriteManager.DoTypeWrite(openFileDialog.SafeFileName, fileNameString);
                 }
                 filesub.Visible = false;
             }
@@ -306,7 +305,9 @@ namespace LInjector
                 try
                 {
                     dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
-                    string scriptString = editor.ToString().Trim('"');
+                    string scriptString = editor.ToString();
+                    scriptString.TrimStart('"');
+                    scriptString.TrimEnd('"');
 
                     if (string.IsNullOrEmpty(scriptString))
                     {
@@ -314,12 +315,13 @@ namespace LInjector
                         return;
                     }
 
-                    scriptString = scriptString.Replace("\\n", "\n");
-                    scriptString = scriptString.Replace("\\t", "\t");
+                    scriptString = scriptString.Replace("\\n", ";");
 
                     File.WriteAllText(filePath, scriptString);
                     filesub.Visible = false;
-                    _ = NotificationManager.FireNotification("File saved", infSettings);
+                    string savedFileName = System.IO.Path.GetFileName(saveFileDialog.FileName);
+                    _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
+                    _ = TypeWriteManager.DoTypeWrite(savedFileName, fileNameString);
                 }
                 catch (Exception)
                 {
@@ -339,9 +341,12 @@ namespace LInjector
             try
             {
                 dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
-                string scriptString = editor.ToString().Trim('"');
+                string scriptString = editor.ToString();
 
-                scriptString = scriptString.Replace("\\n", "\n").ToString().Replace("\\t", "\t");
+                scriptString.Replace("\\n", "\n");
+                scriptString.Replace("\\t", "\t");
+                scriptString = scriptString.Trim('"');
+
 
                 Clipboard.SetText(scriptString);
                 _ = NotificationManager.FireNotification("Content copied to clipboard", infSettings);

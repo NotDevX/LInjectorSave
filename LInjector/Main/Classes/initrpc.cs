@@ -2,6 +2,7 @@
 using DiscordRPC.Logging;
 using System;
 using System.Data;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace LInjector.Classes
@@ -20,6 +21,10 @@ namespace LInjector.Classes
                 {
                     LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
                     LargeImageText = "by The LExploits Project.",
+                },
+                Buttons = new DiscordRPC.Button[]
+                {
+                    new DiscordRPC.Button() { Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest" }
                 }
             };
 
@@ -50,7 +55,7 @@ namespace LInjector.Classes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Couldn't update LInjector State (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    createThreadMsgBox.createMsgThread("Couldn't update LInjector State (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -69,6 +74,10 @@ namespace LInjector.Classes
                         {
                             LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
                             LargeImageText = "by The LExploits Project.",
+                        },
+                        Buttons = new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest" }
                         }
                     };
 
@@ -76,7 +85,7 @@ namespace LInjector.Classes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Couldn't set base Rich Presence (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    createThreadMsgBox.createMsgThread("Couldn't set base Rich Presence (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
