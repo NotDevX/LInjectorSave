@@ -61,6 +61,7 @@ namespace LInjector
 
             application mainForm = new application();
             mainForm.Show();
+            mainForm.BringToFront();
 
             this.Hide();
         }
