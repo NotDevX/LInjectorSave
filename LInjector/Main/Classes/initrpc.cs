@@ -1,8 +1,5 @@
 ﻿using DiscordRPC;
-using DiscordRPC.Logging;
 using System;
-using System.Data;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace LInjector.Classes

@@ -1,22 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
-using System.Linq;
+using LInjector.Classes;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Threading;
 using LInjector.Classes;
 using KrnlAPI;
-using LInjector;
 using Microsoft.Web.WebView2.Core;
-using DiscordRPC;
 
 namespace LInjector
 {
