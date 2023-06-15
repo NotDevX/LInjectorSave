@@ -4,7 +4,6 @@ using System.IO;
 using LInjector.Classes;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using LInjector.Classes;
 using KrnlAPI;
 using Microsoft.Web.WebView2.Core;
 
