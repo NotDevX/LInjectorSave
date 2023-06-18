@@ -83,6 +83,7 @@
     </Reference>
     <Reference Include="KrnlAPI">
       <HintPath>Resources\libs\KrnlAPI.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />

@@ -182,14 +182,6 @@ namespace LInjector
                 }
                 catch (Exception ex)
                 {
-                    try
-                    {
-                        KrnlAPI.Injector.inject(@".\injector.dll");
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("Tried to inject, but Krnl Dynamic-Link library not found.");
-                    }
                     createThreadMsgBox.createMsgThread("Couldn't inject Krnl API\n" + "Exception:\n" + ex.Message + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
                     _ =  NotificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
                 }
