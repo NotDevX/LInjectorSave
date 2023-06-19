@@ -17,7 +17,7 @@ namespace LInjector
 
 
         [STAThread]
-        static void Main()
+        public static void Main(string[] args)
         {
             if (GitHubVersionChecker.IsOutdatedVersion(currentVersion) == true)
             {
@@ -31,6 +31,11 @@ namespace LInjector
             }
 
             tempLog.CreateVersionFile(currentVersion);
+            if (args.Length > 0 && args[0] == "--metalpipe")
+            {
+                doPipe.DownloadPipeAsync();
+                Console.WriteLine("--metalpipe called.");
+            }
             DiscordRPCManager.InitRPC();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

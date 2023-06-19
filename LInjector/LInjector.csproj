@@ -280,6 +280,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main\Classes\createThreadMsgBox.cs" />
+    <Compile Include="Main\Classes\doPipe.cs" />
     <Compile Include="Main\Classes\tempLog.cs" />
     <Compile Include="Main\Classes\fileManager.cs" />
     <Compile Include="Main\Forms\application.cs">
