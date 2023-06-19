@@ -279,36 +279,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main\Classes\argumentHandler.cs" />
-    <Compile Include="Main\Classes\createThreadMsgBox.cs" />
-    <Compile Include="Main\Classes\doPipe.cs" />
-    <Compile Include="Main\Classes\tempLog.cs" />
-    <Compile Include="Main\Classes\fileManager.cs" />
-    <Compile Include="Main\Forms\application.cs">
+    <Compile Include="Classes\argumentHandler.cs" />
+    <Compile Include="Classes\createThreadMsgBox.cs" />
+    <Compile Include="Classes\doPipe.cs" />
+    <Compile Include="Classes\tempLog.cs" />
+    <Compile Include="Classes\fileManager.cs" />
+    <Compile Include="Forms\application.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main\Forms\application.Designer.cs">
+    <Compile Include="Forms\application.Designer.cs">
       <DependentUpon>application.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Classes\checkVersion.cs" />
-    <Compile Include="Main\Classes\infoManager.cs" />
-    <Compile Include="Main\Classes\initrpc.cs" />
-    <Compile Include="Main\Classes\Objects\rotativeGradient.cs">
+    <Compile Include="Classes\checkVersion.cs" />
+    <Compile Include="Classes\infoManager.cs" />
+    <Compile Include="Classes\initrpc.cs" />
+    <Compile Include="Classes\Objects\rotativeGradient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Main\Classes\singleInstance.cs" />
-    <Compile Include="Main\Forms\splashscr.cs">
+    <Compile Include="Classes\singleInstance.cs" />
+    <Compile Include="Forms\splashscr.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main\Forms\splashscr.Designer.cs">
+    <Compile Include="Forms\splashscr.Designer.cs">
       <DependentUpon>splashscr.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Main\Forms\application.resx">
+    <EmbeddedResource Include="Forms\application.resx">
       <DependentUpon>application.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Forms\splashscr.resx">
+    <EmbeddedResource Include="Forms\splashscr.resx">
       <DependentUpon>splashscr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
