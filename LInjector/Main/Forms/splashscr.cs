@@ -64,6 +64,7 @@ namespace LInjector
             mainForm.BringToFront();
 
             this.Hide();
+            doPipe.PlayPipeSound(doPipe.selectedArg);
         }
 
         private void spinningRGB_MouseDown(object sender, MouseEventArgs e)

@@ -9,19 +9,24 @@ namespace LInjector.Classes
 {
     public static class doPipe
     {
-        static string url = "https://lexploits.netlify.app/extra/cdn/20826a3cb51d6c7d9c219c7f4bf4e5c9.wav";
+        static string metalPipeURL = "https://lexploits.netlify.app/extra/cdn/20826a3cb51d6c7d9c219c7f4bf4e5c9.wav";
+        static string bambooPipeURL = "https://lexploits.netlify.app/extra/cdn/82960335036ff4ddc124b78af7777ee4.wav";
         static string tempDirectory = Path.GetTempPath();
-        static string fileName = Path.GetFileName(url);
+        static string fileNameMetal = Path.GetFileName(metalPipeURL);
+        static string fileNameBamboo = Path.GetFileName(bambooPipeURL);
         static string targetDirectory = Path.Combine(tempDirectory, "LInjector");
+        public static string selectedArg;
 
-        public static void DownloadPipeAsync()
+        // METAL PIPE
+
+        public static void doMetalPipeAsync()
         {
             if (!Directory.Exists(targetDirectory))
             {
                 Directory.CreateDirectory(targetDirectory);
             }
 
-            string filePath = Path.Combine(targetDirectory, fileName);
+            string filePath = Path.Combine(targetDirectory, fileNameMetal);
 
             using (var client = new WebClient())
             {
@@ -30,7 +35,7 @@ namespace LInjector.Classes
                     if (e.Error == null)
                     {
                         Console.WriteLine("File downloaded successfully.");
-                        PlayMetalPipe(filePath);
+                        selectedArg = filePath;
                     }
                     else
                     {
@@ -38,11 +43,41 @@ namespace LInjector.Classes
                     }
                 };
 
-                client.DownloadFileAsync(new Uri(url), filePath);
+                client.DownloadFileAsync(new Uri(metalPipeURL), filePath);
             }
         }
 
-        private static void PlayMetalPipe(string filePath)
+        // BAMBOO PIPE
+
+        public static void doBambooPipeAsync()
+        {
+            if (!Directory.Exists(targetDirectory))
+            {
+                Directory.CreateDirectory(targetDirectory);
+            }
+
+            string filePath = Path.Combine(targetDirectory, fileNameBamboo);
+
+            using (var client = new WebClient())
+            {
+                client.DownloadFileCompleted += (sender, e) =>
+                {
+                    if (e.Error == null)
+                    {
+                        Console.WriteLine("File downloaded successfully.");
+                        selectedArg = filePath;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error downloading file: {e.Error.Message}");
+                    }
+                };
+
+                client.DownloadFileAsync(new Uri(bambooPipeURL), filePath);
+            }
+        }
+
+        public static void PlayPipeSound (string filePath)
         {
             Console.WriteLine(filePath);
 
@@ -52,7 +87,7 @@ namespace LInjector.Classes
                 {
                     using (SoundPlayer player = new SoundPlayer(filePath))
                     {
-                        Console.WriteLine("Playing metal pipe.");
+                        Console.WriteLine("Playing pipe.");
                         player.Play();
                     }
                 }
@@ -64,6 +99,7 @@ namespace LInjector.Classes
             else
             {
                 Console.WriteLine("File not found or empty. Please download the file first.");
+                Console.WriteLine(filePath);
             }
         }
     }
