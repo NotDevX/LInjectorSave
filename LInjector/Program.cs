@@ -7,7 +7,7 @@ using LInjector.Classes;
  * ░▒█░░░░▒█░░█░▒█░░░█░█▀▀░█░░░░█░░█░░█░█▄▄▀
  * ░▒█▄▄█░▄█▄░▀░░▀░█▄█░▀▀▀░▀▀▀░░▀░░░▀▀░░▀░▀▀ 
  * 
- * A project by ItzzExcel. Started at may 5, 2023.
+ * A project by ItzzExcel. Started at May 5, 2023.
  */
 
 /* Krnl API is down, (maybe it will not come back with the API).
@@ -56,14 +56,17 @@ namespace LInjector
                 if (outDatedResult == DialogResult.Yes)
                 {
                     System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector/releases");
+                    cwDt.CwDt("LInjector is outdated.");
                 }
             }
 
-            tempLog.CreateVersionFile(currentVersion);
-            argumentHandler.analyzeArgument(args);
-            DiscordRPCManager.InitRPC();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            tempLog.CreateVersionFile(currentVersion);
+            cwDt.CwDt("Called argument analyzer.");
+            argumentHandler.analyzeArgument(args);
+            ConsoleManager.Initialize();
+            DiscordRPCManager.InitRPC();
             SingleInstanceChecker.CheckInstance();
         }
     }

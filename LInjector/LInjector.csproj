@@ -280,7 +280,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\argumentHandler.cs" />
+    <Compile Include="Classes\consoleHandler.cs" />
     <Compile Include="Classes\createThreadMsgBox.cs" />
+    <Compile Include="Classes\cwDateTime.cs" />
     <Compile Include="Classes\doPipe.cs" />
     <Compile Include="Classes\tempLog.cs" />
     <Compile Include="Classes\fileManager.cs" />
@@ -348,6 +350,7 @@
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
     <Content Include="Linjector.ico" />
+    <Content Include="Resources\terminal-icon.png" />
     <None Include="Resources\github-mark-white.png" />
     <None Include="Resources\discord-icon.png" />
   </ItemGroup>

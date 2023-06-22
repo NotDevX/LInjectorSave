@@ -45,6 +45,8 @@
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
             this.fileNameString = new System.Windows.Forms.Button();
+            this.terminalPanel = new System.Windows.Forms.Panel();
+            this.terminalButton = new System.Windows.Forms.PictureBox();
             this.githubPanel = new System.Windows.Forms.Panel();
             this.githubButton = new System.Windows.Forms.PictureBox();
             this.dscPanel = new System.Windows.Forms.Panel();
@@ -69,6 +71,8 @@
             this.icon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.execinjPanel.SuspendLayout();
+            this.terminalPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).BeginInit();
             this.githubPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
             this.dscPanel.SuspendLayout();
@@ -331,6 +335,7 @@
             // 
             this.execinjPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.execinjPanel.Controls.Add(this.fileNameString);
+            this.execinjPanel.Controls.Add(this.terminalPanel);
             this.execinjPanel.Controls.Add(this.githubPanel);
             this.execinjPanel.Controls.Add(this.dscPanel);
             this.execinjPanel.Controls.Add(this.editSubmenu);
@@ -355,14 +360,37 @@
             this.fileNameString.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fileNameString.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fileNameString.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileNameString.Location = new System.Drawing.Point(781, 0);
+            this.fileNameString.Location = new System.Drawing.Point(753, 0);
             this.fileNameString.Name = "fileNameString";
             this.fileNameString.Size = new System.Drawing.Size(150, 28);
-            this.fileNameString.TabIndex = 1;
+            this.fileNameString.TabIndex = 12;
             this.fileNameString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.fileNameString.UseVisualStyleBackColor = true;
             this.fileNameString.Visible = false;
-            this.fileNameString.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fileNameString_MouseDown);
+            // 
+            // terminalPanel
+            // 
+            this.terminalPanel.Controls.Add(this.terminalButton);
+            this.terminalPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.terminalPanel.Location = new System.Drawing.Point(903, 0);
+            this.terminalPanel.Name = "terminalPanel";
+            this.terminalPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.terminalPanel.Size = new System.Drawing.Size(28, 28);
+            this.terminalPanel.TabIndex = 11;
+            // 
+            // terminalButton
+            // 
+            this.terminalButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.terminalButton.Image = global::LInjector.Properties.Resources.terminal_icon;
+            this.terminalButton.Location = new System.Drawing.Point(5, 5);
+            this.terminalButton.Name = "terminalButton";
+            this.terminalButton.Size = new System.Drawing.Size(18, 18);
+            this.terminalButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.terminalButton.TabIndex = 0;
+            this.terminalButton.TabStop = false;
+            this.terminalButton.Click += new System.EventHandler(this.terminalButton_Click);
+            this.terminalButton.MouseEnter += new System.EventHandler(this.terminalButton_MouseEnter);
+            this.terminalButton.MouseLeave += new System.EventHandler(this.terminalButton_MouseLeave);
             // 
             // githubPanel
             // 
@@ -594,6 +622,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
             this.execinjPanel.PerformLayout();
+            this.terminalPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).EndInit();
             this.githubPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
             this.dscPanel.ResumeLayout(false);
@@ -633,7 +663,9 @@
         private System.Windows.Forms.PictureBox dscButton;
         private System.Windows.Forms.Panel githubPanel;
         private System.Windows.Forms.PictureBox githubButton;
-        private System.Windows.Forms.Button fileNameString;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView2;
+        private System.Windows.Forms.Button fileNameString;
+        private System.Windows.Forms.Panel terminalPanel;
+        private System.Windows.Forms.PictureBox terminalButton;
     }
 }

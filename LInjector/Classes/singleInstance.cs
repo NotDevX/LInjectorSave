@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -31,6 +32,7 @@ namespace LInjector.Classes
             }
 
             Application.Run(new splashscr()); // You can remove the splashscreen by changing "splashscr" for "application"
+            Console.Title = "LInjector";
 
             Release();
         }

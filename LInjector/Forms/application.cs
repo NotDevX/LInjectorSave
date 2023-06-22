@@ -144,11 +144,13 @@ namespace LInjector
             }
         }
 
-
         private void fileNameString_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
 
         private void infSettings_MouseDown(object sender, MouseEventArgs e)
@@ -189,8 +191,18 @@ namespace LInjector
                 }
                 catch (Exception ex)
                 {
-                    createThreadMsgBox.createMsgThread("Couldn't inject Krnl API\n" + "Exception:\n" + ex.Message + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+                    createThreadMsgBox.createMsgThread("Couldn't inject.\nDue to Hyperion Byfron, Roblox Anticheat, Krnl is down, and maybe it will not came back with the API.\nIf you have your own injector, you can edit my UI and make it usable as an executor."
+                              + "\n"
+                              + "Exception:\n"
+                              + ex.Message
+                              + "\nPlease, don't share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
                     _ =  NotificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
+                    cwDt.CwDt(
+                              "Couldn't inject.\nDue to Hyperion Byfron, Roblox Anticheat, Krnl is down, and maybe it will not came back with the API.\nIf you have your own injector, you can edit my UI and make it usable as an executor."
+                              + "\n"
+                              + "Exception:\n"
+                              + ex.Message
+                              + "\nPlease, don't share it on Discord.");
                 }
             } else {
                 _ = NotificationManager.FireNotification("Krnl is already injected", infSettings);
@@ -202,6 +214,7 @@ namespace LInjector
             try {
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 _ = NotificationManager.FireNotification("TextBox cleared", infSettings);
+                cwDt.CwDt("Cleared Textbox");
                 _ = TypeWriteManager.DoTypeWrite("", fileNameString);
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
@@ -262,6 +275,7 @@ namespace LInjector
                     fileNameString.Size = new Size(150, 28);
                     fileNameString.Visible = true;
                     _ = TypeWriteManager.DoTypeWrite(openFileDialog.SafeFileName, fileNameString);
+                    cwDt.CwDt("Content " + openFileDialog.SafeFileName + " loaded.");
                 }
                 filesub.Visible = false;
             }
@@ -272,6 +286,7 @@ namespace LInjector
 
                 if (result == DialogResult.Yes)
                 {
+                    cwDt.CwDt("Resarting LInjector");
                     Application.Restart();
                 }
             }
@@ -385,6 +400,23 @@ namespace LInjector
         private void githubButton_MouseLeave(object sender, EventArgs e)
         {
             githubPanel.BackColor = ColorTranslator.FromHtml("#191919");
+        }
+
+        private void terminalButton_MouseEnter(object sender, EventArgs e)
+        {
+            terminalPanel.BackColor = ColorTranslator.FromHtml("#2e2e2e");
+        }
+
+        private void terminalButton_MouseLeave(object sender, EventArgs e)
+        {
+            terminalPanel.BackColor = ColorTranslator.FromHtml("#191919");
+        }
+
+        private void terminalButton_Click(object sender, EventArgs e)
+        {
+            if (ConsoleManager.isConsoleVisible == true)
+            { ConsoleManager.HideConsole(); } 
+            else { ConsoleManager.ShowConsole(); }
         }
     }
 }

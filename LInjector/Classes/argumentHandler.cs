@@ -8,17 +8,28 @@ namespace LInjector.Classes
 {
     public static class argumentHandler
     {
-        public static void analyzeArgument (string[] argumentProvided)
+        public static void analyzeArgument(string[] argumentProvided)
         {
             if (argumentProvided.Length > 0 && argumentProvided[0] == "--metalpipe")
             {
                 doPipe.doMetalPipeAsync();
-                Console.WriteLine("--metalpipe called.");
-            } 
+                cwDt.CwDt("--metalpipe called.");
+            }
             if (argumentProvided.Length > 0 && argumentProvided[0] == "--bamboopipe")
             {
                 doPipe.doBambooPipeAsync();
-                Console.WriteLine("--bamboopipe called.");
+                cwDt.CwDt("--bamboopipe called.");
+            }
+            if (argumentProvided.Length > 0 && argumentProvided[0] == "--show-console")
+            {
+                ConsoleManager.Initialize();
+                ConsoleManager.ShowConsole();
+                Console.Title = "LInjector";
+                cwDt.CwDt("--show-console called.");
+            }
+            if (argumentProvided.Length <= 0)
+            {
+                cwDt.CwDt("No argument were provided.");
             }
         }
     }
