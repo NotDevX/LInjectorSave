@@ -33,6 +33,14 @@ Fluxus, Electron and Comet is working with UWP Roblox.</h4>
 LInjector, developed mainly by [ItzzExcel](https://github.com/ItzzExcel). Using Krnl API to work.
 Created by the necessity to have a secure & open-source executor without getting the risks of popular ones.
 
+### Arguments (Linjector.exe --arg)
+```
+.\LInjector.exe --metalpipe   (Plays metal pipe falling sound)
+.\LInjector.exe --bamboopipe  (Plays bamboo pipe falling sound)
+.\LInjector.exe --debug       (Shows console (this can be hiden with the button))
+.\LInjector.exe --sizable     (Makes LInjector application form sizable and dockable (ugly asf))
+```
+
 About LInjector
 
 - [ItzzExcel's GitHub Profile](https://github.com/ItzzExcel/LInjector/)
