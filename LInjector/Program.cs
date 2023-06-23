@@ -64,7 +64,7 @@ namespace LInjector
             Application.SetCompatibleTextRenderingDefault(false);
             tempLog.CreateVersionFile(currentVersion);
             cwDt.CwDt("Called argument analyzer.");
-            argumentHandler.analyzeArgument(args);
+            ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();
             DiscordRPCManager.InitRPC();
             SingleInstanceChecker.CheckInstance();

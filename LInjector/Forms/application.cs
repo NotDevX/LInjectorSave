@@ -28,9 +28,12 @@ namespace LInjector
             InitializeComponent();
             this.SetStyle(ControlStyles.ResizeRedraw, true);
 
-#pragma warning disable CS0162 // Unreachable code detected
+            #pragma warning disable CS0162 // Unreachable code detected
             if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") { isDevelopment = true; }
-#pragma warning restore CS0162 // Unreachable code detected
+            #pragma warning restore CS0162 // Unreachable code detected
+
+            if (ArgumentHandler.SizableBool == true)
+            { this.FormBorderStyle = FormBorderStyle.Sizable; this.Name = "LInjector"; }
         }
 
 
@@ -197,12 +200,6 @@ namespace LInjector
                               + ex.Message
                               + "\nPlease, don't share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
                     _ =  NotificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
-                    cwDt.CwDt(
-                              "Couldn't inject.\nDue to Hyperion Byfron, Roblox Anticheat, Krnl is down, and maybe it will not came back with the API.\nIf you have your own injector, you can edit my UI and make it usable as an executor."
-                              + "\n"
-                              + "Exception:\n"
-                              + ex.Message
-                              + "\nPlease, don't share it on Discord.");
                 }
             } else {
                 _ = NotificationManager.FireNotification("Krnl is already injected", infSettings);
@@ -214,7 +211,6 @@ namespace LInjector
             try {
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 _ = NotificationManager.FireNotification("TextBox cleared", infSettings);
-                cwDt.CwDt("Cleared Textbox");
                 _ = TypeWriteManager.DoTypeWrite("", fileNameString);
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
@@ -275,7 +271,6 @@ namespace LInjector
                     fileNameString.Size = new Size(150, 28);
                     fileNameString.Visible = true;
                     _ = TypeWriteManager.DoTypeWrite(openFileDialog.SafeFileName, fileNameString);
-                    cwDt.CwDt("Content " + openFileDialog.SafeFileName + " loaded.");
                 }
                 filesub.Visible = false;
             }

@@ -98,7 +98,6 @@ namespace LInjector.Classes
             }
             else
             {
-                Console.WriteLine("File not found or empty. Please download the file first.");
                 Console.WriteLine(filePath);
             }
         }

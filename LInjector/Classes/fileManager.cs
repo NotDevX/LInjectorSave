@@ -35,6 +35,8 @@ namespace LInjector.Classes
                         await Task.Delay(30);
                         DiscordRPCManager.SetRpcFile(message);
                     }
+
+                    cwDt.CwDt(message);
                 } 
                 else
                 {

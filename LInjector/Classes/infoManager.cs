@@ -27,6 +27,8 @@ namespace LInjector.Classes
                 await Task.Delay(30);
             }
 
+            cwDt.CwDt(message);
+
             await Task.Delay(2500);
 
             targetControl.Text = "";

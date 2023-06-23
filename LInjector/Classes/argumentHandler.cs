@@ -1,35 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Win32Interop.Enums;
 
 namespace LInjector.Classes
 {
-    public static class argumentHandler
+    public static class ArgumentHandler
     {
-        public static void analyzeArgument(string[] argumentProvided)
+        public static bool SizableBool;
+
+        public static void AnalyzeArgument(string[] argumentProvided)
         {
-            if (argumentProvided.Length > 0 && argumentProvided[0] == "--metalpipe")
+            if (argumentProvided.Length > 0)
             {
-                doPipe.doMetalPipeAsync();
-                cwDt.CwDt("--metalpipe called.");
+                foreach (string argument in argumentProvided)
+                {
+                    if (argument.Contains("--metalpipe"))
+                    {
+                        doPipe.doMetalPipeAsync();
+                        cwDt.CwDt("--metalpipe called.");
+                    }
+                    else if (argument.Contains("--bamboopipe"))
+                    {
+                        doPipe.doBambooPipeAsync();
+                        cwDt.CwDt("--bamboopipe called.");
+                    }
+                    else if (argument.Contains("--show-console"))
+                    {
+                        ConsoleManager.Initialize();
+                        ConsoleManager.ShowConsole();
+                        Console.Title = "LInjector";
+                        cwDt.CwDt("--show-console called.");
+                    }
+                    else if (argument.Contains("--sizable"))
+                    {
+                        SizableBool = true;
+                    }
+                    else
+                    {
+                        cwDt.CwDt($"Invalid argument: {argument}");
+                    }
+                }
             }
-            if (argumentProvided.Length > 0 && argumentProvided[0] == "--bamboopipe")
+            else
             {
-                doPipe.doBambooPipeAsync();
-                cwDt.CwDt("--bamboopipe called.");
-            }
-            if (argumentProvided.Length > 0 && argumentProvided[0] == "--show-console")
-            {
-                ConsoleManager.Initialize();
-                ConsoleManager.ShowConsole();
-                Console.Title = "LInjector";
-                cwDt.CwDt("--show-console called.");
-            }
-            if (argumentProvided.Length <= 0)
-            {
-                cwDt.CwDt("No argument were provided.");
+                cwDt.CwDt("No arguments were provided.");
             }
         }
     }
