@@ -14,6 +14,7 @@ LInjector, is a free UI interface for Exploit Developers, minimal and easy to cu
 Krnl API is not working, due to Hyperion Byfron. [Learn More](https://docs.google.com/document/d/1FRWTMnPZ-6fuyKjaT_YDU8tT1DrmLSw63YKtc2CfiMI/edit?usp=sharing) <br>
 If you have a working Dynamic-Link Library, you can edit source of LInjector. <br>
 LInjector uses Monaco editor, that one that powers Visual Studio Code, with syntax highlighting, [developed by Supercomet Labs](https://cometrbx.xyz/).
+Also aviable on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
 
 ## How to build?
 To edit the Forms, first compile, for any reason, forms can't load if not compiled. If you opened the forms before compile, restart Visual Studio and your problem should be fixed.
