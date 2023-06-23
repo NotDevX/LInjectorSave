@@ -24,12 +24,12 @@ namespace LInjector.Classes
                         doPipe.doBambooPipeAsync();
                         cwDt.CwDt("--bamboopipe called.");
                     }
-                    else if (argument.Contains("--show-console"))
+                    else if (argument.Contains("--debug"))
                     {
                         ConsoleManager.Initialize();
                         ConsoleManager.ShowConsole();
                         Console.Title = "LInjector";
-                        cwDt.CwDt("--show-console called.");
+                        cwDt.CwDt("--debug called.");
                     }
                     else if (argument.Contains("--sizable"))
                     {
