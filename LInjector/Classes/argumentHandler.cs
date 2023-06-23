@@ -34,6 +34,7 @@ namespace LInjector.Classes
                     else if (argument.Contains("--sizable"))
                     {
                         SizableBool = true;
+                        cwDt.CwDt("--sizable called");
                     }
                     else
                     {
