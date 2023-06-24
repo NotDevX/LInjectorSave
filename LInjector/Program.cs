@@ -32,12 +32,7 @@ namespace LInjector
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        /// 
-
-        private static string[] convertToArray(string normalizedString)
-        {
-            return new[] { normalizedString };
-        }
+        ///
 
         public const string currentVersion = "v22.06.2023";
         // Put "f81fb0e34f313b6cf0d0fc345890a33f" for skipping isOutdated MessageBox. 
