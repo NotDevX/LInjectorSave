@@ -32,7 +32,7 @@ namespace LInjector.Classes
             }
 
             Application.Run(new splashscr()); // You can remove the splashscreen by changing "splashscr" for "application"
-            Console.Title = "LInjector";
+            Console.Title = "LInjector | Debug";
 
             Release();
         }
@@ -46,6 +46,7 @@ namespace LInjector.Classes
                     mutex.ReleaseMutex();
                 }
                 mutex.Close();
+                mutex.Dispose();
                 mutex = null;
             }
         }

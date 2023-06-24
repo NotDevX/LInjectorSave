@@ -5,7 +5,9 @@ using LInjector.Classes;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using KrnlAPI;
+using Newtonsoft.Json;
 using Microsoft.Web.WebView2.Core;
+using System.Text.RegularExpressions;
 
 namespace LInjector
 {
@@ -264,6 +266,7 @@ namespace LInjector
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string fileContent = File.ReadAllText(openFileDialog.FileName);
+                    fileContent = fileContent.Replace("\\", "\\\\");
                     await webView2.ExecuteScriptAsync("editor.setValue('');");
                     await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
                     filesub.Visible = false;
@@ -304,22 +307,26 @@ namespace LInjector
                 {
                     dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
                     string scriptString = editor.ToString();
-                    scriptString.TrimStart('"');
-                    scriptString.TrimEnd('"');
+
+                    scriptString = scriptString.Replace("\\n", "\n");
+                    scriptString = scriptString.Replace("\\t", "\t");
 
                     if (string.IsNullOrEmpty(scriptString))
                     {
                         _ = NotificationManager.FireNotification("No content detected", infSettings);
-                        return;
                     }
-
-                    scriptString = scriptString.Replace("\\n", ";");
 
                     File.WriteAllText(filePath, scriptString);
                     filesub.Visible = false;
                     string savedFileName = System.IO.Path.GetFileName(saveFileDialog.FileName);
                     _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
                     _ = TypeWriteManager.DoTypeWrite(savedFileName, fileNameString);
+                    createThreadMsgBox.createMsgThread("This feature might be not fully developed."
+                        + "\nTo prevent errors on saving, please copy the content inside Monaco (CTRL + A) + (CTRL + C)."
+                        + "\nI know this is annoying but I don't know how to fix this string issue.", 
+                        "LInjector | Monaco Text Editor",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                 }
                 catch (Exception)
                 {
@@ -341,13 +348,17 @@ namespace LInjector
                 dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
                 string scriptString = editor.ToString();
 
-                scriptString.Replace("\\n", "\n");
-                scriptString.Replace("\\t", "\t");
-                scriptString = scriptString.Trim('"');
-
+                scriptString = scriptString.Replace("\\n", "\n");
+                scriptString = scriptString.Replace("\\t", "\t");
 
                 Clipboard.SetText(scriptString);
                 _ = NotificationManager.FireNotification("Content copied to clipboard", infSettings);
+                createThreadMsgBox.createMsgThread("This feature might be not fully developed."
+                        + "\nTo prevent errors on copying, please copy the content inside Monaco (CTRL + A) + (CTRL + C)."
+                        + "\nI know this is annoying but I don't know how to fix this string issue.",
+                        "LInjector | Monaco Text Editor",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
             }
             catch (Exception)
             {
