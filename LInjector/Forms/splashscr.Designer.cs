@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(splashscr));
             this.gradientpanel = new System.Windows.Forms.Panel();
-            this.spinningRGB = new LInjector.SpinningRGBPanel();
+            this.spinningRGB = new LInjector.Classes.SpinningRGBPanel();
             this.linjicon = new System.Windows.Forms.PictureBox();
             this.gradientpanel.SuspendLayout();
             this.spinningRGB.SuspendLayout();
@@ -101,7 +101,7 @@
         #endregion
 
         private System.Windows.Forms.Panel gradientpanel;
-        private LInjector.SpinningRGBPanel spinningRGB;
+        private LInjector.Classes.SpinningRGBPanel spinningRGB;
         private System.Windows.Forms.PictureBox linjicon;
     }
 }

@@ -1,8 +1,4 @@
-﻿<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd" GenerateXsd="false">
-  <Costura>
-  <ExcludeAssemblies>
-    Microsoft.Web.WebView2.Core
-	KrnlAPI
-  </ExcludeAssemblies>
-</Costura>
+﻿<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd" GenerateXsd="true">
+	<Costura ExcludeAssemblies='Microsoft.Web.WebView2.Core' 
+			 />
 </Weavers>
