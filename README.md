@@ -1,4 +1,4 @@
-<h2 align="center">LInjector | Open-source Injector for Roblox.</h1>
+<h2 align="center">LInjector | Open-source executor interface for Roblox.</h1>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/98148217/236020704-b931f1b0-3c4b-4bd3-95fb-f0c22e40a093.png">
 </p>
