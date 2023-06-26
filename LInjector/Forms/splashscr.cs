@@ -63,7 +63,14 @@ namespace LInjector
             mainForm.Show();
             mainForm.BringToFront();
 
-            this.Hide();
+            try
+            {
+                this.Hide();
+            }
+            catch (Exception)
+            {
+                createThreadMsgBox.createMsgThread("Couldn't hide splash screen form.", "LInjector", MessageBoxButtons.OK);
+            }
             doPipe.PlayPipeSound(doPipe.selectedArg);
         }
 
