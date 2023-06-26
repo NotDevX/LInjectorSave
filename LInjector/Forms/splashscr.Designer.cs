@@ -65,12 +65,12 @@
             // 
             // linjicon
             // 
-            this.linjicon.Image = global::LInjector.Properties.Resources.LInjector;
+            this.linjicon.Image = global::LInjector.Properties.Resources.linj_shadow;
             this.linjicon.ImageLocation = "";
-            this.linjicon.Location = new System.Drawing.Point(340, 152);
+            this.linjicon.Location = new System.Drawing.Point(325, 137);
             this.linjicon.Name = "linjicon";
-            this.linjicon.Size = new System.Drawing.Size(100, 100);
-            this.linjicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.linjicon.Size = new System.Drawing.Size(130, 130);
+            this.linjicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.linjicon.TabIndex = 1;
             this.linjicon.TabStop = false;
             this.linjicon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.linjicon_MouseDown);

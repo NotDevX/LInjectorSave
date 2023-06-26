@@ -357,6 +357,7 @@
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
     <Content Include="Linjector.ico" />
+    <None Include="Resources\linj_shadow.png" />
     <Content Include="Resources\terminal-icon.png" />
     <None Include="Resources\github-mark-white.png" />
     <None Include="Resources\discord-icon.png" />
