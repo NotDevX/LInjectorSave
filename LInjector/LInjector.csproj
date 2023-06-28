@@ -378,6 +378,12 @@
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1823.32\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1823.32\build\Microsoft.Web.WebView2.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>del $(TargetDir)$(AssemblyName).exe.config</PostBuildEvent>
+    <PostBuildEvent>if exist "$(TargetDir)$(AssemblyName).exe.config" (
+    del "$(TargetDir)$(AssemblyName).exe.config"
+)
+if not exist ".\scripts" (
+    mkdir ".\scripts"
+)
+</PostBuildEvent>
   </PropertyGroup>
 </Project>
