@@ -28,7 +28,7 @@ namespace LInjector.Classes
                     {
                         ConsoleManager.Initialize();
                         ConsoleManager.ShowConsole();
-                        Console.Title = "LInjector";
+                        Console.Title = "LInjector | Debug";
                         cwDt.CwDt("--debug called.");
                     }
                     else if (argument.Contains("--sizable"))

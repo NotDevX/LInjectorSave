@@ -29,7 +29,7 @@ namespace LInjector.Classes
             if (!isConsoleVisible)
             {
                 AllocConsole();
-                Console.Title = "LInjector | Debug Mode";
+                Console.Title = "LInjector | Debug";
                 isConsoleVisible = true;
                 var writer = new StreamWriter(Console.OpenStandardOutput());
                 writer.AutoFlush = true;
