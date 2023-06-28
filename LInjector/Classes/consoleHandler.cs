@@ -8,14 +8,11 @@ namespace LInjector.Classes
     {
         public static bool isConsoleVisible;
 
-        // Declarar el delegado para el controlador de eventos de cierre de la consola
         private delegate bool ConsoleCtrlHandlerDelegate(int eventType);
 
-        // Importar la función SetConsoleCtrlHandler de kernel32.dll
         [DllImport("kernel32.dll")]
         private static extern bool SetConsoleCtrlHandler(ConsoleCtrlHandlerDelegate handlerRoutine, bool add);
 
-        // Controlador de eventos de cierre de la consola
         private static bool ConsoleCtrlHandler(int eventType)
         {
             if (eventType == 2)

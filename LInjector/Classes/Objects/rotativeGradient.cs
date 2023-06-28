@@ -42,7 +42,7 @@ namespace LInjector.Classes
         {
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            UpdateStyles(); // Actualizar los estilos
+            UpdateStyles();
 
             InitializePanel();
         }
@@ -51,10 +51,10 @@ namespace LInjector.Classes
         {
             Dock = DockStyle.Fill;
 
-            if (!DesignMode) // Verificar si se encuentra en el editor de diseño
+            if (!DesignMode)
             {
                 timer = new Timer();
-                timer.Interval = 10; // Intervalo en milisegundos
+                timer.Interval = 10;
                 timer.Tick += Timer_Tick;
 
                 angle = 90;
@@ -115,18 +115,14 @@ namespace LInjector.Classes
 
             Rectangle arcRect = new Rectangle(rectangle.Location, new Size(diameter, diameter));
 
-            // Esquina superior izquierda
             path.AddArc(arcRect, 180, 90);
 
-            // Esquina superior derecha
             arcRect.X = rectangle.Right - diameter;
             path.AddArc(arcRect, 270, 90);
 
-            // Esquina inferior derecha
             arcRect.Y = rectangle.Bottom - diameter;
             path.AddArc(arcRect, 0, 90);
 
-            // Esquina inferior izquierda
             arcRect.X = rectangle.Left;
             path.AddArc(arcRect, 90, 90);
 
