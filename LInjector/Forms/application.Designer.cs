@@ -195,12 +195,12 @@
             // 
             // infSettings
             // 
-            this.infSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.infSettings.BackColor = System.Drawing.Color.Transparent;
             this.infSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.infSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.infSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.infSettings.FlatAppearance.BorderSize = 0;
-            this.infSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.infSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.infSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.infSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.infSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.infSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infSettings.Location = new System.Drawing.Point(10, 1);

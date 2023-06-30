@@ -65,7 +65,11 @@ namespace LInjector
             }
             catch (Exception ex)
             {
-                createThreadMsgBox.createMsgThread("Couldn't initialize Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                createThreadMsgBox.createMsgThread("Couldn't initialize Krnl API\nException:\n" 
+                    + ex.Message.ToString() 
+                    + "\nPlease, share it on Discord.",
+                    "[ERROR] LInjector", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                 _ = NotificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
             }
 
