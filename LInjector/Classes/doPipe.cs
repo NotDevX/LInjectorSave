@@ -34,12 +34,12 @@ namespace LInjector.Classes
                 {
                     if (e.Error == null)
                     {
-                        Console.WriteLine("File downloaded successfully.");
+                        cwDt.CwDt("File downloaded successfully.");
                         selectedArg = filePath;
                     }
                     else
                     {
-                        Console.WriteLine($"Error downloading file: {e.Error.Message}");
+                        cwDt.CwDt($"Error downloading file: {e.Error.Message}");
                     }
                 };
 
@@ -64,12 +64,12 @@ namespace LInjector.Classes
                 {
                     if (e.Error == null)
                     {
-                        Console.WriteLine("File downloaded successfully.");
+                        cwDt.CwDt("File downloaded successfully.");
                         selectedArg = filePath;
                     }
                     else
                     {
-                        Console.WriteLine($"Error downloading file: {e.Error.Message}");
+                        cwDt.CwDt($"Error downloading file: {e.Error.Message}");
                     }
                 };
 
@@ -79,7 +79,7 @@ namespace LInjector.Classes
 
         public static void PlayPipeSound (string filePath)
         {
-            Console.WriteLine(filePath);
+            cwDt.CwDt(filePath);
 
             if (File.Exists(filePath) && new FileInfo(filePath).Length > 0)
             {
@@ -87,18 +87,18 @@ namespace LInjector.Classes
                 {
                     using (SoundPlayer player = new SoundPlayer(filePath))
                     {
-                        Console.WriteLine("Playing pipe.");
+                        cwDt.CwDt("Playing pipe.");
                         player.Play();
                     }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Error playing file: {e.Message}");
+                    cwDt.CwDt($"Error playing file: {e.Message}");
                 }
             }
             else
             {
-                Console.WriteLine(filePath);
+                cwDt.CwDt(filePath);
             }
         }
     }

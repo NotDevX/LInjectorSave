@@ -288,6 +288,8 @@
     <Compile Include="Classes\createThreadMsgBox.cs" />
     <Compile Include="Classes\cwDateTime.cs" />
     <Compile Include="Classes\doPipe.cs" />
+    <Compile Include="Classes\localRbxVersion.cs" />
+    <Compile Include="Classes\rbxversion.cs" />
     <Compile Include="Classes\tempLog.cs" />
     <Compile Include="Classes\fileManager.cs" />
     <Compile Include="Forms\application.cs">
@@ -383,7 +385,6 @@
 )
 if not exist ".\scripts" (
     mkdir ".\scripts"
-)
-</PostBuildEvent>
+)</PostBuildEvent>
   </PropertyGroup>
 </Project>

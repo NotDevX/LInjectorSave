@@ -2,11 +2,13 @@
 using System.Windows.Forms;
 using LInjector.Classes;
 /*
+ * 
  * ░▒█░░░░▀█▀░█▀▀▄░░░▀░█▀▀░█▀▄░▀█▀░▄▀▀▄░█▀▀▄
  * ░▒█░░░░▒█░░█░▒█░░░█░█▀▀░█░░░░█░░█░░█░█▄▄▀
  * ░▒█▄▄█░▄█▄░▀░░▀░█▄█░▀▀▀░▀▀▀░░▀░░░▀▀░░▀░▀▀ 
  * 
  * A project by ItzzExcel. Started at May 5, 2023. (v3.5)
+ * 
  */
 
 /* Krnl API is down, (maybe it will not come back with the API).
@@ -56,8 +58,9 @@ namespace LInjector
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            tempLog.CreateVersionFile(currentVersion);
-            cwDt.CwDt("Called argument analyzer.");
+            tempLog.CreateVersionFile(currentVersion, "version");
+            _ = rbxversion.dlRbxVersion();
+            localRbxVersion.CheckLocalRbx();
             ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();
             DiscordRPCManager.InitRPC();

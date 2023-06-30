@@ -68,6 +68,8 @@ namespace LInjector
                 createThreadMsgBox.createMsgThread("Couldn't initialize Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 _ = NotificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
             }
+
+            rbxversion.checkVersions();
         }
 
         private const int cGrip = 16;
@@ -198,8 +200,9 @@ namespace LInjector
                               + "\n"
                               + "Exception:\n"
                               + ex.Message
-                              + "\nPlease, don't share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+                              + "\nPlease, don't share it on Discord.\n\n" + localRbxVersion.Version, "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _ =  NotificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
+                    localRbxVersion.CheckLocalRbx();
                 }
             } else {
                 _ = NotificationManager.FireNotification("Krnl is already injected", infSettings);

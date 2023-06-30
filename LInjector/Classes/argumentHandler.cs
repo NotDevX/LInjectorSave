@@ -10,6 +10,8 @@ namespace LInjector.Classes
 
         public static void AnalyzeArgument(string[] argumentProvided)
         {
+            cwDt.CwDt("Called argument analyzer.");
+
             if (argumentProvided.Length > 0)
             {
                 foreach (string argument in argumentProvided)

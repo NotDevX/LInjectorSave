@@ -4,11 +4,11 @@ namespace LInjector.Classes
 {
     public static class tempLog
     {
-        public static void CreateVersionFile(string content)
+        public static void CreateVersionFile(string content, string fileName)
         {
             string tempPath = Path.GetTempPath();
             string linjectorFolderPath = Path.Combine(tempPath, "LInjector");
-            string versionFilePath = Path.Combine(linjectorFolderPath, "version");
+            string versionFilePath = Path.Combine(linjectorFolderPath, fileName);
 
             if (!Directory.Exists(linjectorFolderPath))
             {
