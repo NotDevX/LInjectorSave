@@ -5,9 +5,7 @@ using LInjector.Classes;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using KrnlAPI;
-using Newtonsoft.Json;
 using Microsoft.Web.WebView2.Core;
-using System.Text.RegularExpressions;
 
 namespace LInjector
 {
