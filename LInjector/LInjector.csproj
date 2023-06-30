@@ -382,9 +382,6 @@
   <PropertyGroup>
     <PostBuildEvent>if exist "$(TargetDir)$(AssemblyName).exe.config" (
     del "$(TargetDir)$(AssemblyName).exe.config"
-)
-if not exist ".\scripts" (
-    mkdir ".\scripts"
 )</PostBuildEvent>
   </PropertyGroup>
 </Project>
