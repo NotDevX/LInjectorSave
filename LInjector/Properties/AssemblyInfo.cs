@@ -36,6 +36,6 @@ using System.Runtime.InteropServices;
 // LInjector UI Version https://github.com/ItzzExcel/LInjector
 
 #pragma warning disable CS7035 // The specified version string does not conform to the recommended format - major.minor.build.revision
-[assembly: AssemblyFileVersion("22.06.2023 LInjector")] // Version format: 'v'+dd/MM/yy, if it's December 31, 1969, the version is "v31.12.1969".
+[assembly: AssemblyFileVersion("30.06.2023 LInjector")] // Version format: 'v'+dd/MM/yy, if it's December 31, 1969, the version is "v31.12.1969".
 #pragma warning restore CS7035 // The specified version string does not conform to the recommended format - major.minor.build.revision
 
