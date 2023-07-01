@@ -20,7 +20,7 @@ Also aviable on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
 To edit the Forms, first compile, for any reason, forms can't load if not compiled. If you opened the forms before compile, restart Visual Studio and your problem should be fixed.
 - Clone the repo `gh repo clone ItzzExcel/LInjector`
 - Open LInjector.sln in Visual Studio 2022.
-- Set Release x64
+- Set Release x86
 - Ctrl + Shift + B (build)
 
 ### Don't ask why the commits are hashes pls.
