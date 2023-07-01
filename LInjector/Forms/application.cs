@@ -4,14 +4,12 @@ using System.IO;
 using LInjector.Classes;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using KrnlAPI;
 using Microsoft.Web.WebView2.Core;
 
 namespace LInjector
 {
-    public partial class application : Form {
-
-        KrnlApi krnlApi = new KrnlApi();
+    public partial class application : Form
+    {
 
         private bool isDevelopment = false;
 
@@ -33,7 +31,7 @@ namespace LInjector
             #pragma warning restore CS0162 // Unreachable code detected
 
             if (ArgumentHandler.SizableBool == true)
-            { this.FormBorderStyle = FormBorderStyle.Sizable; this.Name = "LInjector"; }
+            { this.FormBorderStyle = FormBorderStyle.Sizable; Text = "LInjector"; }
         }
 
 
@@ -41,9 +39,12 @@ namespace LInjector
         {
             if (!e.IsSuccess)
             {
-                _ = NotificationManager.FireNotification("Failed to load webView2", infSettings);
+                _ = NotificationManager.FireNotification("Failed to load WebView2", infSettings);
 
-                DialogResult result = MessageBox.Show("CoreWebView2 Failed to load, try relaunching LInjector?", "[ERROR] LInjector", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                DialogResult result = MessageBox.Show("CoreWebView2 Failed to load, try relaunching LInjector?",
+                    "[ERROR] LInjector",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Error);
 
                 if (result == DialogResult.OK)
                 {
@@ -61,16 +62,17 @@ namespace LInjector
 
             try
             {
-                krnlApi.Initialize();
+                FluxusAPI.create_files(Path.GetFullPath("Resources\\Module.dll"));
+                SendToast.send("LInjector Loaded", 5, Vip.Notification.AlertType.Information);
             }
             catch (Exception ex)
             {
-                createThreadMsgBox.createMsgThread("Couldn't initialize Krnl API\nException:\n" 
-                    + ex.Message.ToString() 
+                createThreadMsgBox.createMsgThread("Couldn't initialize Fluxus API\nException:\n"
+                    + ex.Message.ToString()
                     + "\nPlease, share it on Discord.",
                     "[ERROR] LInjector", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                _ = NotificationManager.FireNotification("Couldn't initialize Krnl API.", infSettings);
+                _ = NotificationManager.FireNotification("Couldn't initialize Fluxus API.", infSettings);
             }
 
             rbxversion.checkVersions();
@@ -191,37 +193,58 @@ namespace LInjector
 
         private void Attach_Click(object sender, EventArgs e)
         {
-            if (!krnlApi.IsInjected())
+            FluxusAPI.create_files(Path.GetFullPath("Resources\\Module.dll"));
+            bool flag = !FluxusAPI.is_injected(FluxusAPI.pid);
+            if (flag)
             {
                 try
                 {
-                    krnlApi.Inject();
-                    _ = NotificationManager.FireNotification("Injected Krnl API", infSettings);
+                    try
+                    {
+                        FluxusAPI.inject();
+                    }
+                    catch (Exception ex)
+                    {
+                        _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
+                        SendToast.send("Floxous encountered in an unrecoverable error.", 5, Vip.Notification.AlertType.Error);
+                        createThreadMsgBox.createMsgThread("LInjector encountered a unrecoverable error\nException:\n" 
+                                                           + ex.Message 
+                                                           + "\nStack Trace:\n"
+                                                           + ex.StackTrace,
+                                                           "LInjector | Exception",
+                                                           MessageBoxButtons.OK,
+                                                           MessageBoxIcon.Error);
+                        Console.Beep();
+                    }
+                    _ = NotificationManager.FireNotification("Called Injection API (Powered by Fluxteam)", infSettings);
+                    SendToast.send("Called Injection API", 3, Vip.Notification.AlertType.Information);
                 }
                 catch (Exception ex)
                 {
-                    createThreadMsgBox.createMsgThread("Couldn't inject.\nDue to Hyperion Byfron, Roblox Anticheat, Krnl is down, and maybe it will not came back with the API.\nIf you have your own injector, you can edit my UI and make it usable as an executor."
-                              + "\n"
-                              + "Exception:\n"
-                              + ex.Message
-                              + "\nPlease, don't share it on Discord.\n\n" + localRbxVersion.Version, "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _ =  NotificationManager.FireNotification("Couldn't inject Krnl API", infSettings);
-                    localRbxVersion.CheckLocalRbx();
+                    createThreadMsgBox.createMsgThread("Error on inject:\n" + ex.Message
+                        + "\nStack Trace:\n" + ex.StackTrace,
+                        "LInjector | Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } else {
-                _ = NotificationManager.FireNotification("Krnl is already injected", infSettings);
-            }    
+            }
+            else
+            {
+                createThreadMsgBox.createMsgThread("Already injected", "LInjector | Fluxus API",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private async void ClearTB_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
                 _ = NotificationManager.FireNotification("TextBox cleared", infSettings);
                 _ = TypeWriteManager.DoTypeWrite("", fileNameString);
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 _ = NotificationManager.FireNotification("Error", infSettings);
             }
             DiscordRPCManager.SetBaseRichPresence();
@@ -229,19 +252,19 @@ namespace LInjector
 
         private void Execute_Click(object sender, EventArgs e)
         {
-            dynamic editor = webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].editor").GetAwaiter().GetResult();
+            dynamic editor = webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getValue()").GetAwaiter().GetResult();
             string scriptString = editor.getValue();
             scriptString = scriptString.Replace("\\n", ";");
 
-            try
+            bool flag = FluxusAPI.is_injected(FluxusAPI.pid);
+            if (flag)
             {
-                krnlApi.Execute(scriptString);
-                _ = NotificationManager.FireNotification("Script executed", infSettings);
-
+                FluxusAPI.run_script(FluxusAPI.pid, scriptString);
+                _ = NotificationManager.FireNotification("Script Executed", infSettings);
             }
-            catch (Exception ex)
+            else
             {
-                createThreadMsgBox.createMsgThread("Couldn't execute with Krnl API\nException:\n" + ex.Message.ToString() + "\nPlease, share it on Discord.", "[ERROR] LInjector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _ = NotificationManager.FireNotification("Inject before running script", infSettings);
             }
         }
 
@@ -313,8 +336,7 @@ namespace LInjector
                     dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
                     string scriptString = editor.ToString();
 
-                    scriptString = scriptString.Replace("\\n", "\n");
-                    scriptString = scriptString.Replace("\\t", "\t");
+                    scriptString = scriptString.Replace("\\\\", "\\");
 
                     if (string.IsNullOrEmpty(scriptString))
                     {
@@ -328,7 +350,7 @@ namespace LInjector
                     _ = TypeWriteManager.DoTypeWrite(savedFileName, fileNameString);
                     createThreadMsgBox.createMsgThread("This feature might be not fully developed."
                         + "\nTo prevent errors on saving, please copy the content inside Monaco (CTRL + A) + (CTRL + C)."
-                        + "\nI know this is annoying but I don't know how to fix this string issue.", 
+                        + "\nI know this is annoying but I don't know how to fix this string issue.",
                         "LInjector | Monaco Text Editor",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -353,8 +375,7 @@ namespace LInjector
                 dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
                 string scriptString = editor.ToString();
 
-                scriptString = scriptString.Replace("\\n", "\n");
-                scriptString = scriptString.Replace("\\t", "\t");
+                scriptString = scriptString.Replace("\\\\", "\\");
 
                 Clipboard.SetText(scriptString);
                 _ = NotificationManager.FireNotification("Content copied to clipboard", infSettings);
@@ -373,7 +394,10 @@ namespace LInjector
 
         private void reloadApp_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("This will clear the TextBox Content, are you sure to restart?", "[WARNING] LInjector", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("This will clear the TextBox Content, are you sure to restart?",
+                "[WARNING] LInjector",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Information);
 
             if (result == DialogResult.OK)
             {
@@ -426,7 +450,7 @@ namespace LInjector
         private void terminalButton_Click(object sender, EventArgs e)
         {
             if (ConsoleManager.isConsoleVisible == true)
-            { ConsoleManager.HideConsole(); } 
+            { ConsoleManager.HideConsole(); }
             else { ConsoleManager.ShowConsole(); }
         }
     }

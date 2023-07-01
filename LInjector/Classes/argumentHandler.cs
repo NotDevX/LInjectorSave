@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using Win32Interop.Enums;
 
@@ -7,6 +8,7 @@ namespace LInjector.Classes
     public static class ArgumentHandler
     {
         public static bool SizableBool;
+        public static bool splashEnabled = true;
 
         public static void AnalyzeArgument(string[] argumentProvided)
         {
@@ -37,6 +39,11 @@ namespace LInjector.Classes
                     {
                         SizableBool = true;
                         cwDt.CwDt("--sizable called");
+                    }
+                    else if (argument.Contains("--no-splash"))
+                    {
+                        splashEnabled = false;
+                        cwDt.CwDt("--no-splash called");
                     }
                     else
                     {

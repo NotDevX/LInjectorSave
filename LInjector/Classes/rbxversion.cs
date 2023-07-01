@@ -39,10 +39,12 @@ namespace LInjector.Classes
             {
                 if (getLatestRbx != localRbxVersion)
                 {
-                    createThreadMsgBox.createMsgThread("Roblox Versions mismatched, update your Roblox Game Client.\n\n"
-                        + "Your Roblox Version  : " + localRbxVersion
+                    createThreadMsgBox.createMsgThread("Roblox Versions mismatched.\n\n"
+                        + "Your Roblox Version       : " + localRbxVersion
                         + "\n"
-                        + "Latest Roblox Version: " + Version, "LInjector | Roblox Version Checker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        + "Latest Roblox Version    : " + Version,
+                        "LInjector | Roblox Version Checker",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 } else if (getLatestRbx == localRbxVersion)
                 {
                     cwDt.CwDt("Your local Roblox Game Client Version is up-to-date. They doesn't mistmatch.");

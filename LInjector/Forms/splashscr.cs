@@ -28,6 +28,8 @@ namespace LInjector
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        application mainForm = new application();
+
         public splashscr()
         {
             InitializeComponent();
@@ -59,7 +61,6 @@ namespace LInjector
                 await Task.Delay(10);
             }
 
-            application mainForm = new application();
             mainForm.Show();
             mainForm.BringToFront();
 
