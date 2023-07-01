@@ -591,7 +591,6 @@
             this.webView2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.webView2.Location = new System.Drawing.Point(5, 5);
             this.webView2.Name = "webView2";
-            this.webView2.Padding = new System.Windows.Forms.Padding(3);
             this.webView2.Size = new System.Drawing.Size(980, 417);
             this.webView2.Source = new System.Uri("https://itzzexcel.github.io/luau-monaco/", System.UriKind.Absolute);
             this.webView2.TabIndex = 0;
