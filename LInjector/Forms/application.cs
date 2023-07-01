@@ -262,7 +262,7 @@ namespace LInjector
                 if (flag)
                 {
                     FluxusAPI.run_script(FluxusAPI.pid, scriptString);
-                    _ = NotificationManager.FireNotification("Script Executed", infSettings);
+                    cwDt.CwDt("Script executed");
                 }
                 else
                 {
