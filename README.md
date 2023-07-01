@@ -11,7 +11,7 @@
 <h3 align="center">A Light Injector for your Roblox Scripts.</h3>
 
 LInjector, is a free UI interface for Exploit Developers, minimal and easy to customize. <br>
-Krnl API is not working, due to Hyperion Byfron. [Learn More](https://docs.google.com/document/d/1FRWTMnPZ-6fuyKjaT_YDU8tT1DrmLSw63YKtc2CfiMI/edit?usp=sharing) <br>
+Fluxus API should work with UWP Roblox (I'm not ensuring nothing). [Learn More about Hyperion Byfron](https://docs.google.com/document/d/1FRWTMnPZ-6fuyKjaT_YDU8tT1DrmLSw63YKtc2CfiMI/edit?usp=sharing) <br>
 If you have a working Dynamic-Link Library, you can edit source of LInjector. <br>
 LInjector uses Monaco editor, that one that powers Visual Studio Code, with syntax highlighting, [developed by Supercomet Labs](https://cometrbx.xyz/).
 Also aviable on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
