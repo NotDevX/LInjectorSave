@@ -53,6 +53,7 @@ namespace LInjector
             Application.SetCompatibleTextRenderingDefault(false);
             tempLog.CreateVersionFile(currentVersion, "version");
             _ = rbxversion.dlRbxVersion();
+            CreateShortcuts.Create();
             localRbxVersion.CheckLocalRbx();
             ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();

@@ -5,7 +5,6 @@ using LInjector.Classes;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.Core;
-using Newtonsoft.Json;
 
 namespace LInjector
 {
