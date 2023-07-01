@@ -5,6 +5,7 @@ using LInjector.Classes;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.Core;
+using Newtonsoft.Json;
 
 namespace LInjector
 {
@@ -63,7 +64,6 @@ namespace LInjector
             try
             {
                 FluxusAPI.create_files(Path.GetFullPath("Resources\\Module.dll"));
-                SendToast.send("LInjector Loaded", 5, Vip.Notification.AlertType.Information);
             }
             catch (Exception ex)
             {
@@ -202,11 +202,11 @@ namespace LInjector
                     try
                     {
                         FluxusAPI.inject();
+                        FluxusAPI.run_script(FluxusAPI.pid, "warn('LInjector injected successfully.')");
                     }
                     catch (Exception ex)
                     {
                         _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
-                        SendToast.send("Floxous encountered in an unrecoverable error.", 5, Vip.Notification.AlertType.Error);
                         createThreadMsgBox.createMsgThread("LInjector encountered a unrecoverable error\nException:\n" 
                                                            + ex.Message 
                                                            + "\nStack Trace:\n"
@@ -217,7 +217,7 @@ namespace LInjector
                         Console.Beep();
                     }
                     _ = NotificationManager.FireNotification("Called Injection API (Powered by Fluxteam)", infSettings);
-                    SendToast.send("Called Injection API", 3, Vip.Notification.AlertType.Information);
+                    SendToast.send("Powered by Fluxus! (https://fluxteam.net)", 3, Vip.Notification.AlertType.Custom);
                 }
                 catch (Exception ex)
                 {
@@ -250,22 +250,36 @@ namespace LInjector
             DiscordRPCManager.SetBaseRichPresence();
         }
 
-        private void Execute_Click(object sender, EventArgs e)
+        private async void Execute_Click(object sender, EventArgs e)
         {
-            dynamic editor = webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getValue()").GetAwaiter().GetResult();
-            string scriptString = editor.getValue();
-            scriptString = scriptString.Replace("\\n", ";");
+            string script = "monaco.editor.getModels()[0].getValue()";
+            var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
+            string scriptString = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(result);
+            Execute.Focus();
 
-            bool flag = FluxusAPI.is_injected(FluxusAPI.pid);
-            if (flag)
+            try
             {
-                FluxusAPI.run_script(FluxusAPI.pid, scriptString);
-                _ = NotificationManager.FireNotification("Script Executed", infSettings);
+                bool flag = FluxusAPI.is_injected(FluxusAPI.pid);
+                if (flag)
+                {
+                    FluxusAPI.run_script(FluxusAPI.pid, scriptString);
+                    _ = NotificationManager.FireNotification("Script Executed", infSettings);
+                }
+                else
+                {
+                    _ = NotificationManager.FireNotification("Inject before running script", infSettings);
+                }
+                Execute.Focus();
             }
-            else
+            catch (Exception ex)
             {
-                _ = NotificationManager.FireNotification("Inject before running script", infSettings);
+                createThreadMsgBox.createMsgThread("Fluxus couldn't run the script.", "LInjector | Fluxus API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cwDt.CwDt("Exception from Fluxus:\n"
+                    + ex.Message
+                    + "\nStack Trace:\n"
+                    + ex.StackTrace);
             }
+            Execute.Focus();
         }
 
         private void FileButton_MouseClick(object sender, MouseEventArgs e)
@@ -333,10 +347,9 @@ namespace LInjector
 
                 try
                 {
-                    dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
-                    string scriptString = editor.ToString();
-
-                    scriptString = scriptString.Replace("\\\\", "\\");
+                    string script = "monaco.editor.getModels()[0].getValue()";
+                    var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
+                    string scriptString = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(result);
 
                     if (string.IsNullOrEmpty(scriptString))
                     {
@@ -348,16 +361,10 @@ namespace LInjector
                     string savedFileName = System.IO.Path.GetFileName(saveFileDialog.FileName);
                     _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
                     _ = TypeWriteManager.DoTypeWrite(savedFileName, fileNameString);
-                    createThreadMsgBox.createMsgThread("This feature might be not fully developed."
-                        + "\nTo prevent errors on saving, please copy the content inside Monaco (CTRL + A) + (CTRL + C)."
-                        + "\nI know this is annoying but I don't know how to fix this string issue.",
-                        "LInjector | Monaco Text Editor",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
                 }
                 catch (Exception)
                 {
-                    filesub.Visible = filesub.Visible;
+                    filesub.Visible = false;
                     _ = NotificationManager.FireNotification("Error saving the file", infSettings);
                 }
             }
@@ -372,19 +379,11 @@ namespace LInjector
             filesub.Visible = false;
             try
             {
-                dynamic editor = await webView2.CoreWebView2.ExecuteScriptAsync("monaco.editor.getModels()[0].getValue()");
-                string scriptString = editor.ToString();
-
-                scriptString = scriptString.Replace("\\\\", "\\");
-
-                Clipboard.SetText(scriptString);
+                string script = "monaco.editor.getModels()[0].getValue()";
+                var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
+                string text = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(result);
+                Clipboard.SetText(text);
                 _ = NotificationManager.FireNotification("Content copied to clipboard", infSettings);
-                createThreadMsgBox.createMsgThread("This feature might be not fully developed."
-                        + "\nTo prevent errors on copying, please copy the content inside Monaco (CTRL + A) + (CTRL + C)."
-                        + "\nI know this is annoying but I don't know how to fix this string issue.",
-                        "LInjector | Monaco Text Editor",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
             }
             catch (Exception)
             {

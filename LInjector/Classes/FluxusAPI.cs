@@ -177,7 +177,7 @@ namespace LInjector.Classes
             bool result;
             if (flag)
             {
-                createThreadMsgBox.createMsgThread("press Inject first", "api Error");
+                createThreadMsgBox.createMsgThread("Inject API First", "Fluxus | API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 result = false;
             }
             else
@@ -200,13 +200,13 @@ namespace LInjector.Classes
             bool flag = !File.Exists(dll_path_);
             if (flag)
             {
-                createThreadMsgBox.createMsgThread("Failure to initalize Fluxteam.net api\nDLL path was invalid\n", "Error");
+                createThreadMsgBox.createMsgThread("Failure when initalizing Fluxus API\nDLL path was invalid\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             FluxusAPI.dll_path = dll_path_;
             string text = "";
             foreach (string text2 in Directory.GetDirectories(Environment.GetEnvironmentVariable("LocalAppData") + "\\Packages"))
             {
-                bool flag2 = text2.Contains("ROBLOXCORPORATION");
+                bool flag2 = text2.Contains("ROBLOXCORPORATION.ROBLOX_55nm5eh3cm0pr");
                 if (flag2)
                 {
                     bool flag3 = Directory.GetDirectories(text2 + "\\AC").Any((string dir) => dir.Contains("Temp"));

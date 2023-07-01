@@ -8,11 +8,9 @@ using LInjector.Classes;
  * ░▒█▄▄█░▄█▄░▀░░▀░█▄█░▀▀▀░▀▀▀░░▀░░░▀▀░░▀░▀▀ 
  * 
  * A project by ItzzExcel. Started at May 5, 2023. (v3.5)
- * 
- */
-
-/* Krnl API is down, (maybe it will not come back with the API).
- * If you designed your own injector, chenge every single related to Krnl with your DLL.
+ *
+ * Since v01.07.2023 I added "Fluxus API", and it should be working.
+ * If you have a DLL, you can edit the source. This is open-source.
  * Don't ask for support to the Discord Server for this.
  * The Monaco is hosted in my website (https://lexploits.netlify.app/extra/monaco)
  * Monaco open and saving file functions haves some issues with string.
