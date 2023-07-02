@@ -12,7 +12,7 @@ namespace LInjector.Classes
         {
             var baseRichPresence = new RichPresence()
             {
-                Details = "Using LInjector",
+                Details = "Using LInjector UWP",
                 State = "Exploiting",
                 Assets = new Assets()
                 {
@@ -39,7 +39,7 @@ namespace LInjector.Classes
                     var state = "Editing File: " + currentFile;
                     var presence = new RichPresence()
                     {
-                        Details = "Using LInjector",
+                        Details = "Using LInjector UWP",
                         State = state,
                         Assets = new Assets()
                         {
@@ -69,7 +69,7 @@ namespace LInjector.Classes
                 {
                     var baseRichPresence = new RichPresence()
                     {
-                        Details = "Using LInjector",
+                        Details = "Using LInjector UWP",
                         State = "Exploiting",
                         Assets = new Assets()
                         {
