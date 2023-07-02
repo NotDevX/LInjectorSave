@@ -34,6 +34,15 @@ namespace LInjector
             { this.FormBorderStyle = FormBorderStyle.Sizable; Text = "LInjector"; }
         }
 
+        public async System.Threading.Tasks.Task<string> GetMonacoContent ()
+        {
+            string script = "monaco.editor.getModels()[0].getValue()";
+            var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
+            string text = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(result);
+
+            return text;
+        }
+
 
         private void webView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
@@ -335,7 +344,7 @@ namespace LInjector
         {
             Control previousFocus = ActiveForm.ActiveControl;
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             saveFileDialog.FileName = fileNameString.Text;
             saveFileDialog.Title = "Save to File | LInjector";
             saveFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
