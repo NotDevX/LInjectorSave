@@ -8,6 +8,16 @@ using System.Security.Principal;
 using System.Text;
 using System.Windows.Forms;
 
+/*
+ * 
+ * ░▒█▀▀▀░█░░█░▒█░█░█░█░▒█░█▀▀░░░█▀▀▄░▒█▀▀█░▀█▀
+ * ░▒█▀▀░░█░░█░▒█░▄▀▄░█░▒█░▀▀▄░░▒█▄▄█░▒█▄▄█░▒█░
+ * ░▒█░░░░▀▀░░▀▀▀░▀░▀░░▀▀▀░▀▀▀░░▒█░▒█░▒█░░░░▄█▄
+ *
+ * Fluxus UWP API (https://fluxteam.net)
+ * Provided by Fluxteam.
+ */
+
 namespace LInjector.Classes
 {
     // Token: 0x02000006 RID: 6
