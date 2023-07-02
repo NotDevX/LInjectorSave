@@ -210,7 +210,6 @@ namespace LInjector
                     try
                     {
                         FluxusAPI.inject();
-                        FluxusAPI.run_script(FluxusAPI.pid, "warn('LInjector injected successfully.')");
                     }
                     catch (Exception ex)
                     {
