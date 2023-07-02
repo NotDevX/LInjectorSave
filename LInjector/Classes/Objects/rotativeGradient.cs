@@ -8,8 +8,8 @@ namespace LInjector.Classes
 {
     public class SpinningRGBPanel : Panel
     {
-        private const double RotationSpeed = -4; // Velocidad de rotación del degradado
-        private const int AnimationDuration = 5000; // Duración de la animación en milisegundos
+        private const double RotationSpeed = 1; // Velocidad de rotación del degradado
+        private const int AnimationDuration = 2500; // Duración de la animación en milisegundos
 
         private Timer timer;
         private double angle;

@@ -45,7 +45,7 @@ namespace LInjector
 
         private async Task AnimateSplash()
         {
-            await Task.Delay(5000);
+            await Task.Delay(2500);
 
             DateTime startFadeOutTime = DateTime.Now;
             double fadeOutDuration = 500;
