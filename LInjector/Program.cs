@@ -15,12 +15,12 @@ using LInjector.Classes;
  * The Monaco is hosted in my website (https://lexploits.netlify.app/extra/monaco)
  * Monaco open and saving file functions haves some issues with string.
  * The Monaco highlighting it's in (https://github.com/ItzzExcel/luau-monaco).
- *  You can also ask me for it by Discord (itzzexcel), but it's harder to get a response.
+ * You can also ask me for it by Discord (itzzexcel), but it's harder to get a response.
  *  
- *  The main form is located at Forms/application
- *  You can also remove the Forms/splashscreen
+ * The main form is located at Forms/application
+ * You can also remove the Forms/splashscreen
  *  
- *  The start of the application is SingleInstanceChecker.CheckInstance(), it's a function that uses Mutex. (Check line 33 to change startup)
+ * The start of the application is SingleInstanceChecker.CheckInstance(), it's a function that uses Mutex. (Check line 33 to change startup)
  *  
  */
 
