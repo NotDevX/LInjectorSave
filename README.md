@@ -53,7 +53,7 @@ Written in C#, with .NET Framework 4.8
 The LInjector Releases Format is: (dd/MM/yyyy)
 The LInjector Project is under the MIT License.
 
-- [LInjector, uses the Krnl API to work.](https://krnl.ca/)
+- [LInjector, uses the Fluxus API to work.](https://fluxteam.net/)
 - [Using Microsoft Edge WebView2 to view Monaco.](https://developer.microsoft.com/microsoft-edge/webview2/)
 - [The text editor is Monaco.](https://microsoft.github.io/monaco-editor/)
 - [Monaco Editor, edited by Supercomet Labs for Comet 3.](https://cometrbx.xyz/)
