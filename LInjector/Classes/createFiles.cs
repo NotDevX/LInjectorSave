@@ -28,6 +28,11 @@ namespace LInjector.Classes
                 shortcut.TargetPath = autoexecFolder;
                 shortcut.Save();
             }
+
+            if (!System.IO.Directory.Exists(".\\scripts"))
+            {
+                System.IO.Directory.CreateDirectory(".\\scripts");
+            }
         }
     }
 }

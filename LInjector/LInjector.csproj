@@ -304,7 +304,7 @@
   <ItemGroup>
     <Compile Include="Classes\argumentHandler.cs" />
     <Compile Include="Classes\consoleHandler.cs" />
-    <Compile Include="Classes\createShortcuts.cs" />
+    <Compile Include="Classes\createFiles.cs" />
     <Compile Include="Classes\createThreadMsgBox.cs" />
     <Compile Include="Classes\cwDateTime.cs" />
     <Compile Include="Classes\doPipe.cs" />
