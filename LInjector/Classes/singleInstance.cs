@@ -34,7 +34,8 @@ namespace LInjector.Classes
             if (!ArgumentHandler.splashEnabled)
             {
                 Application.Run(new application()); // You can remove the splashscreen by changing "splashscr" for "application"
-            } else
+            }
+            else
             {
                 Application.Run(new splashscr());
             }

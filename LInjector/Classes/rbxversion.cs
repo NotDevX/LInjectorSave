@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace LInjector.Classes
 {
@@ -9,7 +7,7 @@ namespace LInjector.Classes
     {
         public static string Version { get; set; }
 
-        public static async void dlRbxVersion ()
+        public static async void dlRbxVersion()
         {
             string rbxverurl = "http://setup.roblox.com/version";
 
@@ -30,7 +28,7 @@ namespace LInjector.Classes
             }
         }
 
-        public static void checkVersions ()
+        public static void checkVersions()
         {
             string getLatestRbx = Version;
             string localRbxVersion = LInjector.Classes.localRbxVersion.Version;
@@ -42,7 +40,8 @@ namespace LInjector.Classes
                     cwDt.CwDt("Roblox Versions Mismatched.\n\n"
                         + "Your Version     :" + localRbxVersion + '\n'
                         + "Latest Version   :" + getLatestRbx);
-                } else if (getLatestRbx == localRbxVersion)
+                }
+                else if (getLatestRbx == localRbxVersion)
                 {
                     cwDt.CwDt("Your local Roblox Game Client Version is up-to-date. They doesn't mismatch.");
                 }
@@ -50,7 +49,7 @@ namespace LInjector.Classes
             catch (Exception ex)
             {
                 createThreadMsgBox.createMsgThread("Couldn't check if versions mismatched"
-                    + "Exception   : \n" + ex.Message 
+                    + "Exception   : \n" + ex.Message
                     + "Stack Trace : \n" + ex.StackTrace);
             }
         }

@@ -37,7 +37,7 @@ namespace LInjector.Classes
                     }
 
                     cwDt.CwDt(message);
-                } 
+                }
                 else
                 {
                     string cutMessage = message.Substring(0, Math.Min(50, message.Length));

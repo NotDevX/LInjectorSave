@@ -1,10 +1,10 @@
-﻿using System;
+﻿using LInjector.Classes;
+using Microsoft.Web.WebView2.Core;
+using System;
 using System.Drawing;
 using System.IO;
-using LInjector.Classes;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Microsoft.Web.WebView2.Core;
 
 namespace LInjector
 {
@@ -26,15 +26,15 @@ namespace LInjector
             InitializeComponent();
             this.SetStyle(ControlStyles.ResizeRedraw, true);
 
-            #pragma warning disable CS0162 // Unreachable code detected
+#pragma warning disable CS0162 // Unreachable code detected
             if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") { isDevelopment = true; }
-            #pragma warning restore CS0162 // Unreachable code detected
+#pragma warning restore CS0162 // Unreachable code detected
 
             if (ArgumentHandler.SizableBool == true)
             { this.FormBorderStyle = FormBorderStyle.Sizable; Text = "LInjector"; }
         }
 
-        public async System.Threading.Tasks.Task<string> GetMonacoContent ()
+        public async System.Threading.Tasks.Task<string> GetMonacoContent()
         {
             string script = "monaco.editor.getModels()[0].getValue()";
             var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
@@ -214,8 +214,8 @@ namespace LInjector
                     catch (Exception ex)
                     {
                         _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
-                        createThreadMsgBox.createMsgThread("LInjector encountered a unrecoverable error\nException:\n" 
-                                                           + ex.Message 
+                        createThreadMsgBox.createMsgThread("LInjector encountered a unrecoverable error\nException:\n"
+                                                           + ex.Message
                                                            + "\nStack Trace:\n"
                                                            + ex.StackTrace,
                                                            "LInjector | Exception",

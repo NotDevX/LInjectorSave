@@ -1,7 +1,4 @@
 ﻿using System;
-using System.ComponentModel.Composition.Hosting;
-using System.Linq;
-using Win32Interop.Enums;
 
 namespace LInjector.Classes
 {

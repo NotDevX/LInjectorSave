@@ -1,8 +1,7 @@
-﻿using System;
+﻿using IWshRuntimeLibrary;
+using System;
 using System.IO;
 using System.Net;
-using System.Windows.Forms;
-using IWshRuntimeLibrary;
 
 namespace LInjector.Classes
 {
@@ -15,7 +14,7 @@ namespace LInjector.Classes
         static WebClient webClient = new WebClient();
         static WshShell wsh = new WshShell();
 
-        public static void Create ()
+        public static void Create()
         {
             if (!System.IO.File.Exists(".\\workspace.lnk"))
             {

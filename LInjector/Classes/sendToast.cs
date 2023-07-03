@@ -1,5 +1,4 @@
-﻿using System;
-using Vip.Notification;
+﻿using Vip.Notification;
 
 namespace LInjector.Classes
 {
@@ -27,7 +26,7 @@ namespace LInjector.Classes
                     break;
                 default:
                     Alert.ShowInformation("7a1920d61156abc05a60135aefe8bc67".GetHashCode().ToString(), interval);
-                break;
+                    break;
             }
         }
     }

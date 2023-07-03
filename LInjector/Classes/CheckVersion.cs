@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Octokit;
+using System;
 using System.Linq;
-using Octokit;
 
 namespace LInjector.Classes
 {
