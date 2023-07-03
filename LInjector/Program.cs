@@ -7,20 +7,21 @@ using LInjector.Classes;
  * ░▒█░░░░▒█░░█░▒█░░░█░█▀▀░█░░░░█░░█░░█░█▄▄▀
  * ░▒█▄▄█░▄█▄░▀░░▀░█▄█░▀▀▀░▀▀▀░░▀░░░▀▀░░▀░▀▀ 
  * 
- * A project by ItzzExcel. Started at May 5, 2023. (v3.5)
+ * A project by ItzzExcel. Started on May 5, 2023. 
+ * LInjector UI Version: v3.5
  *
- * Since v01.07.2023 I added "Fluxus API", and it should be working.
- * If you have a DLL, you can edit the source. This is open-source.
- * Don't ask for support to the Discord Server for this.
- * The Monaco is hosted in my website (https://lexploits.netlify.app/extra/monaco)
- * Monaco open and saving file functions haves some issues with string.
- * The Monaco highlighting it's in (https://github.com/ItzzExcel/luau-monaco).
- * You can also ask me for it by Discord (itzzexcel), but it's harder to get a response.
+ * Since Release v01.07.2023a, I added the "Fluxus API," and it should be working.
+ * If you have a DLL, you can edit the source code. This is open-source.
+ * Do not ask for support on the Discord Server for this.
+ * Monaco is hosted on my website (https://lexploits.netlify.app/extra/monaco).
+ * Monaco's open and saving file functions have some issues with strings.
+ * The Monaco Lua syntax highlighting can be found at (https://github.com/ItzzExcel/luau-monaco).
+ * You can also ask me about it on Discord (itzzexcel).
  *  
- * The main form is located at Forms/application
- * You can also remove the Forms/splashscreen
+ * The main form is located at Forms/application.
+ * You can also remove the Forms/splashscreen.
  *  
- * The start of the application is SingleInstanceChecker.CheckInstance(), it's a function that uses Mutex. (Check line 33 to change startup)
+ * The application starts with SingleInstanceChecker.CheckInstance(). It's a function that uses Mutex. (Check line 33 to change the startup)
  *  
  */
 
