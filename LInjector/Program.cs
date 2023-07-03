@@ -12,9 +12,7 @@ using LInjector.Classes;
  *
  * Since Release v01.07.2023a, I added the "Fluxus API," and it should be working.
  * If you have a DLL, you can edit the source code. This is open-source.
- * Do not ask for support on the Discord Server for this.
  * Monaco is hosted on my website (https://lexploits.netlify.app/extra/monaco).
- * Monaco's open and saving file functions have some issues with strings.
  * The Monaco Lua syntax highlighting can be found at (https://github.com/ItzzExcel/luau-monaco).
  * You can also ask me about it on Discord (itzzexcel).
  *  

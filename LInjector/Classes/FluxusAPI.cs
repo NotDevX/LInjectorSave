@@ -165,7 +165,7 @@ namespace LInjector.Classes
                     createThreadMsgBox.createMsgThread("LoadLibFail failed\n", "Injection Error | Fluxteam API", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case FluxusAPI.Result.ProcNotOpen:
-                    createThreadMsgBox.createMsgThread("Failure to find UWP game\nmake sure you are using microsoft store", "Injection Error | Fluxteam API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    createThreadMsgBox.createMsgThread("Failure to find Roblox UWP.\nMake sure you have Roblox from the Microsoft Store", "Injection Error | Fluxteam API", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case FluxusAPI.Result.Unknown:
                     createThreadMsgBox.createMsgThread("Unknown Error\n", "Injection Error | Fluxteam API", MessageBoxButtons.OK, MessageBoxIcon.Error);
