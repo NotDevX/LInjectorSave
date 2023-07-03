@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Windows.Forms;
+using System.Net;
 using IWshRuntimeLibrary;
 
 namespace LInjector.Classes
@@ -11,6 +11,7 @@ namespace LInjector.Classes
         static string RobloxACFolder = Path.Combine(localAppDataFolder, "Packages", "ROBLOXCORPORATION.ROBLOX_55nm5eh3cm0pr", "AC");
         static string workspaceFolder = Path.Combine(RobloxACFolder, "workspace");
         static string autoexecFolder = Path.Combine(RobloxACFolder, "autoexec");
+        static WebClient webClient = new WebClient();
         static WshShell wsh = new WshShell();
 
         public static void Create ()
@@ -32,6 +33,11 @@ namespace LInjector.Classes
             if (!System.IO.Directory.Exists(".\\scripts"))
             {
                 System.IO.Directory.CreateDirectory(".\\scripts");
+            }
+
+            if (!System.IO.File.Exists(".\\README.txt"))
+            {
+                webClient.DownloadFile("https://github.com/ItzzExcel/LInjectorRedistributables/raw/main/extra/README.txt", "README.txt");
             }
         }
     }
