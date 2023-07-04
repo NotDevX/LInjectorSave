@@ -25,12 +25,15 @@ To edit the Forms, first compile, for any reason, forms can't load if not compil
 
 ### Don't ask why the commits are hashes pls.
 
+### Is LInjector key-less?
+Yes, LInjector is key-less, free and open-source.
+
 #### LInjector, including The LExploits Tools are not fully developed and can't be tested due to Hyperion Byfron, Roblox Anticheat.<br>
 🔴 All Exploits, including LInjector are currently patched.<br>Use any executor at your own risk.<br>
 Fluxus, Electron and Comet is working with UWP Roblox.</h4>
 
 ## About
-LInjector, developed mainly by [ItzzExcel](https://github.com/ItzzExcel). Using Krnl API to work.
+LInjector, developed mainly by [ItzzExcel](https://github.com/ItzzExcel). Using Fluxus API to work.
 Created by the necessity to have a secure & open-source executor without getting the risks of popular ones.
 
 ### Arguments (Linjector.exe --arg)
@@ -39,6 +42,7 @@ Created by the necessity to have a secure & open-source executor without getting
 .\LInjector.exe --bamboopipe  (Plays bamboo pipe falling sound)
 .\LInjector.exe --debug       (Shows console (this can be hiden with the button))
 .\LInjector.exe --sizable     (Makes LInjector application form sizable and dockable (ugly asf))
+.\LInjector.exe --no-splash	  (Don't shows splash screen on startup (this may cause some errors.))
 ```
 
 About LInjector
