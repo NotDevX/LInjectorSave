@@ -245,7 +245,6 @@ namespace LInjector
             try
             {
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
-                _ = NotificationManager.FireNotification("TextBox cleared", infSettings);
                 _ = TypeWriteManager.DoTypeWrite("", fileNameString);
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
