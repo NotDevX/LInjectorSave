@@ -38,11 +38,11 @@ Created by the necessity to have a secure & open-source executor without getting
 
 ### Arguments (Linjector.exe --arg)
 ```
-.\LInjector.exe --metalpipe   (Plays metal pipe falling sound)
-.\LInjector.exe --bamboopipe  (Plays bamboo pipe falling sound)
-.\LInjector.exe --debug       (Shows console (this can be hiden with the button))
-.\LInjector.exe --sizable     (Makes LInjector application form sizable and dockable (ugly asf))
-.\LInjector.exe --no-splash	  (Don't shows splash screen on startup (this may cause some errors.))
+.\LInjector.exe --metalpipe		(Plays metal pipe falling sound)
+.\LInjector.exe --bamboopipe	(Plays bamboo pipe falling sound)
+.\LInjector.exe --debug			(Shows console (this can be hiden with the button))
+.\LInjector.exe --sizable		(Makes LInjector application form sizable and dockable (ugly asf))
+.\LInjector.exe --no-splash		(Don't shows splash screen on startup (this may cause some loading errors))
 ```
 
 About LInjector
