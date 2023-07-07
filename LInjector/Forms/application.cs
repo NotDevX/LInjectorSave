@@ -1,5 +1,6 @@
 ﻿using LInjector.Classes;
 using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.WinForms;
 using System;
 using System.Drawing;
 using System.IO;
@@ -39,7 +40,6 @@ namespace LInjector
             string script = "monaco.editor.getModels()[0].getValue()";
             var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
             string text = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(result);
-
             return text;
         }
 
@@ -59,6 +59,11 @@ namespace LInjector
                 {
                     Application.Restart();
                 }
+            } else
+            {
+                webView2.CoreWebView2.Settings.AreDevToolsEnabled = false;
+                webView2.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
+                webView2.CoreWebView2.Settings.IsPasswordAutosaveEnabled = false;
             }
         }
 
@@ -457,6 +462,14 @@ namespace LInjector
             if (ConsoleManager.isConsoleVisible == true)
             { ConsoleManager.HideConsole(); }
             else { ConsoleManager.ShowConsole(); }
+        }
+
+        private void webView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
+        {
+            if (e.ToString() != "https://itzzexcel.github.io/luau-monaco" || e.ToString() != "https://lexploits.netlify.app/extra/monaco")
+            {
+                webView2.Source = new Uri("https://itzzexcel.github.io/luau-monaco");
+            }
         }
     }
 }
