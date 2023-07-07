@@ -216,7 +216,7 @@ namespace LInjector.Classes
             string text = "";
             foreach (string text2 in Directory.GetDirectories(Environment.GetEnvironmentVariable("LocalAppData") + "\\Packages"))
             {
-                bool flag2 = text2.Contains("ROBLOXCORPORATION.ROBLOX_55nm5eh3cm0pr");
+                bool flag2 = text2.Contains("ROBLOXCORPORATION");
                 if (flag2)
                 {
                     bool flag3 = Directory.GetDirectories(text2 + "\\AC").Any((string dir) => dir.Contains("Temp"));
