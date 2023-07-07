@@ -52,9 +52,9 @@ namespace LInjector
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             tempLog.CreateVersionFile(currentVersion, "version");
-            rbxversion.dlRbxVersion();
+            /* rbxversion.dlRbxVersion();
+            localRbxVersion.CheckLocalRbx(); Uncomment if Hyperion Release*/
             CreateShortcuts.Create();
-            localRbxVersion.CheckLocalRbx();
             ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();
             DiscordRPCManager.InitRPC();

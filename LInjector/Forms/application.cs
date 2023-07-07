@@ -88,7 +88,7 @@ namespace LInjector
                 _ = NotificationManager.FireNotification("Couldn't initialize Fluxus API.", infSettings);
             }
 
-            rbxversion.checkVersions();
+            // rbxversion.checkVersions();
         }
 
         private const int cGrip = 16;
@@ -219,14 +219,15 @@ namespace LInjector
                     catch (Exception ex)
                     {
                         _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
-                        createThreadMsgBox.createMsgThread("LInjector encountered a unrecoverable error\nException:\n"
+                        createThreadMsgBox.createMsgThread("LInjector encountered a unrecoverable error" +
+                            "\nDue to Hyperion Byfron, LInjector only supports Roblox from Microsoft Store." +
+                            "\nException:\n"
                                                            + ex.Message
                                                            + "\nStack Trace:\n"
                                                            + ex.StackTrace,
                                                            "LInjector | Exception",
                                                            MessageBoxButtons.OK,
                                                            MessageBoxIcon.Error);
-                        Console.Beep();
                     }
                     _ = NotificationManager.FireNotification("Called Injection API (Powered by Fluxteam)", infSettings);
                     SendToast.send("Powered by Fluxus! (https://fluxteam.net)", 3, Vip.Notification.AlertType.Custom);
