@@ -1,6 +1,5 @@
 ﻿using LInjector.Classes;
 using Microsoft.Web.WebView2.Core;
-using Microsoft.Web.WebView2.WinForms;
 using System;
 using System.Drawing;
 using System.IO;
@@ -59,7 +58,8 @@ namespace LInjector
                 {
                     Application.Restart();
                 }
-            } else
+            }
+            else
             {
                 webView2.CoreWebView2.Settings.AreDevToolsEnabled = false;
                 webView2.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
