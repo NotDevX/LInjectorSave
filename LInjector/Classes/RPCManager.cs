@@ -62,7 +62,7 @@ namespace LInjector.Classes
                 }
                 catch (Exception ex)
                 {
-                    createThreadMsgBox.createMsgThread(
+                    ThreadBox.MsgThread(
                         "Couldn't update LInjector State (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -98,7 +98,7 @@ namespace LInjector.Classes
                 }
                 catch (Exception ex)
                 {
-                    createThreadMsgBox.createMsgThread(
+                    ThreadBox.MsgThread(
                         "Couldn't set base Rich Presence (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }

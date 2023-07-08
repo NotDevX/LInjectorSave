@@ -20,7 +20,7 @@ namespace LInjector.Classes
                 }
             );
             msgBoxThread.Start();
-            cwDt.CwDt(msgBoxTitle + ", " + msgBoxContent);
+            CwDt.Cw(msgBoxTitle + ", " + msgBoxContent);
         }
     }
 }

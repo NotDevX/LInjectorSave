@@ -27,7 +27,7 @@ namespace LInjector.Classes
                 await Task.Delay(30);
             }
 
-            cwDt.CwDt(message);
+            CwDt.Cw(message);
 
             await Task.Delay(2500);
 

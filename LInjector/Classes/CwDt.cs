@@ -5,7 +5,7 @@ namespace LInjector.Classes
 {
     public static class CwDt
     {
-        public static void CwDt(string cwMsg)
+        public static void Cw(string cwMsg)
         {
             var writer = new StreamWriter(Console.OpenStandardOutput());
             writer.AutoFlush = true;

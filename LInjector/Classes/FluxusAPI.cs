@@ -182,28 +182,28 @@ namespace LInjector.Classes
             switch (inject_custom())
             {
                 case Result.DLLNotFound:
-                    createThreadMsgBox.createMsgThread("Dynamic-Link Library were not found\n",
+                    ThreadBox.MsgThread("Dynamic-Link Library were not found\n",
                         "Injection Error | Fluxteam API", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case Result.OpenProcFail:
-                    createThreadMsgBox.createMsgThread("OpenProcFail failed\n", "Injection Error | Fluxteam API",
+                    ThreadBox.MsgThread("OpenProcFail failed\n", "Injection Error | Fluxteam API",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case Result.AllocFail:
-                    createThreadMsgBox.createMsgThread("AllocFail failed\n", "Injection Error | Fluxteam API",
+                    ThreadBox.MsgThread("AllocFail failed\n", "Injection Error | Fluxteam API",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case Result.LoadLibFail:
-                    createThreadMsgBox.createMsgThread("LoadLibFail failed\n", "Injection Error | Fluxteam API",
+                    ThreadBox.MsgThread("LoadLibFail failed\n", "Injection Error | Fluxteam API",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case Result.ProcNotOpen:
-                    createThreadMsgBox.createMsgThread(
+                    ThreadBox.MsgThread(
                         "Failure to find Roblox UWP.\nMake sure you have Roblox from the Microsoft Store",
                         "Injection Error | Fluxteam API", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case Result.Unknown:
-                    createThreadMsgBox.createMsgThread("Unknown Error\n", "Injection Error | Fluxteam API",
+                    ThreadBox.MsgThread("Unknown Error\n", "Injection Error | Fluxteam API",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
@@ -223,7 +223,7 @@ namespace LInjector.Classes
             bool result;
             if (flag)
             {
-                createThreadMsgBox.createMsgThread("Inject API First", "Fluxus | API Error", MessageBoxButtons.OK,
+                ThreadBox.MsgThread("Inject API First", "Fluxus | API Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 result = false;
             }
@@ -244,7 +244,7 @@ namespace LInjector.Classes
             var flag = !File.Exists(dll_path_);
             if (flag)
             {
-                createThreadMsgBox.createMsgThread("Failure when initializing Fluxus API\nDLL path was invalid\n",
+                ThreadBox.MsgThread("Failure when initializing Fluxus API\nDLL path was invalid\n",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             dll_path = dll_path_;
             var text = "";

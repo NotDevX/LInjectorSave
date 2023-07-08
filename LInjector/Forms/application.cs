@@ -289,7 +289,7 @@ namespace LInjector
                 if (flag)
                 {
                     FluxusAPI.run_script(FluxusAPI.pid, scriptString);
-                    CwDt.CwDt("Script executed");
+                    CwDt.Cw("Script executed");
                 }
                 else
                 {
@@ -302,7 +302,7 @@ namespace LInjector
             {
                 ThreadBox.MsgThread("Fluxus couldn't run the script.", "LInjector | Fluxus API",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                CwDt.CwDt("Exception from Fluxus:\n"
+                CwDt.Cw("Exception from Fluxus:\n"
                           + ex.Message
                           + "\nStack Trace:\n"
                           + ex.StackTrace);
@@ -357,7 +357,7 @@ namespace LInjector
 
                 if (result == DialogResult.Yes)
                 {
-                    CwDt.CwDt("Resarting LInjector");
+                    CwDt.Cw("Resarting LInjector");
                     Application.Restart();
                 }
             }

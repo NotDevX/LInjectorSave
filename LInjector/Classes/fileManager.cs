@@ -29,10 +29,10 @@ namespace LInjector.Classes
                         targetControl.Text += character;
                         targetControl.Refresh();
                         await Task.Delay(30);
-                        DiscordRPCManager.SetRpcFile(message);
+                        RPCManager.SetRpcFile(message);
                     }
 
-                    cwDt.CwDt(message);
+                    CwDt.Cw(message);
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace LInjector.Classes
                         targetControl.Text += character;
                         targetControl.Refresh();
                         await Task.Delay(30);
-                        DiscordRPCManager.SetRpcFile(message);
+                        RPCManager.SetRpcFile(message);
                     }
                 }
             }));

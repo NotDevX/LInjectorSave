@@ -46,7 +46,7 @@ namespace LInjector
                 if (outDatedResult == DialogResult.Yes)
                 {
                     Process.Start("https://github.com/ItzzExcel/LInjector/releases");
-                    CwDt.CwDt("LInjector is outdated.");
+                    CwDt.Cw("LInjector is outdated.");
                 }
             }
 

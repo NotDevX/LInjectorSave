@@ -16,13 +16,13 @@ namespace LInjector.Classes
                 try
                 {
                     var content = await client.GetStringAsync(rbxverurl);
-                    cwDt.CwDt("Saving Roblox Game Client (Hyperion Release) version: " + content);
+                    CwDt.Cw("Saving Roblox Game Client (Hyperion Release) version: " + content);
                     Version = content;
                     TempLog.CreateVersionFile(content, "latestrbx");
                 }
                 catch (HttpRequestException ex)
                 {
-                    cwDt.CwDt("Exception:\n" + ex.Message
+                    CwDt.Cw("Exception:\n" + ex.Message
                                              + "Stack Trace:\n" + ex.StackTrace);
                 }
             }
@@ -36,15 +36,15 @@ namespace LInjector.Classes
             try
             {
                 if (getLatestRbx != localRbxVersion)
-                    cwDt.CwDt("Roblox Versions Mismatched.\n\n"
+                    CwDt.Cw("Roblox Versions Mismatched.\n\n"
                               + "Your Version     :" + localRbxVersion + '\n'
                               + "Latest Version   :" + getLatestRbx);
                 else if (getLatestRbx == localRbxVersion)
-                    cwDt.CwDt("Your local Roblox Game Client Version is up-to-date. They doesn't mismatch.");
+                    CwDt.Cw("Your local Roblox Game Client Version is up-to-date. They doesn't mismatch.");
             }
             catch (Exception ex)
             {
-                createThreadMsgBox.createMsgThread("Couldn't check if versions mismatched"
+                ThreadBox.MsgThread("Couldn't check if versions mismatched"
                                                    + "Exception   : \n" + ex.Message
                                                    + "Stack Trace : \n" + ex.StackTrace);
             }

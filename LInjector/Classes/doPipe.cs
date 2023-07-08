@@ -36,12 +36,12 @@ namespace LInjector.Classes
                 {
                     if (e.Error == null)
                     {
-                        cwDt.CwDt("File downloaded successfully.");
+                        CwDt.Cw("File downloaded successfully.");
                         selectedArg = filePath;
                     }
                     else
                     {
-                        cwDt.CwDt($"Error downloading file: {e.Error.Message}");
+                        CwDt.Cw($"Error downloading file: {e.Error.Message}");
                     }
                 };
 
@@ -66,12 +66,12 @@ namespace LInjector.Classes
                 {
                     if (e.Error == null)
                     {
-                        cwDt.CwDt("File downloaded successfully.");
+                        CwDt.Cw("File downloaded successfully.");
                         selectedArg = filePath;
                     }
                     else
                     {
-                        cwDt.CwDt($"Error downloading file: {e.Error.Message}");
+                        CwDt.Cw($"Error downloading file: {e.Error.Message}");
                     }
                 };
 
@@ -81,7 +81,7 @@ namespace LInjector.Classes
 
         public static void PlayPipeSound(string filePath)
         {
-            cwDt.CwDt(filePath);
+            CwDt.Cw(filePath);
 
             if (File.Exists(filePath) && new FileInfo(filePath).Length > 0)
             {
@@ -89,18 +89,18 @@ namespace LInjector.Classes
                 {
                     using (var player = new SoundPlayer(filePath))
                     {
-                        cwDt.CwDt("Playing pipe.");
+                        CwDt.Cw("Playing pipe.");
                         player.Play();
                     }
                 }
                 catch (Exception e)
                 {
-                    cwDt.CwDt($"Error playing file: {e.Message}");
+                    CwDt.Cw($"Error playing file: {e.Message}");
                 }
             }
             else
             {
-                cwDt.CwDt(filePath);
+                CwDt.Cw(filePath);
             }
         }
     }
