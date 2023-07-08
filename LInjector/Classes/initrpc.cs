@@ -21,7 +21,8 @@ namespace LInjector.Classes
                 },
                 Buttons = new DiscordRPC.Button[]
                 {
-                    new DiscordRPC.Button() { Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest" }
+                    new DiscordRPC.Button() { Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest" },
+                    new DiscordRPC.Button() { Label = "Join Discord", Url = "https://discord.gg/NQY28YSVAb" }
                 }
             };
 
@@ -48,7 +49,8 @@ namespace LInjector.Classes
                         },
                         Buttons = new DiscordRPC.Button[]
                         {
-                            new DiscordRPC.Button() { Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest" }
+                            new DiscordRPC.Button() { Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest" },
+                            new DiscordRPC.Button() { Label = "Join Discord", Url = "https://discord.gg/NQY28YSVAb" }
                         }
                     };
 
@@ -78,7 +80,8 @@ namespace LInjector.Classes
                         },
                         Buttons = new DiscordRPC.Button[]
                         {
-                            new DiscordRPC.Button() { Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest" }
+                            new DiscordRPC.Button() { Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest" },
+                            new DiscordRPC.Button() { Label = "Join Discord", Url = "https://discord.gg/NQY28YSVAb" }
                         }
                     };
 
