@@ -3,7 +3,7 @@ using System.IO;
 
 namespace LInjector.Classes
 {
-    public static class localRbxVersion
+    public static class LocalRbx
     {
         public static string Version { get; set; }
 

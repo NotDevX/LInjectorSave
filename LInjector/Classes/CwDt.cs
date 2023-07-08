@@ -3,7 +3,7 @@ using System.IO;
 
 namespace LInjector.Classes
 {
-    public static class cwDt
+    public static class CwDt
     {
         public static void CwDt(string cwMsg)
         {

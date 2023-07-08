@@ -3,7 +3,7 @@ using System.Net.Http;
 
 namespace LInjector.Classes
 {
-    public static class rbxversion
+    public static class RbxVersion
     {
         public static string Version { get; set; }
 
@@ -18,7 +18,7 @@ namespace LInjector.Classes
                     var content = await client.GetStringAsync(rbxverurl);
                     cwDt.CwDt("Saving Roblox Game Client (Hyperion Release) version: " + content);
                     Version = content;
-                    tempLog.CreateVersionFile(content, "latestrbx");
+                    TempLog.CreateVersionFile(content, "latestrbx");
                 }
                 catch (HttpRequestException ex)
                 {
@@ -31,7 +31,7 @@ namespace LInjector.Classes
         public static void checkVersions()
         {
             var getLatestRbx = Version;
-            var localRbxVersion = Classes.localRbxVersion.Version;
+            var localRbxVersion = Classes.LocalRbx.Version;
 
             try
             {

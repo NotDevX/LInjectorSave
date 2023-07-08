@@ -2,7 +2,7 @@
 
 namespace LInjector.Classes
 {
-    public static class tempLog
+    public static class TempLog
     {
         public static void CreateVersionFile(string content, string fileName)
         {

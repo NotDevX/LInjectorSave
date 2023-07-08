@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace LInjector.Classes
 {
-    public static class SingleInstanceChecker
+    public static class SingleInstance
     {
         private static Mutex mutex;
         private static bool isNewInstance;

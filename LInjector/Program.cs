@@ -37,7 +37,7 @@ namespace LInjector
         [STAThread]
         public static void Main(string[] args)
         {
-            if (GitHubVersionChecker.IsOutdatedVersion(currentVersion))
+            if (CheckLatest.IsOutdatedVersion(currentVersion))
             {
                 var outDatedResult = MessageBox.Show(
                     "LInjector is outdated, please, re-run LInjector Updating System or download the latest release via GitHub.\n" +
@@ -46,20 +46,20 @@ namespace LInjector
                 if (outDatedResult == DialogResult.Yes)
                 {
                     Process.Start("https://github.com/ItzzExcel/LInjector/releases");
-                    cwDt.CwDt("LInjector is outdated.");
+                    CwDt.CwDt("LInjector is outdated.");
                 }
             }
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            tempLog.CreateVersionFile(currentVersion, "version");
+            TempLog.CreateVersionFile(currentVersion, "version");
             /* rbxversion.dlRbxVersion();
             localRbxVersion.CheckLocalRbx(); Uncomment if Hyperion Release */
-            CreateShortcuts.Create();
+            CreateFiles.Create();
             ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();
-            DiscordRPCManager.InitRPC();
-            SingleInstanceChecker.CheckInstance();
+            RPCManager.InitRPC();
+            SingleInstance.CheckInstance();
         }
     }
 }

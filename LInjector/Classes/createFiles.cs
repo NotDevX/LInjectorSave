@@ -6,7 +6,7 @@ using File = System.IO.File;
 
 namespace LInjector.Classes
 {
-    public static class CreateShortcuts
+    public static class CreateFiles
     {
         private static readonly string localAppDataFolder =
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);

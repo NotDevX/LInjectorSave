@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace LInjector.Classes
 {
-    public static class createThreadMsgBox
+    public static class ThreadBox
     {
-        public static void createMsgThread(string msgBoxContent = "",
+        public static void MsgThread(string msgBoxContent = "",
             string msgBoxTitle = "",
             MessageBoxButtons boxButtons = MessageBoxButtons.OK,
             MessageBoxIcon boxIcon = MessageBoxIcon.None,

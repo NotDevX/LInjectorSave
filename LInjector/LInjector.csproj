@@ -299,7 +299,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\argumentHandler.cs" />
+    <Compile Include="Classes\ArgumentHandler.cs" />
     <Compile Include="Classes\consoleHandler.cs" />
     <Compile Include="Classes\createFiles.cs" />
     <Compile Include="Classes\createThreadMsgBox.cs" />

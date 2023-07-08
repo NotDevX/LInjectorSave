@@ -74,7 +74,7 @@ namespace LInjector
                 createThreadMsgBox.createMsgThread("Couldn't hide splash screen form.", "LInjector");
             }
 
-            doPipe.PlayPipeSound(doPipe.selectedArg);
+            DoPipe.PlayPipeSound(DoPipe.selectedArg);
         }
 
         private void spinningRGB_MouseDown(object sender, MouseEventArgs e)

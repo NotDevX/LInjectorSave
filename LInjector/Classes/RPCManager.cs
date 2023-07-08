@@ -5,7 +5,7 @@ using Button = DiscordRPC.Button;
 
 namespace LInjector.Classes
 {
-    public static class DiscordRPCManager
+    public static class RPCManager
     {
         public static DiscordRpcClient client;
 

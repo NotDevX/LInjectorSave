@@ -4,7 +4,7 @@ using Octokit;
 
 namespace LInjector.Classes
 {
-    public class GitHubVersionChecker
+    public class CheckLatest
     {
         private const string owner = "ItzzExcel";
         private const string repo = "LInjector";

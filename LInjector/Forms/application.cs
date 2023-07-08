@@ -88,7 +88,7 @@ namespace LInjector
             }
             catch (Exception ex)
             {
-                createThreadMsgBox.createMsgThread("Couldn't initialize Fluxus API\nException:\n"
+                ThreadBox.MsgThread("Couldn't initialize Fluxus API\nException:\n"
                                                    + ex.Message
                                                    + "\nPlease, share it on Discord.",
                     "[ERROR] LInjector", MessageBoxButtons.OK,
@@ -231,7 +231,7 @@ namespace LInjector
                     catch (Exception ex)
                     {
                         _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
-                        createThreadMsgBox.createMsgThread("LInjector encountered a unrecoverable error" +
+                        ThreadBox.MsgThread("LInjector encountered a unrecoverable error" +
                                                            "\nDue to Hyperion Byfron, LInjector only supports Roblox from Microsoft Store." +
                                                            "\nException:\n"
                                                            + ex.Message
@@ -247,14 +247,14 @@ namespace LInjector
                 }
                 catch (Exception ex)
                 {
-                    createThreadMsgBox.createMsgThread("Error on inject:\n" + ex.Message
+                    ThreadBox.MsgThread("Error on inject:\n" + ex.Message
                                                                             + "\nStack Trace:\n" + ex.StackTrace,
                         "LInjector | Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                createThreadMsgBox.createMsgThread("Already injected", "LInjector | Fluxus API",
+                ThreadBox.MsgThread("Already injected", "LInjector | Fluxus API",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -264,7 +264,7 @@ namespace LInjector
             try
             {
                 await webView2.ExecuteScriptAsync("editor.setValue('');");
-                _ = TypeWriteManager.DoTypeWrite("", fileNameString);
+                _ = FileManager.DoTypeWrite("", fileNameString);
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
             }
@@ -273,7 +273,7 @@ namespace LInjector
                 _ = NotificationManager.FireNotification("Error", infSettings);
             }
 
-            DiscordRPCManager.SetBaseRichPresence();
+            RPCManager.SetBaseRichPresence();
         }
 
         private async void Execute_Click(object sender, EventArgs e)
@@ -289,7 +289,7 @@ namespace LInjector
                 if (flag)
                 {
                     FluxusAPI.run_script(FluxusAPI.pid, scriptString);
-                    cwDt.CwDt("Script executed");
+                    CwDt.CwDt("Script executed");
                 }
                 else
                 {
@@ -300,9 +300,9 @@ namespace LInjector
             }
             catch (Exception ex)
             {
-                createThreadMsgBox.createMsgThread("Fluxus couldn't run the script.", "LInjector | Fluxus API",
+                ThreadBox.MsgThread("Fluxus couldn't run the script.", "LInjector | Fluxus API",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cwDt.CwDt("Exception from Fluxus:\n"
+                CwDt.CwDt("Exception from Fluxus:\n"
                           + ex.Message
                           + "\nStack Trace:\n"
                           + ex.StackTrace);
@@ -344,7 +344,7 @@ namespace LInjector
                     fileNameString.Refresh();
                     fileNameString.Size = new Size(150, 28);
                     fileNameString.Visible = true;
-                    _ = TypeWriteManager.DoTypeWrite(openFileDialog.SafeFileName, fileNameString);
+                    _ = FileManager.DoTypeWrite(openFileDialog.SafeFileName, fileNameString);
                 }
 
                 filesub.Visible = false;
@@ -357,7 +357,7 @@ namespace LInjector
 
                 if (result == DialogResult.Yes)
                 {
-                    cwDt.CwDt("Resarting LInjector");
+                    CwDt.CwDt("Resarting LInjector");
                     Application.Restart();
                 }
             }
@@ -391,7 +391,7 @@ namespace LInjector
                     filesub.Visible = false;
                     var savedFileName = Path.GetFileName(saveFileDialog.FileName);
                     _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
-                    _ = TypeWriteManager.DoTypeWrite(savedFileName, fileNameString);
+                    _ = FileManager.DoTypeWrite(savedFileName, fileNameString);
                 }
                 catch (Exception)
                 {

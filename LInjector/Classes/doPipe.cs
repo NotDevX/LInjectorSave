@@ -5,7 +5,7 @@ using System.Net;
 
 namespace LInjector.Classes
 {
-    public static class doPipe
+    public static class DoPipe
     {
         private static readonly string metalPipeURL =
             "https://lexploits.netlify.app/extra/cdn/20826a3cb51d6c7d9c219c7f4bf4e5c9.wav";

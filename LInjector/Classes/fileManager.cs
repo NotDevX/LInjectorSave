@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace LInjector.Classes
 {
-    public static class TypeWriteManager
+    public static class FileManager
     {
         private static bool isBusy;
 

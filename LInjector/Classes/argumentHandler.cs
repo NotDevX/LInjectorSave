@@ -16,12 +16,12 @@ namespace LInjector.Classes
                 foreach (var argument in argumentProvided)
                     if (argument.Contains("--metalpipe"))
                     {
-                        doPipe.doMetalPipeAsync();
+                        DoPipe.doMetalPipeAsync();
                         cwDt.CwDt("--metalpipe called.");
                     }
                     else if (argument.Contains("--bamboopipe"))
                     {
-                        doPipe.doBambooPipeAsync();
+                        DoPipe.doBambooPipeAsync();
                         cwDt.CwDt("--bamboopipe called.");
                     }
                     else if (argument.Contains("--debug"))
