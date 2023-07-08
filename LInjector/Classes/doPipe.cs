@@ -23,7 +23,10 @@ namespace LInjector.Classes
 
         public static void doMetalPipeAsync()
         {
-            if (!Directory.Exists(targetDirectory)) Directory.CreateDirectory(targetDirectory);
+            if (!Directory.Exists(targetDirectory))
+            {
+                Directory.CreateDirectory(targetDirectory);
+            }
 
             var filePath = Path.Combine(targetDirectory, fileNameMetal);
 
@@ -50,7 +53,10 @@ namespace LInjector.Classes
 
         public static void doBambooPipeAsync()
         {
-            if (!Directory.Exists(targetDirectory)) Directory.CreateDirectory(targetDirectory);
+            if (!Directory.Exists(targetDirectory))
+            {
+                Directory.CreateDirectory(targetDirectory);
+            }
 
             var filePath = Path.Combine(targetDirectory, fileNameBamboo);
 
@@ -78,6 +84,7 @@ namespace LInjector.Classes
             cwDt.CwDt(filePath);
 
             if (File.Exists(filePath) && new FileInfo(filePath).Length > 0)
+            {
                 try
                 {
                     using (var player = new SoundPlayer(filePath))
@@ -90,8 +97,11 @@ namespace LInjector.Classes
                 {
                     cwDt.CwDt($"Error playing file: {e.Message}");
                 }
+            }
             else
+            {
                 cwDt.CwDt(filePath);
+            }
         }
     }
 }

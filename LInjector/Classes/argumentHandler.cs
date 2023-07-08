@@ -12,6 +12,7 @@ namespace LInjector.Classes
             cwDt.CwDt("Called argument analyzer.");
 
             if (argumentProvided.Length > 0)
+            {
                 foreach (var argument in argumentProvided)
                     if (argument.Contains("--metalpipe"))
                     {
@@ -44,8 +45,11 @@ namespace LInjector.Classes
                     {
                         cwDt.CwDt($"Invalid argument: {argument}");
                     }
+            }
             else
+            {
                 cwDt.CwDt("No arguments were provided.");
+            }
         }
     }
 }

@@ -35,6 +35,7 @@ namespace LInjector.Classes
         public static void SetRpcFile(string currentFile)
         {
             if (client.IsInitialized)
+            {
                 try
                 {
                     var state = "Editing File: " + currentFile;
@@ -65,11 +66,13 @@ namespace LInjector.Classes
                         "Couldn't update LInjector State (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
         }
 
         public static void SetBaseRichPresence()
         {
             if (client.IsInitialized)
+            {
                 try
                 {
                     var baseRichPresence = new RichPresence
@@ -99,6 +102,7 @@ namespace LInjector.Classes
                         "Couldn't set base Rich Presence (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
         }
     }
 }

@@ -10,8 +10,12 @@ namespace LInjector.Classes
         public static async Task FireNotification<T>(string message, T targetControl) where T : Control
         {
             if (isBusy)
+            {
                 while (isBusy)
+                {
                     await Task.Delay(100);
+                }
+            }
 
             isBusy = true;
 

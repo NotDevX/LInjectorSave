@@ -110,26 +110,41 @@ namespace LInjector.Classes
                     {
                         var intPtr = OpenProcess(1082U, false, process.Id);
                         var flag3 = intPtr == NULL;
-                        if (flag3) return Result.OpenProcFail;
+                        if (flag3)
+                        {
+                            return Result.OpenProcFail;
+                        }
                         var intPtr2 = VirtualAllocEx(intPtr, NULL,
                             (IntPtr)((dll_path.Length + 1) * Marshal.SizeOf(typeof(char))), 12288U, 64U);
                         var flag4 = intPtr2 == NULL;
-                        if (flag4) return Result.AllocFail;
+                        if (flag4)
+                        {
+                            return Result.AllocFail;
+                        }
                         var bytes = Encoding.Default.GetBytes(dll_path);
                         var num2 = WriteProcessMemory(intPtr, intPtr2, bytes,
                             (IntPtr)((dll_path.Length + 1) * Marshal.SizeOf(typeof(char))), 0);
                         var flag5 = num2 == 0 || num2 == 6L;
-                        if (flag5) return Result.Unknown;
+                        if (flag5)
+                        {
+                            return Result.Unknown;
+                        }
                         var flag6 = CreateRemoteThread(intPtr, NULL, NULL,
                             GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA"), intPtr2, 0U, NULL) == NULL;
-                        if (flag6) return Result.LoadLibFail;
+                        if (flag6)
+                        {
+                            return Result.LoadLibFail;
+                        }
                         pid = process.Id;
                         phandle = intPtr;
                         return Result.Success;
                     }
 
                     var flag7 = pid == process.Id;
-                    if (flag7) return Result.AlreadyInjected;
+                    if (flag7)
+                    {
+                        return Result.AlreadyInjected;
+                    }
                     num += 1U;
                 }
 
@@ -146,9 +161,13 @@ namespace LInjector.Classes
             {
                 var flag = !File.Exists(dll_path);
                 if (flag)
+                {
                     result = Result.DLLNotFound;
+                }
                 else
+                {
                     result = r_inject(dll_path);
+                }
             }
             catch
             {
@@ -224,18 +243,21 @@ namespace LInjector.Classes
         {
             var flag = !File.Exists(dll_path_);
             if (flag)
-                createThreadMsgBox.createMsgThread("Failure when initalizing Fluxus API\nDLL path was invalid\n",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                createThreadMsgBox.createMsgThread("Failure when initializing Fluxus API\nDLL path was invalid\n",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             dll_path = dll_path_;
             var text = "";
-            foreach (var text2 in Directory.GetDirectories(Environment.GetEnvironmentVariable("LocalAppData") +
-                                                           "\\Packages"))
+            foreach (var text2 in Directory.GetDirectories(Environment.GetEnvironmentVariable("LocalAppData") + "\\Packages"))
             {
                 var flag2 = text2.Contains("ROBLOXCORPORATION");
                 if (flag2)
                 {
                     var flag3 = Directory.GetDirectories(text2 + "\\AC").Any(dir => dir.Contains("Temp"));
-                    if (flag3) text = text2 + "\\AC";
+                    if (flag3)
+                    {
+                        text = text2 + "\\AC";
+                    }
                 }
             }
 
@@ -245,9 +267,15 @@ namespace LInjector.Classes
                 try
                 {
                     var flag5 = Directory.Exists("workspace");
-                    if (flag5) Directory.Move("workspace", "old_workspace");
+                    if (flag5)
+                    {
+                        Directory.Move("workspace", "old_workspace");
+                    }
                     var flag6 = Directory.Exists("autoexec");
-                    if (flag6) Directory.Move("autoexec", "old_autoexec");
+                    if (flag6)
+                    {
+                        Directory.Move("autoexec", "old_autoexec");
+                    }
                 }
                 catch
                 {
@@ -256,9 +284,15 @@ namespace LInjector.Classes
                 var path = Path.Combine(text, "workspace");
                 var path2 = Path.Combine(text, "autoexec");
                 var flag7 = !Directory.Exists(path);
-                if (flag7) Directory.CreateDirectory(path);
+                if (flag7)
+                {
+                    Directory.CreateDirectory(path);
+                }
                 var flag8 = !Directory.Exists(path2);
-                if (flag8) Directory.CreateDirectory(path2);
+                if (flag8)
+                {
+                    Directory.CreateDirectory(path2);
+                }
             }
         }
     }

@@ -31,10 +31,14 @@ namespace LInjector.Classes
             }
 
             if (!ArgumentHandler.splashEnabled)
+            {
                 Application.Run(
                     new application()); // You can remove the splashscreen by changing "splashscr" for "application"
+            }
             else
+            {
                 Application.Run(new splashscr());
+            }
             Console.Title = "LInjector | Debug";
 
             Release();
@@ -44,7 +48,10 @@ namespace LInjector.Classes
         {
             if (mutex != null)
             {
-                if (isNewInstance) mutex.ReleaseMutex();
+                if (isNewInstance)
+                {
+                    mutex.ReleaseMutex();
+                }
                 mutex.Close();
                 mutex.Dispose();
                 mutex = null;

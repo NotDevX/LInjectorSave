@@ -27,9 +27,9 @@ namespace LInjector
             InitializeComponent();
             SetStyle(ControlStyles.ResizeRedraw, true);
 
-#pragma warning disable CS0162 // Unreachable code detected
-            if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") isDevelopment = true;
-#pragma warning restore CS0162 // Unreachable code detected
+            #pragma warning disable CS0162 // Unreachable code detected
+            if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") { isDevelopment = true; }
+            #pragma warning restore CS0162 // Unreachable code detected
 
             if (ArgumentHandler.SizableBool)
             {
@@ -78,9 +78,9 @@ namespace LInjector
         private void application_Load(object sender, EventArgs e)
         {
             if (isDevelopment)
-                _ = NotificationManager.FireNotification("Welcome to LInjector Development Version", infSettings);
+            { _ = NotificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
             else
-                _ = NotificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings);
+            { _ = NotificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings); }
 
             try
             {
@@ -130,9 +130,13 @@ namespace LInjector
         private void Maximize_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Maximized)
+            {
                 WindowState = FormWindowState.Normal;
+            }
             else
+            {
                 WindowState = FormWindowState.Maximized;
+            }
         }
 
         private void Minimize_Click(object sender, EventArgs e)
@@ -217,6 +221,7 @@ namespace LInjector
             FluxusAPI.create_files(Path.GetFullPath("Resources\\libs\\Module.dll"));
             var flag = !FluxusAPI.is_injected(FluxusAPI.pid);
             if (flag)
+            {
                 try
                 {
                     try
@@ -246,9 +251,12 @@ namespace LInjector
                                                                             + "\nStack Trace:\n" + ex.StackTrace,
                         "LInjector | Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
             else
+            {
                 createThreadMsgBox.createMsgThread("Already injected", "LInjector | Fluxus API",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private async void ClearTB_Click(object sender, EventArgs e)
@@ -375,7 +383,9 @@ namespace LInjector
                     var scriptString = JsonConvert.DeserializeObject<string>(result);
 
                     if (string.IsNullOrEmpty(scriptString))
+                    {
                         _ = NotificationManager.FireNotification("No content detected", infSettings);
+                    }
 
                     File.WriteAllText(filePath, scriptString);
                     filesub.Visible = false;
@@ -419,7 +429,7 @@ namespace LInjector
                 MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Information);
 
-            if (result == DialogResult.OK) Application.Restart();
+            if (result == DialogResult.OK) { Application.Restart(); }
 
             editSubmenu.Visible = false;
         }
@@ -475,8 +485,10 @@ namespace LInjector
         private void webView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
             if (e.ToString() != "https://itzzexcel.github.io/luau-monaco" ||
-                e.ToString() != "https://lexploits.netlify.app/extra/monaco")
+                e.ToString() != "https://lexploits.netlify.app/extra/monaco") 
+            {
                 webView2.Source = new Uri("https://itzzexcel.github.io/luau-monaco");
+            }
         }
     }
 }
