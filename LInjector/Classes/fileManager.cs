@@ -11,16 +11,12 @@ namespace LInjector.Classes
         public static async Task DoTypeWrite<T>(string message, T targetControl) where T : Control
         {
             if (isBusy)
-            {
                 while (isBusy)
-                {
                     await Task.Delay(100);
-                }
-            }
 
             isBusy = true;
 
-            string originalText = targetControl.Text;
+            var originalText = targetControl.Text;
 
             targetControl.Invoke((MethodInvoker)(async () =>
             {
@@ -28,7 +24,7 @@ namespace LInjector.Classes
 
                 if (message.Length < 50)
                 {
-                    foreach (char character in message)
+                    foreach (var character in message)
                     {
                         targetControl.Text += character;
                         targetControl.Refresh();
@@ -40,8 +36,8 @@ namespace LInjector.Classes
                 }
                 else
                 {
-                    string cutMessage = message.Substring(0, Math.Min(50, message.Length));
-                    foreach (char character in cutMessage)
+                    var cutMessage = message.Substring(0, Math.Min(50, message.Length));
+                    foreach (var character in cutMessage)
                     {
                         targetControl.Text += character;
                         targetControl.Refresh();

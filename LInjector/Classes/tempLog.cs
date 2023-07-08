@@ -6,19 +6,13 @@ namespace LInjector.Classes
     {
         public static void CreateVersionFile(string content, string fileName)
         {
-            string tempPath = Path.GetTempPath();
-            string linjectorFolderPath = Path.Combine(tempPath, "LInjector");
-            string versionFilePath = Path.Combine(linjectorFolderPath, fileName);
+            var tempPath = Path.GetTempPath();
+            var linjectorFolderPath = Path.Combine(tempPath, "LInjector");
+            var versionFilePath = Path.Combine(linjectorFolderPath, fileName);
 
-            if (!Directory.Exists(linjectorFolderPath))
-            {
-                Directory.CreateDirectory(linjectorFolderPath);
-            }
+            if (!Directory.Exists(linjectorFolderPath)) Directory.CreateDirectory(linjectorFolderPath);
 
-            if (!File.Exists(versionFilePath))
-            {
-                File.WriteAllText(versionFilePath, content);
-            }
+            if (!File.Exists(versionFilePath)) File.WriteAllText(versionFilePath, content);
         }
     }
 }

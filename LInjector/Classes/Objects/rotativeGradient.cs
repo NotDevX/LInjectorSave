@@ -9,17 +9,26 @@ namespace LInjector.Classes
     {
         private const double RotationSpeed = 1; // Velocidad de rotación del degradado
         private const int AnimationDuration = 2500; // Duración de la animación en milisegundos
-
-        private Timer timer;
         private double angle;
+        private Bitmap buffer;
         private Color color1;
         private Color color2;
-        private Bitmap buffer;
         private DateTime startTime;
+
+        private Timer timer;
+
+        public SpinningRGBPanel()
+        {
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            UpdateStyles();
+
+            InitializePanel();
+        }
 
         public Color Color1
         {
-            get { return color1; }
+            get => color1;
             set
             {
                 color1 = value;
@@ -29,21 +38,12 @@ namespace LInjector.Classes
 
         public Color Color2
         {
-            get { return color2; }
+            get => color2;
             set
             {
                 color2 = value;
                 Refresh();
             }
-        }
-
-        public SpinningRGBPanel()
-        {
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            UpdateStyles();
-
-            InitializePanel();
         }
 
         private void InitializePanel()
@@ -67,12 +67,13 @@ namespace LInjector.Classes
         {
             if (!DesignMode)
             {
-                double elapsedMilliseconds = (DateTime.Now - startTime).TotalMilliseconds;
+                var elapsedMilliseconds = (DateTime.Now - startTime).TotalMilliseconds;
                 if (elapsedMilliseconds >= AnimationDuration)
                 {
                     timer.Stop();
                     return;
                 }
+
                 angle += RotationSpeed;
                 Invalidate();
             }
@@ -88,16 +89,16 @@ namespace LInjector.Classes
                 buffer = new Bitmap(ClientSize.Width, ClientSize.Height);
             }
 
-            using (Graphics bufferGraphics = Graphics.FromImage(buffer))
+            using (var bufferGraphics = Graphics.FromImage(buffer))
             {
                 bufferGraphics.Clear(BackColor);
 
-                using (GraphicsPath path = CreateRoundRectanglePath(ClientRectangle, 10))
-                using (Region region = new Region(path))
+                using (var path = CreateRoundRectanglePath(ClientRectangle, 10))
+                using (var region = new Region(path))
                 {
                     bufferGraphics.SetClip(region, CombineMode.Replace);
 
-                    using (LinearGradientBrush brush = new LinearGradientBrush(ClientRectangle, color1, color2, (float)angle))
+                    using (var brush = new LinearGradientBrush(ClientRectangle, color1, color2, (float)angle))
                     {
                         bufferGraphics.FillPath(brush, path);
                     }
@@ -109,10 +110,10 @@ namespace LInjector.Classes
 
         private GraphicsPath CreateRoundRectanglePath(Rectangle rectangle, int radius)
         {
-            GraphicsPath path = new GraphicsPath();
-            int diameter = radius * 2;
+            var path = new GraphicsPath();
+            var diameter = radius * 2;
 
-            Rectangle arcRect = new Rectangle(rectangle.Location, new Size(diameter, diameter));
+            var arcRect = new Rectangle(rectangle.Location, new Size(diameter, diameter));
 
             path.AddArc(arcRect, 180, 90);
 

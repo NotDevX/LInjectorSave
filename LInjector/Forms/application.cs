@@ -1,63 +1,71 @@
-﻿using LInjector.Classes;
-using Microsoft.Web.WebView2.Core;
-using System;
+﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using LInjector.Classes;
+using Microsoft.Web.WebView2.Core;
+using Newtonsoft.Json;
+using Vip.Notification;
 
 namespace LInjector
 {
     public partial class application : Form
     {
-
-        private bool isDevelopment = false;
-
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
-
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
+
+        private const int cGrip = 16;
+        private const int cCaption = 32;
+
+        private readonly bool isDevelopment;
 
         public application()
         {
             InitializeComponent();
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            SetStyle(ControlStyles.ResizeRedraw, true);
 
 #pragma warning disable CS0162 // Unreachable code detected
-            if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") { isDevelopment = true; }
+            if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") isDevelopment = true;
 #pragma warning restore CS0162 // Unreachable code detected
 
-            if (ArgumentHandler.SizableBool == true)
-            { this.FormBorderStyle = FormBorderStyle.Sizable; Text = "LInjector"; }
+            if (ArgumentHandler.SizableBool)
+            {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                Text = "LInjector";
+            }
         }
 
-        public async System.Threading.Tasks.Task<string> GetMonacoContent()
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        public async Task<string> GetMonacoContent()
         {
-            string script = "monaco.editor.getModels()[0].getValue()";
+            var script = "monaco.editor.getModels()[0].getValue()";
             var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
-            string text = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(result);
+            var text = JsonConvert.DeserializeObject<string>(result);
             return text;
         }
 
 
-        private void webView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
+        private void webView2_CoreWebView2InitializationCompleted(object sender,
+            CoreWebView2InitializationCompletedEventArgs e)
         {
             if (!e.IsSuccess)
             {
                 _ = NotificationManager.FireNotification("Failed to load WebView2", infSettings);
 
-                DialogResult result = MessageBox.Show("CoreWebView2 Failed to load, try relaunching LInjector?",
+                var result = MessageBox.Show("CoreWebView2 Failed to load, try relaunching LInjector?",
                     "[ERROR] LInjector",
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Error);
 
-                if (result == DialogResult.OK)
-                {
-                    Application.Restart();
-                }
+                if (result == DialogResult.OK) Application.Restart();
             }
             else
             {
@@ -70,9 +78,9 @@ namespace LInjector
         private void application_Load(object sender, EventArgs e)
         {
             if (isDevelopment)
-            { _ = NotificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
+                _ = NotificationManager.FireNotification("Welcome to LInjector Development Version", infSettings);
             else
-            { _ = NotificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings); }
+                _ = NotificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings);
 
             try
             {
@@ -81,8 +89,8 @@ namespace LInjector
             catch (Exception ex)
             {
                 createThreadMsgBox.createMsgThread("Couldn't initialize Fluxus API\nException:\n"
-                    + ex.Message.ToString()
-                    + "\nPlease, share it on Discord.",
+                                                   + ex.Message
+                                                   + "\nPlease, share it on Discord.",
                     "[ERROR] LInjector", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 _ = NotificationManager.FireNotification("Couldn't initialize Fluxus API.", infSettings);
@@ -91,26 +99,25 @@ namespace LInjector
             // rbxversion.checkVersions();
         }
 
-        private const int cGrip = 16;
-        private const int cCaption = 32;
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == 0x84)
             {
-                Point pos = new Point(m.LParam.ToInt32());
-                pos = this.PointToClient(pos);
+                var pos = new Point(m.LParam.ToInt32());
+                pos = PointToClient(pos);
                 if (pos.Y < cCaption)
                 {
                     m.Result = (IntPtr)2;
                     return;
                 }
 
-                if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
+                if (pos.X >= ClientSize.Width - cGrip && pos.Y >= ClientSize.Height - cGrip)
                 {
                     m.Result = (IntPtr)17;
                     return;
                 }
             }
+
             base.WndProc(ref m);
         }
 
@@ -123,8 +130,9 @@ namespace LInjector
         private void Maximize_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Maximized)
-            { WindowState = FormWindowState.Normal; }
-            else { WindowState = FormWindowState.Maximized; }
+                WindowState = FormWindowState.Normal;
+            else
+                WindowState = FormWindowState.Maximized;
         }
 
         private void Minimize_Click(object sender, EventArgs e)
@@ -207,9 +215,8 @@ namespace LInjector
         private void Attach_Click(object sender, EventArgs e)
         {
             FluxusAPI.create_files(Path.GetFullPath("Resources\\libs\\Module.dll"));
-            bool flag = !FluxusAPI.is_injected(FluxusAPI.pid);
+            var flag = !FluxusAPI.is_injected(FluxusAPI.pid);
             if (flag)
-            {
                 try
                 {
                     try
@@ -220,30 +227,28 @@ namespace LInjector
                     {
                         _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
                         createThreadMsgBox.createMsgThread("LInjector encountered a unrecoverable error" +
-                            "\nDue to Hyperion Byfron, LInjector only supports Roblox from Microsoft Store." +
-                            "\nException:\n"
+                                                           "\nDue to Hyperion Byfron, LInjector only supports Roblox from Microsoft Store." +
+                                                           "\nException:\n"
                                                            + ex.Message
                                                            + "\nStack Trace:\n"
                                                            + ex.StackTrace,
-                                                           "LInjector | Exception",
-                                                           MessageBoxButtons.OK,
-                                                           MessageBoxIcon.Error);
+                            "LInjector | Exception",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
+
                     _ = NotificationManager.FireNotification("Called Injection API (Powered by Fluxteam)", infSettings);
-                    SendToast.send("Powered by Fluxus! (https://fluxteam.net)", 3, Vip.Notification.AlertType.Custom);
+                    SendToast.send("Powered by Fluxus! (https://fluxteam.net)", 3, AlertType.Custom);
                 }
                 catch (Exception ex)
                 {
                     createThreadMsgBox.createMsgThread("Error on inject:\n" + ex.Message
-                        + "\nStack Trace:\n" + ex.StackTrace,
+                                                                            + "\nStack Trace:\n" + ex.StackTrace,
                         "LInjector | Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
             else
-            {
                 createThreadMsgBox.createMsgThread("Already injected", "LInjector | Fluxus API",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
 
         private async void ClearTB_Click(object sender, EventArgs e)
@@ -259,19 +264,20 @@ namespace LInjector
             {
                 _ = NotificationManager.FireNotification("Error", infSettings);
             }
+
             DiscordRPCManager.SetBaseRichPresence();
         }
 
         private async void Execute_Click(object sender, EventArgs e)
         {
-            string script = "monaco.editor.getModels()[0].getValue()";
+            var script = "monaco.editor.getModels()[0].getValue()";
             var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
-            string scriptString = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(result);
+            var scriptString = JsonConvert.DeserializeObject<string>(result);
             Execute.Focus();
 
             try
             {
-                bool flag = FluxusAPI.is_injected(FluxusAPI.pid);
+                var flag = FluxusAPI.is_injected(FluxusAPI.pid);
                 if (flag)
                 {
                     FluxusAPI.run_script(FluxusAPI.pid, scriptString);
@@ -281,16 +287,19 @@ namespace LInjector
                 {
                     _ = NotificationManager.FireNotification("Inject before running script", infSettings);
                 }
+
                 Execute.Focus();
             }
             catch (Exception ex)
             {
-                createThreadMsgBox.createMsgThread("Fluxus couldn't run the script.", "LInjector | Fluxus API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                createThreadMsgBox.createMsgThread("Fluxus couldn't run the script.", "LInjector | Fluxus API",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cwDt.CwDt("Exception from Fluxus:\n"
-                    + ex.Message
-                    + "\nStack Trace:\n"
-                    + ex.StackTrace);
+                          + ex.Message
+                          + "\nStack Trace:\n"
+                          + ex.StackTrace);
             }
+
             Execute.Focus();
         }
 
@@ -313,13 +322,13 @@ namespace LInjector
                 fileNameString.Refresh();
                 fileNameString.ResetText();
                 fileNameString.Size = new Size(150, 28);
-                OpenFileDialog openFileDialog = new OpenFileDialog();
+                var openFileDialog = new OpenFileDialog();
                 openFileDialog.Title = "Open Script Files | LInjector";
                 openFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
                 openFileDialog.Multiselect = false;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    string fileContent = File.ReadAllText(openFileDialog.FileName);
+                    var fileContent = File.ReadAllText(openFileDialog.FileName);
                     fileContent = fileContent.Replace("\\", "\\\\");
                     await webView2.ExecuteScriptAsync("editor.setValue('');");
                     await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
@@ -329,11 +338,13 @@ namespace LInjector
                     fileNameString.Visible = true;
                     _ = TypeWriteManager.DoTypeWrite(openFileDialog.SafeFileName, fileNameString);
                 }
+
                 filesub.Visible = false;
             }
             catch (Exception ex)
             {
-                DialogResult result = MessageBox.Show("Exception while opening file." + "\nException:\n" + ex.Message.ToString() + "\nTry restarting?",
+                var result = MessageBox.Show(
+                    "Exception while opening file." + "\nException:\n" + ex.Message + "\nTry restarting?",
                     "[WARNING] LInjector", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                 if (result == DialogResult.Yes)
@@ -346,31 +357,29 @@ namespace LInjector
 
         private async void saveFile_Click(object sender, EventArgs e)
         {
-            Control previousFocus = ActiveForm.ActiveControl;
+            var previousFocus = ActiveForm.ActiveControl;
 
-            System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            var saveFileDialog = new SaveFileDialog();
             saveFileDialog.FileName = fileNameString.Text;
             saveFileDialog.Title = "Save to File | LInjector";
             saveFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string filePath = saveFileDialog.FileName;
+                var filePath = saveFileDialog.FileName;
 
                 try
                 {
-                    string script = "monaco.editor.getModels()[0].getValue()";
+                    var script = "monaco.editor.getModels()[0].getValue()";
                     var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
-                    string scriptString = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(result);
+                    var scriptString = JsonConvert.DeserializeObject<string>(result);
 
                     if (string.IsNullOrEmpty(scriptString))
-                    {
                         _ = NotificationManager.FireNotification("No content detected", infSettings);
-                    }
 
                     File.WriteAllText(filePath, scriptString);
                     filesub.Visible = false;
-                    string savedFileName = System.IO.Path.GetFileName(saveFileDialog.FileName);
+                    var savedFileName = Path.GetFileName(saveFileDialog.FileName);
                     _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
                     _ = TypeWriteManager.DoTypeWrite(savedFileName, fileNameString);
                 }
@@ -391,9 +400,9 @@ namespace LInjector
             filesub.Visible = false;
             try
             {
-                string script = "monaco.editor.getModels()[0].getValue()";
+                var script = "monaco.editor.getModels()[0].getValue()";
                 var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
-                string text = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(result);
+                var text = JsonConvert.DeserializeObject<string>(result);
                 Clipboard.SetText(text);
                 _ = NotificationManager.FireNotification("Content copied to clipboard", infSettings);
             }
@@ -405,15 +414,12 @@ namespace LInjector
 
         private void reloadApp_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("This will clear the TextBox Content, are you sure to restart?",
+            var result = MessageBox.Show("This will clear the TextBox Content, are you sure to restart?",
                 "[WARNING] LInjector",
                 MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Information);
 
-            if (result == DialogResult.OK)
-            {
-                Application.Restart();
-            }
+            if (result == DialogResult.OK) Application.Restart();
 
             editSubmenu.Visible = false;
         }
@@ -430,12 +436,12 @@ namespace LInjector
 
         private void dscButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://discord.gg/NQY28YSVAb");
+            Process.Start("https://discord.gg/NQY28YSVAb");
         }
 
         private void githubButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector");
+            Process.Start("https://github.com/ItzzExcel/LInjector");
         }
 
         private void githubButton_MouseEnter(object sender, EventArgs e)
@@ -460,17 +466,17 @@ namespace LInjector
 
         private void terminalButton_Click(object sender, EventArgs e)
         {
-            if (ConsoleManager.isConsoleVisible == true)
-            { ConsoleManager.HideConsole(); }
-            else { ConsoleManager.ShowConsole(); }
+            if (ConsoleManager.isConsoleVisible)
+                ConsoleManager.HideConsole();
+            else
+                ConsoleManager.ShowConsole();
         }
 
         private void webView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
-            if (e.ToString() != "https://itzzexcel.github.io/luau-monaco" || e.ToString() != "https://lexploits.netlify.app/extra/monaco")
-            {
+            if (e.ToString() != "https://itzzexcel.github.io/luau-monaco" ||
+                e.ToString() != "https://lexploits.netlify.app/extra/monaco")
                 webView2.Source = new Uri("https://itzzexcel.github.io/luau-monaco");
-            }
         }
     }
 }

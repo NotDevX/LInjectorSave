@@ -1,40 +1,42 @@
-﻿using LInjector.Classes;
-using System;
+﻿using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LInjector.Classes;
 
 namespace LInjector
 {
     public partial class splashscr : Form
     {
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect,     // x-coordinate of upper-left corner
-            int nTopRect,      // y-coordinate of upper-left corner
-            int nRightRect,    // x-coordinate of lower-right corner
-            int nBottomRect,   // y-coordinate of lower-right corner
-            int nWidthEllipse, // width of ellipse
-            int nHeightEllipse // height of ellipse
-        );
-
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        application mainForm = new application();
+        private readonly application mainForm = new application();
 
         public splashscr()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
+            FormBorderStyle = FormBorderStyle.None;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
         }
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect, // x-coordinate of upper-left corner
+            int nTopRect, // y-coordinate of upper-left corner
+            int nRightRect, // x-coordinate of lower-right corner
+            int nBottomRect, // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
 
         protected override void OnLoad(EventArgs e)
         {
@@ -46,13 +48,13 @@ namespace LInjector
         {
             await Task.Delay(2500);
 
-            DateTime startFadeOutTime = DateTime.Now;
+            var startFadeOutTime = DateTime.Now;
             double fadeOutDuration = 500;
 
             while (DateTime.Now - startFadeOutTime < TimeSpan.FromMilliseconds(fadeOutDuration))
             {
-                double elapsedMilliseconds = (DateTime.Now - startFadeOutTime).TotalMilliseconds;
-                double opacity = 1 - (elapsedMilliseconds / fadeOutDuration);
+                var elapsedMilliseconds = (DateTime.Now - startFadeOutTime).TotalMilliseconds;
+                var opacity = 1 - elapsedMilliseconds / fadeOutDuration;
                 if (opacity < 0)
                     opacity = 0;
 
@@ -65,12 +67,13 @@ namespace LInjector
 
             try
             {
-                this.Hide();
+                Hide();
             }
             catch (Exception)
             {
-                createThreadMsgBox.createMsgThread("Couldn't hide splash screen form.", "LInjector", MessageBoxButtons.OK);
+                createThreadMsgBox.createMsgThread("Couldn't hide splash screen form.", "LInjector");
             }
+
             doPipe.PlayPipeSound(doPipe.selectedArg);
         }
 

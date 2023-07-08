@@ -1,3 +1,4 @@
-﻿<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd" GenerateXsd="true">
+﻿<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd"
+         GenerateXsd="true">
 	<Costura ExcludeAssemblies='Microsoft.Web.WebView2.Core' />
 </Weavers>

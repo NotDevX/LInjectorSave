@@ -8,8 +8,6 @@ namespace LInjector.Classes
     {
         public static bool isConsoleVisible;
 
-        private delegate bool ConsoleCtrlHandlerDelegate(int eventType);
-
         [DllImport("kernel32.dll")]
         private static extern bool SetConsoleCtrlHandler(ConsoleCtrlHandlerDelegate handlerRoutine, bool add);
 
@@ -17,7 +15,7 @@ namespace LInjector.Classes
         {
             if (eventType == 2)
             {
-                ConsoleManager.HideConsole();
+                HideConsole();
                 return true;
             }
 
@@ -48,7 +46,7 @@ namespace LInjector.Classes
 
         public static void Initialize()
         {
-            SetConsoleCtrlHandler(new ConsoleCtrlHandlerDelegate(ConsoleCtrlHandler), true);
+            SetConsoleCtrlHandler(ConsoleCtrlHandler, true);
         }
 
         [DllImport("kernel32.dll")]
@@ -65,5 +63,7 @@ namespace LInjector.Classes
 
         [DllImport("user32.dll")]
         private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out int lpdwProcessId);
+
+        private delegate bool ConsoleCtrlHandlerDelegate(int eventType);
     }
 }

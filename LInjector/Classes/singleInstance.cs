@@ -18,27 +18,23 @@ namespace LInjector.Classes
 
             if (!isNewInstance)
             {
-                Process currentProcess = Process.GetCurrentProcess();
-                foreach (Process process in Process.GetProcessesByName(currentProcess.ProcessName))
-                {
+                var currentProcess = Process.GetCurrentProcess();
+                foreach (var process in Process.GetProcessesByName(currentProcess.ProcessName))
                     if (process.Id != currentProcess.Id)
                     {
                         process.CloseMainWindow();
                         process.WaitForExit();
                     }
-                }
+
                 Application.Exit();
                 return;
             }
 
             if (!ArgumentHandler.splashEnabled)
-            {
-                Application.Run(new application()); // You can remove the splashscreen by changing "splashscr" for "application"
-            }
+                Application.Run(
+                    new application()); // You can remove the splashscreen by changing "splashscr" for "application"
             else
-            {
                 Application.Run(new splashscr());
-            }
             Console.Title = "LInjector | Debug";
 
             Release();
@@ -48,10 +44,7 @@ namespace LInjector.Classes
         {
             if (mutex != null)
             {
-                if (isNewInstance)
-                {
-                    mutex.ReleaseMutex();
-                }
+                if (isNewInstance) mutex.ReleaseMutex();
                 mutex.Close();
                 mutex.Dispose();
                 mutex = null;

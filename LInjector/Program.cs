@@ -1,6 +1,7 @@
-﻿using LInjector.Classes;
-using System;
+﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
+using LInjector.Classes;
 
 /*
  * 
@@ -36,15 +37,15 @@ namespace LInjector
         [STAThread]
         public static void Main(string[] args)
         {
-
-            if (GitHubVersionChecker.IsOutdatedVersion(currentVersion) == true)
+            if (GitHubVersionChecker.IsOutdatedVersion(currentVersion))
             {
-                DialogResult outDatedResult = MessageBox.Show("LInjector is outdated, please, re-run LInjector Updating System or download the latest release via GitHub.\n" +
+                var outDatedResult = MessageBox.Show(
+                    "LInjector is outdated, please, re-run LInjector Updating System or download the latest release via GitHub.\n" +
                     "Go to LInjector GitHub?",
                     "LInjector | Outdated", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (outDatedResult == DialogResult.Yes)
                 {
-                    System.Diagnostics.Process.Start("https://github.com/ItzzExcel/LInjector/releases");
+                    Process.Start("https://github.com/ItzzExcel/LInjector/releases");
                     cwDt.CwDt("LInjector is outdated.");
                 }
             }

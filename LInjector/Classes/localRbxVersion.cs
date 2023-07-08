@@ -9,17 +9,17 @@ namespace LInjector.Classes
 
         public static void CheckLocalRbx()
         {
-            string localAppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string versionsFolderPath = Path.Combine(localAppDataFolder, "Roblox", "Versions");
-            string[] versionFolders = Directory.GetDirectories(versionsFolderPath, "version-*");
+            var localAppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var versionsFolderPath = Path.Combine(localAppDataFolder, "Roblox", "Versions");
+            var versionFolders = Directory.GetDirectories(versionsFolderPath, "version-*");
 
-            foreach (string versionFolder in versionFolders)
+            foreach (var versionFolder in versionFolders)
             {
                 string[] playerExecutables = { "RobloxPlayerBeta.exe", "RobloxPlayerLauncher.exe" };
 
-                foreach (string executable in playerExecutables)
+                foreach (var executable in playerExecutables)
                 {
-                    string filePath = Path.Combine(versionFolder, executable);
+                    var filePath = Path.Combine(versionFolder, executable);
 
                     if (File.Exists(filePath))
                     {
