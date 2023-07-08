@@ -53,7 +53,7 @@ namespace LInjector
             Application.SetCompatibleTextRenderingDefault(false);
             tempLog.CreateVersionFile(currentVersion, "version");
             /* rbxversion.dlRbxVersion();
-            localRbxVersion.CheckLocalRbx(); Uncomment if Hyperion Release*/
+            localRbxVersion.CheckLocalRbx(); Uncomment if Hyperion Release */
             CreateShortcuts.Create();
             ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();
