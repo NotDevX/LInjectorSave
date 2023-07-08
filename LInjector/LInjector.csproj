@@ -381,10 +381,10 @@
       <CustomToolNamespace>LInjectorIcon</CustomToolNamespace>
     </Content>
     <None Include="Resources\linj_shadow.png" />
-    <AdditionalFiles Include="Resources\FluxteamAPI.dll">
+    <AdditionalFiles Include="Resources\libs\FluxteamAPI.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AdditionalFiles>
-    <AdditionalFiles Include="Resources\Module.dll">
+    <AdditionalFiles Include="Resources\libs\Module.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AdditionalFiles>
     <Content Include="Resources\terminal-icon.png" />

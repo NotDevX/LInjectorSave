@@ -48,15 +48,15 @@ namespace LInjector.Classes
         private static extern IntPtr CreateRemoteThread(IntPtr hProcess, IntPtr lpThreadAttribute, IntPtr dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
 
         // Token: 0x06000019 RID: 25
-        [DllImport("Resources\\FluxteamAPI.dll", CallingConvention = CallingConvention.StdCall)]
+        [DllImport("Resources\\libs\\FluxteamAPI.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern bool run_script(IntPtr proc, int pid, string path, [MarshalAs(UnmanagedType.LPWStr)] string script);
 
         // Token: 0x0600001A RID: 26
-        [DllImport("Resources\\FluxteamAPI.dll", CallingConvention = CallingConvention.StdCall)]
+        [DllImport("Resources\\libs\\FluxteamAPI.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern bool is_injected(IntPtr proc, int pid, string path);
 
         // Token: 0x0600001B RID: 27
-        [DllImport("Resources\\FluxteamAPI.dll", CallingConvention = CallingConvention.StdCall)]
+        [DllImport("Resources\\libs\\FluxteamAPI.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern bool inject_dll(int pid, [MarshalAs(UnmanagedType.LPWStr)] string script);
 
         // Token: 0x0600001C RID: 28 RVA: 0x0000287C File Offset: 0x00000A7C

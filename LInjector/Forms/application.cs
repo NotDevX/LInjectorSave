@@ -76,7 +76,7 @@ namespace LInjector
 
             try
             {
-                FluxusAPI.create_files(Path.GetFullPath("Resources\\Module.dll"));
+                FluxusAPI.create_files(Path.GetFullPath("Resources\\libs\\Module.dll"));
             }
             catch (Exception ex)
             {
@@ -206,7 +206,7 @@ namespace LInjector
 
         private void Attach_Click(object sender, EventArgs e)
         {
-            FluxusAPI.create_files(Path.GetFullPath("Resources\\Module.dll"));
+            FluxusAPI.create_files(Path.GetFullPath("Resources\\libs\\Module.dll"));
             bool flag = !FluxusAPI.is_injected(FluxusAPI.pid);
             if (flag)
             {
