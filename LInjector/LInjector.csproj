@@ -300,30 +300,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ArgumentHandler.cs" />
-    <Compile Include="Classes\consoleHandler.cs" />
-    <Compile Include="Classes\createFiles.cs" />
-    <Compile Include="Classes\createThreadMsgBox.cs" />
-    <Compile Include="Classes\cwDateTime.cs" />
-    <Compile Include="Classes\doPipe.cs" />
+    <Compile Include="Classes\ConsoleManager.cs" />
+    <Compile Include="Classes\CreateFiles.cs" />
+    <Compile Include="Classes\ThreadBox.cs" />
+    <Compile Include="Classes\CwDt.cs" />
+    <Compile Include="Classes\DoPipe.cs" />
     <Compile Include="Classes\FluxusAPI.cs" />
-    <Compile Include="Classes\localRbxVersion.cs" />
-    <Compile Include="Classes\rbxversion.cs" />
-    <Compile Include="Classes\sendToast.cs" />
-    <Compile Include="Classes\tempLog.cs" />
-    <Compile Include="Classes\fileManager.cs" />
+    <Compile Include="Classes\LocalRbx.cs" />
+    <Compile Include="Classes\RbxVersion.cs" />
+    <Compile Include="Classes\SendToast.cs" />
+    <Compile Include="Classes\TempLog.cs" />
+    <Compile Include="Classes\FileManager.cs" />
     <Compile Include="Forms\application.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\application.Designer.cs">
       <DependentUpon>application.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\checkVersion.cs" />
+    <Compile Include="Classes\CheckLatest.cs" />
     <Compile Include="Classes\infoManager.cs" />
-    <Compile Include="Classes\initrpc.cs" />
+    <Compile Include="Classes\RPCManager.cs" />
     <Compile Include="Classes\Objects\rotativeGradient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\singleInstance.cs" />
+    <Compile Include="Classes\SingleInstance.cs" />
     <Compile Include="Forms\splashscr.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -9,7 +9,7 @@ namespace LInjector.Classes
 
         public static void AnalyzeArgument(string[] argumentProvided)
         {
-            cwDt.CwDt("Called argument analyzer.");
+            CwDt.Cw("Called argument analyzer.");
 
             if (argumentProvided.Length > 0)
             {
@@ -17,38 +17,38 @@ namespace LInjector.Classes
                     if (argument.Contains("--metalpipe"))
                     {
                         DoPipe.doMetalPipeAsync();
-                        cwDt.CwDt("--metalpipe called.");
+                        CwDt.Cw("--metalpipe called.");
                     }
                     else if (argument.Contains("--bamboopipe"))
                     {
                         DoPipe.doBambooPipeAsync();
-                        cwDt.CwDt("--bamboopipe called.");
+                        CwDt.Cw("--bamboopipe called.");
                     }
                     else if (argument.Contains("--debug"))
                     {
                         ConsoleManager.Initialize();
                         ConsoleManager.ShowConsole();
                         Console.Title = "LInjector | Debug";
-                        cwDt.CwDt("--debug called.");
+                        CwDt.Cw("--debug called.");
                     }
                     else if (argument.Contains("--sizable"))
                     {
                         SizableBool = true;
-                        cwDt.CwDt("--sizable called");
+                        CwDt.Cw("--sizable called");
                     }
                     else if (argument.Contains("--no-splash"))
                     {
                         splashEnabled = false;
-                        cwDt.CwDt("--no-splash called");
+                        CwDt.Cw("--no-splash called");
                     }
                     else
                     {
-                        cwDt.CwDt($"Invalid argument: {argument}");
+                        CwDt.Cw($"Invalid argument: {argument}");
                     }
             }
             else
             {
-                cwDt.CwDt("No arguments were provided.");
+                CwDt.Cw("No arguments were provided.");
             }
         }
     }

@@ -71,7 +71,7 @@ namespace LInjector
             }
             catch (Exception)
             {
-                createThreadMsgBox.createMsgThread("Couldn't hide splash screen form.", "LInjector");
+                ThreadBox.MsgThread("Couldn't hide splash screen form.", "LInjector");
             }
 
             DoPipe.PlayPipeSound(DoPipe.selectedArg);
