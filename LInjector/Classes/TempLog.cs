@@ -15,7 +15,7 @@ namespace LInjector.Classes
                 Directory.CreateDirectory(linjectorFolderPath);
             }
 
-            if (!File.Exists(versionFilePath))
+            if (File.Exists(versionFilePath) || !File.Exists(versionFilePath))
             {
                 File.WriteAllText(versionFilePath, content);
             }
