@@ -186,15 +186,15 @@ namespace LInjector.Classes
                         "Injection Error | Fluxteam API", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case Result.OpenProcFail:
-                    ThreadBox.MsgThread("OpenProcFail failed\n", "Injection Error | Fluxteam API",
+                    ThreadBox.MsgThread("OpenProcess Failed\n", "Injection Error | Fluxteam API",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case Result.AllocFail:
-                    ThreadBox.MsgThread("AllocFail failed\n", "Injection Error | Fluxteam API",
+                    ThreadBox.MsgThread("Allocation Failed\n", "Injection Error | Fluxteam API",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case Result.LoadLibFail:
-                    ThreadBox.MsgThread("LoadLibFail failed\n", "Injection Error | Fluxteam API",
+                    ThreadBox.MsgThread("LoadLibrary Failed\n", "Injection Error | Fluxteam API",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case Result.ProcNotOpen:
