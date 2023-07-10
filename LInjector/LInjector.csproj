@@ -318,7 +318,7 @@
       <DependentUpon>application.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\CheckLatest.cs" />
-    <Compile Include="Classes\infoManager.cs" />
+    <Compile Include="Classes\InfoManager.cs" />
     <Compile Include="Classes\RPCManager.cs" />
     <Compile Include="Classes\Objects\rotativeGradient.cs">
       <SubType>Component</SubType>
