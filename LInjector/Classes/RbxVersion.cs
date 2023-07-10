@@ -7,7 +7,7 @@ namespace LInjector.Classes
     {
         public static string Version { get; set; }
 
-        public static async void dlRbxVersion()
+        public static async void DlRbxVersion()
         {
             var rbxverurl = "http://setup.roblox.com/version";
 

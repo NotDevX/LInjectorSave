@@ -53,8 +53,8 @@ namespace LInjector
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             TempLog.CreateVersionFile(currentVersion, "version");
-            /* rbxversion.dlRbxVersion();
-            localRbxVersion.CheckLocalRbx(); Uncomment if Hyperion Release */
+            /* rbxversion.DlRbxVersion();
+            LocalRbxVersion.CheckLocalRbx(); Uncomment if Hyperion Release */
             CreateFiles.Create();
             ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();
