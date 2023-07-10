@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -218,45 +219,7 @@ namespace LInjector
 
         private void Attach_Click(object sender, EventArgs e)
         {
-            FluxusAPI.create_files(Path.GetFullPath("Resources\\libs\\Module.dll"));
-            var flag = !FluxusAPI.is_injected(FluxusAPI.pid);
-            if (flag)
-            {
-                try
-                {
-                    try
-                    {
-                        FluxusAPI.inject();
-                    }
-                    catch (Exception ex)
-                    {
-                        _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
-                        ThreadBox.MsgThread("LInjector encountered a unrecoverable error" +
-                                                           "\nDue to Hyperion Byfron, LInjector only supports Roblox from Microsoft Store." +
-                                                           "\nException:\n"
-                                                           + ex.Message
-                                                           + "\nStack Trace:\n"
-                                                           + ex.StackTrace,
-                            "LInjector | Exception",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
-
-                    _ = NotificationManager.FireNotification("Called Injection API (Powered by Fluxteam)", infSettings);
-                    SendToast.send("Powered by Fluxus! (https://fluxteam.net)", 3, AlertType.Custom);
-                }
-                catch (Exception ex)
-                {
-                    ThreadBox.MsgThread("Error on inject:\n" + ex.Message
-                                                                            + "\nStack Trace:\n" + ex.StackTrace,
-                        "LInjector | Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                ThreadBox.MsgThread("Already injected", "LInjector | Fluxus API",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            Inject();
         }
 
         private async void ClearTB_Click(object sender, EventArgs e)
@@ -488,6 +451,49 @@ namespace LInjector
                 e.ToString() != "https://lexploits.netlify.app/extra/monaco") 
             {
                 webView2.Source = new Uri("https://itzzexcel.github.io/luau-monaco");
+            }
+        }
+
+        public void Inject()
+        {
+            FluxusAPI.create_files(Path.GetFullPath("Resources\\libs\\Module.dll"));
+            var flag = !FluxusAPI.is_injected(FluxusAPI.pid);
+            if (flag)
+            {
+                try
+                {
+                    try
+                    {
+                        FluxusAPI.inject();
+                    }
+                    catch (Exception ex)
+                    {
+                        _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
+                        ThreadBox.MsgThread("LInjector encountered a unrecoverable error" +
+                                                           "\nDue to Hyperion Byfron, LInjector only supports Roblox from Microsoft Store." +
+                                                           "\nException:\n"
+                                                           + ex.Message
+                                                           + "\nStack Trace:\n"
+                                                           + ex.StackTrace,
+                            "LInjector | Exception",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+
+                    _ = NotificationManager.FireNotification("Called Injection API (Powered by Fluxteam)", infSettings);
+                    SendToast.send("Powered by Fluxus! (https://fluxteam.net)", 3, AlertType.Custom);
+                }
+                catch (Exception ex)
+                {
+                    ThreadBox.MsgThread("Error on inject:\n" + ex.Message
+                                                                            + "\nStack Trace:\n" + ex.StackTrace,
+                        "LInjector | Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                ThreadBox.MsgThread("Already injected", "LInjector | Fluxus API",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

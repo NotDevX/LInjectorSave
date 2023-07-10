@@ -56,6 +56,7 @@ namespace LInjector
             CreateFiles.Create();
             ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();
+            ConfigHandler.DoConfig();
             RPCManager.InitRPC();
             SingleInstance.CheckInstance();
         }

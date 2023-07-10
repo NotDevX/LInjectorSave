@@ -30,7 +30,6 @@ namespace LInjector.Classes
                 Console.Title = "LInjector | Debug";
                 isConsoleVisible = true;
                 var writer = new StreamWriter(Console.OpenStandardOutput());
-                writer.AutoFlush = true;
                 Console.SetOut(writer);
             }
         }

@@ -17,12 +17,12 @@ namespace LInjector.Classes
                     if (argument.Contains("--metalpipe"))
                     {
                         DoPipe.doMetalPipeAsync();
-                        CwDt.Cw("--metalpipe called.");
+                        CwDt.Cw("--metalpipe called");
                     }
                     else if (argument.Contains("--bamboopipe"))
                     {
                         DoPipe.doBambooPipeAsync();
-                        CwDt.Cw("--bamboopipe called.");
+                        CwDt.Cw("--bamboopipe called");
                     }
                     else if (argument.Contains("--debug"))
                     {
