@@ -142,6 +142,7 @@ namespace LInjector
         {
             WindowState = FormWindowState.Minimized;
             Application.Exit();
+            Environment.Exit(0);
         }
 
         private void Maximize_Click(object sender, EventArgs e)
@@ -245,6 +246,7 @@ namespace LInjector
                 var cm = tabSystem.current_monaco();
                 cm.SetText("");
                 _ = FileManager.DoTypeWrite("", fileNameString);
+                tabSystem.ChangeCurrentTabTitle($"Script {tabSystem.maintabs.Items.Count.ToString()}");
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
             }
