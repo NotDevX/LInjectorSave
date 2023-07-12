@@ -8,6 +8,7 @@ namespace LInjector.Classes
     public static class RPCManager
     {
         public static DiscordRpcClient client;
+        public static bool isEnabled;
 
         public static void InitRPC()
         {
@@ -28,7 +29,10 @@ namespace LInjector.Classes
             };
 
             client = new DiscordRpcClient("1104489169314660363");
-            client.Initialize();
+            if (isEnabled)
+            {
+                client.Initialize();
+            }
             client.SetPresence(baseRichPresence);
         }
 

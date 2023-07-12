@@ -1,13 +1,16 @@
 ﻿using LInjector.WPF.Classes;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace LInjector.WPF
 {
-    // Winform Avalon Tabs by Lxnny
     public partial class TabSystem : UserControl
     {
+     
+        public string latestTabName { get; set; }
         public TabSystem()
         {
             InitializeComponent();
@@ -20,11 +23,33 @@ namespace LInjector.WPF
             return maintabs.SelectedContent as monaco_api;
         }
 
-        public void add_tab_with_text(string text)
+        public void add_tab_with_text(string text, string title = null)
         {
-            maintabs.Items.Add(CreateTab(text, "Script" + " " + this.maintabs.Items.Count.ToString()));
+            if (title == null)
+            {
+                title = "Script " + this.maintabs.Items.Count.ToString();
+            }
+
+            maintabs.Items.Add(CreateTab(text, title));
         }
 
+        public void ChangeCurrentTabTitle(string title)
+        {
+            if (maintabs.SelectedItem is TabItem selectedTab)
+            {
+                selectedTab.Header = title;
+            }
+        }
+
+        public Task<string> GetCurrentTabTitle()
+        {
+            if (maintabs.SelectedItem is TabItem selectedTab)
+            {
+                return Task.FromResult(selectedTab.Header.ToString());
+            }
+
+            return Task.FromResult(string.Empty);
+        }
 
 
         public void ButtonTabs(object sender, RoutedEventArgs e)
@@ -41,7 +66,6 @@ namespace LInjector.WPF
                         if (maintabs.Items.Count > 1)
                         {
                             maintabs.Items.Remove(maintabs.SelectedItem);
-
                         }
                     }
                     catch { }
@@ -49,8 +73,6 @@ namespace LInjector.WPF
             }
         }
         public monaco_api CreateEditor(string Start) => new monaco_api(Start);
-
-
 
         public TabItem CreateTab(string content, string Title = "Untitled") =>
             new TabItem
@@ -62,6 +84,5 @@ namespace LInjector.WPF
                 Content = CreateEditor(content),
                 IsSelected = true,
             };
-
     }
 }

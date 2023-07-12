@@ -94,8 +94,13 @@ namespace LInjector.WPF.Classes
 
         public void enable_minimap()
         {
+            string script = @"
+                var editor = monaco.editor.getModels()[0];
+                editor.updateOptions({ minimap: { enabled: true } });
+            ";
+
             if (isDOMLoaded)
-                this.ExecuteScriptAsync("ShowMinimap();");
+                this.ExecuteScriptAsync($"{script}");
         }
 
         public void disable_minimap()

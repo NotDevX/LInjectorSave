@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using LInjector.WPF.Classes;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LInjector.Classes
@@ -11,7 +13,7 @@ namespace LInjector.Classes
     {
         private static readonly string ConfigPath = ".\\config.json";
         private static application GetApplication = new application();
-
+        public static bool monaco_minimap;
         public static void DoConfig()
         {
             if (!File.Exists(ConfigPath))
@@ -24,7 +26,8 @@ namespace LInjector.Classes
                     { "bamboopipe", false },
                     { "sizable", false },
                     { "debug", false },
-                    { "monaco-minimap", false }
+                    { "monaco_minimap", false },
+                    { "discord_rpc", true }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(config, Formatting.Indented);
@@ -89,9 +92,17 @@ namespace LInjector.Classes
                     ConsoleManager.Initialize();
                     ConsoleManager.ShowConsole();
                 }
+
+                if (config.TryGetValue("monaco_minimap", out bool monaco_minimap) && monaco_minimap)
+                {
+                    monaco_minimap = true;
+                }
+
+                if (config.TryGetValue("discord_rpc", out bool discord_rpc) && discord_rpc)
+                {
+                    RPCManager.isEnabled = true;
+                }
             }
         }
     }
 }
-
-// is this among us imposter

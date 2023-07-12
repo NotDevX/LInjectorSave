@@ -92,7 +92,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Name="IDK" Background="{TemplateBinding Background}" CornerRadius="16">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -219,31 +219,21 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="TabItem">
                         <Grid x:Name="maingrid">
-                            <Border  CornerRadius="3 3 3 3" Name="Mainn" Width="88" Height="26" Margin="0" BorderThickness="0" Background="{TemplateBinding Background}">
-
+                            <Border CornerRadius="3 3 3 3" Name="Mainn" Width="Auto" Height="26" Margin="0" BorderThickness="0" Background="{TemplateBinding Background}">
                                 <Grid>
                                     <Border x:Name="Blueee" CornerRadius="3 3 3 3" Height="1" VerticalAlignment="Bottom" BorderThickness="0" Background="#FF3C3C3C"/>
                                     <Border x:Name="Hoverborder" CornerRadius="0" Height="2" VerticalAlignment="Bottom" BorderThickness="0" Background="#FF3C3C3C" Width="200"/>
                                 </Grid>
-
                             </Border>
 
-                            <ContentPresenter  x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="Left" Margin="5,6,0,0" RecognizesAccessKey="True"/>
-                            <Button  Name="RemoveT" Width="20.5" Height="20.5" Style="{DynamicResource ButtonA}" Click="ButtonTabs" HorizontalAlignment="Left" Background="Transparent" Margin="67 0 0 0 " Foreground="White" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                            <ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="Left" Margin="5,6,40,0" RecognizesAccessKey="True"/>
+                            <Button Name="RemoveT" Width="20.5" Height="20.5" Style="{DynamicResource ButtonA}" Click="ButtonTabs" HorizontalAlignment="Right" Background="Transparent" Margin="0 0 5 0" Foreground="White" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                                 <Grid Width="20.5" Height="20.5">
-                                    <Path Fill="White" Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Margin="6.5,6.251,5.812,6.25" Stretch="Fill" />
+                                    <Path Fill="White" Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Margin="6.5,6.251,5.812,6.25" Stretch="Fill"/>
                                 </Grid>
                             </Button>
                         </Grid>
                         <ControlTemplate.Triggers>
-                            <!--  <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="#202020"/>
-                                <Setter Property="Opacity" Value="1"/>
-                                
-                                <Setter Property="Visibility" Value="Visible" TargetName="Blueee"/>
-                                <Setter Property="IsEnabled" Value="True" TargetName="RemoveT"/>
-                                <Setter  Property="Width" Value="88"/>
-                            </Trigger> -->
                             <Trigger Property="IsSelected" Value="True">
                                 <Trigger.ExitActions>
                                     <BeginStoryboard x:Name="Storyboard4_BeginStoryboard" Storyboard="{StaticResource Storyboard4}"/>
@@ -262,7 +252,6 @@
                                 </Trigger.EnterActions>
                                 <Setter Property="Background" Value="#202020"/>
                                 <Setter Property="Opacity" Value="0.7"/>
-                                <!--<Setter  Property="Width" Value="88"/> -->
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Trigger.ExitActions>

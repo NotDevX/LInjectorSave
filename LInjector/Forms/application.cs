@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LInjector.Classes;
 using Microsoft.Web.WebView2.Core;
-using Microsoft.Web.WebView2.Wpf;
 using Newtonsoft.Json;
 using Vip.Notification;
 using LInjector.WPF;
@@ -19,7 +18,7 @@ namespace LInjector
     public partial class application : Form
     {
         TabSystem tabSystem = new TabSystem();
-        monaco_api monaco_api;
+        monaco_api monaco_api = null;
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
@@ -35,9 +34,9 @@ namespace LInjector
             InitializeComponent();
             SetStyle(ControlStyles.ResizeRedraw, true);
 
-#pragma warning disable CS0162 // Unreachable code detected
+            #pragma warning disable CS0162 // Unreachable code detected
             if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") { isDevelopment = true; }
-#pragma warning restore CS0162 // Unreachable code detected
+            #pragma warning restore CS0162 // Unreachable code detected
 
             if (ArgumentHandler.SizableBool)
             {
@@ -80,9 +79,14 @@ namespace LInjector
                 monaco_api.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
                 monaco_api.CoreWebView2.Settings.IsPasswordAutosaveEnabled = false;
             }
+
+            if (ConfigHandler.monaco_minimap)
+            {
+                monaco_api.enable_minimap();
+            }
         }
 
-        private void application_Load(object sender, EventArgs e)
+        public void application_Load(object sender, EventArgs e)
         {
             if (isDevelopment)
             { _ = NotificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
@@ -298,7 +302,7 @@ namespace LInjector
             filesub.Visible = false;
         }
 
-        private async void openFile_Click(object sender, EventArgs e)
+        private void openFile_Click(object sender, EventArgs e)
         {
             try
             {
@@ -312,8 +316,6 @@ namespace LInjector
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string fileContent = File.ReadAllText(openFileDialog.FileName);
-                    string mc = await tabSystem.current_monaco().GetText();
-                    string monacocontent = mc;
 
                     var dialogResult = MessageBox.Show(
                         "Open file in new tab?",
@@ -323,19 +325,19 @@ namespace LInjector
                         MessageBoxDefaultButton.Button2);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        tabSystem.add_tab_with_text(fileContent);
+                        tabSystem.add_tab_with_text(fileContent, openFileDialog.SafeFileName);
                     }
                     else
                     {
-                        var cm = tabSystem.current_monaco();
-                        cm.SetText(fileContent);
+                        tabSystem.current_monaco().SetText(fileContent);
+                        tabSystem.ChangeCurrentTabTitle(openFileDialog.SafeFileName);
                     }
 
                     filesub.Visible = false;
                     fileNameString.Refresh();
                     fileNameString.Size = new Size(150, 28);
                     fileNameString.Visible = true;
-                    // _ = FileManager.DoTypeWrite(openFileDialog.SafeFileName, fileNameString);
+                    // _ = FileManager.DoTypeWrite(tabSystem.GetCurrentTabTitle(), fileNameString);
                 }
 
                 filesub.Visible = false;
@@ -359,7 +361,7 @@ namespace LInjector
             var previousFocus = ActiveForm.ActiveControl;
 
             var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.FileName = fileNameString.Text;
+            saveFileDialog.FileName = await tabSystem.GetCurrentTabTitle();
             saveFileDialog.Title = "Save to File | LInjector";
             saveFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
 
@@ -370,19 +372,19 @@ namespace LInjector
                 try
                 {
                     var cm = tabSystem.current_monaco();
-                    string result = await cm.GetText();
-                    string scriptString = JsonConvert.DeserializeObject<string>(result);
+                    string text = await cm.GetText();
+                    string result = text;
 
-                    if (string.IsNullOrEmpty(scriptString))
+                    if (string.IsNullOrEmpty(result))
                     {
                         _ = NotificationManager.FireNotification("No content detected", infSettings);
                     }
 
-                    File.WriteAllText(filePath, scriptString);
+                    File.WriteAllText(filePath, result);
                     filesub.Visible = false;
                     string savedFileName = Path.GetFileName(saveFileDialog.FileName);
                     _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
-                    _ = FileManager.DoTypeWrite(savedFileName, fileNameString);
+                    // _ = FileManager.DoTypeWrite(tabSystem.latestTabName, fileNameString);
                 }
                 catch (Exception)
                 {

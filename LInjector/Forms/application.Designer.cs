@@ -654,9 +654,9 @@
         private System.Windows.Forms.PictureBox dscButton;
         private System.Windows.Forms.Panel githubPanel;
         private System.Windows.Forms.PictureBox githubButton;
-        private System.Windows.Forms.Button fileNameString;
         private System.Windows.Forms.Panel terminalPanel;
         private System.Windows.Forms.PictureBox terminalButton;
         private System.Windows.Forms.Panel TabsPanel;
+        public System.Windows.Forms.Button fileNameString;
     }
 }
