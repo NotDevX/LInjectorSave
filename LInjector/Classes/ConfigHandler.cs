@@ -23,7 +23,8 @@ namespace LInjector.Classes
                     { "metalpipe", false },
                     { "bamboopipe", false },
                     { "sizable", false },
-                    { "debug", false }
+                    { "debug", false },
+                    { "monaco-minimap", false }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(config, Formatting.Indented);

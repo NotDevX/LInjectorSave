@@ -334,6 +334,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WPF\Classes\monaco_api.cs" />
+    <Compile Include="WPF\TabSystem.xaml.cs">
+      <DependentUpon>TabSystem.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\application.resx">
       <DependentUpon>application.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,9 +358,6 @@
       <Link>.editorconfig</Link>
     </None>
     <None Include="app.manifest" />
-    <None Include="FodyWeavers.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -403,6 +404,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="WPF\TabSystem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

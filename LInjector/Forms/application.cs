@@ -2,19 +2,25 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LInjector.Classes;
 using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.Wpf;
 using Newtonsoft.Json;
 using Vip.Notification;
+using LInjector.WPF;
+using System.Windows.Forms.Integration;
+using LInjector.WPF.Classes;
 
 namespace LInjector
 {
     public partial class application : Form
     {
+        TabSystem tabSystem = new TabSystem();
+        monaco_api monaco_api;
+
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
@@ -22,6 +28,7 @@ namespace LInjector
         private const int cCaption = 32;
 
         private readonly bool isDevelopment;
+        
 
         public application()
         {
@@ -47,9 +54,8 @@ namespace LInjector
 
         public async Task<string> GetMonacoContent()
         {
-            var script = "monaco.editor.getModels()[0].getValue()";
-            var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
-            var text = JsonConvert.DeserializeObject<string>(result);
+            string result = await monaco_api.GetText();
+            string text = JsonConvert.DeserializeObject<string>(result);
             return text;
         }
 
@@ -70,9 +76,9 @@ namespace LInjector
             }
             else
             {
-                webView2.CoreWebView2.Settings.AreDevToolsEnabled = false;
-                webView2.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
-                webView2.CoreWebView2.Settings.IsPasswordAutosaveEnabled = false;
+                monaco_api.CoreWebView2.Settings.AreDevToolsEnabled = false;
+                monaco_api.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
+                monaco_api.CoreWebView2.Settings.IsPasswordAutosaveEnabled = false;
             }
         }
 
@@ -96,6 +102,12 @@ namespace LInjector
                     MessageBoxIcon.Information);
                 _ = NotificationManager.FireNotification("Couldn't initialize Fluxus API.", infSettings);
             }
+
+            ElementHost host = new ElementHost();
+            host.Parent = TabsPanel;
+            host.Dock = DockStyle.Fill;
+            host.Child = tabSystem;
+
 
             // rbxversion.checkVersions();
         }
@@ -222,11 +234,12 @@ namespace LInjector
             Inject();
         }
 
-        private async void ClearTB_Click(object sender, EventArgs e)
+        private void ClearTB_Click(object sender, EventArgs e)
         {
             try
             {
-                await webView2.ExecuteScriptAsync("editor.setValue('');");
+                var cm = tabSystem.current_monaco();
+                cm.SetText("");
                 _ = FileManager.DoTypeWrite("", fileNameString);
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
@@ -241,9 +254,8 @@ namespace LInjector
 
         private async void Execute_Click(object sender, EventArgs e)
         {
-            var script = "monaco.editor.getModels()[0].getValue()";
-            var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
-            var scriptString = JsonConvert.DeserializeObject<string>(result);
+            var cm = tabSystem.current_monaco();
+            string scriptString = await cm.GetText();
             Execute.Focus();
 
             try
@@ -286,7 +298,7 @@ namespace LInjector
             filesub.Visible = false;
         }
 
-        private async void openFile_Click(object sender, EventArgs e)
+        private void openFile_Click(object sender, EventArgs e)
         {
             try
             {
@@ -299,15 +311,24 @@ namespace LInjector
                 openFileDialog.Multiselect = false;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    var fileContent = File.ReadAllText(openFileDialog.FileName);
-                    fileContent = fileContent.Replace("\\", "\\\\");
-                    await webView2.ExecuteScriptAsync("editor.setValue('');");
-                    await webView2.ExecuteScriptAsync($"editor.setValue(`{fileContent.Replace("`", "\\`")}`)");
+                    string fileContent = File.ReadAllText(openFileDialog.FileName);
+                    
+
+                    var dialogResult = MessageBox.Show("Open file in new tab?", "LInjector", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        tabSystem.add_tab_with_text(fileContent);
+                    } else
+                    {
+                        var cm = tabSystem.current_monaco();
+                        cm.SetText(fileContent);
+                    }
+
                     filesub.Visible = false;
                     fileNameString.Refresh();
                     fileNameString.Size = new Size(150, 28);
                     fileNameString.Visible = true;
-                    _ = FileManager.DoTypeWrite(openFileDialog.SafeFileName, fileNameString);
+                    // _ = FileManager.DoTypeWrite(openFileDialog.SafeFileName, fileNameString);
                 }
 
                 filesub.Visible = false;
@@ -337,13 +358,13 @@ namespace LInjector
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                var filePath = saveFileDialog.FileName;
+                string filePath = saveFileDialog.FileName;
 
                 try
                 {
-                    var script = "monaco.editor.getModels()[0].getValue()";
-                    var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
-                    var scriptString = JsonConvert.DeserializeObject<string>(result);
+                    var cm = tabSystem.current_monaco();
+                    string result = await cm.GetText();
+                    string scriptString = JsonConvert.DeserializeObject<string>(result);
 
                     if (string.IsNullOrEmpty(scriptString))
                     {
@@ -352,7 +373,7 @@ namespace LInjector
 
                     File.WriteAllText(filePath, scriptString);
                     filesub.Visible = false;
-                    var savedFileName = Path.GetFileName(saveFileDialog.FileName);
+                    string savedFileName = Path.GetFileName(saveFileDialog.FileName);
                     _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
                     _ = FileManager.DoTypeWrite(savedFileName, fileNameString);
                 }
@@ -373,9 +394,8 @@ namespace LInjector
             filesub.Visible = false;
             try
             {
-                var script = "monaco.editor.getModels()[0].getValue()";
-                var result = await webView2.CoreWebView2.ExecuteScriptAsync(script);
-                var text = JsonConvert.DeserializeObject<string>(result);
+                var cm = tabSystem.current_monaco();
+                string text = await cm.GetText();
                 Clipboard.SetText(text);
                 _ = NotificationManager.FireNotification("Content copied to clipboard", infSettings);
             }
@@ -450,7 +470,7 @@ namespace LInjector
             if (e.ToString() != "https://itzzexcel.github.io/luau-monaco" ||
                 e.ToString() != "https://lexploits.netlify.app/extra/monaco") 
             {
-                webView2.Source = new Uri("https://itzzexcel.github.io/luau-monaco");
+                monaco_api.Source = new Uri("https://itzzexcel.github.io/luau-monaco");
             }
         }
 

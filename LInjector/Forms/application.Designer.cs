@@ -60,7 +60,7 @@
             this.Attach = new System.Windows.Forms.Button();
             this.Execute = new System.Windows.Forms.Button();
             this.holder = new System.Windows.Forms.Panel();
-            this.webView2 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.TabsPanel = new System.Windows.Forms.Panel();
             EditButton = new System.Windows.Forms.Button();
             FileButton = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
@@ -80,7 +80,6 @@
             this.editSubmenu.SuspendLayout();
             this.filesub.SuspendLayout();
             this.holder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webView2)).BeginInit();
             this.SuspendLayout();
             // 
             // EditButton
@@ -573,7 +572,7 @@
             // 
             // holder
             // 
-            this.holder.Controls.Add(this.webView2);
+            this.holder.Controls.Add(this.TabsPanel);
             this.holder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.holder.Location = new System.Drawing.Point(5, 68);
             this.holder.Name = "holder";
@@ -581,22 +580,14 @@
             this.holder.Size = new System.Drawing.Size(990, 427);
             this.holder.TabIndex = 8;
             // 
-            // webView2
+            // TabsPanel
             // 
-            this.webView2.AllowExternalDrop = false;
-            this.webView2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.webView2.CreationProperties = null;
-            this.webView2.DefaultBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.webView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webView2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.webView2.Location = new System.Drawing.Point(5, 5);
-            this.webView2.Name = "webView2";
-            this.webView2.Size = new System.Drawing.Size(980, 417);
-            this.webView2.Source = new System.Uri("https://itzzexcel.github.io/luau-monaco/", System.UriKind.Absolute);
-            this.webView2.TabIndex = 0;
-            this.webView2.ZoomFactor = 1D;
-            this.webView2.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.webView2_CoreWebView2InitializationCompleted);
-            this.webView2.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.webView2_SourceChanged);
+            this.TabsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TabsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabsPanel.Location = new System.Drawing.Point(5, 5);
+            this.TabsPanel.Name = "TabsPanel";
+            this.TabsPanel.Size = new System.Drawing.Size(980, 417);
+            this.TabsPanel.TabIndex = 0;
             // 
             // application
             // 
@@ -632,7 +623,6 @@
             this.editSubmenu.ResumeLayout(false);
             this.filesub.ResumeLayout(false);
             this.holder.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.webView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -664,9 +654,9 @@
         private System.Windows.Forms.PictureBox dscButton;
         private System.Windows.Forms.Panel githubPanel;
         private System.Windows.Forms.PictureBox githubButton;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView2;
         private System.Windows.Forms.Button fileNameString;
         private System.Windows.Forms.Panel terminalPanel;
         private System.Windows.Forms.PictureBox terminalButton;
+        private System.Windows.Forms.Panel TabsPanel;
     }
 }
