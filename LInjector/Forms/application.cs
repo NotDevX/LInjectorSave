@@ -28,16 +28,16 @@ namespace LInjector
         private const int cCaption = 32;
 
         private readonly bool isDevelopment;
-        
+
 
         public application()
         {
             InitializeComponent();
             SetStyle(ControlStyles.ResizeRedraw, true);
 
-            #pragma warning disable CS0162 // Unreachable code detected
+#pragma warning disable CS0162 // Unreachable code detected
             if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") { isDevelopment = true; }
-            #pragma warning restore CS0162 // Unreachable code detected
+#pragma warning restore CS0162 // Unreachable code detected
 
             if (ArgumentHandler.SizableBool)
             {
@@ -54,7 +54,7 @@ namespace LInjector
 
         public async Task<string> GetMonacoContent()
         {
-            string result = await monaco_api.GetText();
+            string result = await tabSystem.current_monaco().GetText();
             string text = JsonConvert.DeserializeObject<string>(result);
             return text;
         }
@@ -298,7 +298,7 @@ namespace LInjector
             filesub.Visible = false;
         }
 
-        private void openFile_Click(object sender, EventArgs e)
+        private async void openFile_Click(object sender, EventArgs e)
         {
             try
             {
@@ -312,13 +312,20 @@ namespace LInjector
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string fileContent = File.ReadAllText(openFileDialog.FileName);
-                    
+                    string mc = await tabSystem.current_monaco().GetText();
+                    string monacocontent = mc;
 
-                    var dialogResult = MessageBox.Show("Open file in new tab?", "LInjector", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                    var dialogResult = MessageBox.Show(
+                        "Open file in new tab?",
+                        "LInjector",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button2);
                     if (dialogResult == DialogResult.Yes)
                     {
                         tabSystem.add_tab_with_text(fileContent);
-                    } else
+                    }
+                    else
                     {
                         var cm = tabSystem.current_monaco();
                         cm.SetText(fileContent);
