@@ -27,7 +27,7 @@ namespace LInjector.Classes
                     { "debug", false },
                     { "monaco_minimap", false },
                     { "discord_rpc", true },
-                    { "topmost", true }
+                    { "topmost", false }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(config, Formatting.Indented);
