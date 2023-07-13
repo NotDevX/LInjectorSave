@@ -1,10 +1,8 @@
-﻿using LInjector.WPF.Classes;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LInjector.Classes
@@ -14,6 +12,7 @@ namespace LInjector.Classes
         private static readonly string ConfigPath = ".\\config.json";
         private static application GetApplication = new application();
         public static bool monaco_minimap;
+        public static bool topmost;
         public static void DoConfig()
         {
             if (!File.Exists(ConfigPath))
@@ -27,7 +26,8 @@ namespace LInjector.Classes
                     { "sizable", false },
                     { "debug", false },
                     { "monaco_minimap", false },
-                    { "discord_rpc", true }
+                    { "discord_rpc", true },
+                    { "topmost", true }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(config, Formatting.Indented);
@@ -63,8 +63,6 @@ namespace LInjector.Classes
                             }
                         }
                     };
-
-
                 }
 
                 if (config.TryGetValue("nosplash", out bool noSplashValue) && noSplashValue)
@@ -101,6 +99,11 @@ namespace LInjector.Classes
                 if (config.TryGetValue("discord_rpc", out bool discord_rpc) && discord_rpc)
                 {
                     RPCManager.isEnabled = true;
+                }
+
+                if (config.TryGetValue("topmost", out bool topmost) && topmost)
+                {
+                    topmost = true;
                 }
             }
         }

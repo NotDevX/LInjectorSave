@@ -112,6 +112,10 @@ namespace LInjector
             host.Dock = DockStyle.Fill;
             host.Child = tabSystem;
 
+            if (ConfigHandler.topmost)
+            {
+                TopMost = true;
+            }
 
             // rbxversion.checkVersions();
         }
