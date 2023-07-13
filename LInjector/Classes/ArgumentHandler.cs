@@ -41,6 +41,11 @@ namespace LInjector.Classes
                         splashEnabled = false;
                         CwDt.Cw("--no-splash called");
                     }
+                    else if (argument.Contains("--topmost"))
+                    {
+                        application app = new application();
+                        app.TopMost = true;
+                    }
                     else
                     {
                         CwDt.Cw($"Invalid argument: {argument}");

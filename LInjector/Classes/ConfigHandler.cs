@@ -26,8 +26,7 @@ namespace LInjector.Classes
                     { "sizable", false },
                     { "debug", false },
                     { "monaco_minimap", false },
-                    { "discord_rpc", true },
-                    { "topmost", false }
+                    { "discord_rpc", true }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(config, Formatting.Indented);
@@ -99,11 +98,6 @@ namespace LInjector.Classes
                 if (config.TryGetValue("discord_rpc", out bool discord_rpc) && discord_rpc)
                 {
                     RPCManager.isEnabled = true;
-                }
-
-                if (config.TryGetValue("topmost", out bool topmost) && topmost)
-                {
-                    topmost = true;
                 }
             }
         }
