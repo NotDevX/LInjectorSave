@@ -23,7 +23,7 @@ namespace LInjector.Classes
                 },
                 Buttons = new[]
                 {
-                    new Button { Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest" },
+                    new Button { Label = "Download", Url = "https://lexploits.netlify.app/extra/linjector/download/" },
                     new Button { Label = "Join Discord", Url = "https://discord.gg/NQY28YSVAb" }
                 }
             };
@@ -56,7 +56,7 @@ namespace LInjector.Classes
                         {
                             new Button
                             {
-                                Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest"
+                                Label = "Download", Url = "https://lexploits.netlify.app/extra/linjector/download/"
                             },
                             new Button { Label = "Join Discord", Url = "https://discord.gg/NQY28YSVAb" }
                         }
@@ -92,7 +92,7 @@ namespace LInjector.Classes
                         {
                             new Button
                             {
-                                Label = "Download", Url = "https://github.com/ItzzExcel/LInjector/releases/latest"
+                                Label = "Download", Url = "https://lexploits.netlify.app/extra/linjector/download/"
                             },
                             new Button { Label = "Join Discord", Url = "https://discord.gg/NQY28YSVAb" }
                         }
