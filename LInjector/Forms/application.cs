@@ -1,6 +1,8 @@
 ﻿using LInjector.Classes;
 using LInjector.WPF;
 using LInjector.WPF.Classes;
+using MaterialSkin;
+using MaterialSkin.Controls;
 using Microsoft.Web.WebView2.Core;
 using Newtonsoft.Json;
 using System;
@@ -76,6 +78,10 @@ namespace LInjector
 
             if (ConfigHandler.topmost)
             { TopMost = true; }
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            // materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo300, Primary.BlueGrey900, Primary.BlueGrey500, Accent.Indigo100, TextShade.BLACK);
         }
 
         protected override void WndProc(ref Message m)
