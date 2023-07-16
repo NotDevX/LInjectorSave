@@ -358,9 +358,6 @@
       <Link>.editorconfig</Link>
     </None>
     <None Include="app.manifest" />
-    <AdditionalFiles Include="config.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AdditionalFiles>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
