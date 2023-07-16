@@ -53,8 +53,7 @@ namespace LInjector
         }
 
 
-        private void webView2_CoreWebView2InitializationCompleted(object sender,
-            CoreWebView2InitializationCompletedEventArgs e)
+        private void monaco_api_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
             if (!e.IsSuccess)
             {

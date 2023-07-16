@@ -40,7 +40,7 @@ namespace LInjector.WPF.Classes
                 handler(this, new EventArgs());
         }
 
-        private void monaco_api_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
+        public void monaco_api_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
         {
             this.CoreWebView2.DOMContentLoaded += CoreWebView2_DOMContentLoaded;
             this.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
