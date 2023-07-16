@@ -10,9 +10,8 @@ namespace LInjector.WPF.Classes
 
         public bool isDOMLoaded { get; set; } = false;
         private string ToSetText;
-#pragma warning disable IDE0052 // Remove unread private members
         private string LatestRecievedText;
-#pragma warning restore IDE0052 // Remove unread private members
+        public bool isMinimapEnabled { get; set; }
 
         /// <summary>
         /// Event for when the editor is fully loaded.
@@ -31,6 +30,7 @@ namespace LInjector.WPF.Classes
             EventHandler handler = EditorReady;
             if (handler != null)
                 handler(this, new EventArgs());
+
         }
 
         public void monaco_api_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
@@ -87,13 +87,8 @@ namespace LInjector.WPF.Classes
 
         public void enable_minimap()
         {
-            string script = @"
-                var editor = monaco.editor.getModels()[0];
-                editor.updateOptions({ minimap: { enabled: true } });
-            ";
-
             if (isDOMLoaded)
-                this.ExecuteScriptAsync($"{script}");
+                this.ExecuteScriptAsync("ShowMinimap();");
         }
 
         public void disable_minimap()

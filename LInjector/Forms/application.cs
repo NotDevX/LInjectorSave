@@ -52,28 +52,6 @@ namespace LInjector
             return text;
         }
 
-
-        private void monaco_api_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
-        {
-            if (!e.IsSuccess)
-            {
-                _ = NotificationManager.FireNotification("Failed to load WebView2", infSettings);
-
-                var result = MessageBox.Show("CoreWebView2 Failed to load, try relaunching LInjector?",
-                    "[ERROR] LInjector",
-                    MessageBoxButtons.OKCancel,
-                    MessageBoxIcon.Error);
-
-                if (result == DialogResult.OK) Application.Restart();
-            }
-            else
-            {
-                monaco_api.CoreWebView2.Settings.AreDevToolsEnabled = false;
-                monaco_api.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
-                monaco_api.CoreWebView2.Settings.IsPasswordAutosaveEnabled = false;
-            }
-        }
-
         public void application_Load(object sender, EventArgs e)
         {
             _ = NotificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings);
