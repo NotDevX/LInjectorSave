@@ -32,6 +32,13 @@
             System.Windows.Forms.Button FileButton;
             System.Windows.Forms.Button LInjectorLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(application));
+            this.EditStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.CopyTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReloadTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.MinimapTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.OpenFileTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveFileTool = new System.Windows.Forms.ToolStripMenuItem();
             this.titlebar = new System.Windows.Forms.Panel();
             this.titleDialog = new System.Windows.Forms.Panel();
             this.menuSettings = new System.Windows.Forms.Panel();
@@ -42,51 +49,49 @@
             this.Maximize = new System.Windows.Forms.Button();
             this.Minimize = new System.Windows.Forms.Button();
             this.icon = new System.Windows.Forms.Panel();
-            this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
             this.fileNameString = new System.Windows.Forms.Button();
             this.terminalPanel = new System.Windows.Forms.Panel();
-            this.terminalButton = new System.Windows.Forms.PictureBox();
             this.githubPanel = new System.Windows.Forms.Panel();
-            this.githubButton = new System.Windows.Forms.PictureBox();
             this.dscPanel = new System.Windows.Forms.Panel();
-            this.dscButton = new System.Windows.Forms.PictureBox();
-            this.editSubmenu = new System.Windows.Forms.Panel();
-            this.ToggleMinimap = new System.Windows.Forms.Button();
-            this.reloadApp = new System.Windows.Forms.Button();
-            this.copyTextbox = new System.Windows.Forms.Button();
-            this.filesub = new System.Windows.Forms.Panel();
-            this.saveFile = new System.Windows.Forms.Button();
-            this.openFile = new System.Windows.Forms.Button();
             this.Attach = new System.Windows.Forms.Button();
             this.Execute = new System.Windows.Forms.Button();
             this.holder = new System.Windows.Forms.Panel();
             this.TabsPanel = new System.Windows.Forms.Panel();
+            this.OpenTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.terminalButton = new System.Windows.Forms.PictureBox();
+            this.githubButton = new System.Windows.Forms.PictureBox();
+            this.dscButton = new System.Windows.Forms.PictureBox();
+            this.LInjectorIcon = new System.Windows.Forms.PictureBox();
+            this.materialExpansionPanel1 = new MaterialSkin.Controls.MaterialExpansionPanel();
             EditButton = new System.Windows.Forms.Button();
             FileButton = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
+            this.EditStrip.SuspendLayout();
+            this.FileStrip.SuspendLayout();
             this.titlebar.SuspendLayout();
             this.titleDialog.SuspendLayout();
             this.menuSettings.SuspendLayout();
             this.controlmenu.SuspendLayout();
             this.icon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.execinjPanel.SuspendLayout();
             this.terminalPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).BeginInit();
             this.githubPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
             this.dscPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dscButton)).BeginInit();
-            this.editSubmenu.SuspendLayout();
-            this.filesub.SuspendLayout();
             this.holder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dscButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // EditButton
             // 
+            EditButton.AutoEllipsis = true;
             EditButton.BackColor = System.Drawing.Color.Transparent;
             EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            EditButton.ContextMenuStrip = this.EditStrip;
             EditButton.Dock = System.Windows.Forms.DockStyle.Left;
             EditButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             EditButton.FlatAppearance.BorderSize = 0;
@@ -104,12 +109,57 @@
             EditButton.Text = "Edit";
             EditButton.UseMnemonic = false;
             EditButton.UseVisualStyleBackColor = false;
-            EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            EditButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EditButton_Click);
+            // 
+            // EditStrip
+            // 
+            this.EditStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.EditStrip.Depth = 0;
+            this.EditStrip.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
+            this.EditStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CopyTool,
+            this.ReloadTool,
+            this.MinimapTool});
+            this.EditStrip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.EditStrip.Name = "FileStrip";
+            this.EditStrip.ShowCheckMargin = true;
+            this.EditStrip.ShowImageMargin = false;
+            this.EditStrip.Size = new System.Drawing.Size(218, 76);
+            // 
+            // CopyTool
+            // 
+            this.CopyTool.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.CopyTool.Name = "CopyTool";
+            this.CopyTool.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.CopyTool.ShowShortcutKeys = false;
+            this.CopyTool.Size = new System.Drawing.Size(217, 24);
+            this.CopyTool.Text = "Copy TextBox";
+            this.CopyTool.ToolTipText = "Copy the current tab editor text.";
+            this.CopyTool.Click += new System.EventHandler(this.copyTextbox_Click);
+            // 
+            // ReloadTool
+            // 
+            this.ReloadTool.Name = "ReloadTool";
+            this.ReloadTool.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.ReloadTool.ShowShortcutKeys = false;
+            this.ReloadTool.Size = new System.Drawing.Size(217, 24);
+            this.ReloadTool.Text = "Reload LInjector";
+            this.ReloadTool.ToolTipText = "Reload LInjector Application";
+            this.ReloadTool.Click += new System.EventHandler(this.reloadApp_Click);
+            // 
+            // MinimapTool
+            // 
+            this.MinimapTool.Name = "MinimapTool";
+            this.MinimapTool.Size = new System.Drawing.Size(217, 24);
+            this.MinimapTool.Text = "Toggle Editor Minimap";
+            this.MinimapTool.Click += new System.EventHandler(this.ToggleMinimap_Click);
             // 
             // FileButton
             // 
+            FileButton.AutoEllipsis = true;
             FileButton.BackColor = System.Drawing.Color.Transparent;
             FileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            FileButton.ContextMenuStrip = this.FileStrip;
             FileButton.Dock = System.Windows.Forms.DockStyle.Left;
             FileButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             FileButton.FlatAppearance.BorderSize = 0;
@@ -128,6 +178,42 @@
             FileButton.UseMnemonic = false;
             FileButton.UseVisualStyleBackColor = false;
             FileButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FileButton_MouseClick);
+            // 
+            // FileStrip
+            // 
+            this.FileStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.FileStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.FileStrip.Depth = 0;
+            this.FileStrip.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
+            this.FileStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenFileTool,
+            this.SaveFileTool});
+            this.FileStrip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.FileStrip.Name = "FileStrip";
+            this.FileStrip.ShowCheckMargin = true;
+            this.FileStrip.ShowImageMargin = false;
+            this.FileStrip.Size = new System.Drawing.Size(138, 52);
+            // 
+            // OpenFileTool
+            // 
+            this.OpenFileTool.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.OpenFileTool.Name = "OpenFileTool";
+            this.OpenFileTool.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.OpenFileTool.ShowShortcutKeys = false;
+            this.OpenFileTool.Size = new System.Drawing.Size(137, 24);
+            this.OpenFileTool.Text = "Open file";
+            this.OpenFileTool.ToolTipText = "Open file and load it into editor.";
+            this.OpenFileTool.Click += new System.EventHandler(this.openFile_Click);
+            // 
+            // SaveFileTool
+            // 
+            this.SaveFileTool.Name = "SaveFileTool";
+            this.SaveFileTool.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.SaveFileTool.ShowShortcutKeys = false;
+            this.SaveFileTool.Size = new System.Drawing.Size(137, 24);
+            this.SaveFileTool.Text = "Save to file";
+            this.SaveFileTool.ToolTipText = "Save the editor content into a script file.";
+            this.SaveFileTool.Click += new System.EventHandler(this.saveFile_Click);
             // 
             // LInjectorLabel
             // 
@@ -319,18 +405,6 @@
             this.icon.Size = new System.Drawing.Size(29, 29);
             this.icon.TabIndex = 0;
             // 
-            // LInjectorIcon
-            // 
-            this.LInjectorIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LInjectorIcon.Image = global::LInjector.Properties.Resources.LInjector;
-            this.LInjectorIcon.Location = new System.Drawing.Point(0, 0);
-            this.LInjectorIcon.Name = "LInjectorIcon";
-            this.LInjectorIcon.Size = new System.Drawing.Size(29, 29);
-            this.LInjectorIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LInjectorIcon.TabIndex = 0;
-            this.LInjectorIcon.TabStop = false;
-            this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorIcon_MouseDown);
-            // 
             // execinjPanel
             // 
             this.execinjPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
@@ -338,8 +412,6 @@
             this.execinjPanel.Controls.Add(this.terminalPanel);
             this.execinjPanel.Controls.Add(this.githubPanel);
             this.execinjPanel.Controls.Add(this.dscPanel);
-            this.execinjPanel.Controls.Add(this.editSubmenu);
-            this.execinjPanel.Controls.Add(this.filesub);
             this.execinjPanel.Controls.Add(this.Attach);
             this.execinjPanel.Controls.Add(this.Execute);
             this.execinjPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -378,20 +450,6 @@
             this.terminalPanel.Size = new System.Drawing.Size(28, 28);
             this.terminalPanel.TabIndex = 11;
             // 
-            // terminalButton
-            // 
-            this.terminalButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.terminalButton.Image = global::LInjector.Properties.Resources.terminal_icon;
-            this.terminalButton.Location = new System.Drawing.Point(5, 5);
-            this.terminalButton.Name = "terminalButton";
-            this.terminalButton.Size = new System.Drawing.Size(18, 18);
-            this.terminalButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.terminalButton.TabIndex = 0;
-            this.terminalButton.TabStop = false;
-            this.terminalButton.Click += new System.EventHandler(this.terminalButton_Click);
-            this.terminalButton.MouseEnter += new System.EventHandler(this.terminalButton_MouseEnter);
-            this.terminalButton.MouseLeave += new System.EventHandler(this.terminalButton_MouseLeave);
-            // 
             // githubPanel
             // 
             this.githubPanel.Controls.Add(this.githubButton);
@@ -402,20 +460,6 @@
             this.githubPanel.Size = new System.Drawing.Size(28, 28);
             this.githubPanel.TabIndex = 5;
             // 
-            // githubButton
-            // 
-            this.githubButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.githubButton.Image = global::LInjector.Properties.Resources.github_mark_white;
-            this.githubButton.Location = new System.Drawing.Point(5, 5);
-            this.githubButton.Name = "githubButton";
-            this.githubButton.Size = new System.Drawing.Size(18, 18);
-            this.githubButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.githubButton.TabIndex = 0;
-            this.githubButton.TabStop = false;
-            this.githubButton.Click += new System.EventHandler(this.githubButton_Click);
-            this.githubButton.MouseEnter += new System.EventHandler(this.githubButton_MouseEnter);
-            this.githubButton.MouseLeave += new System.EventHandler(this.githubButton_MouseLeave);
-            // 
             // dscPanel
             // 
             this.dscPanel.Controls.Add(this.dscButton);
@@ -425,129 +469,6 @@
             this.dscPanel.Padding = new System.Windows.Forms.Padding(5);
             this.dscPanel.Size = new System.Drawing.Size(28, 28);
             this.dscPanel.TabIndex = 4;
-            // 
-            // dscButton
-            // 
-            this.dscButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dscButton.Image = global::LInjector.Properties.Resources.discord_icon;
-            this.dscButton.Location = new System.Drawing.Point(5, 5);
-            this.dscButton.Name = "dscButton";
-            this.dscButton.Size = new System.Drawing.Size(18, 18);
-            this.dscButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dscButton.TabIndex = 0;
-            this.dscButton.TabStop = false;
-            this.dscButton.Click += new System.EventHandler(this.dscButton_Click);
-            this.dscButton.MouseEnter += new System.EventHandler(this.dscButton_MouseEnter);
-            this.dscButton.MouseLeave += new System.EventHandler(this.dscButton_MouseLeave);
-            // 
-            // editSubmenu
-            // 
-            this.editSubmenu.Controls.Add(this.ToggleMinimap);
-            this.editSubmenu.Controls.Add(this.reloadApp);
-            this.editSubmenu.Controls.Add(this.copyTextbox);
-            this.editSubmenu.Location = new System.Drawing.Point(179, 0);
-            this.editSubmenu.Name = "editSubmenu";
-            this.editSubmenu.Size = new System.Drawing.Size(282, 28);
-            this.editSubmenu.TabIndex = 10;
-            this.editSubmenu.Visible = false;
-            // 
-            // ToggleMinimap
-            // 
-            this.ToggleMinimap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ToggleMinimap.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ToggleMinimap.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ToggleMinimap.FlatAppearance.BorderSize = 0;
-            this.ToggleMinimap.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.ToggleMinimap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.ToggleMinimap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToggleMinimap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ToggleMinimap.Location = new System.Drawing.Point(181, 0);
-            this.ToggleMinimap.Name = "ToggleMinimap";
-            this.ToggleMinimap.Size = new System.Drawing.Size(98, 28);
-            this.ToggleMinimap.TabIndex = 3;
-            this.ToggleMinimap.Text = "Toggle Minimap";
-            this.ToggleMinimap.UseVisualStyleBackColor = false;
-            this.ToggleMinimap.Click += new System.EventHandler(this.ToggleMinimap_Click);
-            // 
-            // reloadApp
-            // 
-            this.reloadApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.reloadApp.Dock = System.Windows.Forms.DockStyle.Left;
-            this.reloadApp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.reloadApp.FlatAppearance.BorderSize = 0;
-            this.reloadApp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.reloadApp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.reloadApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reloadApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reloadApp.Location = new System.Drawing.Point(81, 0);
-            this.reloadApp.Name = "reloadApp";
-            this.reloadApp.Size = new System.Drawing.Size(100, 28);
-            this.reloadApp.TabIndex = 2;
-            this.reloadApp.Text = "Reload LInjector";
-            this.reloadApp.UseVisualStyleBackColor = false;
-            this.reloadApp.Click += new System.EventHandler(this.reloadApp_Click);
-            // 
-            // copyTextbox
-            // 
-            this.copyTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.copyTextbox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.copyTextbox.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.copyTextbox.FlatAppearance.BorderSize = 0;
-            this.copyTextbox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.copyTextbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.copyTextbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.copyTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyTextbox.Location = new System.Drawing.Point(0, 0);
-            this.copyTextbox.Name = "copyTextbox";
-            this.copyTextbox.Size = new System.Drawing.Size(81, 28);
-            this.copyTextbox.TabIndex = 1;
-            this.copyTextbox.Text = "Copy TextBox";
-            this.copyTextbox.UseVisualStyleBackColor = false;
-            this.copyTextbox.Click += new System.EventHandler(this.copyTextbox_Click);
-            // 
-            // filesub
-            // 
-            this.filesub.Controls.Add(this.saveFile);
-            this.filesub.Controls.Add(this.openFile);
-            this.filesub.Location = new System.Drawing.Point(73, 0);
-            this.filesub.Name = "filesub";
-            this.filesub.Size = new System.Drawing.Size(106, 28);
-            this.filesub.TabIndex = 10;
-            this.filesub.Visible = false;
-            // 
-            // saveFile
-            // 
-            this.saveFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.saveFile.Dock = System.Windows.Forms.DockStyle.Left;
-            this.saveFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.saveFile.FlatAppearance.BorderSize = 0;
-            this.saveFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.saveFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.saveFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveFile.Location = new System.Drawing.Point(53, 0);
-            this.saveFile.Name = "saveFile";
-            this.saveFile.Size = new System.Drawing.Size(53, 28);
-            this.saveFile.TabIndex = 1;
-            this.saveFile.Text = "Save to";
-            this.saveFile.UseVisualStyleBackColor = false;
-            this.saveFile.Click += new System.EventHandler(this.saveFile_Click);
-            // 
-            // openFile
-            // 
-            this.openFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.openFile.Dock = System.Windows.Forms.DockStyle.Left;
-            this.openFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.openFile.FlatAppearance.BorderSize = 0;
-            this.openFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.openFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.openFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.openFile.Location = new System.Drawing.Point(0, 0);
-            this.openFile.Name = "openFile";
-            this.openFile.Size = new System.Drawing.Size(53, 28);
-            this.openFile.TabIndex = 0;
-            this.openFile.Text = "Open";
-            this.openFile.UseVisualStyleBackColor = false;
-            this.openFile.Click += new System.EventHandler(this.openFile_Click);
             // 
             // Attach
             // 
@@ -592,6 +513,7 @@
             // 
             // holder
             // 
+            this.holder.Controls.Add(this.materialExpansionPanel1);
             this.holder.Controls.Add(this.TabsPanel);
             this.holder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.holder.Location = new System.Drawing.Point(5, 68);
@@ -608,6 +530,84 @@
             this.TabsPanel.Name = "TabsPanel";
             this.TabsPanel.Size = new System.Drawing.Size(980, 417);
             this.TabsPanel.TabIndex = 0;
+            // 
+            // OpenTool
+            // 
+            this.OpenTool.Name = "OpenTool";
+            this.OpenTool.Size = new System.Drawing.Size(32, 19);
+            // 
+            // SaveTool
+            // 
+            this.SaveTool.Name = "SaveTool";
+            this.SaveTool.Size = new System.Drawing.Size(32, 19);
+            // 
+            // terminalButton
+            // 
+            this.terminalButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.terminalButton.Image = global::LInjector.Properties.Resources.terminal_icon;
+            this.terminalButton.Location = new System.Drawing.Point(5, 5);
+            this.terminalButton.Name = "terminalButton";
+            this.terminalButton.Size = new System.Drawing.Size(18, 18);
+            this.terminalButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.terminalButton.TabIndex = 0;
+            this.terminalButton.TabStop = false;
+            this.terminalButton.Click += new System.EventHandler(this.terminalButton_Click);
+            this.terminalButton.MouseEnter += new System.EventHandler(this.terminalButton_MouseEnter);
+            this.terminalButton.MouseLeave += new System.EventHandler(this.terminalButton_MouseLeave);
+            // 
+            // githubButton
+            // 
+            this.githubButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.githubButton.Image = global::LInjector.Properties.Resources.github_mark_white;
+            this.githubButton.Location = new System.Drawing.Point(5, 5);
+            this.githubButton.Name = "githubButton";
+            this.githubButton.Size = new System.Drawing.Size(18, 18);
+            this.githubButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.githubButton.TabIndex = 0;
+            this.githubButton.TabStop = false;
+            this.githubButton.Click += new System.EventHandler(this.githubButton_Click);
+            this.githubButton.MouseEnter += new System.EventHandler(this.githubButton_MouseEnter);
+            this.githubButton.MouseLeave += new System.EventHandler(this.githubButton_MouseLeave);
+            // 
+            // dscButton
+            // 
+            this.dscButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dscButton.Image = global::LInjector.Properties.Resources.discord_icon;
+            this.dscButton.Location = new System.Drawing.Point(5, 5);
+            this.dscButton.Name = "dscButton";
+            this.dscButton.Size = new System.Drawing.Size(18, 18);
+            this.dscButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dscButton.TabIndex = 0;
+            this.dscButton.TabStop = false;
+            this.dscButton.Click += new System.EventHandler(this.dscButton_Click);
+            this.dscButton.MouseEnter += new System.EventHandler(this.dscButton_MouseEnter);
+            this.dscButton.MouseLeave += new System.EventHandler(this.dscButton_MouseLeave);
+            // 
+            // LInjectorIcon
+            // 
+            this.LInjectorIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LInjectorIcon.Image = global::LInjector.Properties.Resources.LInjector;
+            this.LInjectorIcon.Location = new System.Drawing.Point(0, 0);
+            this.LInjectorIcon.Name = "LInjectorIcon";
+            this.LInjectorIcon.Size = new System.Drawing.Size(29, 29);
+            this.LInjectorIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LInjectorIcon.TabIndex = 0;
+            this.LInjectorIcon.TabStop = false;
+            this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorIcon_MouseDown);
+            // 
+            // materialExpansionPanel1
+            // 
+            this.materialExpansionPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialExpansionPanel1.Depth = 0;
+            this.materialExpansionPanel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialExpansionPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialExpansionPanel1.Location = new System.Drawing.Point(451, 0);
+            this.materialExpansionPanel1.Margin = new System.Windows.Forms.Padding(3, 16, 3, 16);
+            this.materialExpansionPanel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialExpansionPanel1.Name = "materialExpansionPanel1";
+            this.materialExpansionPanel1.Padding = new System.Windows.Forms.Padding(24, 64, 24, 16);
+            this.materialExpansionPanel1.Size = new System.Drawing.Size(480, 240);
+            this.materialExpansionPanel1.TabIndex = 13;
             // 
             // application
             // 
@@ -626,23 +626,23 @@
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Load += new System.EventHandler(this.application_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.application_MouseDown);
+            this.EditStrip.ResumeLayout(false);
+            this.FileStrip.ResumeLayout(false);
             this.titlebar.ResumeLayout(false);
             this.titleDialog.ResumeLayout(false);
             this.menuSettings.ResumeLayout(false);
             this.controlmenu.ResumeLayout(false);
             this.icon.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
             this.execinjPanel.PerformLayout();
             this.terminalPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).EndInit();
             this.githubPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
             this.dscPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dscButton)).EndInit();
-            this.editSubmenu.ResumeLayout(false);
-            this.filesub.ResumeLayout(false);
             this.holder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dscButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -662,14 +662,8 @@
         protected System.Windows.Forms.Panel holder;
         private System.Windows.Forms.Button Attach;
         private System.Windows.Forms.Button Execute;
-        private System.Windows.Forms.Panel filesub;
-        private System.Windows.Forms.Button saveFile;
-        private System.Windows.Forms.Button openFile;
-        private System.Windows.Forms.Panel editSubmenu;
-        private System.Windows.Forms.Button copyTextbox;
         private System.Windows.Forms.Panel menuSettings;
         private System.Windows.Forms.Button infSettings;
-        private System.Windows.Forms.Button reloadApp;
         private System.Windows.Forms.Panel dscPanel;
         private System.Windows.Forms.PictureBox dscButton;
         private System.Windows.Forms.Panel githubPanel;
@@ -678,6 +672,15 @@
         private System.Windows.Forms.PictureBox terminalButton;
         private System.Windows.Forms.Panel TabsPanel;
         public System.Windows.Forms.Button fileNameString;
-        private System.Windows.Forms.Button ToggleMinimap;
+        private System.Windows.Forms.ToolStripMenuItem OpenTool;
+        private System.Windows.Forms.ToolStripMenuItem SaveTool;
+        private MaterialSkin.Controls.MaterialContextMenuStrip FileStrip;
+        private System.Windows.Forms.ToolStripMenuItem OpenFileTool;
+        private System.Windows.Forms.ToolStripMenuItem SaveFileTool;
+        private MaterialSkin.Controls.MaterialContextMenuStrip EditStrip;
+        private System.Windows.Forms.ToolStripMenuItem CopyTool;
+        private System.Windows.Forms.ToolStripMenuItem ReloadTool;
+        private System.Windows.Forms.ToolStripMenuItem MinimapTool;
+        private MaterialSkin.Controls.MaterialExpansionPanel materialExpansionPanel1;
     }
 }

@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using Vip.Notification;
-
 namespace LInjector
 {
     public partial class application : Form
@@ -271,14 +270,12 @@ namespace LInjector
 
         private void FileButton_MouseClick(object sender, MouseEventArgs e)
         {
-            filesub.Visible = !filesub.Visible;
-            editSubmenu.Visible = false;
+            FileStrip.Show(Cursor.Position);
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
+        private void EditButton_Click(object sender, MouseEventArgs e)
         {
-            editSubmenu.Visible = !editSubmenu.Visible;
-            filesub.Visible = false;
+            EditStrip.Show(Cursor.Position);
         }
 
         private void openFile_Click(object sender, EventArgs e)
@@ -314,14 +311,12 @@ namespace LInjector
                         CwDt.Cw($"Opened Script {openFileDialog.SafeFileName}");
                     }
 
-                    filesub.Visible = false;
                     fileNameString.Refresh();
                     fileNameString.Size = new Size(150, 28);
                     fileNameString.Visible = true;
                     // _ = FileManager.DoTypeWrite(tabSystem.GetCurrentTabTitle(), fileNameString);
                 }
 
-                filesub.Visible = false;
             }
             catch (Exception ex)
             {
@@ -362,26 +357,21 @@ namespace LInjector
                     }
 
                     File.WriteAllText(filePath, result);
-                    filesub.Visible = false;
                     string savedFileName = Path.GetFileName(saveFileDialog.FileName);
                     _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
                     CwDt.Cw($"Saved file {savedFileName} to {saveFileDialog.FileName}");
                 }
                 catch (Exception)
                 {
-                    filesub.Visible = false;
                     _ = NotificationManager.FireNotification("Error saving the file", infSettings);
                 }
             }
 
             previousFocus.Focus();
-            filesub.Visible = false;
         }
 
         private async void copyTextbox_Click(object sender, EventArgs e)
         {
-            editSubmenu.Visible = false;
-            filesub.Visible = false;
             try
             {
                 var cm = tabSystem.current_monaco();
@@ -403,8 +393,6 @@ namespace LInjector
                 MessageBoxIcon.Information);
 
             if (result == DialogResult.OK) { Application.Restart(); }
-
-            editSubmenu.Visible = false;
         }
 
         private void dscButton_MouseEnter(object sender, EventArgs e)
@@ -509,8 +497,6 @@ namespace LInjector
 
         private void ToggleMinimap_Click(object sender, EventArgs e)
         {
-            editSubmenu.Visible = false;
-            filesub.Visible = false;
             if (!tabSystem.current_monaco().isMinimapEnabled == true) 
             {
                 tabSystem.current_monaco().enable_minimap();
