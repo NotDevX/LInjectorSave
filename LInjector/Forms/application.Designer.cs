@@ -49,22 +49,21 @@
             this.Maximize = new System.Windows.Forms.Button();
             this.Minimize = new System.Windows.Forms.Button();
             this.icon = new System.Windows.Forms.Panel();
+            this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
             this.fileNameString = new System.Windows.Forms.Button();
             this.terminalPanel = new System.Windows.Forms.Panel();
+            this.terminalButton = new System.Windows.Forms.PictureBox();
             this.githubPanel = new System.Windows.Forms.Panel();
+            this.githubButton = new System.Windows.Forms.PictureBox();
             this.dscPanel = new System.Windows.Forms.Panel();
+            this.dscButton = new System.Windows.Forms.PictureBox();
             this.Attach = new System.Windows.Forms.Button();
             this.Execute = new System.Windows.Forms.Button();
             this.holder = new System.Windows.Forms.Panel();
             this.TabsPanel = new System.Windows.Forms.Panel();
             this.OpenTool = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveTool = new System.Windows.Forms.ToolStripMenuItem();
-            this.terminalButton = new System.Windows.Forms.PictureBox();
-            this.githubButton = new System.Windows.Forms.PictureBox();
-            this.dscButton = new System.Windows.Forms.PictureBox();
-            this.LInjectorIcon = new System.Windows.Forms.PictureBox();
-            this.materialExpansionPanel1 = new MaterialSkin.Controls.MaterialExpansionPanel();
             EditButton = new System.Windows.Forms.Button();
             FileButton = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
@@ -75,15 +74,15 @@
             this.menuSettings.SuspendLayout();
             this.controlmenu.SuspendLayout();
             this.icon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.execinjPanel.SuspendLayout();
             this.terminalPanel.SuspendLayout();
-            this.githubPanel.SuspendLayout();
-            this.dscPanel.SuspendLayout();
-            this.holder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).BeginInit();
+            this.githubPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
+            this.dscPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dscButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
+            this.holder.SuspendLayout();
             this.SuspendLayout();
             // 
             // EditButton
@@ -405,6 +404,18 @@
             this.icon.Size = new System.Drawing.Size(29, 29);
             this.icon.TabIndex = 0;
             // 
+            // LInjectorIcon
+            // 
+            this.LInjectorIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LInjectorIcon.Image = global::LInjector.Properties.Resources.LInjector;
+            this.LInjectorIcon.Location = new System.Drawing.Point(0, 0);
+            this.LInjectorIcon.Name = "LInjectorIcon";
+            this.LInjectorIcon.Size = new System.Drawing.Size(29, 29);
+            this.LInjectorIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LInjectorIcon.TabIndex = 0;
+            this.LInjectorIcon.TabStop = false;
+            this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorIcon_MouseDown);
+            // 
             // execinjPanel
             // 
             this.execinjPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
@@ -450,6 +461,20 @@
             this.terminalPanel.Size = new System.Drawing.Size(28, 28);
             this.terminalPanel.TabIndex = 11;
             // 
+            // terminalButton
+            // 
+            this.terminalButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.terminalButton.Image = global::LInjector.Properties.Resources.terminal_icon;
+            this.terminalButton.Location = new System.Drawing.Point(5, 5);
+            this.terminalButton.Name = "terminalButton";
+            this.terminalButton.Size = new System.Drawing.Size(18, 18);
+            this.terminalButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.terminalButton.TabIndex = 0;
+            this.terminalButton.TabStop = false;
+            this.terminalButton.Click += new System.EventHandler(this.terminalButton_Click);
+            this.terminalButton.MouseEnter += new System.EventHandler(this.terminalButton_MouseEnter);
+            this.terminalButton.MouseLeave += new System.EventHandler(this.terminalButton_MouseLeave);
+            // 
             // githubPanel
             // 
             this.githubPanel.Controls.Add(this.githubButton);
@@ -460,6 +485,20 @@
             this.githubPanel.Size = new System.Drawing.Size(28, 28);
             this.githubPanel.TabIndex = 5;
             // 
+            // githubButton
+            // 
+            this.githubButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.githubButton.Image = global::LInjector.Properties.Resources.github_mark_white;
+            this.githubButton.Location = new System.Drawing.Point(5, 5);
+            this.githubButton.Name = "githubButton";
+            this.githubButton.Size = new System.Drawing.Size(18, 18);
+            this.githubButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.githubButton.TabIndex = 0;
+            this.githubButton.TabStop = false;
+            this.githubButton.Click += new System.EventHandler(this.githubButton_Click);
+            this.githubButton.MouseEnter += new System.EventHandler(this.githubButton_MouseEnter);
+            this.githubButton.MouseLeave += new System.EventHandler(this.githubButton_MouseLeave);
+            // 
             // dscPanel
             // 
             this.dscPanel.Controls.Add(this.dscButton);
@@ -469,6 +508,20 @@
             this.dscPanel.Padding = new System.Windows.Forms.Padding(5);
             this.dscPanel.Size = new System.Drawing.Size(28, 28);
             this.dscPanel.TabIndex = 4;
+            // 
+            // dscButton
+            // 
+            this.dscButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dscButton.Image = global::LInjector.Properties.Resources.discord_icon;
+            this.dscButton.Location = new System.Drawing.Point(5, 5);
+            this.dscButton.Name = "dscButton";
+            this.dscButton.Size = new System.Drawing.Size(18, 18);
+            this.dscButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dscButton.TabIndex = 0;
+            this.dscButton.TabStop = false;
+            this.dscButton.Click += new System.EventHandler(this.dscButton_Click);
+            this.dscButton.MouseEnter += new System.EventHandler(this.dscButton_MouseEnter);
+            this.dscButton.MouseLeave += new System.EventHandler(this.dscButton_MouseLeave);
             // 
             // Attach
             // 
@@ -513,7 +566,6 @@
             // 
             // holder
             // 
-            this.holder.Controls.Add(this.materialExpansionPanel1);
             this.holder.Controls.Add(this.TabsPanel);
             this.holder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.holder.Location = new System.Drawing.Point(5, 68);
@@ -541,74 +593,6 @@
             this.SaveTool.Name = "SaveTool";
             this.SaveTool.Size = new System.Drawing.Size(32, 19);
             // 
-            // terminalButton
-            // 
-            this.terminalButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.terminalButton.Image = global::LInjector.Properties.Resources.terminal_icon;
-            this.terminalButton.Location = new System.Drawing.Point(5, 5);
-            this.terminalButton.Name = "terminalButton";
-            this.terminalButton.Size = new System.Drawing.Size(18, 18);
-            this.terminalButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.terminalButton.TabIndex = 0;
-            this.terminalButton.TabStop = false;
-            this.terminalButton.Click += new System.EventHandler(this.terminalButton_Click);
-            this.terminalButton.MouseEnter += new System.EventHandler(this.terminalButton_MouseEnter);
-            this.terminalButton.MouseLeave += new System.EventHandler(this.terminalButton_MouseLeave);
-            // 
-            // githubButton
-            // 
-            this.githubButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.githubButton.Image = global::LInjector.Properties.Resources.github_mark_white;
-            this.githubButton.Location = new System.Drawing.Point(5, 5);
-            this.githubButton.Name = "githubButton";
-            this.githubButton.Size = new System.Drawing.Size(18, 18);
-            this.githubButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.githubButton.TabIndex = 0;
-            this.githubButton.TabStop = false;
-            this.githubButton.Click += new System.EventHandler(this.githubButton_Click);
-            this.githubButton.MouseEnter += new System.EventHandler(this.githubButton_MouseEnter);
-            this.githubButton.MouseLeave += new System.EventHandler(this.githubButton_MouseLeave);
-            // 
-            // dscButton
-            // 
-            this.dscButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dscButton.Image = global::LInjector.Properties.Resources.discord_icon;
-            this.dscButton.Location = new System.Drawing.Point(5, 5);
-            this.dscButton.Name = "dscButton";
-            this.dscButton.Size = new System.Drawing.Size(18, 18);
-            this.dscButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dscButton.TabIndex = 0;
-            this.dscButton.TabStop = false;
-            this.dscButton.Click += new System.EventHandler(this.dscButton_Click);
-            this.dscButton.MouseEnter += new System.EventHandler(this.dscButton_MouseEnter);
-            this.dscButton.MouseLeave += new System.EventHandler(this.dscButton_MouseLeave);
-            // 
-            // LInjectorIcon
-            // 
-            this.LInjectorIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LInjectorIcon.Image = global::LInjector.Properties.Resources.LInjector;
-            this.LInjectorIcon.Location = new System.Drawing.Point(0, 0);
-            this.LInjectorIcon.Name = "LInjectorIcon";
-            this.LInjectorIcon.Size = new System.Drawing.Size(29, 29);
-            this.LInjectorIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LInjectorIcon.TabIndex = 0;
-            this.LInjectorIcon.TabStop = false;
-            this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorIcon_MouseDown);
-            // 
-            // materialExpansionPanel1
-            // 
-            this.materialExpansionPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialExpansionPanel1.Depth = 0;
-            this.materialExpansionPanel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialExpansionPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialExpansionPanel1.Location = new System.Drawing.Point(451, 0);
-            this.materialExpansionPanel1.Margin = new System.Windows.Forms.Padding(3, 16, 3, 16);
-            this.materialExpansionPanel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialExpansionPanel1.Name = "materialExpansionPanel1";
-            this.materialExpansionPanel1.Padding = new System.Windows.Forms.Padding(24, 64, 24, 16);
-            this.materialExpansionPanel1.Size = new System.Drawing.Size(480, 240);
-            this.materialExpansionPanel1.TabIndex = 13;
-            // 
             // application
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -633,16 +617,16 @@
             this.menuSettings.ResumeLayout(false);
             this.controlmenu.ResumeLayout(false);
             this.icon.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
             this.execinjPanel.PerformLayout();
             this.terminalPanel.ResumeLayout(false);
-            this.githubPanel.ResumeLayout(false);
-            this.dscPanel.ResumeLayout(false);
-            this.holder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).EndInit();
+            this.githubPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
+            this.dscPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dscButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
+            this.holder.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -681,6 +665,5 @@
         private System.Windows.Forms.ToolStripMenuItem CopyTool;
         private System.Windows.Forms.ToolStripMenuItem ReloadTool;
         private System.Windows.Forms.ToolStripMenuItem MinimapTool;
-        private MaterialSkin.Controls.MaterialExpansionPanel materialExpansionPanel1;
     }
 }
