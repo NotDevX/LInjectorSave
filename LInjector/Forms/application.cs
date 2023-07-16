@@ -133,8 +133,22 @@ namespace LInjector
             base.WndProc(ref m);
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
+        private async void CloseButton_Click(object sender, EventArgs e)
         {
+            var startFadeOutTime = DateTime.Now;
+            double fadeOutDuration = 150;
+
+            while (DateTime.Now - startFadeOutTime < TimeSpan.FromMilliseconds(fadeOutDuration))
+            {
+                var elapsedMilliseconds = (DateTime.Now - startFadeOutTime).TotalMilliseconds;
+                var opacity = 1 - elapsedMilliseconds / fadeOutDuration;
+                if (opacity < 0)
+                    opacity = 0;
+
+                Opacity = opacity;
+                await Task.Delay(10);
+            }
+
             WindowState = FormWindowState.Minimized;
             Application.Exit();
         }
