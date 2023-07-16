@@ -1,17 +1,17 @@
-﻿using System;
+﻿using LInjector.Classes;
+using LInjector.WPF;
+using LInjector.WPF.Classes;
+using Microsoft.Web.WebView2.Core;
+using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LInjector.Classes;
-using Microsoft.Web.WebView2.Core;
-using Newtonsoft.Json;
-using Vip.Notification;
-using LInjector.WPF;
 using System.Windows.Forms.Integration;
-using LInjector.WPF.Classes;
+using Vip.Notification;
 
 namespace LInjector
 {
@@ -486,7 +486,7 @@ namespace LInjector
         private void webView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
             if (e.ToString() != "https://itzzexcel.github.io/luau-monaco" ||
-                e.ToString() != "https://lexploits.netlify.app/extra/monaco") 
+                e.ToString() != "https://lexploits.netlify.app/extra/monaco")
             {
                 monaco_api.Source = new Uri("https://itzzexcel.github.io/luau-monaco");
             }

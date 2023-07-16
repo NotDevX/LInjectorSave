@@ -1,5 +1,4 @@
 ﻿using LInjector.WPF.Classes;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,7 +8,7 @@ namespace LInjector.WPF
 {
     public partial class TabSystem : UserControl
     {
-     
+
         public string latestTabName { get; set; }
         public TabSystem()
         {

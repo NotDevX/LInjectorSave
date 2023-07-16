@@ -1,13 +1,6 @@
-﻿using Microsoft.Web.WebView2.Wpf;
+﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Web;
 using System.Threading.Tasks;
-using Microsoft.Web.WebView2.WinForms;
-using Newtonsoft.Json;
 
 namespace LInjector.WPF.Classes
 {
@@ -17,9 +10,9 @@ namespace LInjector.WPF.Classes
 
         public bool isDOMLoaded { get; set; } = false;
         private string ToSetText;
-        #pragma warning disable IDE0052 // Remove unread private members
+#pragma warning disable IDE0052 // Remove unread private members
         private string LatestRecievedText;
-        #pragma warning restore IDE0052 // Remove unread private members
+#pragma warning restore IDE0052 // Remove unread private members
 
         /// <summary>
         /// Event for when the editor is fully loaded.
@@ -73,8 +66,8 @@ namespace LInjector.WPF.Classes
         {
             if (isDOMLoaded)
                 text = text.Replace("\\", "\\\\");
-                await CoreWebView2.ExecuteScriptAsync("editor.setValue('');");
-                await CoreWebView2.ExecuteScriptAsync($"editor.setValue(`{text.Replace("`", "\\`")}`)");
+            await CoreWebView2.ExecuteScriptAsync("editor.setValue('');");
+            await CoreWebView2.ExecuteScriptAsync($"editor.setValue(`{text.Replace("`", "\\`")}`)");
         }
         public void AddIntellisense(string label, Types type, string description, string insert)
         {

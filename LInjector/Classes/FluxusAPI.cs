@@ -245,7 +245,8 @@ namespace LInjector.Classes
             if (flag)
             {
                 ThreadBox.MsgThread("Failure when initializing Fluxus API\nDLL path was invalid\n",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             dll_path = dll_path_;
             var text = "";
             foreach (var text2 in Directory.GetDirectories(Environment.GetEnvironmentVariable("LocalAppData") + "\\Packages"))
