@@ -1,4 +1,5 @@
-﻿using LInjector.WPF.Classes;
+﻿using LInjector.Classes;
+using LInjector.WPF.Classes;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -57,7 +58,7 @@ namespace LInjector.WPF
             {
                 case "AddT":
                     maintabs.Items.Add(CreateTab("", "Script" + " " + this.maintabs.Items.Count.ToString()));
-
+                    CwDt.Cw($"Added Tab: {"Script "} {this.maintabs.Items.Count.ToString()}");
                     break;
                 case "RemoveT":
                     try
@@ -65,6 +66,7 @@ namespace LInjector.WPF
                         if (maintabs.Items.Count > 1)
                         {
                             maintabs.Items.Remove(maintabs.SelectedItem);
+                            CwDt.Cw("Removed Tab");
                         }
                     }
                     catch { }

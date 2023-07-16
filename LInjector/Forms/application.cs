@@ -72,11 +72,6 @@ namespace LInjector
                 monaco_api.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
                 monaco_api.CoreWebView2.Settings.IsPasswordAutosaveEnabled = false;
             }
-
-            if (ConfigHandler.monaco_minimap)
-            {
-                monaco_api.enable_minimap();
-            }
         }
 
         public void application_Load(object sender, EventArgs e)
@@ -103,11 +98,10 @@ namespace LInjector
             host.Child = tabSystem;
 
             if (ConfigHandler.topmost)
-            {
-                TopMost = true;
-            }
+            { TopMost = true; }
 
-            // rbxversion.checkVersions();
+            if (ConfigHandler.monaco_minimap)
+            { monaco_api.enable_minimap(); }
         }
 
         protected override void WndProc(ref Message m)
@@ -252,6 +246,7 @@ namespace LInjector
             {
                 var cm = tabSystem.current_monaco();
                 cm.SetText("");
+                CwDt.Cw("Cleared current TextBox");
                 _ = FileManager.DoTypeWrite("", fileNameString);
                 tabSystem.ChangeCurrentTabTitle($"Script {tabSystem.maintabs.Items.Count.ToString()}");
                 fileNameString.Refresh();
@@ -335,11 +330,13 @@ namespace LInjector
                     if (dialogResult == DialogResult.Yes)
                     {
                         tabSystem.add_tab_with_text(fileContent, openFileDialog.SafeFileName);
+                        CwDt.Cw($"Added Script {openFileDialog.SafeFileName}");
                     }
                     else
                     {
                         tabSystem.current_monaco().SetText(fileContent);
                         tabSystem.ChangeCurrentTabTitle(openFileDialog.SafeFileName);
+                        CwDt.Cw($"Opened Script {openFileDialog.SafeFileName}");
                     }
 
                     filesub.Visible = false;
@@ -393,7 +390,7 @@ namespace LInjector
                     filesub.Visible = false;
                     string savedFileName = Path.GetFileName(saveFileDialog.FileName);
                     _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
-                    // _ = FileManager.DoTypeWrite(tabSystem.latestTabName, fileNameString);
+                    CwDt.Cw($"Saved file {savedFileName} to {saveFileDialog.FileName}");
                 }
                 catch (Exception)
                 {
