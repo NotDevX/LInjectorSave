@@ -1,0 +1,10 @@
+{
+  "autoattach": false,
+  "nosplash": false,
+  "metalpipe": false,
+  "bamboopipe": false,
+  "sizable": false,
+  "debug": false,
+  "monaco_minimap": false,
+  "discord_rpc": true
+}
