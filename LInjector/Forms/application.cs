@@ -26,17 +26,11 @@ namespace LInjector
         private const int cGrip = 16;
         private const int cCaption = 32;
 
-        private readonly bool isDevelopment;
-
 
         public application()
         {
             InitializeComponent();
             SetStyle(ControlStyles.ResizeRedraw, true);
-
-            #pragma warning disable CS0162 // Unreachable code detected
-            if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f") { isDevelopment = true; }
-            #pragma warning restore CS0162 // Unreachable code detected
 
             if (ArgumentHandler.SizableBool)
             {
@@ -88,10 +82,7 @@ namespace LInjector
 
         public void application_Load(object sender, EventArgs e)
         {
-            if (isDevelopment)
-            { _ = NotificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
-            else
-            { _ = NotificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings); }
+            _ = NotificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings);
 
             try
             {
@@ -146,7 +137,6 @@ namespace LInjector
         {
             WindowState = FormWindowState.Minimized;
             Application.Exit();
-            Environment.Exit(0);
         }
 
         private void Maximize_Click(object sender, EventArgs e)
