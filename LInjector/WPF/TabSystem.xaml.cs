@@ -11,7 +11,6 @@ namespace LInjector.WPF
     {
 
         public string latestTabName { get; set; }
-        monaco_api api = null;
         public TabSystem()
         {
             InitializeComponent();
@@ -32,11 +31,7 @@ namespace LInjector.WPF
             }
 
             maintabs.Items.Add(CreateTab(text, title));
-            if (ConfigHandler.monaco_minimap == true)
-            {
-                api.enable_autocomplete();
-                api.enable_minimap();
-            }
+            
         }
 
         public void ChangeCurrentTabTitle(string title)

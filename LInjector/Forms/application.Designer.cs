@@ -52,6 +52,7 @@
             this.dscPanel = new System.Windows.Forms.Panel();
             this.dscButton = new System.Windows.Forms.PictureBox();
             this.editSubmenu = new System.Windows.Forms.Panel();
+            this.ToggleMinimap = new System.Windows.Forms.Button();
             this.reloadApp = new System.Windows.Forms.Button();
             this.copyTextbox = new System.Windows.Forms.Button();
             this.filesub = new System.Windows.Forms.Panel();
@@ -441,13 +442,32 @@
             // 
             // editSubmenu
             // 
+            this.editSubmenu.Controls.Add(this.ToggleMinimap);
             this.editSubmenu.Controls.Add(this.reloadApp);
             this.editSubmenu.Controls.Add(this.copyTextbox);
             this.editSubmenu.Location = new System.Drawing.Point(179, 0);
             this.editSubmenu.Name = "editSubmenu";
-            this.editSubmenu.Size = new System.Drawing.Size(181, 28);
+            this.editSubmenu.Size = new System.Drawing.Size(282, 28);
             this.editSubmenu.TabIndex = 10;
             this.editSubmenu.Visible = false;
+            // 
+            // ToggleMinimap
+            // 
+            this.ToggleMinimap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.ToggleMinimap.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ToggleMinimap.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ToggleMinimap.FlatAppearance.BorderSize = 0;
+            this.ToggleMinimap.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.ToggleMinimap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.ToggleMinimap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToggleMinimap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToggleMinimap.Location = new System.Drawing.Point(181, 0);
+            this.ToggleMinimap.Name = "ToggleMinimap";
+            this.ToggleMinimap.Size = new System.Drawing.Size(98, 28);
+            this.ToggleMinimap.TabIndex = 3;
+            this.ToggleMinimap.Text = "Toggle Minimap";
+            this.ToggleMinimap.UseVisualStyleBackColor = false;
+            this.ToggleMinimap.Click += new System.EventHandler(this.ToggleMinimap_Click);
             // 
             // reloadApp
             // 
@@ -658,5 +678,6 @@
         private System.Windows.Forms.PictureBox terminalButton;
         private System.Windows.Forms.Panel TabsPanel;
         public System.Windows.Forms.Button fileNameString;
+        private System.Windows.Forms.Button ToggleMinimap;
     }
 }

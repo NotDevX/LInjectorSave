@@ -77,9 +77,6 @@ namespace LInjector
 
             if (ConfigHandler.topmost)
             { TopMost = true; }
-
-            if (ConfigHandler.monaco_minimap)
-            { monaco_api.enable_minimap(); }
         }
 
         protected override void WndProc(ref Message m)
@@ -507,6 +504,20 @@ namespace LInjector
             {
                 ThreadBox.MsgThread("Already injected", "LInjector | Fluxus API",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void ToggleMinimap_Click(object sender, EventArgs e)
+        {
+            editSubmenu.Visible = false;
+            filesub.Visible = false;
+            if (!tabSystem.current_monaco().isMinimapEnabled == true) 
+            {
+                tabSystem.current_monaco().enable_minimap();
+            }
+            else
+            {
+                tabSystem.current_monaco().disable_minimap();
             }
         }
     }

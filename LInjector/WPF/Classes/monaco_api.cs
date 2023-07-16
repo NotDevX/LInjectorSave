@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LInjector.Classes;
+using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 
@@ -10,7 +11,9 @@ namespace LInjector.WPF.Classes
 
         public bool isDOMLoaded { get; set; } = false;
         private string ToSetText;
+        #pragma warning disable IDE0052 // Remove unread private members
         private string LatestRecievedText;
+        #pragma warning restore IDE0052 // Remove unread private members
         public bool isMinimapEnabled { get; set; }
 
         /// <summary>
@@ -39,6 +42,11 @@ namespace LInjector.WPF.Classes
             this.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
             this.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
             this.CoreWebView2.Settings.AreDevToolsEnabled = false;
+
+            if (ConfigHandler.minimap)
+            {
+                enable_minimap();
+            }
         }
 
         private void CoreWebView2_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e) => LatestRecievedText = e.TryGetWebMessageAsString();
@@ -89,12 +97,14 @@ namespace LInjector.WPF.Classes
         {
             if (isDOMLoaded)
                 this.ExecuteScriptAsync("ShowMinimap();");
+            isMinimapEnabled = true;
         }
 
         public void disable_minimap()
         {
             if (isDOMLoaded)
                 this.ExecuteScriptAsync("HideMinimap();");
+            isMinimapEnabled = false;
         }
 
         public void enable_autocomplete()

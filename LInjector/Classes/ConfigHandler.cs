@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using LInjector.WPF;
+using LInjector.WPF.Classes;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -11,7 +13,7 @@ namespace LInjector.Classes
     {
         private static readonly string ConfigPath = ".\\config.json";
         private static application GetApplication = new application();
-        public static bool monaco_minimap;
+        public static bool minimap { get; set; }
         public static bool topmost;
         public static void DoConfig()
         {
@@ -25,7 +27,6 @@ namespace LInjector.Classes
                     { "bamboopipe", false },
                     { "sizable", false },
                     { "debug", false },
-                    { "monaco_minimap", false },
                     { "discord_rpc", true }
                 };
 
@@ -88,11 +89,6 @@ namespace LInjector.Classes
                 {
                     ConsoleManager.Initialize();
                     ConsoleManager.ShowConsole();
-                }
-
-                if (config.TryGetValue("monaco_minimap", out bool monaco_minimap) && monaco_minimap)
-                {
-                    monaco_minimap = true;
                 }
 
                 if (config.TryGetValue("discord_rpc", out bool discord_rpc) && discord_rpc)
