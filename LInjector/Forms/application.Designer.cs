@@ -52,6 +52,8 @@
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
             this.fileNameString = new System.Windows.Forms.Button();
+            this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.SettingsButton = new System.Windows.Forms.PictureBox();
             this.terminalPanel = new System.Windows.Forms.Panel();
             this.terminalButton = new System.Windows.Forms.PictureBox();
             this.githubPanel = new System.Windows.Forms.Panel();
@@ -76,6 +78,8 @@
             this.icon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.execinjPanel.SuspendLayout();
+            this.SettingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             this.terminalPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).BeginInit();
             this.githubPanel.SuspendLayout();
@@ -281,17 +285,18 @@
             // infSettings
             // 
             this.infSettings.BackColor = System.Drawing.Color.Transparent;
+            this.infSettings.Cursor = System.Windows.Forms.Cursors.Default;
             this.infSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.infSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.infSettings.FlatAppearance.BorderSize = 0;
             this.infSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.infSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.infSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.infSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.infSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infSettings.Location = new System.Drawing.Point(10, 1);
             this.infSettings.Name = "infSettings";
             this.infSettings.Size = new System.Drawing.Size(524, 27);
-            this.infSettings.TabIndex = 0;
+            this.infSettings.TabIndex = 100;
             this.infSettings.Text = ". . .";
             this.infSettings.UseVisualStyleBackColor = false;
             this.infSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.infSettings_MouseDown);
@@ -420,6 +425,7 @@
             // 
             this.execinjPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.execinjPanel.Controls.Add(this.fileNameString);
+            this.execinjPanel.Controls.Add(this.SettingsPanel);
             this.execinjPanel.Controls.Add(this.terminalPanel);
             this.execinjPanel.Controls.Add(this.githubPanel);
             this.execinjPanel.Controls.Add(this.dscPanel);
@@ -443,13 +449,37 @@
             this.fileNameString.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fileNameString.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fileNameString.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileNameString.Location = new System.Drawing.Point(753, 0);
+            this.fileNameString.Location = new System.Drawing.Point(725, 0);
             this.fileNameString.Name = "fileNameString";
             this.fileNameString.Size = new System.Drawing.Size(150, 28);
-            this.fileNameString.TabIndex = 12;
+            this.fileNameString.TabIndex = 14;
             this.fileNameString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.fileNameString.UseVisualStyleBackColor = true;
             this.fileNameString.Visible = false;
+            // 
+            // SettingsPanel
+            // 
+            this.SettingsPanel.Controls.Add(this.SettingsButton);
+            this.SettingsPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SettingsPanel.Location = new System.Drawing.Point(875, 0);
+            this.SettingsPanel.Name = "SettingsPanel";
+            this.SettingsPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.SettingsPanel.Size = new System.Drawing.Size(28, 28);
+            this.SettingsPanel.TabIndex = 13;
+            // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SettingsButton.Image = global::LInjector.Properties.Resources.SettingIcon;
+            this.SettingsButton.Location = new System.Drawing.Point(5, 5);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(18, 18);
+            this.SettingsButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.SettingsButton.TabIndex = 0;
+            this.SettingsButton.TabStop = false;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            this.SettingsButton.MouseEnter += new System.EventHandler(this.SettingsButton_MouseEnter);
+            this.SettingsButton.MouseLeave += new System.EventHandler(this.SettingsButton_MouseLeave);
             // 
             // terminalPanel
             // 
@@ -620,6 +650,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
             this.execinjPanel.PerformLayout();
+            this.SettingsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).EndInit();
             this.terminalPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).EndInit();
             this.githubPanel.ResumeLayout(false);
@@ -652,10 +684,7 @@
         private System.Windows.Forms.PictureBox dscButton;
         private System.Windows.Forms.Panel githubPanel;
         private System.Windows.Forms.PictureBox githubButton;
-        private System.Windows.Forms.Panel terminalPanel;
-        private System.Windows.Forms.PictureBox terminalButton;
         private System.Windows.Forms.Panel TabsPanel;
-        public System.Windows.Forms.Button fileNameString;
         private System.Windows.Forms.ToolStripMenuItem OpenTool;
         private System.Windows.Forms.ToolStripMenuItem SaveTool;
         private MaterialSkin.Controls.MaterialContextMenuStrip FileStrip;
@@ -665,5 +694,10 @@
         private System.Windows.Forms.ToolStripMenuItem CopyTool;
         private System.Windows.Forms.ToolStripMenuItem ReloadTool;
         private System.Windows.Forms.ToolStripMenuItem MinimapTool;
+        public System.Windows.Forms.Button fileNameString;
+        private System.Windows.Forms.Panel SettingsPanel;
+        private System.Windows.Forms.PictureBox SettingsButton;
+        private System.Windows.Forms.Panel terminalPanel;
+        private System.Windows.Forms.PictureBox terminalButton;
     }
 }

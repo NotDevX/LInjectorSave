@@ -42,11 +42,6 @@ namespace LInjector.WPF.Classes
             this.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
             this.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
             this.CoreWebView2.Settings.AreDevToolsEnabled = false;
-
-            if (ConfigHandler.minimap)
-            {
-                enable_minimap();
-            }
         }
 
         private void CoreWebView2_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e) => LatestRecievedText = e.TryGetWebMessageAsString();

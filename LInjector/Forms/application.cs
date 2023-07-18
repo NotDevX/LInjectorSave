@@ -1,8 +1,8 @@
 ﻿using LInjector.Classes;
+using LInjector.Forms.Menus;
 using LInjector.WPF;
 using LInjector.WPF.Classes;
 using MaterialSkin;
-using MaterialSkin.Controls;
 using Microsoft.Web.WebView2.Core;
 using Newtonsoft.Json;
 using System;
@@ -20,13 +20,14 @@ namespace LInjector
     {
         TabSystem tabSystem = new TabSystem();
         monaco_api monaco_api = null;
+        public static bool SettingsShown = false;
+        settings GetSettings = new settings();
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
         private const int cGrip = 16;
         private const int cCaption = 32;
-
 
         public application()
         {
@@ -81,7 +82,6 @@ namespace LInjector
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            // materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo300, Primary.BlueGrey900, Primary.BlueGrey500, Accent.Indigo100, TextShade.BLACK);
         }
 
         protected override void WndProc(ref Message m)
@@ -108,6 +108,9 @@ namespace LInjector
 
         private async void CloseButton_Click(object sender, EventArgs e)
         {
+            settings GetSettings = new settings();
+            GetSettings.Hide();
+
             var startFadeOutTime = DateTime.Now;
             double fadeOutDuration = 150;
 
@@ -511,6 +514,34 @@ namespace LInjector
             {
                 tabSystem.current_monaco().disable_minimap();
             }
+        }
+
+        private void infSettings_Click(object sender, EventArgs e)
+        {
+            if (SettingsShown == false)
+            {
+                this.AddOwnedForm(GetSettings);
+                GetSettings.Show();
+                GetSettings.BringToFront();
+            } else
+            {
+                GetSettings.Hide();
+            }
+        }
+
+        private void SettingsButton_MouseEnter(object sender, EventArgs e)
+        {
+            SettingsPanel.BackColor = ColorTranslator.FromHtml("#2e2e2e");
+        }
+
+        private void SettingsButton_MouseLeave(object sender, EventArgs e)
+        {
+            SettingsPanel.BackColor = ColorTranslator.FromHtml("#191919");
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            infSettings_Click(sender, e);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace LInjector
             AnimateSplash().ConfigureAwait(false);
         }
 
-        private async Task AnimateSplash()
+        public async Task AnimateSplash()
         {
             await Task.Delay(2500);
 
