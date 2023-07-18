@@ -115,11 +115,6 @@ namespace LInjector.Forms.Menus
 
         private void TopMostHandler_CheckedChanged(object sender, EventArgs e)
         {
-            ThreadBox.MsgThread("This may need resart application to take effect.",
-                                "LInjector | Settings",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation);
-
             if (TopMostHandler.Checked)
             {
                 ConfigHandler.SetConfigValue("topmost", true);
