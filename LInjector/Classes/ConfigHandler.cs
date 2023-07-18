@@ -22,7 +22,6 @@ namespace LInjector.Classes
         public static bool sizable = false;
         public static bool debug = false;
         public static bool discord_rpc = true;
-        public static int Opacity = 100;
         public static void DoConfig()
         {
             if (!File.Exists(ConfigPath))
@@ -37,7 +36,6 @@ namespace LInjector.Classes
                     { "debug", false },
                     { "topmost", false },
                     { "discord_rpc", true },
-                    { "opacity", 100 }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(config, Formatting.Indented);
@@ -127,7 +125,7 @@ namespace LInjector.Classes
             GetTimer.Stop();
         }
 
-        public static void SetConfigValue(string Name, object Value)
+        public static void SetConfigValue(string Name, bool Value)
         {
             string jsonContent = File.ReadAllText(ConfigPath);
             var configDict = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonContent);
@@ -140,11 +138,6 @@ namespace LInjector.Classes
             {
                 CwDt.Cw($"The value '{Name}' doesn't exist in the config");
                 return;
-            }
-
-            if (Name == "Opacity" && Value is int intValue)
-            {
-                configDict[Name] = intValue;
             }
 
             string updatedJson = JsonConvert.SerializeObject(configDict, Formatting.Indented);

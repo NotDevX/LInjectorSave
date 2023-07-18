@@ -40,8 +40,6 @@ namespace LInjector.Classes
                 Application.Run(new splashscr());
             }
             Console.Title = "LInjector | Debug";
-
-            Release();
         }
 
         private static void Release()
