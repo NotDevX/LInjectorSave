@@ -51,12 +51,12 @@ namespace LInjector
             }
 
             Application.EnableVisualStyles();
+            ConfigHandler.DoConfig();
             Application.SetCompatibleTextRenderingDefault(false);
             TempLog.CreateVersionFile(currentVersion, "version");
             CreateFiles.Create();
             ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();
-            ConfigHandler.DoConfig();
             RPCManager.InitRPC();
             SingleInstance.CheckInstance();
         }
