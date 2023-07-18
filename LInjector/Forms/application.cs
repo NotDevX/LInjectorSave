@@ -523,6 +523,7 @@ namespace LInjector
                 this.AddOwnedForm(GetSettings);
                 GetSettings.Show();
                 GetSettings.BringToFront();
+                GetSettings.Location = Cursor.Position;
             } else
             {
                 GetSettings.Hide();
