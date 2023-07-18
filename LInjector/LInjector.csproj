@@ -323,9 +323,11 @@
     <Compile Include="Classes\SingleInstance.cs" />
     <Compile Include="Forms\Menus\settings.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Forms\Menus\settings.Designer.cs">
       <DependentUpon>settings.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Forms\splashscr.cs">
       <SubType>Form</SubType>
@@ -344,6 +346,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menus\settings.resx">
       <DependentUpon>settings.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\splashscr.resx">
       <DependentUpon>splashscr.cs</DependentUpon>

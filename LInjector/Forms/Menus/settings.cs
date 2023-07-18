@@ -29,9 +29,6 @@ namespace LInjector.Forms.Menus
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-
-        application application = new application();
-
         private void settings_Load(object sender, EventArgs e)
         {
             MaterialSkinManager SkinManager = MaterialSkinManager.Instance;
@@ -126,14 +123,12 @@ namespace LInjector.Forms.Menus
             if (TopMostHandler.Checked)
             {
                 ConfigHandler.SetConfigValue("topmost", true);
-                application.TopMost = true;
                 this.TopMost = true;
                 ConfigHandler.topmost = true;
             }
             else
             {
                 ConfigHandler.SetConfigValue("topmost", false);
-                application.TopMost = false;
                 this.TopMost = false;
                 ConfigHandler.topmost = false;
             }
