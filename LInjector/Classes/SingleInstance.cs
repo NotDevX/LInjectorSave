@@ -55,5 +55,18 @@ namespace LInjector.Classes
                 mutex = null;
             }
         }
+        public static void DoTheRun ()
+        {
+            if (!ArgumentHandler.splashEnabled)
+            {
+                Application.Run(
+                    new application()); // You can remove the splashscreen by changing "splashscr" for "application"
+            }
+            else
+            {
+                Application.Run(new splashscr());
+            }
+            Console.Title = "LInjector | Debug";
+        }
     }
 }

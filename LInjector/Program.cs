@@ -51,8 +51,8 @@ namespace LInjector
             }
 
             Application.EnableVisualStyles();
-            ConfigHandler.DoConfig();
             Application.SetCompatibleTextRenderingDefault(false);
+            ConfigHandler.DoConfig();
             TempLog.CreateVersionFile(currentVersion, "version");
             CreateFiles.Create();
             ArgumentHandler.AnalyzeArgument(args);
