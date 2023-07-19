@@ -506,7 +506,7 @@ namespace LInjector
 
         private void ToggleMinimap_Click(object sender, EventArgs e)
         {
-            if (!tabSystem.current_monaco().isMinimapEnabled == true) 
+            if (!tabSystem.current_monaco().isMinimapEnabled == true)
             {
                 tabSystem.current_monaco().enable_minimap();
             }
@@ -524,7 +524,8 @@ namespace LInjector
                 GetSettings.Show();
                 GetSettings.BringToFront();
                 GetSettings.Location = Cursor.Position;
-            } else
+            }
+            else
             {
                 GetSettings.Hide();
             }

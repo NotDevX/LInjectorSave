@@ -55,7 +55,7 @@ namespace LInjector.Classes
                 mutex = null;
             }
         }
-        public static void DoTheRun ()
+        public static void DoTheRun()
         {
             if (!ArgumentHandler.splashEnabled)
             {

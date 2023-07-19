@@ -1,19 +1,14 @@
-﻿using LInjector.Forms.Menus;
-using LInjector.WPF;
-using LInjector.WPF.Classes;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using Vip.Notification;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
-using System.Windows.Forms;
 
 namespace LInjector.Classes
 {
     public static class ConfigHandler
     {
         private static readonly string ConfigPath = ".\\config.json";
-        public static System.Windows.Forms.Timer GetTimer = new System.Windows.Forms.Timer();
         private static application GetApplication = new application();
         public static bool topmost = false;
 
@@ -49,9 +44,8 @@ namespace LInjector.Classes
 
                 if (config.TryGetValue("autoattach", out object autoAttachValue) && (bool)autoAttachValue)
                 {
-                    StartListening();
-                    settings GetSettings = new settings();
                     autoattach = true;
+                    StartListening();
                 }
 
                 if (config.TryGetValue("nosplash", out object noSplashValue) && (bool)noSplashValue)
@@ -96,33 +90,17 @@ namespace LInjector.Classes
             }
         }
 
-        public static void StartListening() 
+        public static void StartListening()
         {
-            GetTimer.Enabled = true;
-            GetTimer.Interval = 100;
-
-            GetTimer.Tick += (sender, e) =>
+            if (autoattach)
             {
-                Process[] Roblox = Process.GetProcessesByName("Windows10Universal");
-                if (Roblox.Length > 0)
+                ProcessWatcher RobloxProcessWatcher = new ProcessWatcher("Windows10Universal");
+                RobloxProcessWatcher.Created += (sender, proc) =>
                 {
-                    FluxusAPI.create_files(Path.GetFullPath("Resources\\libs\\Module.dll"));
-                    if (!FluxusAPI.is_injected(FluxusAPI.pid))
-                    {
-                        GetApplication.Inject();
-                    }
-                    bool flag = FluxusAPI.is_injected(FluxusAPI.pid);
-                    if (flag)
-                    {
-                        GetTimer.Stop();
-                    }
-                }
-            };
-        }
-
-        public static void StopListening() 
-        {
-            GetTimer.Stop();
+                    Process RobloxProcess = proc;
+                    GetApplication.Inject();
+                };
+            }
         }
 
         public static void SetConfigValue(string Name, bool Value)

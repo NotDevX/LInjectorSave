@@ -1,15 +1,7 @@
 ﻿using LInjector.Classes;
 using MaterialSkin;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LInjector.Forms.Menus
@@ -40,13 +32,14 @@ namespace LInjector.Forms.Menus
         {
             if (AttachHandler.Checked)
             {
-                ConfigHandler.StartListening();
-                ConfigHandler.SetConfigValue("autoattach", true);
                 ConfigHandler.autoattach = true;
-            } else {
-                ConfigHandler.StopListening();
-                ConfigHandler.SetConfigValue("autoattach", false);
+                ConfigHandler.SetConfigValue("autoattach", true);
+                ConfigHandler.StartListening();
+            }
+            else
+            {
                 ConfigHandler.autoattach = false;
+                ConfigHandler.SetConfigValue("autoattach", false);
             }
         }
 
@@ -84,7 +77,8 @@ namespace LInjector.Forms.Menus
             {
                 ConfigHandler.SetConfigValue("debug", true);
                 ConfigHandler.debug = true;
-            } else
+            }
+            else
             {
                 ConfigHandler.SetConfigValue("debug", false);
                 ConfigHandler.debug = false;
@@ -102,7 +96,8 @@ namespace LInjector.Forms.Menus
                 if (!RPCManager.client.IsInitialized)
                     RPCManager.InitRPC();
 
-            } else
+            }
+            else
             {
                 ConfigHandler.SetConfigValue("discord_rpc", false);
                 ConfigHandler.discord_rpc = false;
@@ -129,7 +124,7 @@ namespace LInjector.Forms.Menus
             }
         }
 
-        private void DragWindow (object sender, MouseEventArgs e)
+        private void DragWindow(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -151,22 +146,28 @@ namespace LInjector.Forms.Menus
         private void settings_Shown(object sender, EventArgs e)
         {
             if (ConfigHandler.autoattach == true)
-            { AttachHandler.Checked = true; } else { AttachHandler.Checked = false; }
+            { AttachHandler.Checked = true; }
+            else { AttachHandler.Checked = false; }
 
             if (ConfigHandler.nosplash == true)
-            { SplashHandler.Checked = false; } else { SplashHandler.Checked = true; }
+            { SplashHandler.Checked = false; }
+            else { SplashHandler.Checked = true; }
 
             if (ConfigHandler.sizable == true)
-            { SizableHandler.Checked = true;  } else { SizableHandler.Checked = false; }
+            { SizableHandler.Checked = true; }
+            else { SizableHandler.Checked = false; }
 
-            if (ConfigHandler.debug == true) 
-            { ConsoleHandler.Checked = true; } else { ConsoleHandler.Checked = false; }
+            if (ConfigHandler.debug == true)
+            { ConsoleHandler.Checked = true; }
+            else { ConsoleHandler.Checked = false; }
 
             if (ConfigHandler.discord_rpc == true)
-            { RPCHandler.Checked = true; } else { RPCHandler.Checked = false; }
+            { RPCHandler.Checked = true; }
+            else { RPCHandler.Checked = false; }
 
             if (ConfigHandler.topmost == true)
-            { TopMostHandler.Checked = true; } else { TopMostHandler.Checked = false; }
+            { TopMostHandler.Checked = true; }
+            else { TopMostHandler.Checked = false; }
         }
     }
 }

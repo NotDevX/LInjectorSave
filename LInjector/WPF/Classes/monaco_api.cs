@@ -1,5 +1,4 @@
-﻿using LInjector.Classes;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 
@@ -11,9 +10,9 @@ namespace LInjector.WPF.Classes
 
         public bool isDOMLoaded { get; set; } = false;
         private string ToSetText;
-        #pragma warning disable IDE0052 // Remove unread private members
+#pragma warning disable IDE0052 // Remove unread private members
         private string LatestRecievedText;
-        #pragma warning restore IDE0052 // Remove unread private members
+#pragma warning restore IDE0052 // Remove unread private members
         public bool isMinimapEnabled { get; set; }
 
         /// <summary>

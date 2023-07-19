@@ -31,7 +31,7 @@ namespace LInjector.WPF
             }
 
             maintabs.Items.Add(CreateTab(text, title));
-            
+
         }
 
         public void ChangeCurrentTabTitle(string title)
