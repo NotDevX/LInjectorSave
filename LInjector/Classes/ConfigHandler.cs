@@ -1,17 +1,18 @@
 ﻿using Newtonsoft.Json;
-using Vip.Notification;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LInjector.Classes
 {
-    public static class ConfigHandler
+    public class ConfigHandler
     {
         private static readonly string ConfigPath = ".\\config.json";
         private static application GetApplication = new application();
-        public static bool topmost = false;
 
+        public static bool topmost = false;
         public static bool autoattach = false;
         public static bool nosplash = false;
         public static bool sizable = false;
@@ -45,7 +46,8 @@ namespace LInjector.Classes
                 if (config.TryGetValue("autoattach", out object autoAttachValue) && (bool)autoAttachValue)
                 {
                     autoattach = true;
-                    StartListening();
+                    ConfigHandler ch = new ConfigHandler();
+                    ch.StartListening();
                 }
 
                 if (config.TryGetValue("nosplash", out object noSplashValue) && (bool)noSplashValue)
@@ -90,15 +92,17 @@ namespace LInjector.Classes
             }
         }
 
-        public static void StartListening()
+        public void StartListening()
         {
             if (autoattach)
             {
                 ProcessWatcher RobloxProcessWatcher = new ProcessWatcher("Windows10Universal");
                 RobloxProcessWatcher.Created += (sender, proc) =>
                 {
+                    Task.Delay(3000);
                     Process RobloxProcess = proc;
-                    GetApplication.Inject();
+                    GetApplication.InjectNoNotification();
+                    ThreadBox.MsgThread("Auto attach attached successfully", "LInjector | Auto Attach", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 };
             }
         }

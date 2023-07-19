@@ -17,13 +17,15 @@ namespace LInjector.Forms.Menus
         private const int HT_CAPTION = 0x2;
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
+        ConfigHandler ConfigHandler = new ConfigHandler();
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
         private void settings_Load(object sender, EventArgs e)
         {
             MaterialSkinManager SkinManager = MaterialSkinManager.Instance;
+            
+
             SkinManager.Theme = MaterialSkinManager.Themes.DARK;
             SkinManager.ColorScheme = new ColorScheme(Primary.Indigo800, Primary.Indigo900, Primary.Indigo500, Accent.Indigo700, TextShade.WHITE);
         }

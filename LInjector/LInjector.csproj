@@ -269,9 +269,6 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ToastNotifications, Version=2.5.1.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
-      <HintPath>..\packages\ToastNotifications.2.5.1\lib\net40\ToastNotifications.dll</HintPath>
-    </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="Vip.Notification, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Vip.Notification.1.0.4\lib\net45\Vip.Notification.dll</HintPath>

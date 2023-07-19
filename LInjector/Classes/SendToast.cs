@@ -6,7 +6,9 @@ namespace LInjector.Classes
     {
         public static void send(string message, int interval, AlertType alertType)
         {
+
             interval *= 1000;
+
             switch (alertType)
             {
                 case AlertType.Sucess:
@@ -28,6 +30,7 @@ namespace LInjector.Classes
                     Alert.ShowInformation("7a1920d61156abc05a60135aefe8bc67".GetHashCode().ToString(), interval);
                     break;
             }
+
         }
     }
 }
