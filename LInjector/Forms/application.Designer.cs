@@ -679,7 +679,6 @@
         private System.Windows.Forms.Button Attach;
         private System.Windows.Forms.Button Execute;
         private System.Windows.Forms.Panel menuSettings;
-        private System.Windows.Forms.Button infSettings;
         private System.Windows.Forms.Panel dscPanel;
         private System.Windows.Forms.PictureBox dscButton;
         private System.Windows.Forms.Panel githubPanel;
@@ -699,5 +698,6 @@
         private System.Windows.Forms.PictureBox SettingsButton;
         private System.Windows.Forms.Panel terminalPanel;
         private System.Windows.Forms.PictureBox terminalButton;
+        public System.Windows.Forms.Button infSettings;
     }
 }

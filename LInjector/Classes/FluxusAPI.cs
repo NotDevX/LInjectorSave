@@ -167,6 +167,8 @@ namespace LInjector.Classes
                 else
                 {
                     result = r_inject(dll_path);
+                    try 
+                    { application app = new application(); _ = NotificationManager.FireNotification($"Successfully attached to Roblox UWP with PID: {FluxusAPI.pid}", app.infSettings); } catch { }
                 }
             }
             catch
@@ -211,7 +213,7 @@ namespace LInjector.Classes
 
         public static bool is_injected(int pid)
         {
-            phandle = OpenProcess(1082U, false, pid);
+            phandle = OpenProcess(0x43AU, false, pid);
             return is_injected(phandle, pid, dll_path);
         }
 

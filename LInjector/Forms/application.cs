@@ -499,8 +499,7 @@ namespace LInjector
             }
             else
             {
-                ThreadBox.MsgThread("Already injected", "LInjector | Fluxus API",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                _ = NotificationManager.FireNotification("Already injected", infSettings);
             }
         }
 
@@ -529,10 +528,6 @@ namespace LInjector
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                     }
-
-                    _ = Task.Delay(6000);
-                    CwDt.Cw($"Successfully attached to Roblox UWP with PID: {FluxusAPI.pid}");
-                    _ = NotificationManager.FireNotification($"Successfully attached to Roblox UWP with PID: {FluxusAPI.pid}", infSettings);
                 }
                 catch (Exception ex)
                 {
@@ -543,8 +538,7 @@ namespace LInjector
             }
             else
             {
-                ThreadBox.MsgThread("Already injected", "LInjector | Fluxus API",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                _ = NotificationManager.FireNotification("Already injected", infSettings);
             }
         }
 
