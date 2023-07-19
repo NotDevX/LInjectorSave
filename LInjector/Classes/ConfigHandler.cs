@@ -102,7 +102,6 @@ namespace LInjector.Classes
                     Task.Delay(3000);
                     Process RobloxProcess = proc;
                     GetApplication.InjectNoNotification();
-                    ThreadBox.MsgThread("Auto attach attached successfully", "LInjector | Auto Attach", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 };
             }
         }

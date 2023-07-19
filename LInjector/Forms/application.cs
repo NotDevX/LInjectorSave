@@ -533,6 +533,8 @@ namespace LInjector
                     _ = Task.Delay(6000);
                     CwDt.Cw($"Successfully attached to Roblox UWP with PID: {FluxusAPI.pid}");
                     _ = NotificationManager.FireNotification($"Successfully attached to Roblox UWP with PID: {FluxusAPI.pid}", infSettings);
+                    ThreadBox.MsgThread("Auto attach attached successfully", $"LInjector | Auto Attach | Roblox PID: {FluxusAPI.pid}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 catch (Exception ex)
                 {
