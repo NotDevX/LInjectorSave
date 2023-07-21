@@ -234,6 +234,9 @@
                             </Button>
                         </Grid>
                         <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="RemoveT" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
                             <Trigger Property="IsSelected" Value="True">
                                 <Trigger.ExitActions>
                                     <BeginStoryboard x:Name="Storyboard4_BeginStoryboard" Storyboard="{StaticResource Storyboard4}"/>
