@@ -361,6 +361,7 @@
     </None>
     <None Include="app.manifest" />
     <None Include="packages.config" />
+    <None Include="Resources\scripts\functions.lua" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
