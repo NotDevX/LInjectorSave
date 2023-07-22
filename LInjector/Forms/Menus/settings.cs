@@ -24,7 +24,7 @@ namespace LInjector.Forms.Menus
         private void settings_Load(object sender, EventArgs e)
         {
             MaterialSkinManager SkinManager = MaterialSkinManager.Instance;
-            
+
 
             SkinManager.Theme = MaterialSkinManager.Themes.DARK;
             SkinManager.ColorScheme = new ColorScheme(Primary.Indigo800, Primary.Indigo900, Primary.Indigo500, Accent.Indigo700, TextShade.WHITE);
