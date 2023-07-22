@@ -10,14 +10,32 @@
  * ]]
 
 if LInjector then
-    return 
+	return 
 end
 
 LILibs = {}
 
+local upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+local lowerCase = "abcdefghijklmnopqrstuvwxyz"
+local numbers = "0123456789"
+local symbols = "!@#$%&()*+-,./ñ:;<=>?^[]{}"
+
+local characterSet = upperCase .. lowerCase .. numbers .. symbols
+
 function Export(NameCaller, SubRoutine)
     getgenv()[NameCaller] = SubRoutine
 end
+
+Export("RandomString", function(keyLength)
+    local Randomized = ""
+
+    for i = 1, keyLength do
+        local rand = math.random(#characterSet)
+        Randomized = Randomized .. string.sub(characterSet, rand, rand)
+    end
+
+    return Randomized
+end)
 
 Export("identifyexecutor", function()
     return "LInjector UWP"
