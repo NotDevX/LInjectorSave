@@ -295,7 +295,7 @@
     <Compile Include="Classes\ArgumentHandler.cs" />
     <Compile Include="Classes\ConsoleManager.cs" />
     <Compile Include="Classes\CreateFiles.cs" />
-    <Compile Include="Classes\InternalScripts.cs" />
+    <Compile Include="Classes\InternalFunctions.cs" />
     <Compile Include="Classes\ProcessWatcher.cs" />
     <Compile Include="Classes\ThreadBox.cs" />
     <Compile Include="Classes\CwDt.cs" />

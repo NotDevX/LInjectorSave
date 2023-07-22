@@ -19,9 +19,9 @@ namespace LInjector
     public partial class application : Form
     {
         TabSystem tabSystem = new TabSystem();
+        settings GetSettings = new settings();
         monaco_api monaco_api = null;
         public static bool SettingsShown = false;
-        settings GetSettings = new settings();
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
@@ -471,6 +471,7 @@ namespace LInjector
                     try
                     {
                         FluxusAPI.inject();
+                        InternalFunctions.Load();
                     }
                     catch (Exception ex)
                     {
@@ -513,6 +514,7 @@ namespace LInjector
                     try
                     {
                         FluxusAPI.inject();
+                        InternalFunctions.Load();
                     }
                     catch (Exception ex)
                     {
