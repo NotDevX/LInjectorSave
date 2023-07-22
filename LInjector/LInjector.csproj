@@ -295,6 +295,7 @@
     <Compile Include="Classes\ArgumentHandler.cs" />
     <Compile Include="Classes\ConsoleManager.cs" />
     <Compile Include="Classes\CreateFiles.cs" />
+    <Compile Include="Classes\InternalScripts.cs" />
     <Compile Include="Classes\ProcessWatcher.cs" />
     <Compile Include="Classes\ThreadBox.cs" />
     <Compile Include="Classes\CwDt.cs" />
@@ -361,7 +362,9 @@
     </None>
     <None Include="app.manifest" />
     <None Include="packages.config" />
-    <None Include="Resources\scripts\functions.lua" />
+    <None Include="Resources\scripts\functions.lua">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

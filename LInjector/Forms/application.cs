@@ -230,7 +230,6 @@ namespace LInjector
                 var cm = tabSystem.current_monaco();
                 cm.SetText("");
                 CwDt.Cw("Cleared current TextBox");
-                _ = FileManager.DoTypeWrite("", fileNameString);
                 tabSystem.ChangeCurrentTabTitle($"Script {tabSystem.maintabs.Items.Count.ToString()}");
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);

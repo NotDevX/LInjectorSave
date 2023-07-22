@@ -31,8 +31,6 @@ namespace LInjector.Classes
                         await Task.Delay(30);
                         RPCManager.SetRpcFile(message);
                     }
-
-                    CwDt.Cw(message);
                 }
                 else
                 {
