@@ -471,7 +471,7 @@ namespace LInjector
                     try
                     {
                         FluxusAPI.inject();
-                        InternalFunctions.Load();
+                        InternalFunctions.RunInternalFunctions();
                     }
                     catch (Exception ex)
                     {
@@ -514,7 +514,7 @@ namespace LInjector
                     try
                     {
                         FluxusAPI.inject();
-                        InternalFunctions.Load();
+                        InternalFunctions.RunInternalFunctions();
                     }
                     catch (Exception ex)
                     {

@@ -9,13 +9,14 @@
  *
  * ]]
 
+if LInjector then
+    return 
+end
+
 LILibs = {}
 
 function Export(NameCaller, SubRoutine)
     getgenv()[NameCaller] = SubRoutine
-end
-function DebugOut(String)
-    warn(("%s: %s"):format("LInjector",String))
 end
 
 Export("identifyexecutor", function()
@@ -23,7 +24,7 @@ Export("identifyexecutor", function()
 end)
 
 Export("getexecutorname", function()
-	return "LInjector"
+     return "LInjector"
 end)
 
 Export("LInjector", true)
@@ -37,7 +38,7 @@ function LILibs.copy(String)
         SetClipBoard(String)
         return true
     else
-        DebugOut("Unable to set clipboard")
+        return "Unable to set clipboard"
     end
 end
 function LILibs.getRoot(CharacterModel)
