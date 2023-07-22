@@ -61,4 +61,4 @@ for FunctionName in pairs(LILibs) do
     getgenv()["LI_"..FunctionName] = LILibs[FunctionName] 
 end
 
-loadstring(game:HttpGet("https://github.com/ItzzExcel/LInjectorRedistributables/raw/main/injectionscreen.lua", true))
+loadstring(game:HttpGet("https://github.com/ItzzExcel/LInjectorRedistributables/raw/main/injectionscreen.lua", true))()
