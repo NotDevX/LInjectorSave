@@ -20,7 +20,10 @@ namespace LInjector
     {
         TabSystem tabSystem = new TabSystem();
         settings GetSettings = new settings();
+        about GetAbout = new about();
         monaco_api monaco_api = null;
+
+        public static bool AboutShown = false;
         public static bool SettingsShown = false;
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
@@ -108,8 +111,8 @@ namespace LInjector
 
         private async void CloseButton_Click(object sender, EventArgs e)
         {
-            settings GetSettings = new settings();
             GetSettings.Hide();
+            GetAbout.Hide();
 
             var startFadeOutTime = DateTime.Now;
             double fadeOutDuration = 150;
@@ -322,7 +325,6 @@ namespace LInjector
                     fileNameString.Refresh();
                     fileNameString.Size = new Size(150, 28);
                     fileNameString.Visible = true;
-                    // _ = FileManager.DoTypeWrite(tabSystem.GetCurrentTabTitle(), fileNameString);
                 }
 
             }
@@ -471,20 +473,12 @@ namespace LInjector
                     try
                     {
                         FluxusAPI.inject();
+                        Task.Delay(3000);
                         InternalFunctions.RunInternalFunctions();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
-                        ThreadBox.MsgThread("LInjector encountered a unrecoverable error" +
-                                                           "\nDue to Hyperion Byfron, LInjector only supports Roblox from Microsoft Store." +
-                                                           "\nException:\n"
-                                                           + ex.Message
-                                                           + "\nStack Trace:\n"
-                                                           + ex.StackTrace,
-                            "LInjector | Exception",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
                     }
 
                     _ = NotificationManager.FireNotification("Called Injection API (Powered by Fluxteam)", infSettings);
@@ -516,18 +510,9 @@ namespace LInjector
                         FluxusAPI.inject();
                         InternalFunctions.RunInternalFunctions();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
-                        ThreadBox.MsgThread("LInjector encountered a unrecoverable error" +
-                                                           "\nDue to Hyperion Byfron, LInjector only supports Roblox from Microsoft Store." +
-                                                           "\nException:\n"
-                                                           + ex.Message
-                                                           + "\nStack Trace:\n"
-                                                           + ex.StackTrace,
-                            "LInjector | Exception",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
@@ -583,6 +568,32 @@ namespace LInjector
         private void SettingsButton_Click(object sender, EventArgs e)
         {
             infSettings_Click(sender, e);
+        }
+
+        private void Information_MouseEnter(object sender, EventArgs e)
+        {
+            InfoPanel.BackColor = ColorTranslator.FromHtml("#2e2e2e");
+        }
+
+        private void Information_MouseLeave(object sender, EventArgs e)
+        {
+
+            InfoPanel.BackColor = ColorTranslator.FromHtml("#191919");
+        }
+
+        private void InfoIcon_Click(object sender, EventArgs e)
+        {
+            if (AboutShown == false)
+            {
+                this.AddOwnedForm(GetAbout);
+                GetAbout.Show();
+                GetAbout.BringToFront();
+                GetAbout.Location = Cursor.Position;
+            }
+            else
+            {
+                GetAbout.Hide();
+            }
         }
     }
 }

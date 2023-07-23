@@ -16,7 +16,7 @@ using System.Windows.Forms;
  * If you have a DLL, you can edit the source code. This is open-source.
  * Monaco is hosted on my website (https://lexploits.netlify.app/extra/monaco).
  * The Monaco Lua syntax highlighting can be found at (https://github.com/ItzzExcel/luau-monaco).
- * You can also ask me about it on Discord (itzzexcel).
+ * You can also ask me settings it on Discord (itzzexcel).
  *  
  * The main form is located at Forms/application.
  * You can also remove the Forms/splashscreen.
@@ -58,7 +58,7 @@ namespace LInjector
             ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();
             RPCManager.InitRPC();
-            SingleInstance.CheckInstance();
+            SingleInstance.DoTheRun();
         }
     }
 }

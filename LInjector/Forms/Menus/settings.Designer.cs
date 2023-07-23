@@ -277,6 +277,7 @@
             this.AttachHandler.AutoSize = true;
             this.AttachHandler.Depth = 0;
             this.AttachHandler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AttachHandler.Enabled = false;
             this.AttachHandler.ForeColor = System.Drawing.Color.White;
             this.AttachHandler.Location = new System.Drawing.Point(5, 5);
             this.AttachHandler.Margin = new System.Windows.Forms.Padding(0);

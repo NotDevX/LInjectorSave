@@ -52,6 +52,8 @@
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
             this.fileNameString = new System.Windows.Forms.Button();
+            this.InfoPanel = new System.Windows.Forms.Panel();
+            this.InfoIcon = new System.Windows.Forms.PictureBox();
             this.SettingsPanel = new System.Windows.Forms.Panel();
             this.SettingsButton = new System.Windows.Forms.PictureBox();
             this.terminalPanel = new System.Windows.Forms.Panel();
@@ -63,9 +65,9 @@
             this.Attach = new System.Windows.Forms.Button();
             this.Execute = new System.Windows.Forms.Button();
             this.holder = new System.Windows.Forms.Panel();
-            this.TabsPanel = new System.Windows.Forms.Panel();
             this.OpenTool = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.TabsPanel = new System.Windows.Forms.Panel();
             EditButton = new System.Windows.Forms.Button();
             FileButton = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
@@ -78,6 +80,8 @@
             this.icon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.execinjPanel.SuspendLayout();
+            this.InfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).BeginInit();
             this.SettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             this.terminalPanel.SuspendLayout();
@@ -184,7 +188,7 @@
             // 
             // FileStrip
             // 
-            this.FileStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.FileStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.FileStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.FileStrip.Depth = 0;
             this.FileStrip.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
@@ -425,6 +429,7 @@
             // 
             this.execinjPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.execinjPanel.Controls.Add(this.fileNameString);
+            this.execinjPanel.Controls.Add(this.InfoPanel);
             this.execinjPanel.Controls.Add(this.SettingsPanel);
             this.execinjPanel.Controls.Add(this.terminalPanel);
             this.execinjPanel.Controls.Add(this.githubPanel);
@@ -449,13 +454,37 @@
             this.fileNameString.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fileNameString.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fileNameString.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileNameString.Location = new System.Drawing.Point(725, 0);
+            this.fileNameString.Location = new System.Drawing.Point(697, 0);
             this.fileNameString.Name = "fileNameString";
             this.fileNameString.Size = new System.Drawing.Size(150, 28);
-            this.fileNameString.TabIndex = 14;
+            this.fileNameString.TabIndex = 16;
             this.fileNameString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.fileNameString.UseVisualStyleBackColor = true;
             this.fileNameString.Visible = false;
+            // 
+            // InfoPanel
+            // 
+            this.InfoPanel.Controls.Add(this.InfoIcon);
+            this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InfoPanel.Location = new System.Drawing.Point(847, 0);
+            this.InfoPanel.Name = "InfoPanel";
+            this.InfoPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.InfoPanel.Size = new System.Drawing.Size(28, 28);
+            this.InfoPanel.TabIndex = 15;
+            // 
+            // InfoIcon
+            // 
+            this.InfoIcon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InfoIcon.Image = global::LInjector.Properties.Resources.InfoIcon;
+            this.InfoIcon.Location = new System.Drawing.Point(5, 5);
+            this.InfoIcon.Name = "InfoIcon";
+            this.InfoIcon.Size = new System.Drawing.Size(18, 18);
+            this.InfoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.InfoIcon.TabIndex = 0;
+            this.InfoIcon.TabStop = false;
+            this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
+            this.InfoIcon.MouseEnter += new System.EventHandler(this.Information_MouseEnter);
+            this.InfoIcon.MouseLeave += new System.EventHandler(this.Information_MouseLeave);
             // 
             // SettingsPanel
             // 
@@ -604,15 +633,6 @@
             this.holder.Size = new System.Drawing.Size(990, 427);
             this.holder.TabIndex = 8;
             // 
-            // TabsPanel
-            // 
-            this.TabsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabsPanel.Location = new System.Drawing.Point(5, 5);
-            this.TabsPanel.Name = "TabsPanel";
-            this.TabsPanel.Size = new System.Drawing.Size(980, 417);
-            this.TabsPanel.TabIndex = 0;
-            // 
             // OpenTool
             // 
             this.OpenTool.Name = "OpenTool";
@@ -622,6 +642,15 @@
             // 
             this.SaveTool.Name = "SaveTool";
             this.SaveTool.Size = new System.Drawing.Size(32, 19);
+            // 
+            // TabsPanel
+            // 
+            this.TabsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TabsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabsPanel.Location = new System.Drawing.Point(5, 5);
+            this.TabsPanel.Name = "TabsPanel";
+            this.TabsPanel.Size = new System.Drawing.Size(980, 417);
+            this.TabsPanel.TabIndex = 0;
             // 
             // application
             // 
@@ -650,6 +679,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
             this.execinjPanel.PerformLayout();
+            this.InfoPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).EndInit();
             this.SettingsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).EndInit();
             this.terminalPanel.ResumeLayout(false);
@@ -683,7 +714,6 @@
         private System.Windows.Forms.PictureBox dscButton;
         private System.Windows.Forms.Panel githubPanel;
         private System.Windows.Forms.PictureBox githubButton;
-        private System.Windows.Forms.Panel TabsPanel;
         private System.Windows.Forms.ToolStripMenuItem OpenTool;
         private System.Windows.Forms.ToolStripMenuItem SaveTool;
         private MaterialSkin.Controls.MaterialContextMenuStrip FileStrip;
@@ -693,11 +723,14 @@
         private System.Windows.Forms.ToolStripMenuItem CopyTool;
         private System.Windows.Forms.ToolStripMenuItem ReloadTool;
         private System.Windows.Forms.ToolStripMenuItem MinimapTool;
-        public System.Windows.Forms.Button fileNameString;
         private System.Windows.Forms.Panel SettingsPanel;
         private System.Windows.Forms.PictureBox SettingsButton;
         private System.Windows.Forms.Panel terminalPanel;
         private System.Windows.Forms.PictureBox terminalButton;
         public System.Windows.Forms.Button infSettings;
+        public System.Windows.Forms.Button fileNameString;
+        private System.Windows.Forms.Panel InfoPanel;
+        private System.Windows.Forms.PictureBox InfoIcon;
+        private System.Windows.Forms.Panel TabsPanel;
     }
 }
