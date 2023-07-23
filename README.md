@@ -25,6 +25,13 @@ To edit the Forms, first compile, for any reason, forms can't load if not compil
 
 ### Don't ask why the commits are hashes pls.
 
+## Why LInjector?
+Well, here are some reasons:
+- It's an open-source project, that ensures the program does not contain malware.
+- Injection speed, the injection speed of LInjector has shown advantage over other executors. Approaching to about 0.02 seconds or 20 milliseconds.
+- Optimized tab system. The tab system in LInjector it's optimized to use no more than 500 megabytes of RAM even with 40 tabs open.
+- Transparency about the state and code of LInjector, I can ensure you'll get a response about LInjector every time.
+
 ### Is LInjector key-less?
 Yes, LInjector is key-less, free and open-source.
 
@@ -67,10 +74,12 @@ The LInjector Project is under the MIT License.
 - [The text editor is Monaco.](https://microsoft.github.io/monaco-editor/)
 - [Monaco Editor, edited by Supercomet Labs for Comet 3.](https://cometrbx.xyz/)
 - [Spinning Gradient by me (you can take it and put in into your personal projects, idc.](https://gist.github.com/ItzzExcel/6bece91fcd3388618dde3de6bcab4a60)
+- [Tab System by lxnnydev](https://github.com/lxnnydev/Winforms-Tab-System)
 
 ### Screenshots
-<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/6578f654-0bce-48df-8185-31bea26dc479" width="600px">
-<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/2264a631-5238-4ec9-bf3d-82c4a21e984b" width="600px">
+<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/d24106be-2142-4cbe-842d-761744e8f959" width="600px">
+<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/28cda1da-ecea-406e-87e1-d4a34cdf023e" width="600px">
+
 
 ### LICENSE
 ```
