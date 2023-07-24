@@ -473,7 +473,6 @@ namespace LInjector
                     try
                     {
                         FluxusAPI.inject();
-                        Task.Delay(3000);
                         InternalFunctions.RunInternalFunctions();
                     }
                     catch (Exception)
