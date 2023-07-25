@@ -375,14 +375,17 @@
     </None>
     <None Include="app.manifest" />
     <None Include="packages.config" />
-    <None Include="Resources\scripts\functions.lua">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Internal\Init.lua" />
+    <None Include="Resources\Internal\ProtectInstance.lua" />
+    <None Include="Resources\Internal\RightAndLeftKeysPatch.lua" />
+    <None Include="Resources\Internal\SaveInstancePatch.lua" />
+    <None Include="Resources\Internal\ShiftLockPatch.lua" />
+    <None Include="Resources\Internal\UNC_Support.lua" />
     <None Include="Resources\LInjector.png" />
   </ItemGroup>
   <ItemGroup>
@@ -423,6 +426,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

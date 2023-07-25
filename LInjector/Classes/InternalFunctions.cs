@@ -16,7 +16,7 @@ namespace LInjector.Classes
 {
     public static class InternalFunctions
     {
-        private static DirectoryInfo ScriptsFolder = new DirectoryInfo("Resources\\InternalScripts");
+        private static DirectoryInfo ScriptsFolder = new DirectoryInfo("Resources\\Internal");
         private static FileInfo[] Scripts = ScriptsFolder.GetFiles();
 
         static DispatcherTimer timer = new DispatcherTimer();
