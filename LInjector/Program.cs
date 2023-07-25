@@ -58,6 +58,7 @@ namespace LInjector
             ArgumentHandler.AnalyzeArgument(args);
             ConsoleManager.Initialize();
             RPCManager.InitRPC();
+            _ = RbxVersion.GetRobloxVersionUWP();
             SingleInstance.DoTheRun();
         }
     }

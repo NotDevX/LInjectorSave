@@ -400,9 +400,10 @@
             this.Controls.Add(this.holder);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "about";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Text = "about";
+            this.Text = "About LInjector";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             this.holder.ResumeLayout(false);
             this.TheOtherPanel.ResumeLayout(false);

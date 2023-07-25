@@ -109,6 +109,8 @@ namespace LInjector
             base.WndProc(ref m);
         }
 
+
+
         private async void CloseButton_Click(object sender, EventArgs e)
         {
             GetSettings.Hide();

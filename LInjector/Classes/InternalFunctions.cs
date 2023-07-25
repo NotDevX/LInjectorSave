@@ -55,7 +55,7 @@ namespace LInjector.Classes
         public static void RunInternalFunctions()
         {
             timer.Tick += InternalFunctions.Load;
-            timer.Interval = TimeSpan.FromSeconds(5);
+            timer.Interval = TimeSpan.FromSeconds(3);
             timer.Start();
         }
     }

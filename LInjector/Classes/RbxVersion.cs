@@ -1,13 +1,30 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace LInjector.Classes
 {
     public static class RbxVersion
     {
         public static string Version { get; set; }
+        static string appName = "ROBLOXCORPORATION.ROBLOX";
+        static string outputDirectory = Path.Combine(Path.GetTempPath(), "LInjector");
+        static string versionFilePath = Path.Combine(outputDirectory, "uwpversion");
 
-        public static async void DlRbxVersion()
+        public static string script = @"
+            $appxPackage = Get-AppxPackage | Where-Object { $_.Name -eq '" + appName + @"' }
+            if ($appxPackage) {
+                $appVersion = $appxPackage.Version
+            } else {
+                $appVersion = 'The application " + appName + @" it''s not installed.'
+            }
+            $appVersion | Out-File -FilePath '" + versionFilePath + @"'
+        ";
+
+
+        public static async Task DlRbxVersion()
         {
             var rbxverurl = "http://setup.roblox.com/version";
 
@@ -25,6 +42,24 @@ namespace LInjector.Classes
                     CwDt.Cw("Exception:\n" + ex.Message
                                              + "Stack Trace:\n" + ex.StackTrace);
                 }
+            }
+        }
+
+        public static void ExecutePowerShellScript(string script)
+        {
+            using (Process process = new Process())
+            {
+                process.StartInfo.FileName = "powershell.exe";
+                process.StartInfo.Arguments = $"-NoProfile -ExecutionPolicy Bypass -Command \"{script}\"";
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.CreateNoWindow = true;
+
+                process.Start();
+                process.WaitForExit();
+
+                string output = process.StandardOutput.ReadToEnd();
+                CwDt.Cw(output);
             }
         }
 
@@ -47,6 +82,29 @@ namespace LInjector.Classes
                 ThreadBox.MsgThread("Couldn't check if versions mismatched"
                                                    + "Exception   : \n" + ex.Message
                                                    + "Stack Trace : \n" + ex.StackTrace);
+            }
+        }
+
+        public static async Task GetRobloxVersionUWP()
+        {
+            if (!Directory.Exists(outputDirectory))
+            {
+                Directory.CreateDirectory(outputDirectory);
+            }
+
+            ExecutePowerShellScript(script);
+
+            if (File.Exists(versionFilePath))
+            {
+                Version = File.ReadAllText(versionFilePath);
+            }
+
+            if (Directory.Exists(outputDirectory))
+            {
+                if (Version.Contains("2.586.0.0"))
+                {
+                    ThreadBox.MsgThread("Your LInjector should work good 👍", "LInjector Version fucker", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.None);
+                }
             }
         }
     }

@@ -65,9 +65,9 @@
             this.Attach = new System.Windows.Forms.Button();
             this.Execute = new System.Windows.Forms.Button();
             this.holder = new System.Windows.Forms.Panel();
+            this.TabsPanel = new System.Windows.Forms.Panel();
             this.OpenTool = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveTool = new System.Windows.Forms.ToolStripMenuItem();
-            this.TabsPanel = new System.Windows.Forms.Panel();
             EditButton = new System.Windows.Forms.Button();
             FileButton = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
@@ -633,6 +633,15 @@
             this.holder.Size = new System.Drawing.Size(990, 427);
             this.holder.TabIndex = 8;
             // 
+            // TabsPanel
+            // 
+            this.TabsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TabsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabsPanel.Location = new System.Drawing.Point(5, 5);
+            this.TabsPanel.Name = "TabsPanel";
+            this.TabsPanel.Size = new System.Drawing.Size(980, 417);
+            this.TabsPanel.TabIndex = 0;
+            // 
             // OpenTool
             // 
             this.OpenTool.Name = "OpenTool";
@@ -642,15 +651,6 @@
             // 
             this.SaveTool.Name = "SaveTool";
             this.SaveTool.Size = new System.Drawing.Size(32, 19);
-            // 
-            // TabsPanel
-            // 
-            this.TabsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabsPanel.Location = new System.Drawing.Point(5, 5);
-            this.TabsPanel.Name = "TabsPanel";
-            this.TabsPanel.Size = new System.Drawing.Size(980, 417);
-            this.TabsPanel.TabIndex = 0;
             // 
             // application
             // 
