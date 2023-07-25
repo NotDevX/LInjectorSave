@@ -36,6 +36,7 @@
             this.CopyTool = new System.Windows.Forms.ToolStripMenuItem();
             this.ReloadTool = new System.Windows.Forms.ToolStripMenuItem();
             this.MinimapTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClearTextTool = new System.Windows.Forms.ToolStripMenuItem();
             this.FileStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.OpenFileTool = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFileTool = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +44,6 @@
             this.titleDialog = new System.Windows.Forms.Panel();
             this.menuSettings = new System.Windows.Forms.Panel();
             this.infSettings = new System.Windows.Forms.Button();
-            this.ClearTB = new System.Windows.Forms.Button();
             this.controlmenu = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Button();
             this.Maximize = new System.Windows.Forms.Button();
@@ -120,18 +120,19 @@
             // 
             // EditStrip
             // 
-            this.EditStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.EditStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.EditStrip.Depth = 0;
             this.EditStrip.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
             this.EditStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CopyTool,
             this.ReloadTool,
-            this.MinimapTool});
+            this.MinimapTool,
+            this.ClearTextTool});
             this.EditStrip.MouseState = MaterialSkin.MouseState.HOVER;
             this.EditStrip.Name = "FileStrip";
             this.EditStrip.ShowCheckMargin = true;
             this.EditStrip.ShowImageMargin = false;
-            this.EditStrip.Size = new System.Drawing.Size(218, 76);
+            this.EditStrip.Size = new System.Drawing.Size(218, 122);
             // 
             // CopyTool
             // 
@@ -160,6 +161,14 @@
             this.MinimapTool.Size = new System.Drawing.Size(217, 24);
             this.MinimapTool.Text = "Toggle Editor Minimap";
             this.MinimapTool.Click += new System.EventHandler(this.ToggleMinimap_Click);
+            // 
+            // ClearTextTool
+            // 
+            this.ClearTextTool.Name = "ClearTextTool";
+            this.ClearTextTool.Size = new System.Drawing.Size(217, 24);
+            this.ClearTextTool.Text = "Clear TextBox";
+            this.ClearTextTool.ToolTipText = "Clears the content of the textbox of the current tab.";
+            this.ClearTextTool.Click += new System.EventHandler(this.ClearTB_Click);
             // 
             // FileButton
             // 
@@ -263,7 +272,6 @@
             // 
             this.titleDialog.BackColor = System.Drawing.Color.Transparent;
             this.titleDialog.Controls.Add(this.menuSettings);
-            this.titleDialog.Controls.Add(this.ClearTB);
             this.titleDialog.Controls.Add(EditButton);
             this.titleDialog.Controls.Add(FileButton);
             this.titleDialog.Controls.Add(LInjectorLabel);
@@ -279,10 +287,10 @@
             // 
             this.menuSettings.Controls.Add(this.infSettings);
             this.menuSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuSettings.Location = new System.Drawing.Point(311, 0);
+            this.menuSettings.Location = new System.Drawing.Point(200, 0);
             this.menuSettings.Name = "menuSettings";
             this.menuSettings.Padding = new System.Windows.Forms.Padding(10, 1, 10, 1);
-            this.menuSettings.Size = new System.Drawing.Size(544, 29);
+            this.menuSettings.Size = new System.Drawing.Size(655, 29);
             this.menuSettings.TabIndex = 9;
             this.menuSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuSettings_MouseDown);
             // 
@@ -299,33 +307,11 @@
             this.infSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infSettings.Location = new System.Drawing.Point(10, 1);
             this.infSettings.Name = "infSettings";
-            this.infSettings.Size = new System.Drawing.Size(524, 27);
+            this.infSettings.Size = new System.Drawing.Size(635, 27);
             this.infSettings.TabIndex = 100;
             this.infSettings.Text = ". . .";
             this.infSettings.UseVisualStyleBackColor = false;
             this.infSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.infSettings_MouseDown);
-            // 
-            // ClearTB
-            // 
-            this.ClearTB.BackColor = System.Drawing.Color.Transparent;
-            this.ClearTB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClearTB.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ClearTB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClearTB.FlatAppearance.BorderSize = 0;
-            this.ClearTB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.ClearTB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.ClearTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClearTB.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
-            this.ClearTB.ForeColor = System.Drawing.Color.White;
-            this.ClearTB.Location = new System.Drawing.Point(200, 0);
-            this.ClearTB.Name = "ClearTB";
-            this.ClearTB.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.ClearTB.Size = new System.Drawing.Size(111, 29);
-            this.ClearTB.TabIndex = 8;
-            this.ClearTB.Text = "Clear TextBox";
-            this.ClearTB.UseMnemonic = false;
-            this.ClearTB.UseVisualStyleBackColor = false;
-            this.ClearTB.Click += new System.EventHandler(this.ClearTB_Click);
             // 
             // controlmenu
             // 
@@ -704,7 +690,6 @@
         private System.Windows.Forms.Button Maximize;
         private System.Windows.Forms.Button Minimize;
         private System.Windows.Forms.Panel titleDialog;
-        private System.Windows.Forms.Button ClearTB;
         private System.Windows.Forms.Panel execinjPanel;
         protected System.Windows.Forms.Panel holder;
         private System.Windows.Forms.Button Attach;
@@ -732,5 +717,6 @@
         private System.Windows.Forms.Panel InfoPanel;
         private System.Windows.Forms.PictureBox InfoIcon;
         private System.Windows.Forms.Panel TabsPanel;
+        private System.Windows.Forms.ToolStripMenuItem ClearTextTool;
     }
 }
