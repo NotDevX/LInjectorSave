@@ -9,7 +9,7 @@
  *
  * ]]
 
-if DepsoExploit then
+if LInjector then
 	return 
 end
 
@@ -22,14 +22,14 @@ end
 ---------
 
 Export("identifyexecutor", function()
-	return "Depso's exploit UWP", "v20.07.2023"
+	return "LInjector UWP", "v20.07.2023"
 end)
 
 Export("getexecutorname", function()
-	return "Depso's exploit", "v20.07.2023"
+	return "LInjector", "v20.07.2023"
 end)
 
-Export("DepsoExploit", true)
+Export("LInjector", true)
 
 function LILibs.Hello_World( ) -- LI_Hello_World
 	return print("Hello world!")
