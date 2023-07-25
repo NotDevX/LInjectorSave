@@ -29,7 +29,7 @@ namespace LInjector
 {
     internal static class Program
     {
-        public const string currentVersion = "v23.07.2023";
+        public const string currentVersion = "v25.07.2023";
         // Put "f81fb0e34f313b6cf0d0fc345890a33f" for skipping isOutdated MessageBox. 
         // The versions are in format dd/MM/yyy. (adding the v), if it's December 31, 1969, the version is "v31.12.1969"
 
