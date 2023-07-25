@@ -32,6 +32,7 @@
             System.Windows.Forms.Button FileButton;
             System.Windows.Forms.Button LInjectorLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(application));
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.EditStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.CopyTool = new System.Windows.Forms.ToolStripMenuItem();
             this.ReloadTool = new System.Windows.Forms.ToolStripMenuItem();
