@@ -17,38 +17,27 @@ namespace LInjector.Classes
 {
     public static class InternalFunctions
     {
-        private static readonly string ScriptPath = "Resources\\scripts\\functions.lua";
-
+        private static DirectoryInfo ScriptsFolder = new DirectoryInfo("Resources\\InternalScripts");
+        private static FileInfo[] Scripts = ScriptsFolder.GetFiles();
 
         static DispatcherTimer timer = new DispatcherTimer();
 
         public static void Load(object sender, EventArgs e)
         {
-            if (File.Exists(ScriptPath))
+            foreach (FileInfo file in Scripts)
             {
-                var flag = FluxusAPI.is_injected(FluxusAPI.pid);
+                var flag = Fluxus.is_injected(Fluxus.pid);
+
                 if (flag)
                 {
-                    try
-                    {
-                        string scriptContent = File.ReadAllText(ScriptPath);
-                        FluxusAPI.run_script(FluxusAPI.pid, scriptContent);
-                    }
-                    catch (Exception ex)
-                    {
-                        ThreadBox.MsgThread($"Error reading the content of {ScriptPath}: {ex.Message}",
-                                            "LInjector | Error",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
-                    }
+                    string Script_Content = File.ReadAllText(file.FullName);
+                    FluxusAPI.run_script(Fluxus.pid, Script_Content);
                 }
-            }
-            else
-            {
-                ThreadBox.MsgThread($"Couldn't find the path of {ScriptPath}, retry downloading LInjector.",
-                                    "LInjector | Warning",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
+                else {
+                    break;
+                }
+
+                Task.Delay(200);
             }
         }
 
