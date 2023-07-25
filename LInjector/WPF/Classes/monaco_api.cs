@@ -90,14 +90,14 @@ namespace LInjector.WPF.Classes
         public void enable_minimap()
         {
             if (isDOMLoaded)
-                this.ExecuteScriptAsync("ShowMinimap();");
+                this.ExecuteScriptAsync("SwitchMinimap();");
             isMinimapEnabled = true;
         }
 
         public void disable_minimap()
         {
             if (isDOMLoaded)
-                this.ExecuteScriptAsync("HideMinimap();");
+                this.ExecuteScriptAsync("SwitchMinimap();");
             isMinimapEnabled = false;
         }
 
