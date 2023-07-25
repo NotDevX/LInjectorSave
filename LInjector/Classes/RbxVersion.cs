@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LInjector.Classes
 {
@@ -85,9 +86,9 @@ namespace LInjector.Classes
             }
         }
 
-        #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public static async Task GetRobloxVersionUWP()
-        #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             if (!Directory.Exists(outputDirectory))
             {
@@ -103,9 +104,9 @@ namespace LInjector.Classes
 
             if (Directory.Exists(outputDirectory))
             {
-                if (Version.Contains("2.586.0.0"))
+                if (!Version.Contains("2.586.0.0"))
                 {
-                    ThreadBox.MsgThread("Your LInjector should work good 👍", "LInjector Version fucker", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.None);
+                    ThreadBox.MsgThread("Your Roblox UWP version mismatched. LInjector is only working for version 2.586.0.0, update or downgrade Roblox.", "LInjector | Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
