@@ -9,6 +9,8 @@
  *
  * ]]
 
+local LINJECTOR_VERSION = "v25.07.2023"
+
 if LInjector then
 	return 
 end
@@ -22,11 +24,11 @@ end
 ---------
 
 Export("identifyexecutor", function()
-	return "LInjector UWP", "v20.07.2023"
+	return "LInjector UWP", LINJECTOR_VERSION
 end)
 
 Export("getexecutorname", function()
-	return "LInjector", "v20.07.2023"
+	return "LInjector", LINJECTOR_VERSION
 end)
 
 Export("LInjector", true)
