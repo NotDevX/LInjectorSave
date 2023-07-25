@@ -1,4 +1,6 @@
-﻿if d_cryptloaded then
+-- Created by Depso (Github: depthso)
+
+if d_cryptloaded then
 	return 
 end
 
