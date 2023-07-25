@@ -79,8 +79,6 @@ end
 
 wait(5)
 
-print(identifyexecutor(), "hooked!")
-
 pcall(function()
-	setfpscap(99999)
+	setfpscap(0)
 end)
