@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using System.IO;
-using System.Windows.Forms;
+using System.Threading.Tasks;
 using System.Windows.Threading;
 
 /*
@@ -25,12 +25,12 @@ namespace LInjector.Classes
         {
             foreach (FileInfo file in Scripts)
             {
-                var flag = FluxusAPI.is_injected(Fluxus.pid);
+                var flag = FluxusAPI.is_injected(FluxusAPI.pid);
 
                 if (flag)
                 {
                     string Script_Content = File.ReadAllText(file.FullName);
-                    FluxusAPI.run_script(Fluxus.pid, Script_Content);
+                    FluxusAPI.run_script(FluxusAPI.pid, Script_Content);
                 }
                 else {
                     break;
