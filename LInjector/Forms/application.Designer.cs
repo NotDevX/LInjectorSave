@@ -32,7 +32,6 @@
             System.Windows.Forms.Button FileButton;
             System.Windows.Forms.Button LInjectorLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(application));
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.EditStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.CopyTool = new System.Windows.Forms.ToolStripMenuItem();
             this.ReloadTool = new System.Windows.Forms.ToolStripMenuItem();
@@ -653,6 +652,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1000, 500);
             this.Name = "application";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Load += new System.EventHandler(this.application_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.application_MouseDown);
