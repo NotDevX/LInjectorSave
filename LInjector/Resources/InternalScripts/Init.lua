@@ -31,7 +31,9 @@ Export("getexecutorname", function()
 	return "LInjector", LINJECTOR_VERSION
 end)
 
-Export("LInjector", true)
+Export("LInjector", {
+	loaded=false
+})
 
 function LILibs.Hello_World( ) -- LI_Hello_World
 	return print("Hello world!")
@@ -80,6 +82,8 @@ for FunctionName in pairs(LILibs) do
 end
 
 wait(5)
+
+LInjector.loaded = true
 
 pcall(function()
 	setfpscap(0)
