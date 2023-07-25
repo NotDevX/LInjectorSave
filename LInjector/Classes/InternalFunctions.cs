@@ -25,7 +25,7 @@ namespace LInjector.Classes
         {
             foreach (FileInfo file in Scripts)
             {
-                var flag = Fluxus.is_injected(Fluxus.pid);
+                var flag = FluxusAPI.is_injected(Fluxus.pid);
 
                 if (flag)
                 {
