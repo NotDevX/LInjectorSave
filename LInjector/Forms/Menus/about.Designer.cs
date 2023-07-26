@@ -208,7 +208,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 38);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Programmer";
+            this.label2.Text = "LuaU Development\r\nProgrammer\r\n";
             // 
             // DepsoTitle
             // 
