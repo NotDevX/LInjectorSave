@@ -12,6 +12,7 @@
 local LINJECTOR_VERSION = "v25.07.2023"
 
 if LInjector then
+	script:Remove()
 	return 
 end
 
@@ -81,7 +82,7 @@ for FunctionName in pairs(LILibs) do
 	getgenv()["d_"..FunctionName] = LILibs[FunctionName] 
 end
 
-wait(5)
+wait(2)
 
 LInjector.loaded = true
 

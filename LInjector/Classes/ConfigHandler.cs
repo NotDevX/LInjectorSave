@@ -27,7 +27,6 @@ namespace LInjector.Classes
                     { "nosplash", false },
                     { "metalpipe", false },
                     { "bamboopipe", false },
-                    { "sizable", false },
                     { "debug", false },
                     { "topmost", false },
                     { "discord_rpc", true },
@@ -46,7 +45,6 @@ namespace LInjector.Classes
                 {
                     autoattach = true;
                     ConfigHandler ch = new ConfigHandler();
-                    ch.StartListening();
                 }
 
                 if (config.TryGetValue("nosplash", out object noSplashValue) && (bool)noSplashValue)
@@ -63,12 +61,6 @@ namespace LInjector.Classes
                 if (config.TryGetValue("bamboopipe", out object bambooPipeValue) && (bool)bambooPipeValue)
                 {
                     DoPipe.doBambooPipeAsync();
-                }
-
-                if (config.TryGetValue("sizable", out object sizableValue) && (bool)sizableValue)
-                {
-                    ArgumentHandler.SizableBool = true;
-                    sizable = true;
                 }
 
                 if (config.TryGetValue("debug", out object debugValue) && (bool)debugValue)
@@ -88,20 +80,6 @@ namespace LInjector.Classes
                     RPCManager.isEnabled = true;
                     discord_rpc = true;
                 }
-            }
-        }
-
-        public void StartListening()
-        {
-            if (autoattach)
-            {
-                ProcessWatcher RobloxProcessWatcher = new ProcessWatcher("Windows10Universal");
-                RobloxProcessWatcher.Created += (sender, proc) =>
-                {
-                    Task.Delay(3000);
-                    Process RobloxProcess = proc;
-                    GetApplication.InjectNoNotification();
-                };
             }
         }
 

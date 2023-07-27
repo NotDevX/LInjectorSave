@@ -36,7 +36,6 @@ namespace LInjector.Forms.Menus
             {
                 ConfigHandler.autoattach = true;
                 ConfigHandler.SetConfigValue("autoattach", true);
-                ConfigHandler.StartListening();
             }
             else
             {
@@ -56,20 +55,6 @@ namespace LInjector.Forms.Menus
             {
                 ConfigHandler.SetConfigValue("nosplash", true);
                 ConfigHandler.nosplash = true;
-            }
-        }
-
-        private void SizableHandler_CheckedChanged(object sender, EventArgs e)
-        {
-            if (SizableHandler.Checked)
-            {
-                ConfigHandler.SetConfigValue("sizable", true);
-                ConfigHandler.sizable = true;
-            }
-            else
-            {
-                ConfigHandler.SetConfigValue("sizable", false);
-                ConfigHandler.sizable = false;
             }
         }
 
@@ -154,10 +139,6 @@ namespace LInjector.Forms.Menus
             if (ConfigHandler.nosplash == true)
             { SplashHandler.Checked = false; }
             else { SplashHandler.Checked = true; }
-
-            if (ConfigHandler.sizable == true)
-            { SizableHandler.Checked = true; }
-            else { SizableHandler.Checked = false; }
 
             if (ConfigHandler.debug == true)
             { ConsoleHandler.Checked = true; }

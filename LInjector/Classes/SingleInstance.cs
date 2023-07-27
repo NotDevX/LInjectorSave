@@ -66,7 +66,10 @@ namespace LInjector.Classes
             {
                 Application.Run(new splashscr());
             }
-            Console.Title = "LInjector | Debug";
+            try {
+                Console.Title = "LInjector | Debug";
+            }
+            catch { }
         }
     }
 }

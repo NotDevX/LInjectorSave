@@ -1,4 +1,5 @@
 if depso_protectinstance then
+	script:Remove()	
 	return 
 end
 

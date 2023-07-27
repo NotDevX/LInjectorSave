@@ -1,10 +1,9 @@
 if depso_saveinstancepatch then
+	script:Remove()
 	return 
 end
 
 getgenv()["depso_saveinstancepatch"] = true
-
-print("SaveInstance loaded!")
 
 local data = loadstring(game:HttpGet("https://raw.githubusercontent.com/HTDBarsi/grin/main/getprop.lua"))()
 local basicTypes = {["float"] = true, ["int64"] = true, ["bool"] = true, ["string"] = true}
@@ -23,7 +22,7 @@ end
 getgenv().saveinstance = function(name,settings)
 	print("saveinstance began!")
 	if not name then
-		name = ("%s.rbxlx"):format(tostring(game.PlaceId))
+		name = tostring(("%s.rbxlx"):format(tostring(game.PlaceId)))
 	end
     if not settings then
         settings = {}
@@ -86,7 +85,6 @@ getgenv().saveinstance = function(name,settings)
             end
         end
         add("</Properties>")
-		wait()
         for _,k in pairs(v:GetChildren()) do
             getObjects(k)
         end
@@ -94,8 +92,8 @@ getgenv().saveinstance = function(name,settings)
     end
     writefile(name,[[<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">]])
     for i,v in pairs(game:GetChildren()) do
-        getObjects(v)
 		wait()
+        getObjects(v)
     end
     add("</roblox>")
     appendfile(name,current)

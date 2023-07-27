@@ -10,12 +10,15 @@ namespace LInjector.Classes
         public static DiscordRpcClient client;
         public static bool isEnabled;
 
-        public static void InitRPC()
-        {
-            var baseRichPresence = new RichPresence
+        
+
+        public static void SetRPCDetails(string Details) {
+            RichPresence baseRichPresence = new RichPresence
             {
-                Details = "Using LInjector UWP",
-                State = "Exploiting",
+
+                Details = Details,
+                State = "",
+
                 Assets = new Assets
                 {
                     LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
@@ -23,16 +26,43 @@ namespace LInjector.Classes
                 },
                 Buttons = new[]
                 {
-                    new Button { Label = "GitHub", Url = "https://github.com/ItzzExcel/LInjector" }
+                        new Button { Label = "GitHub", Url = "https://github.com/ItzzExcel/LInjector" }
                 }
             };
+            if (client.IsInitialized)
+            {
+                try
+                {
+                    client.SetPresence(baseRichPresence);
+                }
+                catch (Exception ex)
+                {
+                    ThreadBox.MsgThread(
+                        "Couldn't update LInjector State (RPC)\nException:\n" + ex.Message, "[WARNING] LInjector",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
 
+        //public void SetListeningStatus(string name, string artist, string albumFormatted)
+        //{
+        //    Game activity = new(
+        //        artist + albumFormatted,
+        //        ActivityType.Listening,
+        //        ActivityProperties.Instance,
+        //        name
+        //    );
+        //    this.client.SetActivityAsync(activity);
+        //}
+
+        public static void InitRPC()
+        {
             client = new DiscordRpcClient("1104489169314660363");
             if (isEnabled)
             {
                 client.Initialize();
             }
-            client.SetPresence(baseRichPresence);
+            SetRPCDetails("Using LInjector UWP");
         }
 
         public static void SetRpcFile(string currentFile)
@@ -41,26 +71,7 @@ namespace LInjector.Classes
             {
                 try
                 {
-                    var state = "Editing File: " + currentFile;
-                    var presence = new RichPresence
-                    {
-                        Details = "Using LInjector UWP",
-                        State = state,
-                        Assets = new Assets
-                        {
-                            LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
-                            LargeImageText = "by The LExploits Project."
-                        },
-                        Buttons = new[]
-                        {
-                            new Button
-                            {
-                                Label = "GitHub", Url = "https://github.com/ItzzExcel/LInjector"
-                            },
-                        }
-                    };
-
-                    client.SetPresence(presence);
+                    SetRPCDetails("Editing File: " + currentFile);
                 }
                 catch (Exception ex)
                 {
@@ -77,25 +88,7 @@ namespace LInjector.Classes
             {
                 try
                 {
-                    var baseRichPresence = new RichPresence
-                    {
-                        Details = "Using LInjector UWP",
-                        State = "Exploiting",
-                        Assets = new Assets
-                        {
-                            LargeImageKey = "https://lexploits.netlify.app/extra/cdn/LInjector%20ico.png",
-                            LargeImageText = "by The LExploits Project."
-                        },
-                        Buttons = new[]
-                        {
-                            new Button
-                            {
-                                Label = "GitHub", Url = "https://github.com/ItzzExcel/LInjector/"
-                            },
-                        }
-                    };
-
-                    client.SetPresence(baseRichPresence);
+                    SetRPCDetails("Using LInjector UWP");
                 }
                 catch (Exception ex)
                 {

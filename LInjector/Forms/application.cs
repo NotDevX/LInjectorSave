@@ -6,13 +6,19 @@ using MaterialSkin;
 using Microsoft.Web.WebView2.Core;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
+using System.Windows.Threading;
 using Vip.Notification;
 namespace LInjector
 {
@@ -32,9 +38,91 @@ namespace LInjector
         private const int cGrip = 16;
         private const int cCaption = 32;
 
+        List<ScriptItem> ScriptsCache = new List<ScriptItem>();
+        private HttpClient client = new HttpClient();
+        private WebClient webCl = new WebClient();
+
+        public void runAutoAttachTimer()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Tick += AttachedDetectorTick;
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Start();
+        }
+
+        private void AttachedDetectorTick(object sender, EventArgs e)
+        {
+            if (ConfigHandler.autoattach == false) {
+                return;
+            }
+
+            var processesByName = Process.GetProcessesByName("Windows10Universal");
+            foreach (var Process in processesByName)
+            {
+                var FilePath = Process.MainModule.FileName;
+
+                if (FilePath.Contains("ROBLOX"))
+                {
+                    try
+                    {
+                        var flag = FluxusAPI.is_injected(FluxusAPI.pid);
+                        if (flag)
+                        {
+                            return;
+                        }
+
+                        InjectNoNotification();
+                    }
+                    catch { }
+                }
+            }
+        }
+
+        public void AddScripts(dynamic ScriptsJson) {
+            foreach (var item in ScriptsJson)
+            {
+                if (item.mastahubdata.link != null)
+                {
+                    ScriptItem scriptItem = new ScriptItem
+                    {
+                        title = item.title,
+                        script = item.mastahubdata.link,
+                    };
+
+                    //Console.WriteLine(item.mastahubdata.link.ToString());
+
+                    ScriptsCache.Add(scriptItem);
+                    ScriptsList.Items.Add(item.title);
+                }
+            }
+        }
+        public async void DownloadScripts()
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+
+                dynamic BuiltinScripts = await client.GetStringAsync("https://github.com/ItzzExcel/LInjectorRedistributables/raw/main/extra/LSciprts.json");
+                BuiltinScripts = JsonConvert.DeserializeObject(BuiltinScripts);
+
+                AddScripts(BuiltinScripts);
+
+                dynamic ScriptsJson = await client.GetStringAsync("https://www.mastersmzscripts.com/_functions-dev/forumposts?key=67E65DB1CFE1481DC956EFABF1D56&skip=0&max=60");
+                ScriptsJson = JsonConvert.DeserializeObject(ScriptsJson);
+
+                AddScripts(ScriptsJson);
+            }
+            catch
+            {
+                _ = NotificationManager.FireNotification("Could not download scripts", infSettings);
+            }
+        }
+
+
         public application()
         {
             InitializeComponent();
+            DownloadScripts();
             SetStyle(ControlStyles.ResizeRedraw, true);
 
             if (ArgumentHandler.SizableBool)
@@ -59,6 +147,8 @@ namespace LInjector
 
         public void application_Load(object sender, EventArgs e)
         {
+            runAutoAttachTimer();
+
             _ = NotificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings);
 
             try
@@ -476,6 +566,7 @@ namespace LInjector
                     {
                         FluxusAPI.inject();
                         InternalFunctions.RunInternalFunctions();
+                        FunctionWatch.runFuncWatch();
                     }
                     catch (Exception)
                     {
@@ -510,6 +601,7 @@ namespace LInjector
                     {
                         FluxusAPI.inject();
                         InternalFunctions.RunInternalFunctions();
+                        FunctionWatch.runFuncWatch();
                     }
                     catch (Exception)
                     {
@@ -595,6 +687,47 @@ namespace LInjector
             {
                 GetAbout.Hide();
             }
+        }
+
+        private async void ScriptsList_DoubleClick(object sender, EventArgs e)
+        {
+            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+
+            foreach (var item in ScriptsCache)
+            {
+                if (ScriptsList.SelectedItem.ToString() == item.title)
+                {
+                    if (item.script == "") {
+                        break;
+                    }
+
+                    try {
+                        string ScriptBody = await client.GetStringAsync(item.script);
+                        var cm = tabSystem.current_monaco();
+                        tabSystem.ChangeCurrentTabTitle(item.title);
+                        cm.SetText(ScriptBody);
+                    }
+                    catch
+                    {
+                        _ = NotificationManager.FireNotification("Could not fetch script", infSettings);
+                    }
+                    
+                    break;
+                }
+            }
+        }
+    }
+    public class ScriptItem
+    {
+        public string title
+        {
+            get;
+            set;
+        }
+        public string script
+        {
+            get;
+            set;
         }
     }
 }

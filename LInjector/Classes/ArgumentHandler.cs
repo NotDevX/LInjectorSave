@@ -31,11 +31,6 @@ namespace LInjector.Classes
                         Console.Title = "LInjector | Debug";
                         CwDt.Cw("--debug called.");
                     }
-                    else if (argument.Contains("--sizable"))
-                    {
-                        SizableBool = true;
-                        CwDt.Cw("--sizable called");
-                    }
                     else if (argument.Contains("--no-splash"))
                     {
                         splashEnabled = false;

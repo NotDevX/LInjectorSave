@@ -40,7 +40,6 @@
             this.TopMostHandler = new MaterialSkin.Controls.MaterialSwitch();
             this.RPCHandler = new MaterialSkin.Controls.MaterialSwitch();
             this.ConsoleHandler = new MaterialSkin.Controls.MaterialSwitch();
-            this.SizableHandler = new MaterialSkin.Controls.MaterialSwitch();
             this.SplashHandler = new MaterialSkin.Controls.MaterialSwitch();
             this.AttachHandler = new MaterialSkin.Controls.MaterialSwitch();
             LInjectorLabel = new System.Windows.Forms.Button();
@@ -170,7 +169,6 @@
             this.holder.Controls.Add(this.TopMostHandler);
             this.holder.Controls.Add(this.RPCHandler);
             this.holder.Controls.Add(this.ConsoleHandler);
-            this.holder.Controls.Add(this.SizableHandler);
             this.holder.Controls.Add(this.SplashHandler);
             this.holder.Controls.Add(this.AttachHandler);
             this.holder.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -186,7 +184,7 @@
             this.TopMostHandler.Depth = 0;
             this.TopMostHandler.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopMostHandler.ForeColor = System.Drawing.Color.White;
-            this.TopMostHandler.Location = new System.Drawing.Point(5, 190);
+            this.TopMostHandler.Location = new System.Drawing.Point(5, 153);
             this.TopMostHandler.Margin = new System.Windows.Forms.Padding(0);
             this.TopMostHandler.MaximumSize = new System.Drawing.Size(275, 40);
             this.TopMostHandler.MinimumSize = new System.Drawing.Size(275, 40);
@@ -206,7 +204,7 @@
             this.RPCHandler.Depth = 0;
             this.RPCHandler.Dock = System.Windows.Forms.DockStyle.Top;
             this.RPCHandler.ForeColor = System.Drawing.Color.White;
-            this.RPCHandler.Location = new System.Drawing.Point(5, 153);
+            this.RPCHandler.Location = new System.Drawing.Point(5, 116);
             this.RPCHandler.Margin = new System.Windows.Forms.Padding(0);
             this.RPCHandler.MouseLocation = new System.Drawing.Point(-1, -1);
             this.RPCHandler.MouseState = MaterialSkin.MouseState.HOVER;
@@ -224,7 +222,7 @@
             this.ConsoleHandler.Depth = 0;
             this.ConsoleHandler.Dock = System.Windows.Forms.DockStyle.Top;
             this.ConsoleHandler.ForeColor = System.Drawing.Color.White;
-            this.ConsoleHandler.Location = new System.Drawing.Point(5, 116);
+            this.ConsoleHandler.Location = new System.Drawing.Point(5, 79);
             this.ConsoleHandler.Margin = new System.Windows.Forms.Padding(0);
             this.ConsoleHandler.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ConsoleHandler.MouseState = MaterialSkin.MouseState.HOVER;
@@ -235,24 +233,6 @@
             this.ConsoleHandler.Text = "Show Console";
             this.ConsoleHandler.UseVisualStyleBackColor = true;
             this.ConsoleHandler.CheckedChanged += new System.EventHandler(this.ConsoleHandler_CheckedChanged);
-            // 
-            // SizableHandler
-            // 
-            this.SizableHandler.AutoSize = true;
-            this.SizableHandler.Depth = 0;
-            this.SizableHandler.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SizableHandler.ForeColor = System.Drawing.Color.White;
-            this.SizableHandler.Location = new System.Drawing.Point(5, 79);
-            this.SizableHandler.Margin = new System.Windows.Forms.Padding(0);
-            this.SizableHandler.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.SizableHandler.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SizableHandler.Name = "SizableHandler";
-            this.SizableHandler.Ripple = true;
-            this.SizableHandler.Size = new System.Drawing.Size(264, 37);
-            this.SizableHandler.TabIndex = 2;
-            this.SizableHandler.Text = "Sizable Window";
-            this.SizableHandler.UseVisualStyleBackColor = true;
-            this.SizableHandler.CheckedChanged += new System.EventHandler(this.SizableHandler_CheckedChanged);
             // 
             // SplashHandler
             // 
@@ -277,7 +257,6 @@
             this.AttachHandler.AutoSize = true;
             this.AttachHandler.Depth = 0;
             this.AttachHandler.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AttachHandler.Enabled = false;
             this.AttachHandler.ForeColor = System.Drawing.Color.White;
             this.AttachHandler.Location = new System.Drawing.Point(5, 5);
             this.AttachHandler.Margin = new System.Windows.Forms.Padding(0);
@@ -328,7 +307,6 @@
         private System.Windows.Forms.Panel holder;
         public MaterialSkin.Controls.MaterialSwitch AttachHandler;
         public MaterialSkin.Controls.MaterialSwitch SplashHandler;
-        public MaterialSkin.Controls.MaterialSwitch SizableHandler;
         public MaterialSkin.Controls.MaterialSwitch ConsoleHandler;
         public MaterialSkin.Controls.MaterialSwitch RPCHandler;
         public MaterialSkin.Controls.MaterialSwitch TopMostHandler;

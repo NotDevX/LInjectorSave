@@ -1,6 +1,7 @@
 -- Created by Depso (Github: depthso)
 
 if d_cryptloaded then
+	script:Remove()
 	return 
 end
 
@@ -537,28 +538,3 @@ Export("d_crypt", table.clone(depso_crypt))
 Export("getcallbackvalue", function(Instance, Value)
 
 end)
-
-wait(1)
-
-a = depso_crypt.encrypt("Hello", "bozo")
-print(a)
-b = depso_crypt.decrypt(a, "bozo")
-print(b)
-
-print("-----------------------------------")
-
-key = depso_crypt.generatekey()
-print(key, " DECODED:", depso_crypt.base64decode(key))
-
-
-print("-----------------------------------")
-local size = math.random(10, 100)
-local bytes = depso_crypt.generatebytes(size)
-local bytes = depso_crypt.base64decode(bytes)
-print(size)
-print(bytes)
-print(#bytes == size)
-
-key = depso_crypt.generatebytes()
-print(key, " DECODED:", depso_crypt.base64decode(key))
-

@@ -126,7 +126,10 @@ Started development on May 5, 2023.
 Started as a need to have something secure, minimalist and transparent.
 
 Special thanks to depthso/depso. Who has shown interest in the project, creating the custom libraries, and help with coding.
-depso (GitHub: depthso)</value>
+depso (GitHub: depthso)
+
+Scripts provided by MastersMZ scripts
+www.mastersmzscripts.com</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

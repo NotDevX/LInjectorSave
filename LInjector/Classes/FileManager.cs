@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -6,6 +7,15 @@ namespace LInjector.Classes
 {
     public static class FileManager
     {
+        public static readonly string localAppDataFolder =
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
+        public static readonly string RobloxACFolder = Path.Combine(localAppDataFolder, "Packages",
+            "ROBLOXCORPORATION.ROBLOX_55nm5eh3cm0pr", "AC");
+
+        public static readonly string workspaceFolder = Path.Combine(RobloxACFolder, "workspace");
+        public static readonly string autoexecFolder = Path.Combine(RobloxACFolder, "autoexec");
+
         private static bool isBusy;
 
         public static async Task DoTypeWrite<T>(string message, T targetControl) where T : Control

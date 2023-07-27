@@ -64,10 +64,10 @@
             this.dscButton = new System.Windows.Forms.PictureBox();
             this.Attach = new System.Windows.Forms.Button();
             this.Execute = new System.Windows.Forms.Button();
-            this.holder = new System.Windows.Forms.Panel();
             this.TabsPanel = new System.Windows.Forms.Panel();
             this.OpenTool = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScriptsList = new System.Windows.Forms.ListBox();
             EditButton = new System.Windows.Forms.Button();
             FileButton = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
@@ -90,7 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
             this.dscPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dscButton)).BeginInit();
-            this.holder.SuspendLayout();
             this.SuspendLayout();
             // 
             // EditButton
@@ -132,7 +131,7 @@
             this.EditStrip.Name = "FileStrip";
             this.EditStrip.ShowCheckMargin = true;
             this.EditStrip.ShowImageMargin = false;
-            this.EditStrip.Size = new System.Drawing.Size(218, 122);
+            this.EditStrip.Size = new System.Drawing.Size(218, 100);
             // 
             // CopyTool
             // 
@@ -337,7 +336,7 @@
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.ForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Location = new System.Drawing.Point(58, 0);
+            this.CloseButton.Location = new System.Drawing.Point(58, -1);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(29, 29);
             this.CloseButton.TabIndex = 2;
@@ -359,7 +358,7 @@
             this.Maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Maximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Maximize.ForeColor = System.Drawing.Color.Transparent;
-            this.Maximize.Location = new System.Drawing.Point(29, 0);
+            this.Maximize.Location = new System.Drawing.Point(29, -1);
             this.Maximize.Name = "Maximize";
             this.Maximize.Size = new System.Drawing.Size(29, 29);
             this.Maximize.TabIndex = 1;
@@ -381,7 +380,7 @@
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Minimize.ForeColor = System.Drawing.Color.Transparent;
-            this.Minimize.Location = new System.Drawing.Point(0, 0);
+            this.Minimize.Location = new System.Drawing.Point(0, -1);
             this.Minimize.Name = "Minimize";
             this.Minimize.Size = new System.Drawing.Size(29, 29);
             this.Minimize.TabIndex = 0;
@@ -403,6 +402,8 @@
             // 
             this.LInjectorIcon.Dock = System.Windows.Forms.DockStyle.Left;
             this.LInjectorIcon.Image = global::LInjector.Properties.Resources.LInjector;
+            this.LInjectorIcon.ImageLocation = "";
+            this.LInjectorIcon.InitialImage = global::LInjector.Properties.Resources.LInjector;
             this.LInjectorIcon.Location = new System.Drawing.Point(0, 0);
             this.LInjectorIcon.Name = "LInjectorIcon";
             this.LInjectorIcon.Size = new System.Drawing.Size(29, 29);
@@ -609,23 +610,15 @@
             this.Execute.UseVisualStyleBackColor = true;
             this.Execute.Click += new System.EventHandler(this.Execute_Click);
             // 
-            // holder
-            // 
-            this.holder.Controls.Add(this.TabsPanel);
-            this.holder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.holder.Location = new System.Drawing.Point(5, 68);
-            this.holder.Name = "holder";
-            this.holder.Padding = new System.Windows.Forms.Padding(5);
-            this.holder.Size = new System.Drawing.Size(990, 427);
-            this.holder.TabIndex = 8;
-            // 
             // TabsPanel
             // 
-            this.TabsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabsPanel.Location = new System.Drawing.Point(5, 5);
+            this.TabsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TabsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.TabsPanel.Location = new System.Drawing.Point(5, 76);
             this.TabsPanel.Name = "TabsPanel";
-            this.TabsPanel.Size = new System.Drawing.Size(980, 417);
+            this.TabsPanel.Size = new System.Drawing.Size(811, 416);
             this.TabsPanel.TabIndex = 0;
             // 
             // OpenTool
@@ -638,22 +631,37 @@
             this.SaveTool.Name = "SaveTool";
             this.SaveTool.Size = new System.Drawing.Size(32, 19);
             // 
+            // ScriptsList
+            // 
+            this.ScriptsList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ScriptsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ScriptsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ScriptsList.ForeColor = System.Drawing.SystemColors.Info;
+            this.ScriptsList.FormattingEnabled = true;
+            this.ScriptsList.Location = new System.Drawing.Point(822, 76);
+            this.ScriptsList.Name = "ScriptsList";
+            this.ScriptsList.Size = new System.Drawing.Size(173, 416);
+            this.ScriptsList.TabIndex = 0;
+            this.ScriptsList.DoubleClick += new System.EventHandler(this.ScriptsList_DoubleClick);
+            // 
             // application
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(1000, 500);
-            this.Controls.Add(this.holder);
+            this.Controls.Add(this.TabsPanel);
+            this.Controls.Add(this.ScriptsList);
             this.Controls.Add(this.execinjPanel);
             this.Controls.Add(this.titlebar);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1000, 500);
+            this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "application";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.application_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.application_MouseDown);
             this.EditStrip.ResumeLayout(false);
@@ -676,7 +684,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
             this.dscPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dscButton)).EndInit();
-            this.holder.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -692,7 +699,6 @@
         private System.Windows.Forms.Button Minimize;
         private System.Windows.Forms.Panel titleDialog;
         private System.Windows.Forms.Panel execinjPanel;
-        protected System.Windows.Forms.Panel holder;
         private System.Windows.Forms.Button Attach;
         private System.Windows.Forms.Button Execute;
         private System.Windows.Forms.Panel menuSettings;
@@ -719,5 +725,6 @@
         private System.Windows.Forms.PictureBox InfoIcon;
         private System.Windows.Forms.Panel TabsPanel;
         private System.Windows.Forms.ToolStripMenuItem ClearTextTool;
+        private System.Windows.Forms.ListBox ScriptsList;
     }
 }

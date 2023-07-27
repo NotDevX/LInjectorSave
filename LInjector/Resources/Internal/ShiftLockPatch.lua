@@ -1,8 +1,11 @@
 if depso_shiftlockpatch then
+	script:Remove()
 	return 
 end
 
 getgenv()["depso_shiftlockpatch"] = true
+
+repeat wait() until game:IsLoaded() == true
 
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")

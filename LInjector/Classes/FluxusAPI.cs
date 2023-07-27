@@ -214,8 +214,14 @@ namespace LInjector.Classes
 
         public static bool is_injected(int pid)
         {
-            phandle = OpenProcess(0x43AU, false, pid);
-            return is_injected(phandle, pid, dll_path);
+            try
+            {
+                phandle = OpenProcess(0x43AU, false, pid);
+                return is_injected(phandle, pid, dll_path);
+            }
+            catch {
+                return false;
+            }
         }
 
         public static bool run_script(int pid, string script)
