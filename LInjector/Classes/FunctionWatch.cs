@@ -61,7 +61,17 @@ namespace LInjector.Classes
 
                 Task.Delay(60);
 
-                string function = File.ReadAllText(functioncallfile);
+                string function = "";
+
+                try
+                {
+                    function = File.ReadAllText(functioncallfile);
+                }
+                catch {
+                    Console.WriteLine("Failed to capture data!");
+                    return;
+                }
+                
                 string[] arguments = function.Split(new[] { "|||" }, StringSplitOptions.None).Select(value => value.Trim()).ToArray();
 
                 Console.WriteLine(arguments[0]);
@@ -76,6 +86,36 @@ namespace LInjector.Classes
                     RPCManager.SetRPCDetails($"Playing {arguments[2]}");
 
                     CreateLog($"Hello, {arguments[1]}!\nSuccessfully loaded at {arguments[2]}");
+
+                    return;
+                }
+                if (arguments[0] == "welcome")
+                {
+                    RPCManager.SetRPCDetails($"Playing {arguments[2]}");
+
+                    CreateLog($"Hello, {arguments[1]}!\nSuccessfully loaded at {arguments[2]}");
+
+                    return;
+                }
+                if (arguments[0] == "toClipboard")
+                {
+                    clipboardSetText(arguments[1].ToString());
+                    return;
+                }
+                if (arguments[0] == "closeconsole")
+                {
+                    ConsoleManager.HideConsole();
+                    return;
+                }
+                if (arguments[0] == "showconsole")
+                {
+                    ConsoleManager.ShowConsole();
+                    return;
+                }
+                if (arguments[0] == "rprintconsole")
+                {
+                    ConsoleManager.ShowConsole();
+                    Console.WriteLine(arguments[1]);
 
                     return;
                 }
