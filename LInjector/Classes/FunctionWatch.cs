@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,6 +44,18 @@ namespace LInjector.Classes
             Console.WriteLine($"[ROBLOX] {String}");
             Console.ForegroundColor = ConsoleColor.White;
         }
+        protected static void clipboardSetText(string inTextToCopy)
+        {
+            var clipboardThread = new Thread(() => clipBoardThreadWorker(inTextToCopy));
+            clipboardThread.SetApartmentState(ApartmentState.STA);
+            clipboardThread.IsBackground = false;
+            clipboardThread.Start();
+        }
+        private static void clipBoardThreadWorker(string inTextToCopy)
+        {
+            System.Windows.Clipboard.SetText(inTextToCopy);
+        }
+
 
         private static void OnChanged(object sender, FileSystemEventArgs e)
         {
