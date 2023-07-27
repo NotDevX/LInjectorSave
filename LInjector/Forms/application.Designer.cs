@@ -69,7 +69,7 @@
             this.holder = new System.Windows.Forms.Panel();
             this.SplitCont = new System.Windows.Forms.SplitContainer();
             this.TabsPanel = new System.Windows.Forms.Panel();
-            this.ScriptsList = new System.Windows.Forms.ListBox();
+            this.ScriptsList = new LInjector.Classes.Objects.CustomListBox();
             EditButton = new System.Windows.Forms.Button();
             FileButton = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
@@ -651,6 +651,8 @@
             // SplitCont.Panel2
             // 
             this.SplitCont.Panel2.Controls.Add(this.ScriptsList);
+            this.SplitCont.Panel2.Padding = new System.Windows.Forms.Padding(3);
+            this.SplitCont.Panel2MinSize = 0;
             this.SplitCont.Size = new System.Drawing.Size(990, 427);
             this.SplitCont.SplitterDistance = 800;
             this.SplitCont.TabIndex = 0;
@@ -665,15 +667,18 @@
             // 
             // ScriptsList
             // 
-            this.ScriptsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ScriptsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ScriptsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ScriptsList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ScriptsList.ForeColor = System.Drawing.SystemColors.Info;
+            this.ScriptsList.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScriptsList.ForeColor = System.Drawing.Color.White;
             this.ScriptsList.FormattingEnabled = true;
-            this.ScriptsList.Location = new System.Drawing.Point(0, 0);
+            this.ScriptsList.ItemHeight = 15;
+            this.ScriptsList.Location = new System.Drawing.Point(3, 3);
             this.ScriptsList.Name = "ScriptsList";
-            this.ScriptsList.Size = new System.Drawing.Size(186, 427);
-            this.ScriptsList.TabIndex = 3;
+            this.ScriptsList.ShowScrollbar = false;
+            this.ScriptsList.Size = new System.Drawing.Size(180, 421);
+            this.ScriptsList.TabIndex = 0;
             this.ScriptsList.DoubleClick += new System.EventHandler(this.ScriptsList_DoubleClick);
             // 
             // application
@@ -761,7 +766,7 @@
         private System.Windows.Forms.ToolStripMenuItem ClearTextTool;
         private System.Windows.Forms.Panel holder;
         private System.Windows.Forms.SplitContainer SplitCont;
-        private System.Windows.Forms.ListBox ScriptsList;
         public System.Windows.Forms.Panel TabsPanel;
+        private Classes.Objects.CustomListBox ScriptsList;
     }
 }

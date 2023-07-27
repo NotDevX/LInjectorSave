@@ -14,6 +14,7 @@ using System.Net;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using System.Windows.Threading;
@@ -25,6 +26,10 @@ namespace LInjector
         TabSystem tabSystem = new TabSystem();
         settings GetSettings = new settings();
         about GetAbout = new about();
+        List<ScriptItem> ScriptsCache = new List<ScriptItem>();
+        private HttpClient client = new HttpClient();
+        private WebClient webCl = new WebClient();
+
         monaco_api monaco_api = null;
 
         public static bool AboutShown = false;
@@ -35,10 +40,6 @@ namespace LInjector
 
         private const int cGrip = 16;
         private const int cCaption = 32;
-
-        List<ScriptItem> ScriptsCache = new List<ScriptItem>();
-        private HttpClient client = new HttpClient();
-        private WebClient webCl = new WebClient();
 
         public void runAutoAttachTimer()
         {
