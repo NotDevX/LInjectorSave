@@ -64,9 +64,11 @@
             this.dscButton = new System.Windows.Forms.PictureBox();
             this.Attach = new System.Windows.Forms.Button();
             this.Execute = new System.Windows.Forms.Button();
-            this.TabsPanel = new System.Windows.Forms.Panel();
             this.OpenTool = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.holder = new System.Windows.Forms.Panel();
+            this.SplitCont = new System.Windows.Forms.SplitContainer();
+            this.TabsPanel = new System.Windows.Forms.Panel();
             this.ScriptsList = new System.Windows.Forms.ListBox();
             EditButton = new System.Windows.Forms.Button();
             FileButton = new System.Windows.Forms.Button();
@@ -90,6 +92,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
             this.dscPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dscButton)).BeginInit();
+            this.holder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitCont)).BeginInit();
+            this.SplitCont.Panel1.SuspendLayout();
+            this.SplitCont.Panel2.SuspendLayout();
+            this.SplitCont.SuspendLayout();
             this.SuspendLayout();
             // 
             // EditButton
@@ -610,17 +617,6 @@
             this.Execute.UseVisualStyleBackColor = true;
             this.Execute.Click += new System.EventHandler(this.Execute_Click);
             // 
-            // TabsPanel
-            // 
-            this.TabsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TabsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.TabsPanel.Location = new System.Drawing.Point(5, 76);
-            this.TabsPanel.Name = "TabsPanel";
-            this.TabsPanel.Size = new System.Drawing.Size(811, 416);
-            this.TabsPanel.TabIndex = 0;
-            // 
             // OpenTool
             // 
             this.OpenTool.Name = "OpenTool";
@@ -631,18 +627,53 @@
             this.SaveTool.Name = "SaveTool";
             this.SaveTool.Size = new System.Drawing.Size(32, 19);
             // 
+            // holder
+            // 
+            this.holder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.holder.Controls.Add(this.SplitCont);
+            this.holder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.holder.Location = new System.Drawing.Point(5, 68);
+            this.holder.Name = "holder";
+            this.holder.Size = new System.Drawing.Size(990, 427);
+            this.holder.TabIndex = 8;
+            // 
+            // SplitCont
+            // 
+            this.SplitCont.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitCont.Location = new System.Drawing.Point(0, 0);
+            this.SplitCont.Name = "SplitCont";
+            // 
+            // SplitCont.Panel1
+            // 
+            this.SplitCont.Panel1.Controls.Add(this.TabsPanel);
+            this.SplitCont.Panel1.Padding = new System.Windows.Forms.Padding(1);
+            // 
+            // SplitCont.Panel2
+            // 
+            this.SplitCont.Panel2.Controls.Add(this.ScriptsList);
+            this.SplitCont.Size = new System.Drawing.Size(990, 427);
+            this.SplitCont.SplitterDistance = 800;
+            this.SplitCont.TabIndex = 0;
+            // 
+            // TabsPanel
+            // 
+            this.TabsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabsPanel.Location = new System.Drawing.Point(1, 1);
+            this.TabsPanel.Name = "TabsPanel";
+            this.TabsPanel.Size = new System.Drawing.Size(798, 425);
+            this.TabsPanel.TabIndex = 0;
+            // 
             // ScriptsList
             // 
-            this.ScriptsList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ScriptsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ScriptsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ScriptsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ScriptsList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ScriptsList.ForeColor = System.Drawing.SystemColors.Info;
             this.ScriptsList.FormattingEnabled = true;
-            this.ScriptsList.Location = new System.Drawing.Point(822, 76);
+            this.ScriptsList.Location = new System.Drawing.Point(0, 0);
             this.ScriptsList.Name = "ScriptsList";
-            this.ScriptsList.Size = new System.Drawing.Size(173, 416);
-            this.ScriptsList.TabIndex = 0;
+            this.ScriptsList.Size = new System.Drawing.Size(186, 427);
+            this.ScriptsList.TabIndex = 3;
             this.ScriptsList.DoubleClick += new System.EventHandler(this.ScriptsList_DoubleClick);
             // 
             // application
@@ -651,8 +682,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(1000, 500);
-            this.Controls.Add(this.TabsPanel);
-            this.Controls.Add(this.ScriptsList);
+            this.Controls.Add(this.holder);
             this.Controls.Add(this.execinjPanel);
             this.Controls.Add(this.titlebar);
             this.ForeColor = System.Drawing.Color.White;
@@ -684,6 +714,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
             this.dscPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dscButton)).EndInit();
+            this.holder.ResumeLayout(false);
+            this.SplitCont.Panel1.ResumeLayout(false);
+            this.SplitCont.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitCont)).EndInit();
+            this.SplitCont.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -723,8 +758,10 @@
         public System.Windows.Forms.Button fileNameString;
         private System.Windows.Forms.Panel InfoPanel;
         private System.Windows.Forms.PictureBox InfoIcon;
-        private System.Windows.Forms.Panel TabsPanel;
         private System.Windows.Forms.ToolStripMenuItem ClearTextTool;
+        private System.Windows.Forms.Panel holder;
+        private System.Windows.Forms.SplitContainer SplitCont;
         private System.Windows.Forms.ListBox ScriptsList;
+        public System.Windows.Forms.Panel TabsPanel;
     }
 }

@@ -1,14 +1,8 @@
-﻿using System.Windows.Forms;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Threading;
-using Vip.Notification;
-using LInjector.Classes;
+using System.Windows.Forms;
 
 namespace LInjector.Classes
 {
@@ -44,7 +38,8 @@ namespace LInjector.Classes
             }
         }
 
-        private static void CreateLog(string String) {
+        private static void CreateLog(string String)
+        {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"[ROBLOX] {String}");
             Console.ForegroundColor = ConsoleColor.White;
@@ -59,7 +54,7 @@ namespace LInjector.Classes
             try
             {
                 watcher.EnableRaisingEvents = false;
-                
+
                 string functioncallfile = Path.Combine(WatchFolder, "LINJECTOR.li");
 
                 while (!IsFileReady(functioncallfile)) { }
@@ -80,8 +75,8 @@ namespace LInjector.Classes
                 {
                     RPCManager.SetRPCDetails($"Playing {arguments[2]}");
 
-                    CreateLog($"Hello, { arguments[1]}!\nSuccessfully loaded at {arguments[2]}");
-                
+                    CreateLog($"Hello, {arguments[1]}!\nSuccessfully loaded at {arguments[2]}");
+
                     return;
                 }
             }

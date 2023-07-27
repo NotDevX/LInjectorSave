@@ -37,10 +37,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TextHolder = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.alphaGradientPanel2 = new System.Windows.Forms.AlphaGradientPanel();
+            this.alphaGradientPanel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.DepsoTitle = new System.Windows.Forms.Label();
-            this.alphaGradientPanel1 = new System.Windows.Forms.AlphaGradientPanel();
+            this.alphaGradientPanel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.ItzzTitle = new System.Windows.Forms.Label();
             this.Description = new System.Windows.Forms.Label();
@@ -147,6 +147,7 @@
             // 
             // TextHolder
             // 
+            this.TextHolder.Controls.Add(this.alphaGradientPanel2);
             this.TextHolder.Controls.Add(this.panel1);
             this.TextHolder.Controls.Add(this.Description);
             this.TextHolder.Controls.Add(this.label1);
@@ -158,7 +159,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.alphaGradientPanel2);
             this.panel1.Controls.Add(this.alphaGradientPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 210);
@@ -170,32 +170,12 @@
             // 
             this.alphaGradientPanel2.AutoSize = true;
             this.alphaGradientPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.alphaGradientPanel2.Border = false;
-            this.alphaGradientPanel2.BorderColor = System.Drawing.Color.Transparent;
             this.alphaGradientPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.alphaGradientPanel2.ContentPadding = new System.Windows.Forms.Padding(0);
             this.alphaGradientPanel2.Controls.Add(this.label2);
             this.alphaGradientPanel2.Controls.Add(this.DepsoTitle);
-            this.alphaGradientPanel2.CornerRadius = 50;
-            this.alphaGradientPanel2.Corners = ((System.Windows.Forms.Corner)((((System.Windows.Forms.Corner.TopLeft | System.Windows.Forms.Corner.TopRight) 
-            | System.Windows.Forms.Corner.BottomLeft) 
-            | System.Windows.Forms.Corner.BottomRight)));
-            this.alphaGradientPanel2.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alphaGradientPanel2.Gradient = false;
-            this.alphaGradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.alphaGradientPanel2.GradientOffset = 1F;
-            this.alphaGradientPanel2.GradientSize = new System.Drawing.Size(0, 0);
-            this.alphaGradientPanel2.GradientWrapMode = System.Drawing.Drawing2D.WrapMode.Tile;
-            this.alphaGradientPanel2.Grayscale = false;
-            this.alphaGradientPanel2.Image = null;
-            this.alphaGradientPanel2.ImageAlpha = 75;
-            this.alphaGradientPanel2.ImagePadding = new System.Windows.Forms.Padding(5);
-            this.alphaGradientPanel2.ImagePosition = System.Windows.Forms.ImagePosition.BottomRight;
-            this.alphaGradientPanel2.ImageSize = new System.Drawing.Size(48, 48);
-            this.alphaGradientPanel2.Location = new System.Drawing.Point(153, 8);
+            this.alphaGradientPanel2.Location = new System.Drawing.Point(153, 210);
             this.alphaGradientPanel2.Name = "alphaGradientPanel2";
             this.alphaGradientPanel2.Padding = new System.Windows.Forms.Padding(5);
-            this.alphaGradientPanel2.Rounded = true;
             this.alphaGradientPanel2.Size = new System.Drawing.Size(118, 74);
             this.alphaGradientPanel2.TabIndex = 19;
             // 
@@ -228,32 +208,13 @@
             // 
             this.alphaGradientPanel1.AutoSize = true;
             this.alphaGradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.alphaGradientPanel1.Border = false;
-            this.alphaGradientPanel1.BorderColor = System.Drawing.Color.AliceBlue;
             this.alphaGradientPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.alphaGradientPanel1.ContentPadding = new System.Windows.Forms.Padding(0);
             this.alphaGradientPanel1.Controls.Add(this.label3);
             this.alphaGradientPanel1.Controls.Add(this.ItzzTitle);
-            this.alphaGradientPanel1.CornerRadius = 50;
-            this.alphaGradientPanel1.Corners = ((System.Windows.Forms.Corner)((((System.Windows.Forms.Corner.TopLeft | System.Windows.Forms.Corner.TopRight) 
-            | System.Windows.Forms.Corner.BottomLeft) 
-            | System.Windows.Forms.Corner.BottomRight)));
             this.alphaGradientPanel1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alphaGradientPanel1.Gradient = false;
-            this.alphaGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.alphaGradientPanel1.GradientOffset = 1F;
-            this.alphaGradientPanel1.GradientSize = new System.Drawing.Size(0, 0);
-            this.alphaGradientPanel1.GradientWrapMode = System.Drawing.Drawing2D.WrapMode.Tile;
-            this.alphaGradientPanel1.Grayscale = false;
-            this.alphaGradientPanel1.Image = null;
-            this.alphaGradientPanel1.ImageAlpha = 75;
-            this.alphaGradientPanel1.ImagePadding = new System.Windows.Forms.Padding(5);
-            this.alphaGradientPanel1.ImagePosition = System.Windows.Forms.ImagePosition.BottomRight;
-            this.alphaGradientPanel1.ImageSize = new System.Drawing.Size(48, 48);
-            this.alphaGradientPanel1.Location = new System.Drawing.Point(14, 8);
+            this.alphaGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.alphaGradientPanel1.Name = "alphaGradientPanel1";
             this.alphaGradientPanel1.Padding = new System.Windows.Forms.Padding(5);
-            this.alphaGradientPanel1.Rounded = true;
             this.alphaGradientPanel1.Size = new System.Drawing.Size(118, 74);
             this.alphaGradientPanel1.TabIndex = 18;
             // 
@@ -410,6 +371,7 @@
             this.PcitureHolder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TextHolder.ResumeLayout(false);
+            this.TextHolder.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.alphaGradientPanel2.ResumeLayout(false);
@@ -440,10 +402,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.AlphaGradientPanel alphaGradientPanel2;
+        private System.Windows.Forms.Panel alphaGradientPanel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label DepsoTitle;
-        private System.Windows.Forms.AlphaGradientPanel alphaGradientPanel1;
+        private System.Windows.Forms.Panel alphaGradientPanel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label ItzzTitle;
     }

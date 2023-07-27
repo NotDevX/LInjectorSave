@@ -17,7 +17,6 @@ namespace LInjector.Forms.Menus
         private const int HT_CAPTION = 0x2;
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        ConfigHandler ConfigHandler = new ConfigHandler();
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 

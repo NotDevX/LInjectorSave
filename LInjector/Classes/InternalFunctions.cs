@@ -32,7 +32,8 @@ namespace LInjector.Classes
                     string Script_Content = File.ReadAllText(file.FullName);
                     FluxusAPI.run_script(FluxusAPI.pid, Script_Content);
                 }
-                else {
+                else
+                {
                     break;
                 }
 

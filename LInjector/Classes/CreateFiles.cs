@@ -1,6 +1,4 @@
 ﻿using IWshRuntimeLibrary;
-using System;
-using System.IO;
 using System.Net;
 using File = System.IO.File;
 

@@ -219,7 +219,8 @@ namespace LInjector.Classes
                 phandle = OpenProcess(0x43AU, false, pid);
                 return is_injected(phandle, pid, dll_path);
             }
-            catch {
+            catch
+            {
                 return false;
             }
         }

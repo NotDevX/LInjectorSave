@@ -12,10 +12,8 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using System.Windows.Threading;
@@ -52,7 +50,8 @@ namespace LInjector
 
         private void AttachedDetectorTick(object sender, EventArgs e)
         {
-            if (ConfigHandler.autoattach == false) {
+            if (ConfigHandler.autoattach == false)
+            {
                 return;
             }
 
@@ -78,7 +77,8 @@ namespace LInjector
             }
         }
 
-        public void AddScripts(dynamic ScriptsJson) {
+        public void AddScripts(dynamic ScriptsJson)
+        {
             foreach (var item in ScriptsJson)
             {
                 if (item.mastahubdata.link != null)
@@ -148,8 +148,12 @@ namespace LInjector
         public void application_Load(object sender, EventArgs e)
         {
             runAutoAttachTimer();
-
-            _ = NotificationManager.FireNotification("Welcome to LInjector " + Program.currentVersion, infSettings);
+#pragma warning disable CS0162
+            if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f")
+            { _ = NotificationManager.FireNotification($"Welcome to LInjector Development Version", infSettings); }
+            else
+            { _ = NotificationManager.FireNotification($"Welcome to LInjector {Program.currentVersion}", infSettings); }
+#pragma warning restore CS0162
 
             try
             {
@@ -172,6 +176,8 @@ namespace LInjector
 
             if (ConfigHandler.topmost)
             { TopMost = true; }
+
+
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
@@ -198,8 +204,6 @@ namespace LInjector
 
             base.WndProc(ref m);
         }
-
-
 
         private async void CloseButton_Click(object sender, EventArgs e)
         {
@@ -428,7 +432,7 @@ namespace LInjector
 
                 if (result == DialogResult.Yes)
                 {
-                    CwDt.Cw("Resarting LInjector");
+                    CwDt.Cw("Restarting LInjector");
                     Application.Restart();
                 }
             }
@@ -697,11 +701,13 @@ namespace LInjector
             {
                 if (ScriptsList.SelectedItem.ToString() == item.title)
                 {
-                    if (item.script == "") {
+                    if (item.script == "")
+                    {
                         break;
                     }
 
-                    try {
+                    try
+                    {
                         string ScriptBody = await client.GetStringAsync(item.script);
                         var cm = tabSystem.current_monaco();
                         tabSystem.ChangeCurrentTabTitle(item.title);
@@ -711,7 +717,7 @@ namespace LInjector
                     {
                         _ = NotificationManager.FireNotification("Could not fetch script", infSettings);
                     }
-                    
+
                     break;
                 }
             }
