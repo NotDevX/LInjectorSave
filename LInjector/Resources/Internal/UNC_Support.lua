@@ -13,6 +13,100 @@ Export("d_cryptloaded", true)
 
 depso_crypt = {}
 
+--bit 
+local bit = {}
+local MOD = 2^32
+local MODM = MOD-1
+
+function bit.bdiv(dividend, divisor)
+	return math.floor(dividend / divisor)
+end
+
+function bit.badd(a, b)
+	return (a + b) % 0x100000000
+end
+
+function bit.bsub(a, b)
+	return (a - b) % 0x100000000
+end
+
+function bit.bmul(val, by)
+	return (val * by) % 0x100000000
+end
+
+function bit.band(val, by)
+	local result = 0
+	local bitval = 1
+	while val > 0 and by > 0 do
+		if val % 2 == 1 and by % 2 == 1 then
+			result = result + bitval
+		end
+		bitval = bitval * 2
+		val = math.floor(val/2)
+		by = math.floor(val/2)
+	end
+	return result
+end
+
+function bit.bor(val, by)
+	return MODM - bit.band(MODM - val, MODM - by)
+end
+
+function bit.bxor(val, by)
+	local r = 0
+	for i = 0, 31 do
+		local x = val / 2 + by / 2
+		if x ~= math.floor(x) then
+			r = r + 2^i
+		end
+		val = math.floor(val / 2)
+		by = math.floor(by / 2)
+	end
+	return r
+end
+
+function bit.bnot(val)
+	return MODM - val
+end
+
+function bit.rshift(a,disp) -- Lua5.2 insipred
+	if disp < 0 then return bit.lshift(a,-disp) end
+	return math.floor(a % 2^32 / 2^disp)
+end
+
+function bit.lshift(a,disp) -- Lua5.2 inspired
+	if disp < 0 then return bit.rshift(a,-disp) end 
+	return (a * 2^disp) % 2^32
+end
+
+function bit.bswap(val)
+	local a = bit.band(val, 0xff); val = bit.rshift(val, 8)
+	local b = bit.band(val, 0xff); val = bit.rshift(val, 8)
+	local c = bit.band(val, 0xff); val = bit.rshift(val, 8)
+	local d = bit.band(val, 0xff)
+	return bit.lshift(bit.lshift(bit.lshift(a, 8) + b, 8) + c, 8) + d
+end
+
+function bit.ror(x, disp)
+	disp = disp % 32
+	local low = bit.band(x, 2^disp-1)
+	return bit.lshift(x, disp) + bit.lshift(low, 32-disp)
+end
+
+function bit.rol(x, disp)
+	return bit.ror(x, -disp)
+end
+
+function bit.tohex(val)
+	return string.format("%08x", val)
+end
+
+function bit.tobit(val)
+	return val % 2^32
+end
+
+Export("bit", bit)
+
 --crypt = {}
 
 local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
@@ -346,7 +440,7 @@ depso_crypt.decrypt = function(sString, sKey, sKey2, iCharSet2)
 	local iCharSet = checkVar(iCharSet, depso_crypt.DEFAULT_CRYPTING_ALGORITHM)
 
 	sString = depso_crypt.base64decode(sString)
-	
+
 	local sKey = checkVar(sKey, "")
 	local sString = depso_crypt.hexdecode(sString)
 	local aString = string.split(sString, "", STR_NOCOUNT)
@@ -424,7 +518,7 @@ depso_crypt.decrypt = function(sString, sKey, sKey2, iCharSet2)
 
 	sCrypt = "0x" .. sCrypt
 	sCrypt = depso_crypt.hexdecode(sCrypt)
-	
+
 	return sCrypt
 end
 
@@ -464,12 +558,8 @@ depso_crypt.encrypt = function(sString, sKey, sKey2, iCharSet)
 		if (iCharIndex == 0) then
 			iCharIndex = 1 end		sCrypt = sCrypt .. aCharSet[iCharIndex]
 	end	
-	
-	return depso_crypt.base64encode(depso_crypt.hexencode(sCrypt, 4)), sKey
-end
 
-depso_crypt.hash = function(String, algorithm)
-	return "Please UNC Test"
+	return depso_crypt.base64encode(depso_crypt.hexencode(sCrypt, 4)), sKey
 end
 
 depso_crypt.generatebytes = function(length)
@@ -488,22 +578,22 @@ depso_crypt.generatekey = function(length)
 	local final =  ""
 	local min, max = ("a"):byte(), ("z"):byte()
 	local Nmin, Nmax = ("1"):byte(), ("9"):byte()
-	
+
 	if not length or length < 1 then
 		length = 32
 	end
-	
+
 	while wait() do
 		final = final .. string.char(math.random(min, max))
 		if math.random(1,3) == 2 then
 			final = final .. string.char(math.random(Nmin, Nmax))
 		end
-		
+
 		if #final == length then
 			break
 		end
 	end
-	
+
 	return depso_crypt.base64encode(final)
 end
 
@@ -513,21 +603,21 @@ local hashalgs = {
 }
 
 
-	local hash = loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/HashLib.lua"), "HashLib")()
-	depso_crypt.hash = function(data, alg) 
-		local alg = alg:gsub("_", "-")
-		
-		print(alg)
+local hash = loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/HashLib.lua"), "HashLib")()
+depso_crypt.hash = function(data, alg) 
+	local alg = alg:gsub("_", "-")
 
-		local HashLib = table.find(hashalgs, alg)
-		assert(HashLib, "bad argument #1 to 'hash' (non-existant hash algorithm)")
-		if HashLib then -- using hash lib for 'sha1' and 'sha224' cuz they return the same thing when using the built-in hash function
-			return hash[alg:gsub("-", "_")](data)
-		end
-		if SwLib then
-			return c.hash(data, alg):lower()
-		end
+	print(alg)
+
+	local HashLib = table.find(hashalgs, alg)
+	assert(HashLib, "bad argument #1 to 'hash' (non-existant hash algorithm)")
+	if HashLib then -- using hash lib for 'sha1' and 'sha224' cuz they return the same thing when using the built-in hash function
+		return hash[alg:gsub("-", "_")](data)
 	end
+	if SwLib then
+		return c.hash(data, alg):lower()
+	end
+end
 
 
 wait(1)
