@@ -7,9 +7,10 @@ if LInjector.GuiLoaded == true then
 end
 LInjector.GuiLoaded = true
 
--------------------------------------------------
-
 local LInjNotification = Instance.new("ScreenGui")
+local holder_1 = Instance.new("Frame")
+local UIListLayout_1 = Instance.new("UIListLayout")
+local container_1 = Instance.new("Frame")
 local main_1 = Instance.new("Frame")
 local Top_1 = Instance.new("TextLabel")
 local UICorner_1 = Instance.new("UICorner")
@@ -21,20 +22,47 @@ local UIStroke_1 = Instance.new("UIStroke")
 local UIGradient_2 = Instance.new("UIGradient")
 local information_1 = Instance.new("TextLabel")
 local UIPadding_2 = Instance.new("UIPadding")
+local UIPadding_3 = Instance.new("UIPadding")
 
 -- Properties:
 LInjNotification.Name = crypt.generatebytes()
 LInjNotification.Parent = game.CoreGui
 LInjNotification.DisplayOrder = 2147483647
 
+holder_1.Name = crypt.generatebytes()
+holder_1.Parent = LInjNotification
+holder_1.AnchorPoint = Vector2.new(0.5, 0.5)
+holder_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+holder_1.BackgroundTransparency = 1
+holder_1.BorderColor3 = Color3.fromRGB(0,0,0)
+holder_1.BorderSizePixel = 0
+holder_1.Position = UDim2.new(0.5, 0,0.5, 0)
+holder_1.Size = UDim2.new(1, 0,1, 0)
+
+UIListLayout_1.Name = crypt.generatebytes()
+UIListLayout_1.Parent = holder_1
+UIListLayout_1.HorizontalAlignment = Enum.HorizontalAlignment.Right
+UIListLayout_1.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_1.VerticalAlignment = Enum.VerticalAlignment.Bottom
+
+container_1.Name = crypt.generatebytes()
+container_1.Parent = holder_1
+container_1.AnchorPoint = Vector2.new(0.5, 0.5)
+container_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+container_1.BackgroundTransparency = 1
+container_1.BorderColor3 = Color3.fromRGB(0,0,0)
+container_1.BorderSizePixel = 0
+container_1.Position = UDim2.new(0.907002985, 0,0.891910732, 0)
+container_1.Size = UDim2.new(0, 250,0, 155)
+
 main_1.Name = crypt.generatebytes()
-main_1.Parent = LInjNotification
+main_1.Parent = container_1
 main_1.AnchorPoint = Vector2.new(0.5, 0.5)
 main_1.AutomaticSize = Enum.AutomaticSize.XY
 main_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
 main_1.BorderColor3 = Color3.fromRGB(0,0,0)
 main_1.BorderSizePixel = 0
-main_1.Position = UDim2.new(2, -100,1, -100)
+main_1.Position = UDim2.new(2, -100,1, -70)
 main_1.Size = UDim2.new(0, 215,0, 100)
 
 Top_1.Name = crypt.generatebytes()
@@ -96,10 +124,10 @@ information_1.BorderColor3 = Color3.fromRGB(0,0,0)
 information_1.BorderSizePixel = 0
 information_1.Position = UDim2.new(0.49999997, 0,0.610000014, 0)
 information_1.Size = UDim2.new(0, 214,0, 78)
-information_1.Font = Enum.Font.Montserrat
+information_1.Font = Enum.Font.Unknown
 information_1.Text = ""
 information_1.TextColor3 = Color3.fromRGB(255,255,255)
-information_1.TextSize = 14
+information_1.TextSize = 12
 information_1.TextWrapped = true
 information_1.TextXAlignment = Enum.TextXAlignment.Left
 information_1.TextYAlignment = Enum.TextYAlignment.Top
@@ -110,9 +138,17 @@ UIPadding_2.PaddingLeft = UDim.new(0,10)
 UIPadding_2.PaddingRight = UDim.new(0,2)
 UIPadding_2.PaddingTop = UDim.new(0,10)
 
-local function ecacc8b41fea3aa291153fdf942d68c0()
+UIPadding_3.Name = crypt.generatebytes()
+UIPadding_3.Parent = container_1
+UIPadding_3.PaddingRight = UDim.new(0,20)
+
+-- Scripts:
+
+local function SAOKCV_fake_script() -- LInjNotification.scriptz
 	local scriptz = Instance.new('LocalScript', LInjNotification)
 	scriptz.Name = crypt.generatebytes()
+
+	-------------------------------------------------
 
 	local function TypeWrite (Obj, Text)
 		for I = 1, #Text, 1 do
@@ -149,9 +185,9 @@ local function ecacc8b41fea3aa291153fdf942d68c0()
 	local TweenInf = TweenInfo.new (2.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true, 0)
 	local TweenRt = TweenService : Create (BorderGradient, TweenInf, {Rotation = 360})
 
-	local TweenSwitchFrame = TweenInfo.new(2, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0)
-	local ShowFrame = TweenService : Create (Frame, TweenSwitchFrame, {Position = UDim2.new(0.99, -100, 1, -100)})
-	local HideFrame = TweenService : Create (Frame, TweenSwitchFrame, {Position = UDim2.new(2,  -100, 1, -100)})
+	local TweenSwitchFrame = TweenInfo.new(0.7, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0)
+	local ShowFrame = TweenService : Create (Frame, TweenSwitchFrame, {Position = UDim2.new(1,  -100, 1, -70)})
+	local HideFrame = TweenService : Create (Frame, TweenSwitchFrame, {Position = UDim2.new(2,  -100, 1, -70)})
 
 	-------------------------------------------------
 
@@ -166,7 +202,5 @@ local function ecacc8b41fea3aa291153fdf942d68c0()
 	wait(3)
 
 	HideFrame : Play ()
-	HideFrame.Completed : Wait ()
-	LInjNotification:Remove()
 end
-coroutine.wrap(ecacc8b41fea3aa291153fdf942d68c0)()
+coroutine.wrap(SAOKCV_fake_script)()
