@@ -161,9 +161,9 @@
             this.panel1.Controls.Add(this.alphaGradientPanel2);
             this.panel1.Controls.Add(this.alphaGradientPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 259);
+            this.panel1.Location = new System.Drawing.Point(0, 210);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(293, 190);
+            this.panel1.Size = new System.Drawing.Size(293, 239);
             this.panel1.TabIndex = 12;
             // 
             // alphaGradientPanel2
@@ -203,12 +203,12 @@
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei Light", 8.2F);
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(5, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 38);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Lua Development\r\nProgrammer\r\n";
+            this.label2.Text = "LuaU Development\r\nProgrammer\r\n";
             // 
             // DepsoTitle
             // 
@@ -261,7 +261,7 @@
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei Light", 8.1F);
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(5, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 38);
