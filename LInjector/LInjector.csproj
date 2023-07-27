@@ -412,9 +412,6 @@
     <AdditionalFiles Include="Resources\Internal\SaveInstancePatch.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AdditionalFiles>
-    <AdditionalFiles Include="Resources\Internal\ShiftLockPatch.lua">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AdditionalFiles>
     <AdditionalFiles Include="Resources\Internal\UNC_Support.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AdditionalFiles>
