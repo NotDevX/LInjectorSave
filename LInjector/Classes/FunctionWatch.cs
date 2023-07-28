@@ -9,21 +9,32 @@ namespace LInjector.Classes
 {
     internal class FunctionWatch
     {
+        private static bool IsRunning = false;
         private static FileSystemWatcher watcher = new FileSystemWatcher();
         private static String WatchFolder = Path.Combine(FileManager.workspaceFolder, "LINJECTOR");
         public static void runFuncWatch()
         {
-            if (!Directory.Exists(WatchFolder))
-            {
-                Directory.CreateDirectory(WatchFolder);
-                Task.Delay(200);
+            if (IsRunning == true) {
+                return;
             }
+            FunctionWatch.IsRunning = true;
+            try {
+                if (!Directory.Exists(WatchFolder))
+                {
+                    Directory.CreateDirectory(WatchFolder);
+                    Task.Delay(200);
+                }
 
-            watcher.Path = WatchFolder;
-            watcher.NotifyFilter = NotifyFilters.LastWrite;
+                watcher.Path = WatchFolder;
+                watcher.NotifyFilter = NotifyFilters.LastWrite;
 
-            watcher.Changed += new FileSystemEventHandler(OnChanged);
-            watcher.EnableRaisingEvents = true;
+                watcher.Changed += new FileSystemEventHandler(OnChanged);
+                watcher.EnableRaisingEvents = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         public static bool IsFileReady(string filename)
@@ -87,7 +98,7 @@ namespace LInjector.Classes
                 
                 string[] arguments = function.Split(new[] { "|||" }, StringSplitOptions.None).Select(value => value.Trim()).ToArray();
 
-                Console.WriteLine(arguments[0]);
+                //Console.WriteLine(arguments[0]);
 
                 if (arguments[0] == "showmsg")
                 {
@@ -96,15 +107,7 @@ namespace LInjector.Classes
                 }
                 if (arguments[0] == "welcome")
                 {
-                    RPCManager.SetRPCDetails($"Playing {arguments[2]}");
-
-                    CreateLog($"Hello, {arguments[1]}!\nSuccessfully loaded at {arguments[2]}");
-
-                    return;
-                }
-                if (arguments[0] == "welcome")
-                {
-                    RPCManager.SetRPCDetails($"Playing {arguments[2]}");
+                    //RPCManager.SetRPCDetails($"Playing {arguments[2]}");
 
                     CreateLog($"Hello, {arguments[1]}!\nSuccessfully loaded at {arguments[2]}");
 
@@ -136,6 +139,7 @@ namespace LInjector.Classes
 
             finally
             {
+                Task.Delay(20);
                 watcher.EnableRaisingEvents = true;
             }
         }
