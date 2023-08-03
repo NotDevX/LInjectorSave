@@ -9,7 +9,7 @@ namespace LInjector.Classes
 
         public static void AnalyzeArgument(string[] argumentProvided)
         {
-            CwDt.Cw("Called argument analyzer.");
+            CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Called argument analyzer.", "DEBUG");
 
             if (argumentProvided.Length > 0)
             {
@@ -17,24 +17,24 @@ namespace LInjector.Classes
                     if (argument.Contains("--metalpipe"))
                     {
                         DoPipe.doMetalPipeAsync();
-                        CwDt.Cw("--metalpipe called");
+                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "--metalpipe called", "DEBUG");
                     }
                     else if (argument.Contains("--bamboopipe"))
                     {
                         DoPipe.doBambooPipeAsync();
-                        CwDt.Cw("--bamboopipe called");
+                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "--bamboopipe called", "DEBUG");
                     }
                     else if (argument.Contains("--debug"))
                     {
                         ConsoleManager.Initialize();
                         ConsoleManager.ShowConsole();
                         Console.Title = "LInjector | Debug";
-                        CwDt.Cw("--debug called.");
+                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "--debug called.", "DEBUG");
                     }
                     else if (argument.Contains("--no-splash"))
                     {
                         splashEnabled = false;
-                        CwDt.Cw("--no-splash called");
+                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "--no-splash called", "DEBUG");
                     }
                     else if (argument.Contains("--topmost"))
                     {
@@ -43,12 +43,12 @@ namespace LInjector.Classes
                     }
                     else
                     {
-                        CwDt.Cw($"Invalid argument: {argument}");
+                        CustomCw.Cw(ConsoleColor.Red, ConsoleColor.DarkRed, $"Invalid argument: {argument}", "ERROR");
                     }
             }
             else
             {
-                CwDt.Cw("No arguments were provided.");
+                CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "No arguments were provided.", "DEBUG");
             }
         }
     }

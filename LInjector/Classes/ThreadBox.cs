@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LInjector.Classes
@@ -20,7 +21,7 @@ namespace LInjector.Classes
                 }
             );
             msgBoxThread.Start();
-            CwDt.Cw(msgBoxTitle + ", " + msgBoxContent);
+            CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, msgBoxTitle + ", " + msgBoxContent, "DEBUG");
         }
     }
 }

@@ -319,7 +319,7 @@
     </Compile>
     <Compile Include="Classes\ProcessWatcher.cs" />
     <Compile Include="Classes\ThreadBox.cs" />
-    <Compile Include="Classes\CwDt.cs" />
+    <Compile Include="Classes\CustomCw.cs" />
     <Compile Include="Classes\DoPipe.cs" />
     <Compile Include="Classes\FluxusAPI.cs" />
     <Compile Include="Classes\LocalRbx.cs" />

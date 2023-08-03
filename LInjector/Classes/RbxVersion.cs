@@ -34,14 +34,14 @@ namespace LInjector.Classes
                 try
                 {
                     var content = await client.GetStringAsync(rbxverurl);
-                    CwDt.Cw("Saving Roblox Game Client (Hyperion Release) version: " + content);
+                    CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Saving Roblox Game Client (Hyperion Release) version: " + content, "DEBUG");
                     Version = content;
                     TempLog.CreateVersionFile(content, "latestrbx");
                 }
                 catch (HttpRequestException ex)
                 {
-                    CwDt.Cw("Exception:\n" + ex.Message
-                                             + "Stack Trace:\n" + ex.StackTrace);
+                    CustomCw.Cw(ConsoleColor.DarkRed, ConsoleColor.Red, "Exception:\n" + ex.Message
+                                             + "Stack Trace:\n" + ex.StackTrace, "ERROR");
                 }
             }
         }
@@ -60,7 +60,7 @@ namespace LInjector.Classes
                 process.WaitForExit();
 
                 string output = process.StandardOutput.ReadToEnd();
-                CwDt.Cw(output);
+                CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, output, "DEBUG");
             }
         }
 
@@ -72,11 +72,11 @@ namespace LInjector.Classes
             try
             {
                 if (getLatestRbx != localRbxVersion)
-                    CwDt.Cw("Roblox Versions Mismatched.\n\n"
+                    CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Roblox Versions Mismatched.\n\n"
                               + "Your Version     :" + localRbxVersion + '\n'
-                              + "Latest Version   :" + getLatestRbx);
+                              + "Latest Version   :" + getLatestRbx, "DEBUG");
                 else if (getLatestRbx == localRbxVersion)
-                    CwDt.Cw("Your local Roblox Game Client Version is up-to-date. They doesn't mismatch.");
+                    CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Your local Roblox Game Client Version is up-to-date. They doesn't mismatch.", "DEBUG");
             }
             catch (Exception ex)
             {

@@ -5,8 +5,8 @@ if LInjector.GuiLoaded == true then
 	script:Remove()
 	return
 end
-LInjector.GuiLoaded = true
 
+LInjector.GuiLoaded = true
 local LInjNotification = Instance.new("ScreenGui")
 local holder_1 = Instance.new("Frame")
 local UIListLayout_1 = Instance.new("UIListLayout")
@@ -25,11 +25,11 @@ local UIPadding_2 = Instance.new("UIPadding")
 local UIPadding_3 = Instance.new("UIPadding")
 
 -- Properties:
-LInjNotification.Name = "LInjNotification"
+LInjNotification.Name = crypt.generatebytes()
 LInjNotification.Parent = game.CoreGui
 LInjNotification.DisplayOrder = 2147483647
 
-holder_1.Name = "holder"
+holder_1.Name = crypt.generatebytes()
 holder_1.Parent = LInjNotification
 holder_1.AnchorPoint = Vector2.new(0.5, 0.5)
 holder_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
@@ -39,12 +39,13 @@ holder_1.BorderSizePixel = 0
 holder_1.Position = UDim2.new(0.5, 0,0.5, 0)
 holder_1.Size = UDim2.new(1, 0,1, 0)
 
+UIListLayout_1.Name = crypt.generatebytes()
 UIListLayout_1.Parent = holder_1
 UIListLayout_1.HorizontalAlignment = Enum.HorizontalAlignment.Right
 UIListLayout_1.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout_1.VerticalAlignment = Enum.VerticalAlignment.Bottom
 
-container_1.Name = "container"
+container_1.Name = crypt.generatebytes()
 container_1.Parent = holder_1
 container_1.AnchorPoint = Vector2.new(0.5, 0.5)
 container_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
@@ -54,7 +55,7 @@ container_1.BorderSizePixel = 0
 container_1.Position = UDim2.new(0.907002985, 0,0.891910732, 0)
 container_1.Size = UDim2.new(0, 250,0, 155)
 
-main_1.Name = "main"
+main_1.Name = crypt.generatebytes()
 main_1.Parent = container_1
 main_1.AnchorPoint = Vector2.new(0.5, 0.5)
 main_1.AutomaticSize = Enum.AutomaticSize.XY
@@ -64,7 +65,7 @@ main_1.BorderSizePixel = 0
 main_1.Position = UDim2.new(2, -100,1, -70)
 main_1.Size = UDim2.new(0, 215,0, 100)
 
-Top_1.Name = "Top"
+Top_1.Name = crypt.generatebytes()
 Top_1.Parent = main_1
 Top_1.AnchorPoint = Vector2.new(0.5, 0.5)
 Top_1.BackgroundColor3 = Color3.fromRGB(21,16,45)
@@ -77,10 +78,11 @@ Top_1.TextColor3 = Color3.fromRGB(255,255,255)
 Top_1.TextSize = 14
 Top_1.TextXAlignment = Enum.TextXAlignment.Left
 
+UICorner_1.Name = crypt.generatebytes()
 UICorner_1.Parent = Top_1
 UICorner_1.CornerRadius = UDim.new(0,4)
 
-LExIcon_1.Name = "LExIcon"
+LExIcon_1.Name = crypt.generatebytes()
 LExIcon_1.Parent = Top_1
 LExIcon_1.AnchorPoint = Vector2.new(0.5, 0.5)
 LExIcon_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
@@ -90,25 +92,30 @@ LExIcon_1.Position = UDim2.new(-0.12110053, 0,0.5, 0)
 LExIcon_1.Size = UDim2.new(0, 21,0, 21)
 LExIcon_1.Image = "rbxassetid://14149221913"
 
+UIPadding_1.Name = crypt.generatebytes()
 UIPadding_1.Parent = Top_1
 UIPadding_1.PaddingLeft = UDim.new(0,40)
 
+UICorner_2.Name = crypt.generatebytes()
 UICorner_2.Parent = main_1
 UICorner_2.CornerRadius = UDim.new(0,4)
 
+UIGradient_1.Name = crypt.generatebytes()
 UIGradient_1.Parent = main_1
 UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(20, 20, 46)), ColorSequenceKeypoint.new(1, Color3.fromRGB(38, 31, 54))}
 UIGradient_1.Rotation = 90
 
+UIStroke_1.Name = crypt.generatebytes()
 UIStroke_1.Parent = main_1
 UIStroke_1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 UIStroke_1.Color = Color3.fromRGB(255,255,255)
 UIStroke_1.Thickness = 2
 
+UIGradient_2.Name = crypt.generatebytes()
 UIGradient_2.Parent = UIStroke_1
 UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(107, 39, 122)), ColorSequenceKeypoint.new(1, Color3.fromRGB(84, 144, 213))}
 
-information_1.Name = "information"
+information_1.Name = crypt.generatebytes()
 information_1.Parent = main_1
 information_1.AnchorPoint = Vector2.new(0.5, 0.5)
 information_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
@@ -117,30 +124,29 @@ information_1.BorderColor3 = Color3.fromRGB(0,0,0)
 information_1.BorderSizePixel = 0
 information_1.Position = UDim2.new(0.49999997, 0,0.610000014, 0)
 information_1.Size = UDim2.new(0, 214,0, 78)
-information_1.Font = Enum.Font.Unknown
+information_1.Font = Enum.Font.Montserrat
 information_1.Text = ""
 information_1.TextColor3 = Color3.fromRGB(255,255,255)
-information_1.TextSize = 14
+information_1.TextSize = 12
 information_1.TextWrapped = true
 information_1.TextXAlignment = Enum.TextXAlignment.Left
 information_1.TextYAlignment = Enum.TextYAlignment.Top
 
+UIPadding_2.Name = crypt.generatebytes()
 UIPadding_2.Parent = information_1
 UIPadding_2.PaddingLeft = UDim.new(0,10)
 UIPadding_2.PaddingRight = UDim.new(0,2)
 UIPadding_2.PaddingTop = UDim.new(0,10)
 
+UIPadding_3.Name = crypt.generatebytes()
 UIPadding_3.Parent = container_1
 UIPadding_3.PaddingRight = UDim.new(0,20)
 
 -- Scripts:
 
-local function SAOKCV_fake_script() -- LInjNotification.script 
-	local script = Instance.new('LocalScript', LInjNotification)
-
-	--------------------------------------------------
-
-	-- repeat wait() until game:IsLoaded() == true
+local function SAOKCV_fake_script() -- LInjNotification.scriptz
+	local scriptz = Instance.new('LocalScript', LInjNotification)
+	scriptz.Name = crypt.generatebytes()
 
 	-------------------------------------------------
 
@@ -191,10 +197,12 @@ local function SAOKCV_fake_script() -- LInjNotification.script
 
 	ShowFrame.Completed : Wait ()
 
-	TypeWrite(InformationBox, "All functions were loaded successfully.\nEnjoy LInjector!")
+	TypeWrite(InformationBox, "All functions were loaded successfully.\n\nEnjoy LInjector!")
 
 	wait(3)
 
 	HideFrame : Play ()
+	HideFrame.Completed : Wait ()
+	LInjNotification:Remove()
 end
 coroutine.wrap(SAOKCV_fake_script)()

@@ -14,7 +14,6 @@ using System.Net;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using System.Windows.Threading;
@@ -90,12 +89,18 @@ namespace LInjector
                         script = item.mastahubdata.link,
                     };
 
-                    //Console.WriteLine(item.mastahubdata.link.ToString());
-
                     ScriptsCache.Add(scriptItem);
                     ScriptsList.Items.Add(item.title);
                 }
             }
+
+            CustomCw.Cw(ConsoleColor.Red, ConsoleColor.DarkRed, "This is an error", "ERROR");
+            CustomCw.Cw(ConsoleColor.Yellow, ConsoleColor.DarkYellow, "This is a warning", "WARNING");
+            CustomCw.Cw(ConsoleColor.Blue, ConsoleColor.DarkBlue, "This is information", "INFO");
+            CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "This is debug information", "DEBUG");
+
+
+
         }
         public async void DownloadScripts()
         {
@@ -329,7 +334,7 @@ namespace LInjector
             {
                 var cm = tabSystem.current_monaco();
                 cm.SetText("");
-                CwDt.Cw("Cleared current TextBox");
+                CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "TextBox Cleared.", "DEBUG");
                 tabSystem.ChangeCurrentTabTitle($"Script {tabSystem.maintabs.Items.Count.ToString()}");
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
@@ -354,7 +359,7 @@ namespace LInjector
                 if (flag)
                 {
                     FluxusAPI.run_script(FluxusAPI.pid, scriptString);
-                    CwDt.Cw("Script executed");
+                    CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Script executed", "DEBUG");
                 }
                 else
                 {
@@ -367,7 +372,7 @@ namespace LInjector
             {
                 ThreadBox.MsgThread("Fluxus couldn't run the script.", "LInjector | Fluxus API",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                CwDt.Cw("Exception from Fluxus:\n"
+                CustomCw.Cw(ConsoleColor.Red, ConsoleColor.DarkRed, "Exception from Fluxus:\n", "ERROR"
                           + ex.Message
                           + "\nStack Trace:\n"
                           + ex.StackTrace);
@@ -410,13 +415,13 @@ namespace LInjector
                     if (dialogResult == DialogResult.Yes)
                     {
                         tabSystem.add_tab_with_text(fileContent, openFileDialog.SafeFileName);
-                        CwDt.Cw($"Added Script {openFileDialog.SafeFileName}");
+                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, $"Added Script {openFileDialog.SafeFileName}", "DEBUG");
                     }
                     else
                     {
                         tabSystem.current_monaco().SetText(fileContent);
                         tabSystem.ChangeCurrentTabTitle(openFileDialog.SafeFileName);
-                        CwDt.Cw($"Opened Script {openFileDialog.SafeFileName}");
+                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, $"Opened Script {openFileDialog.SafeFileName}", "DEBUG");
                     }
 
                     fileNameString.Refresh();
@@ -433,7 +438,7 @@ namespace LInjector
 
                 if (result == DialogResult.Yes)
                 {
-                    CwDt.Cw("Restarting LInjector");
+                    CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Restarting LInjector", "DEBUG");
                     Application.Restart();
                 }
             }
@@ -462,11 +467,22 @@ namespace LInjector
                     {
                         _ = NotificationManager.FireNotification("No content detected", infSettings);
                     }
+                    else
+                    {
+                        try
+                        {
+                            File.WriteAllText(filePath, result);
+                            string savedFileName = Path.GetFileName(saveFileDialog.FileName);
+                            _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
+                            CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, $"Saved file {savedFileName} to {saveFileDialog.FileName}", "DEBUG");
+                        }
+                        catch (Exception)
+                        {
+                            _ = NotificationManager.FireNotification("Error saving the file", infSettings);
+                        }
+                    }
 
-                    File.WriteAllText(filePath, result);
-                    string savedFileName = Path.GetFileName(saveFileDialog.FileName);
-                    _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
-                    CwDt.Cw($"Saved file {savedFileName} to {saveFileDialog.FileName}");
+
                 }
                 catch (Exception)
                 {

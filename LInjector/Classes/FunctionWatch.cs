@@ -14,11 +14,13 @@ namespace LInjector.Classes
         private static String WatchFolder = Path.Combine(FileManager.workspaceFolder, "LINJECTOR");
         public static void runFuncWatch()
         {
-            if (IsRunning == true) {
+            if (IsRunning == true)
+            {
                 return;
             }
             FunctionWatch.IsRunning = true;
-            try {
+            try
+            {
                 if (!Directory.Exists(WatchFolder))
                 {
                     Directory.CreateDirectory(WatchFolder);
@@ -91,11 +93,12 @@ namespace LInjector.Classes
                 {
                     function = File.ReadAllText(functioncallfile);
                 }
-                catch {
+                catch
+                {
                     Console.WriteLine("Failed to capture data!");
                     return;
                 }
-                
+
                 string[] arguments = function.Split(new[] { "|||" }, StringSplitOptions.None).Select(value => value.Trim()).ToArray();
 
                 //Console.WriteLine(arguments[0]);

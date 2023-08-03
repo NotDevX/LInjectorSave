@@ -46,7 +46,7 @@ namespace LInjector
                 if (outDatedResult == DialogResult.Yes)
                 {
                     Process.Start("https://lexploits.netlify.app/extra/linjector/download/");
-                    CwDt.Cw("LInjector is outdated.");
+                    CustomCw.Cw(ConsoleColor.Yellow, ConsoleColor.DarkYellow, "LInjector is outdated.", "WARNING");
                 }
             }
 

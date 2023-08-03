@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -7,7 +8,6 @@ namespace LInjector.Classes
     public class ConfigHandler
     {
         private static readonly string ConfigPath = ".\\config.json";
-        private static application GetApplication = new application();
 
         public static bool topmost = false;
         public static bool autoattach = false;
@@ -92,7 +92,7 @@ namespace LInjector.Classes
             }
             else
             {
-                CwDt.Cw($"The value '{Name}' doesn't exist in the config");
+                CustomCw.Cw(ConsoleColor.Red, ConsoleColor.DarkRed, $"The value '{Name}' doesn't exist in the config", "ERROR");
                 return;
             }
 

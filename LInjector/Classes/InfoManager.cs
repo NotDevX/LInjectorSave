@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LInjector.Classes
@@ -27,7 +28,7 @@ namespace LInjector.Classes
                 await Task.Delay(30);
             }
 
-            CwDt.Cw(message);
+            CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, message, "DEBUG");
 
             await Task.Delay(2500);
 
