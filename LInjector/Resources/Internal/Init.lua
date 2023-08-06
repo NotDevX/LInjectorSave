@@ -9,7 +9,7 @@
  *
  * ]]
 
-local LINJECTOR_VERSION = "v27.07.2023"
+local LINJECTOR_VERSION = "v05.08.2023"
 
 if LInjector then
 	script:Remove()

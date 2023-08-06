@@ -34,14 +34,13 @@ namespace LInjector.Classes
                 try
                 {
                     var content = await client.GetStringAsync(rbxverurl);
-                    CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Saving Roblox Game Client (Hyperion Release) version: " + content, "DEBUG");
+                    CustomCw.Cw($"Saving Roblox Game Client (Hyperion Release) version: {content}", false, "debug");
                     Version = content;
                     TempLog.CreateVersionFile(content, "latestrbx");
                 }
                 catch (HttpRequestException ex)
                 {
-                    CustomCw.Cw(ConsoleColor.DarkRed, ConsoleColor.Red, "Exception:\n" + ex.Message
-                                             + "Stack Trace:\n" + ex.StackTrace, "ERROR");
+                    CustomCw.Cw($"Exception:\n{ex.Message}\nStack Trace:\n{ex.StackTrace}");
                 }
             }
         }
@@ -60,7 +59,7 @@ namespace LInjector.Classes
                 process.WaitForExit();
 
                 string output = process.StandardOutput.ReadToEnd();
-                CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, output, "DEBUG");
+                CustomCw.Cw(output, false, "debug");
             }
         }
 
@@ -72,11 +71,11 @@ namespace LInjector.Classes
             try
             {
                 if (getLatestRbx != localRbxVersion)
-                    CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Roblox Versions Mismatched.\n\n"
+                    CustomCw.Cw($"Roblox Versions Mismatched.\n\n"
                               + "Your Version     :" + localRbxVersion + '\n'
-                              + "Latest Version   :" + getLatestRbx, "DEBUG");
+                              + "Latest Version   :" + getLatestRbx, false, "warning");
                 else if (getLatestRbx == localRbxVersion)
-                    CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Your local Roblox Game Client Version is up-to-date. They doesn't mismatch.", "DEBUG");
+                    CustomCw.Cw("Your local Roblox Game Client Version is up-to-date. They doesn't mismatch.", false, "debug");
             }
             catch (Exception ex)
             {
@@ -104,7 +103,7 @@ namespace LInjector.Classes
 
             if (Directory.Exists(outputDirectory))
             {
-                if (!Version.Contains("2.586.0.0"))
+                if (!Version.Contains("2.588.516.0"))
                 {
                     ThreadBox.MsgThread("Your Roblox UWP version mismatched. LInjector is only working for version 2.586.0.0, update or downgrade Roblox.", "LInjector | Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }

@@ -21,7 +21,7 @@ namespace LInjector.Classes
                 }
             );
             msgBoxThread.Start();
-            CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, msgBoxTitle + ", " + msgBoxContent, "DEBUG");
+            CustomCw.Cw($"Title: {msgBoxTitle}\nContent: {msgBoxContent}", false, "msgbox");
         }
     }
 }

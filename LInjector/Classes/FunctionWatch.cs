@@ -101,8 +101,6 @@ namespace LInjector.Classes
 
                 string[] arguments = function.Split(new[] { "|||" }, StringSplitOptions.None).Select(value => value.Trim()).ToArray();
 
-                //Console.WriteLine(arguments[0]);
-
                 if (arguments[0] == "showmsg")
                 {
                     MessageBox.Show(arguments[1], arguments[2]);
@@ -110,8 +108,6 @@ namespace LInjector.Classes
                 }
                 if (arguments[0] == "welcome")
                 {
-                    //RPCManager.SetRPCDetails($"Playing {arguments[2]}");
-
                     CreateLog($"Hello, {arguments[1]}!\nSuccessfully loaded at {arguments[2]}");
 
                     return;
@@ -135,7 +131,30 @@ namespace LInjector.Classes
                 {
                     ConsoleManager.ShowConsole();
                     Console.WriteLine(arguments[1]);
-
+                    return;
+                }
+                if (arguments[0] == "rconsoleinfo")
+                {
+                    ConsoleManager.ShowConsole();
+                    CustomCw.rconsoleprint($"[INFO] {arguments[1]}", "info");
+                    return;
+                }
+                if (arguments[0] == "rconsolewarn")
+                {
+                    ConsoleManager.ShowConsole();
+                    CustomCw.rconsoleprint($"[WARNING] {arguments[1]}", "warn");
+                    return;
+                }
+                if (arguments[0] == "rconsoleerr")
+                {
+                    ConsoleManager.ShowConsole();
+                    CustomCw.rconsoleprint($"[ERROR] {arguments[1]}", "err");
+                    return;
+                }
+                if (arguments[0] == "rconsolename")
+                {
+                    ConsoleManager.ShowConsole();
+                    Console.Title = arguments[1];
                     return;
                 }
             }

@@ -92,7 +92,7 @@ namespace LInjector.Classes
             }
             else
             {
-                CustomCw.Cw(ConsoleColor.Red, ConsoleColor.DarkRed, $"The value '{Name}' doesn't exist in the config", "ERROR");
+                CustomCw.Cw($"The value '{Name}' doesn't exist in the config", false, "error");
                 return;
             }
 

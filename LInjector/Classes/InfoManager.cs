@@ -28,7 +28,7 @@ namespace LInjector.Classes
                 await Task.Delay(30);
             }
 
-            CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, message, "DEBUG");
+            CustomCw.Cw(message, false, "debug");
 
             await Task.Delay(2500);
 

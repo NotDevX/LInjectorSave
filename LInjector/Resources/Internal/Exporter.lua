@@ -33,11 +33,56 @@ function ToExport.rconsoleprint(...)
 	
 	SendFunction('rprintconsole|||'.. String)
 end
-ToExport.rconsoleinfo = ToExport.rconsoleprint
-ToExport.rconsolewarn = ToExport.rconsoleprint
-ToExport.rconsoleerr = ToExport.rconsoleprint
+
+function ToExport.rconsoleinfo(...)
+	local args = table.pack(...)
+	local String = ""
+	
+	for i = 1, args.n do
+		String = ("%s %s"):format(String, tostring(args[i]))
+	end
+	
+	SendFunction('rconsoleinfo|||'.. String)
+end
+
+function ToExport.rconsolewarn(...)
+	local args = table.pack(...)
+	local String = ""
+	
+	for i = 1, args.n do
+		String = ("%s %s"):format(String, tostring(args[i]))
+	end
+	
+	SendFunction('rconsolewarn|||'.. String)
+end
+
+function ToExport.rconsolename(...)
+	local args = table.pack(...)
+	local String = ""
+	
+	for i = 1, args.n do
+		String = ("%s %s"):format(String, tostring(args[i]))
+	end
+	
+	SendFunction('rconsolename|||'.. String)
+end
+
+function ToExport.rconsoleerr(...)
+	local args = table.pack(...)
+	local String = ""
+	
+	for i = 1, args.n do
+		String = ("%s %s"):format(String, tostring(args[i]))
+	end
+	
+	SendFunction('rconsoleerr|||'.. String)
+end
+
+ToExport.rconsoleinfo = ToExport.rconsoleinfo
+ToExport.rconsolewarn = ToExport.rconsolewarn
+ToExport.rconsoleerr = ToExport.rconsoleerr
 ToExport.rprintconsole = ToExport.rconsoleprint
-ToExport.rconsolename = function() end
+ToExport.rconsolename = ToExport.rconsolename
 ToExport.printconsole = ToExport.rconsoleprint
 
 function ToExport.toclipboard(...)

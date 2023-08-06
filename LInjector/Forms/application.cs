@@ -76,6 +76,7 @@ namespace LInjector
                 }
             }
         }
+        // TODO HERE
 
         public void AddScripts(dynamic ScriptsJson)
         {
@@ -93,14 +94,7 @@ namespace LInjector
                     ScriptsList.Items.Add(item.title);
                 }
             }
-
-            CustomCw.Cw(ConsoleColor.Red, ConsoleColor.DarkRed, "This is an error", "ERROR");
-            CustomCw.Cw(ConsoleColor.Yellow, ConsoleColor.DarkYellow, "This is a warning", "WARNING");
-            CustomCw.Cw(ConsoleColor.Blue, ConsoleColor.DarkBlue, "This is information", "INFO");
-            CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "This is debug information", "DEBUG");
-
-
-
+            
         }
         public async void DownloadScripts()
         {
@@ -182,8 +176,6 @@ namespace LInjector
 
             if (ConfigHandler.topmost)
             { TopMost = true; }
-
-
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
@@ -334,7 +326,7 @@ namespace LInjector
             {
                 var cm = tabSystem.current_monaco();
                 cm.SetText("");
-                CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "TextBox Cleared.", "DEBUG");
+                CustomCw.Cw("TextBox Cleared.", false, "debug");
                 tabSystem.ChangeCurrentTabTitle($"Script {tabSystem.maintabs.Items.Count.ToString()}");
                 fileNameString.Refresh();
                 fileNameString.Size = new Size(150, 28);
@@ -359,7 +351,7 @@ namespace LInjector
                 if (flag)
                 {
                     FluxusAPI.run_script(FluxusAPI.pid, scriptString);
-                    CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Script executed", "DEBUG");
+                    CustomCw.Cw("Script executed", false, "debug");
                 }
                 else
                 {
@@ -372,10 +364,7 @@ namespace LInjector
             {
                 ThreadBox.MsgThread("Fluxus couldn't run the script.", "LInjector | Fluxus API",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                CustomCw.Cw(ConsoleColor.Red, ConsoleColor.DarkRed, "Exception from Fluxus:\n", "ERROR"
-                          + ex.Message
-                          + "\nStack Trace:\n"
-                          + ex.StackTrace);
+                CustomCw.Cw($"(Module) Exception thrown\n{ex.Message}\nStack Trace:\n{ex.StackTrace}", false, "error");
             }
 
             Execute.Focus();
@@ -415,13 +404,13 @@ namespace LInjector
                     if (dialogResult == DialogResult.Yes)
                     {
                         tabSystem.add_tab_with_text(fileContent, openFileDialog.SafeFileName);
-                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, $"Added Script {openFileDialog.SafeFileName}", "DEBUG");
+                        CustomCw.Cw($"Added Script {openFileDialog.SafeFileName}", false, "debug");
                     }
                     else
                     {
                         tabSystem.current_monaco().SetText(fileContent);
                         tabSystem.ChangeCurrentTabTitle(openFileDialog.SafeFileName);
-                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, $"Opened Script {openFileDialog.SafeFileName}", "DEBUG");
+                        CustomCw.Cw($"Opened Script {openFileDialog.SafeFileName}", false, "debug");
                     }
 
                     fileNameString.Refresh();
@@ -438,7 +427,7 @@ namespace LInjector
 
                 if (result == DialogResult.Yes)
                 {
-                    CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Restarting LInjector", "DEBUG");
+                    CustomCw.Cw("Restarting LInjector", false, "debug");
                     Application.Restart();
                 }
             }
@@ -474,7 +463,7 @@ namespace LInjector
                             File.WriteAllText(filePath, result);
                             string savedFileName = Path.GetFileName(saveFileDialog.FileName);
                             _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
-                            CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, $"Saved file {savedFileName} to {saveFileDialog.FileName}", "DEBUG");
+                            CustomCw.Cw($"Saved file {savedFileName} to {saveFileDialog.FileName}", false, "debug");
                         }
                         catch (Exception)
                         {
@@ -712,31 +701,38 @@ namespace LInjector
 
         private async void ScriptsList_DoubleClick(object sender, EventArgs e)
         {
-            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
-
-            foreach (var item in ScriptsCache)
+            try
             {
-                if (ScriptsList.SelectedItem.ToString() == item.title)
+                client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+
+                foreach (var item in ScriptsCache)
                 {
-                    if (item.script == "")
+                    if (ScriptsList.SelectedItem.ToString() == item.title)
                     {
+                        if (item.script == "")
+                        {
+                            break;
+                        }
+
+                        try
+                        {
+                            string ScriptBody = await client.GetStringAsync(item.script);
+                            var cm = tabSystem.current_monaco();
+                            tabSystem.ChangeCurrentTabTitle(item.title);
+                            cm.SetText(ScriptBody);
+                        }
+                        catch
+                        {
+                            _ = NotificationManager.FireNotification("Could not fetch script", infSettings);
+                        }
+
                         break;
                     }
-
-                    try
-                    {
-                        string ScriptBody = await client.GetStringAsync(item.script);
-                        var cm = tabSystem.current_monaco();
-                        tabSystem.ChangeCurrentTabTitle(item.title);
-                        cm.SetText(ScriptBody);
-                    }
-                    catch
-                    {
-                        _ = NotificationManager.FireNotification("Could not fetch script", infSettings);
-                    }
-
-                    break;
                 }
+            }
+            catch (Exception)
+            {
+                _ = NotificationManager.FireNotification("Couldn't retrieve data", infSettings);
             }
         }
     }

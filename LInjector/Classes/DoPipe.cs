@@ -36,12 +36,12 @@ namespace LInjector.Classes
                 {
                     if (e.Error == null)
                     {
-                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "File downloaded successfully.", "DEBUG");
+                        CustomCw.Cw("File downloaded successfully.", false, "debug");
                         selectedArg = filePath;
                     }
                     else
                     {
-                        CustomCw.Cw(ConsoleColor.Red, ConsoleColor.DarkRed, $"Error downloading file: {e.Error.Message}", "ERROR");
+                        CustomCw.Cw($"Error downloading file: {e.Error.Message}", false, "debug");
                     }
                 };
 
@@ -66,12 +66,12 @@ namespace LInjector.Classes
                 {
                     if (e.Error == null)
                     {
-                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "File downloaded successfully.", "DEBUG");
+                        CustomCw.Cw("File downloaded successfully.", false, "debug");
                         selectedArg = filePath;
                     }
                     else
                     {
-                        CustomCw.Cw(ConsoleColor.Red, ConsoleColor.DarkRed, $"Error downloading file: {e.Error.Message}", "ERROR");
+                        CustomCw.Cw($"Error downloading file: {e.Error.Message}", false, "error");
                     }
                 };
 
@@ -81,7 +81,7 @@ namespace LInjector.Classes
 
         public static void PlayPipeSound(string filePath)
         {
-            CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, filePath);
+            //CustomCw.Cw("DoPipe", false, "debug");
 
             if (File.Exists(filePath) && new FileInfo(filePath).Length > 0)
             {
@@ -89,18 +89,18 @@ namespace LInjector.Classes
                 {
                     using (var player = new SoundPlayer(filePath))
                     {
-                        CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, "Playing pipe.", "DEBUG");
+                        CustomCw.Cw("Playing pipe.", false, "debug");
                         player.Play();
                     }
                 }
                 catch (Exception e)
                 {
-                    CustomCw.Cw(ConsoleColor.DarkRed, ConsoleColor.Red, $"Error playing file: {e.Message}", "ERROR");
+                    CustomCw.Cw($"Error playing file: {e.Message}", false, "error");
                 }
             }
             else
             {
-                CustomCw.Cw(ConsoleColor.DarkGray, ConsoleColor.DarkGray, filePath, "DEBUG");
+                
             }
         }
     }
