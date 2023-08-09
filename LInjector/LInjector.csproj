@@ -287,9 +287,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="UIAutomationProvider" />
-    <Reference Include="Vip.Notification, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Vip.Notification.1.0.4\lib\net45\Vip.Notification.dll</HintPath>
-    </Reference>
     <Reference Include="Win32Interop.Dwmapi, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Win32Interop.Dwmapi.1.0.1\lib\Win32Interop.Dwmapi.dll</HintPath>
     </Reference>
@@ -324,7 +321,6 @@
     <Compile Include="Classes\FluxusAPI.cs" />
     <Compile Include="Classes\LocalRbx.cs" />
     <Compile Include="Classes\RbxVersion.cs" />
-    <Compile Include="Classes\SendToast.cs" />
     <Compile Include="Classes\TempLog.cs" />
     <Compile Include="Classes\FileManager.cs" />
     <Compile Include="Classes\ConfigHandler.cs" />
