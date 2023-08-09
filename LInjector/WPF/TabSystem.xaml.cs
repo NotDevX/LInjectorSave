@@ -1,6 +1,5 @@
 ﻿using LInjector.Classes;
 using LInjector.WPF.Classes;
-using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;

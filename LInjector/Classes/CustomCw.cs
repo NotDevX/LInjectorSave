@@ -83,7 +83,7 @@ namespace LInjector.Classes
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.WriteLine($"{content}");
                         rscolor();
-                    break;
+                        break;
 
                 }
             }
@@ -151,7 +151,7 @@ namespace LInjector.Classes
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(content);
                     rscolor();
-                break;
+                    break;
                 case "info":
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine(content);
@@ -184,5 +184,5 @@ namespace LInjector.Classes
         {
             return "[ " + DateTime.Now.ToString("HH:mm:ss") + " ]";
         }
-    }   
+    }
 }

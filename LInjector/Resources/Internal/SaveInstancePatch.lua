@@ -5,7 +5,7 @@ end
 
 getgenv()["depso_saveinstancepatch"] = true
 
-local data = loadstring(game:HttpGet("https://raw.githubusercontent.com/HTDBarsi/grin/main/getprop.lua"))()
+local data = loadstring(game:HttpGet("https://raw.githubusercontent.com/ItzzExcel/LInjectorRedistributables/main/getprop.lua"))()
 local basicTypes = {["float"] = true, ["int64"] = true, ["bool"] = true, ["string"] = true}
 local escapes = {
     ['"'] = '&quot;',

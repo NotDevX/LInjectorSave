@@ -17,7 +17,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using System.Windows.Threading;
-using Vip.Notification;
 namespace LInjector
 {
     public partial class application : Form
@@ -94,7 +93,7 @@ namespace LInjector
                     ScriptsList.Items.Add(item.title);
                 }
             }
-            
+
         }
         public async void DownloadScripts()
         {
@@ -574,6 +573,8 @@ namespace LInjector
                 {
                     try
                     {
+
+                        _ = NotificationManager.FireNotification("Called Injection API (Powered by Fluxteam)", infSettings);
                         FluxusAPI.inject();
                         InternalFunctions.RunInternalFunctions();
                         FunctionWatch.runFuncWatch();
@@ -582,9 +583,6 @@ namespace LInjector
                     {
                         _ = NotificationManager.FireNotification("Fluxus API failed to inject", infSettings);
                     }
-
-                    _ = NotificationManager.FireNotification("Called Injection API (Powered by Fluxteam)", infSettings);
-                    SendToast.send("Powered by Fluxus! (https://fluxteam.net)", 3, AlertType.Custom);
                 }
                 catch (Exception ex)
                 {
@@ -609,6 +607,8 @@ namespace LInjector
                 {
                     try
                     {
+
+                        _ = NotificationManager.FireNotification("Called Injection API (Powered by Fluxteam)", infSettings);
                         FluxusAPI.inject();
                         InternalFunctions.RunInternalFunctions();
                         FunctionWatch.runFuncWatch();
