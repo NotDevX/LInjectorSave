@@ -1,5 +1,4 @@
-repeat wait() until game:IsLoaded() == true
-repeat wait() until (LInjector and LInjector.loaded) == true
+repeat wait() until (game:IsLoaded() and LInjector and LInjector.loaded)
 
 if LInjector.GuiLoaded == true then 
 	script:Remove()
