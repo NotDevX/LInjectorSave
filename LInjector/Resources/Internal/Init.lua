@@ -91,9 +91,9 @@ local unavailable = {
 }
 getgenv().Drawing.Fonts = {
 	['UI'] = 0,
-	['System'] = 0,
-	['Plex'] = 1,
-	['Monospace'] = 2
+	['System'] = 1,
+	['Plex'] = 2,
+	['Monospace'] = 3
 }
 local oldmt = getrawmetatable(game)
 local none = newcclosure(function() end, "none")
