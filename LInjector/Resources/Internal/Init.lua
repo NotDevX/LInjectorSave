@@ -1,10 +1,9 @@
-﻿ --[[
+ --[[
  *
  * ░▒█░░░░▀█▀░█▀▀▄░░░▀░█▀▀░█▀▄░▀█▀░▄▀▀▄░█▀▀▄░░░▒█▀▀▀░█░▒█░█▀▀▄░█▀▄░▀█▀░░▀░░▄▀▀▄░█▀▀▄░█▀▀░░
  * ░▒█░░░░▒█░░█░▒█░░░█░█▀▀░█░░░░█░░█░░█░█▄▄▀░░░▒█▀▀░░█░▒█░█░▒█░█░░░░█░░░█▀░█░░█░█░▒█░▀▀▄░░
  * ░▒█▄▄█░▄█▄░▀░░▀░█▄█░▀▀▀░▀▀▀░░▀░░░▀▀░░▀░▀▀░░░▒█░░░░░▀▀▀░▀░░▀░▀▀▀░░▀░░▀▀▀░░▀▀░░▀░░▀░▀▀▀░░
  *
- * Created by depso (https://github.com/depthso)
  *
  *
  * ]]
@@ -15,9 +14,14 @@ if linjector then
 	script:Remove()
 	return 
 end
+getgenv()["linjector"] = true
 
-loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisInstanceProtect.lua"))() -- credit to iris (this is for protect_gui and unprotect_gui)
+--- Script Libraries
+loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisInstanceProtect.lua"))() -- credit to iris
 local hash = loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/HashLib.lua"), "HashLib")()
+local disassemble = loadstring(game:HttpGet("https://raw.githubusercontent.com/TheSeaweedMonster/Luau/main/decompile.lua"), "Disassembler")()
+--------------------
+
 local hashlibalgs = {"sha1", "sha224"}
 local hashalgs = {
 	"md5", "sha1", "sha224", "sha256", "sha384", "sha512", "sha3-256", "sha3-384", "sha3-512",
@@ -66,6 +70,25 @@ local specialinfo = {
 		"MaterialColors"
 	}
 }
+local funcs = { 
+	"getlocal",
+	"getlocals",
+	"setlocal",
+	"getcallstack",
+	"isuntouched",
+	"setuntouched",
+	"setupvaluename",
+	"XPROTECT",
+	"getpointerfromstate",
+	"setnonreplicatedproperty",
+	"readbinarystring"
+}
+local unavailable = {
+	"create_secure_function",
+	"run_secure_function",
+	"run_secure_lua",
+	"secrun"
+}
 getgenv().Drawing.Fonts = {
 	['UI'] = 0,
 	['System'] = 0,
@@ -76,12 +99,12 @@ local oldmt = getrawmetatable(game)
 local none = newcclosure(function() end, "none")
 
 local function define(name, value, parent)
-	local lol = (typeof(value) == "function" and islclosure(value) and newcclosure(value, name)) or value
+	local Function = (typeof(value) == "function" and islclosure(value) and newcclosure(value, name)) or value
 	if parent ~= nil then
 		parent[name] = lol
 		return
 	end
-	getgenv()[name] = lol
+	getgenv()[name] = Function
 end
 local function connection(conn, enabled)
 	for _,v in next, getconnections(conn) do
@@ -93,63 +116,20 @@ local function connection(conn, enabled)
 	end
 end
 
-	--[[ -- unused since its useless, but its cool ig
-	local oldd;oldd = hookfunction(Drawing.new, function(class) -- same drawing object functionality
-		local obj = oldd(class)
-		local t = {
-			['__OBJECT'] = obj,
-			['__OBJECT_EXISTS'] = true
-		}
-		local function remove()
-			obj:Remove()
-			t.__OBJECT_EXISTS = false
-		end
-		function t:Remove()
-			remove()
-		end
-		function t:Destroy()
-			remove()
-		end
-
-		setmetatable(t, {
-			__index = function(_, i)
-				if t.__OBJECT_EXISTS then
-					if i == ("__OBJECT" or "__OBJECT_EXISTS") then
-						return t
-					else
-						return obj[i]
-					end
-				end
-			end,
-			__newindex = function(_, i, v)
-				if t.__OBJECT_EXISTS then
-					obj[i] = v
-				end
-			end
-		})
-		return t
-	end)
-	]]
-
-local disassemble = loadstring(game:HttpGet("https://raw.githubusercontent.com/TheSeaweedMonster/Luau/main/decompile.lua"), "Disassembler")()
-define("disassemble", disassemble)
-
-do -- secure_call things
-	local oldt;oldt = hookfunction(getrenv().debug.traceback, function(lol) -- prevent debug.traceback detection
-		local traceback = oldt(lol)
-		if checkcaller() then
-			local a = traceback:split("\n")
-			return string.format("%s\n%s\n", a[1], a[3])
-		end
-		return traceback
-	end)
-	local oldi;oldi = hookfunction(getrenv().debug.info, function(lvl, a) -- prevent debug.info detection
-		if checkcaller() then
-			return oldi(3, a)
-		end
-		return oldi(lvl, a)
-	end)
-end
+local oldt;oldt = hookfunction(getrenv().debug.traceback, function(lol) -- prevent debug.traceback detection
+	local traceback = oldt(lol)
+	if checkcaller() then
+		local a = traceback:split("\n")
+		return string.format("%s\n%s\n", a[1], a[3])
+	end
+	return traceback
+end)
+local oldi;oldi = hookfunction(getrenv().debug.info, function(lvl, a) -- prevent debug.info detection
+	if checkcaller() then
+		return oldi(3, a)
+	end
+	return oldi(lvl, a)
+end)
 
 xpcall(function()
 	hookfunction(getexecutorname, function()
@@ -183,7 +163,16 @@ local oldg;oldg = hookfunction(getconnections, function(signal)
 	return a
 end)
 
-define("linjector", true)
+--- DEFINE
+
+for _,v in next, funcs do  -- useless functions for enviroment
+	define(v, none)
+end
+for _,v in next, unavailable do
+	define(v, none, t)
+end
+
+define("disassemble", disassemble)
 
 define("syn_io_read", readfile)
 define("syn_io_write", writefile)
@@ -250,11 +239,9 @@ define("syn_websocket_connect", function(a)
 	return WebSocket.connect(a)
 end)
 define("syn_websocket_close", function(a)
-	assert(a.OnMessage ~= nil, "ws connection expected")
+	assert(a.OnMessage ~= nil, "Websocket connection expected")
 	a:Close()
 end)
-
-
 
 define("is_synapse_function", isourclosure)
 define("is_protosmasher_closure", isourclosure)
@@ -341,25 +328,6 @@ define("get_nil_instances", getnilinstances)
 define("get_scripts", getscripts)
 define("get_loaded_modules", getloadedmodules)
 
--- they dont do anything
-local funcs = {
-	"getlocal",
-	"getlocals",
-	"setlocal",
-	"getcallstack",
-	"isuntouched",
-	"setuntouched",
-	"setupvaluename",
-	"XPROTECT",
-	"getpointerfromstate",
-	"setnonreplicatedproperty",
-	"readbinarystring"
-}
-for _,v in next, funcs do
-	define(v, none)
-end
-
-
 local t = {}
 
 define("cache_replace", cache.replace, t)
@@ -375,33 +343,6 @@ define("queue_on_teleport", queue_on_teleport, t)
 define("protect_gui", ProtectInstance, t) -- credit to iris
 define("unprotect_gui", UnProtectInstance, t)
 
-	--[[local Protected = {}
-	define("protect_gui", function(obj)
-		assert(typeof(obj) == "Instance", "bad argument #1 to 'protect_gui' (Instance expected, got "..typeof(obj)..")")
-		local p = obj.parent
-		if p then
-			Protected[obj] = p
-		end
-
-		obj.Parent = gethui()
-		task.spawn(function()
-			local conn;conn = obj.AncestryChanged:Connect(function(_, p)
-				-- most scripts parent it to coregui right after protecting (cuz thats how ur supposed to use it)
-				task.wait()
-				obj.Parent = gethui()
-				Protected[obj] = p -- save the original parent for unprotecting
-			end)
-			task.wait(2)
-			conn:Disconnect()
-		end)
-	end, t)
-	define("unprotect_gui", function(obj)
-		assert(typeof(obj) == "Instance", "bad argument #1 to 'protect_gui' (Instance expected, got "..typeof(obj)..")")
-		local p = Protected[obj]
-		if p then
-			obj.Parent = p
-		end
-	end, t)]]
 
 define("is_beta", function()
 	return false
@@ -426,7 +367,7 @@ define("base64", base64, crypt)
 
 local lz4 = {}
 define("compress", lz4compress, lz4)
---define("decompress", lz4decompress, lz4)
+define("decompress", lz4decompress, lz4)
 define("lz4", lz4, crypt)
 
 local custom = {}
@@ -549,22 +490,14 @@ define("get_comm_channel", function(id)
 	return channel
 end, t)
 
-local unavailable = {
-	"create_secure_function",
-	"run_secure_function",
-	"run_secure_lua",
-	"secrun"
-}
-for _,v in next, unavailable do
-	define(v, none, t)
-end
-
-define("syn", t)
-
-setreadonly(syn, true)
 
 define("ror", bit.rrotate, bit)
 define("rol", bit.lrotate, bit)
 define("tohex", function(a)
 	return tonumber(string.format("%08x", a % 4294967296))
 end, bit)
+
+
+define("syn", t)
+
+setreadonly(syn, true)
