@@ -501,3 +501,5 @@ end, bit)
 define("syn", t)
 
 setreadonly(syn, true)
+
+-- Thank you Valyseonly
