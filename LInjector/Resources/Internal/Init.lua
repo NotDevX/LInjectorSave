@@ -497,9 +497,12 @@ define("tohex", function(a)
 	return tonumber(string.format("%08x", a % 4294967296))
 end, bit)
 
-
 define("syn", t)
 
 setreadonly(syn, true)
+
+define("LInjector", {
+	loaded=true
+})
 
 -- Thank you Valyseonly
