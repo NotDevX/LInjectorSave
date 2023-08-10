@@ -51,17 +51,19 @@
             this.icon = new System.Windows.Forms.Panel();
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
-            this.fileNameString = new System.Windows.Forms.Button();
-            this.InfoPanel = new System.Windows.Forms.Panel();
-            this.InfoIcon = new System.Windows.Forms.PictureBox();
-            this.SettingsPanel = new System.Windows.Forms.Panel();
-            this.SettingsButton = new System.Windows.Forms.PictureBox();
-            this.terminalPanel = new System.Windows.Forms.Panel();
-            this.terminalButton = new System.Windows.Forms.PictureBox();
+            this.OptionsMenu = new System.Windows.Forms.Panel();
             this.githubPanel = new System.Windows.Forms.Panel();
             this.githubButton = new System.Windows.Forms.PictureBox();
+            this.terminalPanel = new System.Windows.Forms.Panel();
+            this.terminalButton = new System.Windows.Forms.PictureBox();
+            this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.SettingsButton = new System.Windows.Forms.PictureBox();
+            this.InfoPanel = new System.Windows.Forms.Panel();
+            this.InfoIcon = new System.Windows.Forms.PictureBox();
             this.dscPanel = new System.Windows.Forms.Panel();
             this.dscButton = new System.Windows.Forms.PictureBox();
+            this.expandMenu = new System.Windows.Forms.Panel();
+            this.expandButton = new System.Windows.Forms.PictureBox();
             this.Attach = new System.Windows.Forms.Button();
             this.Execute = new System.Windows.Forms.Button();
             this.OpenTool = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,16 +84,19 @@
             this.icon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.execinjPanel.SuspendLayout();
-            this.InfoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).BeginInit();
-            this.SettingsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
-            this.terminalPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).BeginInit();
+            this.OptionsMenu.SuspendLayout();
             this.githubPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
+            this.terminalPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).BeginInit();
+            this.SettingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
+            this.InfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).BeginInit();
             this.dscPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dscButton)).BeginInit();
+            this.expandMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.expandButton)).BeginInit();
             this.holder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitCont)).BeginInit();
             this.SplitCont.Panel1.SuspendLayout();
@@ -422,12 +427,7 @@
             // execinjPanel
             // 
             this.execinjPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.execinjPanel.Controls.Add(this.fileNameString);
-            this.execinjPanel.Controls.Add(this.InfoPanel);
-            this.execinjPanel.Controls.Add(this.SettingsPanel);
-            this.execinjPanel.Controls.Add(this.terminalPanel);
-            this.execinjPanel.Controls.Add(this.githubPanel);
-            this.execinjPanel.Controls.Add(this.dscPanel);
+            this.execinjPanel.Controls.Add(this.OptionsMenu);
             this.execinjPanel.Controls.Add(this.Attach);
             this.execinjPanel.Controls.Add(this.Execute);
             this.execinjPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -438,105 +438,29 @@
             this.execinjPanel.TabIndex = 7;
             this.execinjPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.execinjPanel_MouseDown);
             // 
-            // fileNameString
+            // OptionsMenu
             // 
-            this.fileNameString.AutoSize = true;
-            this.fileNameString.Dock = System.Windows.Forms.DockStyle.Right;
-            this.fileNameString.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.fileNameString.FlatAppearance.BorderSize = 0;
-            this.fileNameString.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fileNameString.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fileNameString.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fileNameString.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileNameString.Location = new System.Drawing.Point(697, 0);
-            this.fileNameString.Name = "fileNameString";
-            this.fileNameString.Size = new System.Drawing.Size(150, 28);
-            this.fileNameString.TabIndex = 16;
-            this.fileNameString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.fileNameString.UseVisualStyleBackColor = true;
-            this.fileNameString.Visible = false;
-            // 
-            // InfoPanel
-            // 
-            this.InfoPanel.Controls.Add(this.InfoIcon);
-            this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.InfoPanel.Location = new System.Drawing.Point(847, 0);
-            this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.InfoPanel.Size = new System.Drawing.Size(28, 28);
-            this.InfoPanel.TabIndex = 15;
-            // 
-            // InfoIcon
-            // 
-            this.InfoIcon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InfoIcon.Image = global::LInjector.Properties.Resources.InfoIcon;
-            this.InfoIcon.Location = new System.Drawing.Point(5, 5);
-            this.InfoIcon.Name = "InfoIcon";
-            this.InfoIcon.Size = new System.Drawing.Size(18, 18);
-            this.InfoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.InfoIcon.TabIndex = 0;
-            this.InfoIcon.TabStop = false;
-            this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
-            this.InfoIcon.MouseEnter += new System.EventHandler(this.Information_MouseEnter);
-            this.InfoIcon.MouseLeave += new System.EventHandler(this.Information_MouseLeave);
-            // 
-            // SettingsPanel
-            // 
-            this.SettingsPanel.Controls.Add(this.SettingsButton);
-            this.SettingsPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SettingsPanel.Location = new System.Drawing.Point(875, 0);
-            this.SettingsPanel.Name = "SettingsPanel";
-            this.SettingsPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.SettingsPanel.Size = new System.Drawing.Size(28, 28);
-            this.SettingsPanel.TabIndex = 13;
-            // 
-            // SettingsButton
-            // 
-            this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SettingsButton.Image = global::LInjector.Properties.Resources.SettingIcon;
-            this.SettingsButton.Location = new System.Drawing.Point(5, 5);
-            this.SettingsButton.Name = "SettingsButton";
-            this.SettingsButton.Size = new System.Drawing.Size(18, 18);
-            this.SettingsButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.SettingsButton.TabIndex = 0;
-            this.SettingsButton.TabStop = false;
-            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
-            this.SettingsButton.MouseEnter += new System.EventHandler(this.SettingsButton_MouseEnter);
-            this.SettingsButton.MouseLeave += new System.EventHandler(this.SettingsButton_MouseLeave);
-            // 
-            // terminalPanel
-            // 
-            this.terminalPanel.Controls.Add(this.terminalButton);
-            this.terminalPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.terminalPanel.Location = new System.Drawing.Point(903, 0);
-            this.terminalPanel.Name = "terminalPanel";
-            this.terminalPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.terminalPanel.Size = new System.Drawing.Size(28, 28);
-            this.terminalPanel.TabIndex = 11;
-            // 
-            // terminalButton
-            // 
-            this.terminalButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.terminalButton.Image = global::LInjector.Properties.Resources.terminal_icon;
-            this.terminalButton.Location = new System.Drawing.Point(5, 5);
-            this.terminalButton.Name = "terminalButton";
-            this.terminalButton.Size = new System.Drawing.Size(18, 18);
-            this.terminalButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.terminalButton.TabIndex = 0;
-            this.terminalButton.TabStop = false;
-            this.terminalButton.Click += new System.EventHandler(this.terminalButton_Click);
-            this.terminalButton.MouseEnter += new System.EventHandler(this.terminalButton_MouseEnter);
-            this.terminalButton.MouseLeave += new System.EventHandler(this.terminalButton_MouseLeave);
+            this.OptionsMenu.Controls.Add(this.githubPanel);
+            this.OptionsMenu.Controls.Add(this.terminalPanel);
+            this.OptionsMenu.Controls.Add(this.SettingsPanel);
+            this.OptionsMenu.Controls.Add(this.InfoPanel);
+            this.OptionsMenu.Controls.Add(this.dscPanel);
+            this.OptionsMenu.Controls.Add(this.expandMenu);
+            this.OptionsMenu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.OptionsMenu.Location = new System.Drawing.Point(819, 0);
+            this.OptionsMenu.Name = "OptionsMenu";
+            this.OptionsMenu.Size = new System.Drawing.Size(168, 28);
+            this.OptionsMenu.TabIndex = 11;
             // 
             // githubPanel
             // 
             this.githubPanel.Controls.Add(this.githubButton);
             this.githubPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.githubPanel.Location = new System.Drawing.Point(931, 0);
+            this.githubPanel.Location = new System.Drawing.Point(0, 0);
             this.githubPanel.Name = "githubPanel";
             this.githubPanel.Padding = new System.Windows.Forms.Padding(5);
             this.githubPanel.Size = new System.Drawing.Size(28, 28);
-            this.githubPanel.TabIndex = 5;
+            this.githubPanel.TabIndex = 32;
             // 
             // githubButton
             // 
@@ -552,15 +476,87 @@
             this.githubButton.MouseEnter += new System.EventHandler(this.githubButton_MouseEnter);
             this.githubButton.MouseLeave += new System.EventHandler(this.githubButton_MouseLeave);
             // 
+            // terminalPanel
+            // 
+            this.terminalPanel.Controls.Add(this.terminalButton);
+            this.terminalPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.terminalPanel.Location = new System.Drawing.Point(28, 0);
+            this.terminalPanel.Name = "terminalPanel";
+            this.terminalPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.terminalPanel.Size = new System.Drawing.Size(28, 28);
+            this.terminalPanel.TabIndex = 31;
+            // 
+            // terminalButton
+            // 
+            this.terminalButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.terminalButton.Image = global::LInjector.Properties.Resources.terminal_icon;
+            this.terminalButton.Location = new System.Drawing.Point(5, 5);
+            this.terminalButton.Name = "terminalButton";
+            this.terminalButton.Size = new System.Drawing.Size(18, 18);
+            this.terminalButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.terminalButton.TabIndex = 0;
+            this.terminalButton.TabStop = false;
+            this.terminalButton.Click += new System.EventHandler(this.terminalButton_Click);
+            this.terminalButton.MouseEnter += new System.EventHandler(this.terminalButton_MouseEnter);
+            this.terminalButton.MouseLeave += new System.EventHandler(this.terminalButton_MouseLeave);
+            // 
+            // SettingsPanel
+            // 
+            this.SettingsPanel.Controls.Add(this.SettingsButton);
+            this.SettingsPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SettingsPanel.Location = new System.Drawing.Point(56, 0);
+            this.SettingsPanel.Name = "SettingsPanel";
+            this.SettingsPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.SettingsPanel.Size = new System.Drawing.Size(28, 28);
+            this.SettingsPanel.TabIndex = 30;
+            // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SettingsButton.Image = global::LInjector.Properties.Resources.SettingIcon;
+            this.SettingsButton.Location = new System.Drawing.Point(5, 5);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(18, 18);
+            this.SettingsButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.SettingsButton.TabIndex = 0;
+            this.SettingsButton.TabStop = false;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            this.SettingsButton.MouseEnter += new System.EventHandler(this.SettingsButton_MouseEnter);
+            this.SettingsButton.MouseLeave += new System.EventHandler(this.SettingsButton_MouseLeave);
+            // 
+            // InfoPanel
+            // 
+            this.InfoPanel.Controls.Add(this.InfoIcon);
+            this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InfoPanel.Location = new System.Drawing.Point(84, 0);
+            this.InfoPanel.Name = "InfoPanel";
+            this.InfoPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.InfoPanel.Size = new System.Drawing.Size(28, 28);
+            this.InfoPanel.TabIndex = 29;
+            // 
+            // InfoIcon
+            // 
+            this.InfoIcon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InfoIcon.Image = global::LInjector.Properties.Resources.InfoIcon;
+            this.InfoIcon.Location = new System.Drawing.Point(5, 5);
+            this.InfoIcon.Name = "InfoIcon";
+            this.InfoIcon.Size = new System.Drawing.Size(18, 18);
+            this.InfoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.InfoIcon.TabIndex = 0;
+            this.InfoIcon.TabStop = false;
+            this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
+            this.InfoIcon.MouseEnter += new System.EventHandler(this.Information_MouseEnter);
+            this.InfoIcon.MouseLeave += new System.EventHandler(this.Information_MouseLeave);
+            // 
             // dscPanel
             // 
             this.dscPanel.Controls.Add(this.dscButton);
             this.dscPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dscPanel.Location = new System.Drawing.Point(959, 0);
+            this.dscPanel.Location = new System.Drawing.Point(112, 0);
             this.dscPanel.Name = "dscPanel";
             this.dscPanel.Padding = new System.Windows.Forms.Padding(5);
             this.dscPanel.Size = new System.Drawing.Size(28, 28);
-            this.dscPanel.TabIndex = 4;
+            this.dscPanel.TabIndex = 28;
             // 
             // dscButton
             // 
@@ -575,6 +571,31 @@
             this.dscButton.Click += new System.EventHandler(this.dscButton_Click);
             this.dscButton.MouseEnter += new System.EventHandler(this.dscButton_MouseEnter);
             this.dscButton.MouseLeave += new System.EventHandler(this.dscButton_MouseLeave);
+            // 
+            // expandMenu
+            // 
+            this.expandMenu.Controls.Add(this.expandButton);
+            this.expandMenu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.expandMenu.Location = new System.Drawing.Point(140, 0);
+            this.expandMenu.Name = "expandMenu";
+            this.expandMenu.Padding = new System.Windows.Forms.Padding(5);
+            this.expandMenu.Size = new System.Drawing.Size(28, 28);
+            this.expandMenu.TabIndex = 27;
+            this.expandMenu.Click += new System.EventHandler(this.expandButton_Click);
+            // 
+            // expandButton
+            // 
+            this.expandButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.expandButton.Image = global::LInjector.Properties.Resources.expandcollapse;
+            this.expandButton.Location = new System.Drawing.Point(5, 5);
+            this.expandButton.Name = "expandButton";
+            this.expandButton.Size = new System.Drawing.Size(18, 18);
+            this.expandButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.expandButton.TabIndex = 0;
+            this.expandButton.TabStop = false;
+            this.expandButton.Click += new System.EventHandler(this.expandButton_Click);
+            this.expandButton.MouseEnter += new System.EventHandler(this.expandButton_MouseEnter);
+            this.expandButton.MouseLeave += new System.EventHandler(this.expandButton_MouseLeave);
             // 
             // Attach
             // 
@@ -708,17 +729,19 @@
             this.icon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
-            this.execinjPanel.PerformLayout();
-            this.InfoPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).EndInit();
-            this.SettingsPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).EndInit();
-            this.terminalPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).EndInit();
+            this.OptionsMenu.ResumeLayout(false);
             this.githubPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
+            this.terminalPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).EndInit();
+            this.SettingsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).EndInit();
+            this.InfoPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).EndInit();
             this.dscPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dscButton)).EndInit();
+            this.expandMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.expandButton)).EndInit();
             this.holder.ResumeLayout(false);
             this.SplitCont.Panel1.ResumeLayout(false);
             this.SplitCont.Panel2.ResumeLayout(false);
@@ -742,10 +765,6 @@
         private System.Windows.Forms.Button Attach;
         private System.Windows.Forms.Button Execute;
         private System.Windows.Forms.Panel menuSettings;
-        private System.Windows.Forms.Panel dscPanel;
-        private System.Windows.Forms.PictureBox dscButton;
-        private System.Windows.Forms.Panel githubPanel;
-        private System.Windows.Forms.PictureBox githubButton;
         private System.Windows.Forms.ToolStripMenuItem OpenTool;
         private System.Windows.Forms.ToolStripMenuItem SaveTool;
         private MaterialSkin.Controls.MaterialContextMenuStrip FileStrip;
@@ -755,18 +774,24 @@
         private System.Windows.Forms.ToolStripMenuItem CopyTool;
         private System.Windows.Forms.ToolStripMenuItem ReloadTool;
         private System.Windows.Forms.ToolStripMenuItem MinimapTool;
-        private System.Windows.Forms.Panel SettingsPanel;
-        private System.Windows.Forms.PictureBox SettingsButton;
-        private System.Windows.Forms.Panel terminalPanel;
-        private System.Windows.Forms.PictureBox terminalButton;
         public System.Windows.Forms.Button infSettings;
-        public System.Windows.Forms.Button fileNameString;
-        private System.Windows.Forms.Panel InfoPanel;
-        private System.Windows.Forms.PictureBox InfoIcon;
         private System.Windows.Forms.ToolStripMenuItem ClearTextTool;
         private System.Windows.Forms.Panel holder;
-        private System.Windows.Forms.SplitContainer SplitCont;
         public System.Windows.Forms.Panel TabsPanel;
         private Classes.Objects.CustomListBox ScriptsList;
+        private System.Windows.Forms.Panel expandMenu;
+        private System.Windows.Forms.PictureBox expandButton;
+        private System.Windows.Forms.Panel githubPanel;
+        private System.Windows.Forms.PictureBox githubButton;
+        private System.Windows.Forms.Panel terminalPanel;
+        private System.Windows.Forms.PictureBox terminalButton;
+        private System.Windows.Forms.Panel SettingsPanel;
+        private System.Windows.Forms.PictureBox SettingsButton;
+        private System.Windows.Forms.Panel InfoPanel;
+        private System.Windows.Forms.PictureBox InfoIcon;
+        private System.Windows.Forms.Panel dscPanel;
+        private System.Windows.Forms.PictureBox dscButton;
+        public System.Windows.Forms.Panel OptionsMenu;
+        public System.Windows.Forms.SplitContainer SplitCont;
     }
 }

@@ -37,6 +37,8 @@
             this.icon = new System.Windows.Forms.Panel();
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.holder = new System.Windows.Forms.Panel();
+            this.reloadBtn = new MaterialSkin.Controls.MaterialButton();
+            this.ScriptListHandler = new MaterialSkin.Controls.MaterialSwitch();
             this.TopMostHandler = new MaterialSkin.Controls.MaterialSwitch();
             this.RPCHandler = new MaterialSkin.Controls.MaterialSwitch();
             this.ConsoleHandler = new MaterialSkin.Controls.MaterialSwitch();
@@ -166,6 +168,8 @@
             // holder
             // 
             this.holder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.holder.Controls.Add(this.reloadBtn);
+            this.holder.Controls.Add(this.ScriptListHandler);
             this.holder.Controls.Add(this.TopMostHandler);
             this.holder.Controls.Add(this.RPCHandler);
             this.holder.Controls.Add(this.ConsoleHandler);
@@ -177,6 +181,47 @@
             this.holder.Padding = new System.Windows.Forms.Padding(5);
             this.holder.Size = new System.Drawing.Size(274, 416);
             this.holder.TabIndex = 6;
+            // 
+            // reloadBtn
+            // 
+            this.reloadBtn.AutoSize = false;
+            this.reloadBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.reloadBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.reloadBtn.Depth = 0;
+            this.reloadBtn.HighEmphasis = true;
+            this.reloadBtn.Icon = null;
+            this.reloadBtn.Location = new System.Drawing.Point(9, 369);
+            this.reloadBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.reloadBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.reloadBtn.Name = "reloadBtn";
+            this.reloadBtn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.reloadBtn.Size = new System.Drawing.Size(74, 36);
+            this.reloadBtn.TabIndex = 7;
+            this.reloadBtn.Text = "Reload";
+            this.reloadBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.reloadBtn.UseAccentColor = false;
+            this.reloadBtn.UseVisualStyleBackColor = true;
+            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click);
+            // 
+            // ScriptListHandler
+            // 
+            this.ScriptListHandler.AutoSize = true;
+            this.ScriptListHandler.Depth = 0;
+            this.ScriptListHandler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ScriptListHandler.ForeColor = System.Drawing.Color.White;
+            this.ScriptListHandler.Location = new System.Drawing.Point(5, 193);
+            this.ScriptListHandler.Margin = new System.Windows.Forms.Padding(0);
+            this.ScriptListHandler.MaximumSize = new System.Drawing.Size(275, 40);
+            this.ScriptListHandler.MinimumSize = new System.Drawing.Size(275, 40);
+            this.ScriptListHandler.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.ScriptListHandler.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ScriptListHandler.Name = "ScriptListHandler";
+            this.ScriptListHandler.Ripple = true;
+            this.ScriptListHandler.Size = new System.Drawing.Size(275, 40);
+            this.ScriptListHandler.TabIndex = 6;
+            this.ScriptListHandler.Text = "Show Script List";
+            this.ScriptListHandler.UseVisualStyleBackColor = true;
+            this.ScriptListHandler.CheckedChanged += new System.EventHandler(this.SciprtListHandler_CheckedChanged);
             // 
             // TopMostHandler
             // 
@@ -310,5 +355,7 @@
         public MaterialSkin.Controls.MaterialSwitch ConsoleHandler;
         public MaterialSkin.Controls.MaterialSwitch RPCHandler;
         public MaterialSkin.Controls.MaterialSwitch TopMostHandler;
+        public MaterialSkin.Controls.MaterialSwitch ScriptListHandler;
+        private MaterialSkin.Controls.MaterialButton reloadBtn;
     }
 }

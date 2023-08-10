@@ -13,6 +13,8 @@ namespace LInjector.Forms.Menus
             InitializeComponent();
         }
 
+        application applicationz = null;
+
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
         [DllImportAttribute("user32.dll")]
@@ -99,14 +101,28 @@ namespace LInjector.Forms.Menus
             if (TopMostHandler.Checked)
             {
                 ConfigHandler.SetConfigValue("topmost", true);
-                this.TopMost = true;
+                applicationz.TopMost = true;
                 ConfigHandler.topmost = true;
             }
             else
             {
                 ConfigHandler.SetConfigValue("topmost", false);
-                this.TopMost = false;
+                applicationz.TopMost = false;
                 ConfigHandler.topmost = false;
+            }
+        }
+
+        private void SciprtListHandler_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ScriptListHandler.Checked)
+            {
+                ConfigHandler.SetConfigValue("hide_scriptlist", false);
+                ConfigHandler.script_list = false;
+            }
+            else
+            {
+                ConfigHandler.SetConfigValue("hide_scriptlist", true);
+                ConfigHandler.script_list = true;
             }
         }
 
@@ -150,6 +166,15 @@ namespace LInjector.Forms.Menus
             if (ConfigHandler.topmost == true)
             { TopMostHandler.Checked = true; }
             else { TopMostHandler.Checked = false; }
+
+            if (ConfigHandler.script_list == true)
+            { ScriptListHandler.Checked = false; }
+            else { ScriptListHandler.Checked = true; }
+        }
+
+        private void reloadBtn_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

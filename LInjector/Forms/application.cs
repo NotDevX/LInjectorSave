@@ -31,6 +31,7 @@ namespace LInjector
         monaco_api monaco_api = null;
 
         public static bool AboutShown = false;
+        public bool IsOptionsCollapsed = false;
         public static bool SettingsShown = false;
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
@@ -38,6 +39,76 @@ namespace LInjector
 
         private const int cGrip = 16;
         private const int cCaption = 32;
+
+        public application()
+        {
+            InitializeComponent();
+            DownloadScripts();
+            SetStyle(ControlStyles.ResizeRedraw, true);
+
+            if (ArgumentHandler.SizableBool)
+            {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                Text = "LInjector";
+            }
+        }
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        public async Task<string> GetMonacoContent()
+        {
+            string result = await tabSystem.current_monaco().GetText();
+            string text = JsonConvert.DeserializeObject<string>(result);
+            return text;
+        }
+
+        public void application_Load(object sender, EventArgs e)
+        {
+            runAutoAttachTimer();
+            if (Program.currentVersion.Contains("f81fb0e34f313b6cf0d0fc345890a33f"))
+            { _ = NotificationManager.FireNotification("Welcome to LInjector Development Version", infSettings); }
+            else
+            { _ = NotificationManager.FireNotification($"Welcome to LInjector {Program.currentVersion}", infSettings); }
+
+            try
+            {
+                FluxusAPI.create_files(Path.GetFullPath("Resources\\libs\\Module.dll"));
+            }
+            catch (Exception ex)
+            {
+                ThreadBox.MsgThread("Couldn't initialize Fluxus API\nException:\n"
+                                                   + ex.Message
+                                                   + "\nPlease, share it on Discord.",
+                    "[ERROR] LInjector", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                _ = NotificationManager.FireNotification("Couldn't initialize Fluxus API.", infSettings);
+            }
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+
+            ElementHost host = new ElementHost();
+            host.Parent = TabsPanel;
+            host.Dock = DockStyle.Fill;
+            host.Child = tabSystem;
+
+            if (ConfigHandler.topmost)
+            { TopMost = true; }
+
+            if (ConfigHandler.options_collapsed)
+            {
+                expandButton_Click(sender, e);
+            }
+
+            if (ConfigHandler.script_list)
+            {
+                SplitCont.Panel2Collapsed = true;
+            }
+        }
 
         public void runAutoAttachTimer()
         {
@@ -93,7 +164,6 @@ namespace LInjector
                     ScriptsList.Items.Add(item.title);
                 }
             }
-
         }
         public async void DownloadScripts()
         {
@@ -115,69 +185,6 @@ namespace LInjector
             {
                 _ = NotificationManager.FireNotification("Could not download scripts", infSettings);
             }
-        }
-
-
-        public application()
-        {
-            InitializeComponent();
-            DownloadScripts();
-            SetStyle(ControlStyles.ResizeRedraw, true);
-
-            if (ArgumentHandler.SizableBool)
-            {
-                FormBorderStyle = FormBorderStyle.Sizable;
-                Text = "LInjector";
-            }
-        }
-
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        public async Task<string> GetMonacoContent()
-        {
-            string result = await tabSystem.current_monaco().GetText();
-            string text = JsonConvert.DeserializeObject<string>(result);
-            return text;
-        }
-
-        public void application_Load(object sender, EventArgs e)
-        {
-            runAutoAttachTimer();
-#pragma warning disable CS0162
-            if (Program.currentVersion == "f81fb0e34f313b6cf0d0fc345890a33f")
-            { _ = NotificationManager.FireNotification($"Welcome to LInjector Development Version", infSettings); }
-            else
-            { _ = NotificationManager.FireNotification($"Welcome to LInjector {Program.currentVersion}", infSettings); }
-#pragma warning restore CS0162
-
-            try
-            {
-                FluxusAPI.create_files(Path.GetFullPath("Resources\\libs\\Module.dll"));
-            }
-            catch (Exception ex)
-            {
-                ThreadBox.MsgThread("Couldn't initialize Fluxus API\nException:\n"
-                                                   + ex.Message
-                                                   + "\nPlease, share it on Discord.",
-                    "[ERROR] LInjector", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                _ = NotificationManager.FireNotification("Couldn't initialize Fluxus API.", infSettings);
-            }
-
-            ElementHost host = new ElementHost();
-            host.Parent = TabsPanel;
-            host.Dock = DockStyle.Fill;
-            host.Child = tabSystem;
-
-            if (ConfigHandler.topmost)
-            { TopMost = true; }
-
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
         }
 
         protected override void WndProc(ref Message m)
@@ -327,8 +334,6 @@ namespace LInjector
                 cm.SetText("");
                 CustomCw.Cw("TextBox Cleared.", false, "debug");
                 tabSystem.ChangeCurrentTabTitle($"Script {tabSystem.maintabs.Items.Count.ToString()}");
-                fileNameString.Refresh();
-                fileNameString.Size = new Size(150, 28);
             }
             catch (Exception)
             {
@@ -383,9 +388,6 @@ namespace LInjector
         {
             try
             {
-                fileNameString.Refresh();
-                fileNameString.ResetText();
-                fileNameString.Size = new Size(150, 28);
                 var openFileDialog = new OpenFileDialog();
                 openFileDialog.Title = "Open Script Files | LInjector";
                 openFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
@@ -411,10 +413,6 @@ namespace LInjector
                         tabSystem.ChangeCurrentTabTitle(openFileDialog.SafeFileName);
                         CustomCw.Cw($"Opened Script {openFileDialog.SafeFileName}", false, "debug");
                     }
-
-                    fileNameString.Refresh();
-                    fileNameString.Size = new Size(150, 28);
-                    fileNameString.Visible = true;
                 }
 
             }
@@ -735,18 +733,37 @@ namespace LInjector
                 _ = NotificationManager.FireNotification("Couldn't retrieve data", infSettings);
             }
         }
+
+        private void expandButton_MouseEnter(object sender, EventArgs e)
+        {
+            expandMenu.BackColor = ColorTranslator.FromHtml("#2e2e2e");
+        }
+
+        private void expandButton_MouseLeave(object sender, EventArgs e)
+        {
+            expandMenu.BackColor = ColorTranslator.FromHtml("#191919");
+        }
+
+        private void expandButton_Click(object sender, EventArgs e)
+        {
+            if (IsOptionsCollapsed == false)
+            {
+                IsOptionsCollapsed = true;
+                OptionsMenu.Size = new Size(32, 28);
+                ConfigHandler.SetConfigValue("options_collapsed", true);
+            }
+            else
+            {
+                IsOptionsCollapsed = false;
+                OptionsMenu.Size = new Size(168, 28);
+                ConfigHandler.SetConfigValue("options_collapsed", false);
+            }
+        }
     }
+
     public class ScriptItem
     {
-        public string title
-        {
-            get;
-            set;
-        }
-        public string script
-        {
-            get;
-            set;
-        }
+        public string title { get; set; }
+        public string script { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 
 namespace LInjector.Classes
@@ -14,6 +15,10 @@ namespace LInjector.Classes
         public static bool sizable = false;
         public static bool debug = false;
         public static bool discord_rpc = true;
+        public static bool options_collapsed = false;
+        public static bool script_list = false;
+        public static application app = new application();
+
         public static void DoConfig()
         {
             if (!File.Exists(ConfigPath))
@@ -27,6 +32,8 @@ namespace LInjector.Classes
                     { "debug", false },
                     { "topmost", false },
                     { "discord_rpc", true },
+                    { "options_collapsed", true },
+                    { "hide_scriptlist", true }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(config, Formatting.Indented);
@@ -41,7 +48,6 @@ namespace LInjector.Classes
                 if (config.TryGetValue("autoattach", out object autoAttachValue) && (bool)autoAttachValue)
                 {
                     autoattach = true;
-                    ConfigHandler ch = new ConfigHandler();
                 }
 
                 if (config.TryGetValue("nosplash", out object noSplashValue) && (bool)noSplashValue)
@@ -76,6 +82,20 @@ namespace LInjector.Classes
                 {
                     RPCManager.isEnabled = true;
                     discord_rpc = true;
+                }
+
+                if (config.TryGetValue("options_collapsed", out object options_collapseda) && (bool)options_collapseda)
+                {
+                    options_collapsed = true;
+                    app.IsOptionsCollapsed = true;
+                    app.OptionsMenu.Size = new Size(32, 28);
+                    ConfigHandler.SetConfigValue("options_collapsed", true);
+                }
+
+                if (config.TryGetValue("hide_scriptlist", out object script_lista) && (bool)script_lista)
+                {
+                    script_list = true;
+                    app.SplitCont.Panel2Collapsed = true;
                 }
             }
         }

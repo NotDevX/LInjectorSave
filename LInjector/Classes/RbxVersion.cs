@@ -85,7 +85,7 @@ namespace LInjector.Classes
             }
         }
 
-        #pragma warning disable CS1998
+#pragma warning disable CS1998
         public static async Task GetRobloxVersionUWP()
         {
             var rbxverurl = "https://lexploits.netlify.app/version";
@@ -108,10 +108,11 @@ namespace LInjector.Classes
             {
                 if (!Version.Contains(content))
                 {
-                    ThreadBox.MsgThread("Your Roblox UWP version mismatched. LInjector is only working for version 2.586.0.0, update or downgrade Roblox.", "LInjector | Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ThreadBox.MsgThread($"Your Roblox UWP version mismatched. LInjector is only working for version {content}, update or downgrade Roblox. Trying to fetch latest Modules.", "LInjector | Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CreateFiles.RedownloadModules();
                 }
             }
         }
-        #pragma warning restore CS1998
+#pragma warning restore CS1998
     }
 }

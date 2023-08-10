@@ -9,7 +9,7 @@
  *
  * ]]
 
-local LINJECTOR_VERSION = "v05.08.2023"
+local LINJECTOR_VERSION = "10.08.2023"
 
 if LInjector then
 	script:Remove()
@@ -29,7 +29,7 @@ Export("identifyexecutor", function()
 end)
 
 Export("getexecutorname", function()
-	return "LInjector", LINJECTOR_VERSION
+	return "LInjector" 
 end)
 
 Export("LInjector", {
