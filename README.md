@@ -7,15 +7,15 @@
 <img src="https://dcbadge.vercel.app/api/server/NQY28YSVAb">
 </a>
 </p>
-<h3 align="center">LInjector | Open-source executor interface for Roblox.</h3>
+<h3 align="center">LInjector | Open-source Executor Interface for Roblox.</h3>
 
 <hr/>
 
-LInjector, is a free UI interface for Exploit Developers, minimal and easy to customize. <br>
-Fluxus API should work with UWP Roblox (I'm not ensuring nothing). [Learn More about Hyperion Byfron](https://docs.google.com/document/d/1FRWTMnPZ-6fuyKjaT_YDU8tT1DrmLSw63YKtc2CfiMI/edit?usp=sharing) <br>
-If you have a working Dynamic-Link Library (DLL), you can edit source of LInjector. <br>
-LInjector uses Monaco editor, that one that powers Visual Studio Code, with syntax highlighting, [developed by Supercomet Labs](https://cometrbx.xyz/).
-Also aviable on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
+LInjector is an open-source interface for developers, designed to be minimal and easily customizable. <br>
+We currently support Roblox UWP. [Learn more about Hyperion Byfron](https://docs.google.com/document/d/1FRWTMnPZ-6fuyKjaT_YDU8tT1DrmLSw63YKtc2CfiMI/edit?usp=sharing).<br>
+If you have a working Dynamic-Link Library (DLL), you can edit the source code of LInjector. <br>
+LInjector uses the Monaco editor, the same one that powers Visual Studio Code, with syntax highlighting, [developed by Krnl](https://krnl.place/).
+Also available on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
 
 ## Screenshots
 <table>
@@ -24,91 +24,71 @@ Also aviable on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
 			<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/d24106be-2142-4cbe-842d-761744e8f959" height="100%">
 		</td>
 		<td width="600">
-			<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/28cda1da-ecea-406e-87e1-d4a34cdf023e" height="100%">
+			<img src="https://cdn.discordapp.com/attachments/1122366811229405264/1139451589187342416/image.png" height="100%">
 		</td>
 	</tr>
 </table>
 
-
-
-
 <hr/>
 
-## How to build?
-To edit the Forms, first compile, for any reason, forms can't load if not compiled. If you opened the forms before compile, restart Visual Studio and your problem should be fixed.
-- Clone the repo `gh repo clone ItzzExcel/LInjector`
+## About
+LInjector was primarily developed by [ItzzExcel](https://github.com/ItzzExcel) and [Depso](https://github.com/Depthso).\
+It was created out of the necessity for a secure and open-source executor without the risks associated with popular ones.
+
+## About the Structure of LInjector
+A legitimate development tool.\
+Windows Forms Application.\
+Written in C#, with .NET Framework 4.8 | 32-Bit.\
+I apologize for the uncommented code. If you have any questions, you can contact me via my Discord Server.
+
+## How to Build?
+To edit the Forms, first compile. For any reason, forms can't load if not compiled. If you opened the forms before compiling, restart Visual Studio, and your problem should be fixed.
+- Clone the repository :  `gh repo clone ItzzExcel/LInjector`
 - Open LInjector.sln in Visual Studio 2022.
 - Set Release x86
-- Ctrl + Shift + B (build)
-- 
-### Arguments (Linjector.exe --arg)
+- Build Solution (CTRL + SHIFT + B)
+
+### Arguments (LInjector.exe --arg)
 <pre>
 .\LInjector.exe --metalpipe
-  (Plays metal pipe falling sound)<br>
+  (Plays the sound of a metal pipe falling)<br>
 .\LInjector.exe --bamboopipe
-  (Plays bamboo pipe falling sound)<br>
+  (Plays the sound of a bamboo pipe falling)<br>
 .\LInjector.exe --debug
   (Shows console)<br>
 .\LInjector.exe --sizable
   (Makes LInjector application form sizable and dockable)<br>
 .\LInjector.exe --no-splash
-  (Don't shows splash screen on startup)
+  (Doesn't show splash screen on startup)
 </pre>
 
 ## Why LInjector?
 Well, here are some reasons:
-- It's an open-source project, that ensures the program does not contain malware.
-- Injection speed, the injection speed of LInjector has shown advantage over other executors. Approaching to about 0.02 seconds or 20 milliseconds.
-- Optimized tab system. The tab system in LInjector it's optimized to use no more than 500 megabytes of RAM even with 40 tabs open.
-- Transparency about the state and code of LInjector, I can ensure you'll get a response about LInjector every time.
+- It's an open-source project, which ensures the program does not contain malware.
+- Injection speed, the injection speed of LInjector has shown an advantage over other executors. Approaching about 0.3 seconds or 300 milliseconds.
+- Optimized tab system. The tab system in LInjector is optimized to use no more than 1 Gigabyte of RAM, even with 40 tabs open.
+- Transparency about the state and code of LInjector. I can ensure you'll get a response about LInjector every time.
 
-### Is LInjector key-less?
-Yes, LInjector is key-less, free and open-source.
+<hr/>
 
-### LInjector, including The LExploits Tools are not fully developed and can't be tested due to Hyperion Byfron, Roblox Anticheat.<br>
-🔴 All Exploits, including LInjector are currently patched.<br>Use any executor at your own risk.<br>
-Fluxus, Electron and Comet is working with UWP Roblox.</h4>
+## Disclaimer
+To whom it may concern,
 
-## About
-LInjector, developed mainly by [ItzzExcel](https://github.com/ItzzExcel) and [Depso](https://github.com/Depthso). Using Fluxus API to work.
-Created by the necessity to have a secure & open-source executor without getting the risks of popular ones.
+We hereby declare that we have created an open-source exploit named "LInjector" solely for development and utility purposes. We explicitly refuse any responsibility for any misuse or illegal activities that may arise from the use of this application. The code is provided "as is," without any warranty, and users assume all risks associated with its use.
 
-LInjector is a Development Tool.
-Windows Forms Application.
-Written in C#, with .NET Framework 4.8 32-Bit.
+We do not condone or support any unethical or malicious activities that may be facilitated using LInjector. It is the responsibility of the users to ensure that they comply with all applicable laws and regulations while using this development tool.
 
-The LInjector Releases Format is: (dd/MM/yyyy)
-The LInjector Project is under the MIT License.
+We urge all users to use LInjector only for development and utility purposes and to refrain from using it for any illegal or unethical activities. By using this development tool, users acknowledge and agree to assume all risks associated with its use.
 
-- [LInjector, uses the Fluxus API to work.](https://fluxteam.net/)
-- [Using Microsoft Edge WebView2 to view Monaco.](https://developer.microsoft.com/microsoft-edge/webview2/)
+## Used Projects in LInjector
+- LInjector uses the Fluxteam/WRD Modules to work. [Fluxus](https://fluxteam.net) | [WeAreDevs](https://wearedevs.net)
 - [The text editor is Monaco.](https://microsoft.github.io/monaco-editor/)
-- [Monaco Editor, edited by Supercomet Labs for Comet 3.](https://cometrbx.xyz/)
-- [Spinning Gradient by me (you can take it and put in into your personal projects, idc.](https://gist.github.com/ItzzExcel/6bece91fcd3388618dde3de6bcab4a60)
+- [Monaco Editor, edited by Krnl.](https://krnl.place/)
+- [Spinning Gradient by me (you can take it and put it into your personal projects.](https://gist.github.com/ItzzExcel/6bece91fcd3388618dde3de6bcab4a60)
 - [Tab System by lxnnydev](https://github.com/lxnnydev/Winforms-Tab-System)
+- [Depso's UNC Patches](https://github.com/depthso/Roblox-UNC-Patches)
+- [MastersMZ Scripts API](https://mastersmzscripts.com)
 
+<hr/>
 
-### LICENSE
-```
-MIT License
-
-Copyright (c) 2023, The LInjector Project
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+— Made with love by Excel and Depso. <3
