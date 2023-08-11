@@ -74,7 +74,7 @@ Well, here are some reasons:
 ## Disclaimer
 To whom it may concern,
 
-We hereby declare that we have created an open-source exploit named "LInjector" solely for development and utility purposes. We explicitly refuse any responsibility for any misuse or illegal activities that may arise from the use of this application. The code is provided "as is," without any warranty, and users assume all risks associated with its use.
+We hereby declare that we have created an open-source exploit named "LInjector" solely for development and utility purposes. We explicitly refuse any responsibility for any misuse or illegal activities that may arise from the use of this application. The code is provided "as is", without any warranty, and users assume all risks associated with its use.
 
 We do not condone or support any unethical or malicious activities that may be facilitated using LInjector. It is the responsibility of the users to ensure that they comply with all applicable laws and regulations while using this development tool.
 
