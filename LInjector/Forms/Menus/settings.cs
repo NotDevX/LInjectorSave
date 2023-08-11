@@ -13,8 +13,6 @@ namespace LInjector.Forms.Menus
             InitializeComponent();
         }
 
-        application applicationz = null;
-
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
         [DllImportAttribute("user32.dll")]
@@ -101,13 +99,11 @@ namespace LInjector.Forms.Menus
             if (TopMostHandler.Checked)
             {
                 ConfigHandler.SetConfigValue("topmost", true);
-                applicationz.TopMost = true;
                 ConfigHandler.topmost = true;
             }
             else
             {
                 ConfigHandler.SetConfigValue("topmost", false);
-                applicationz.TopMost = false;
                 ConfigHandler.topmost = false;
             }
         }
