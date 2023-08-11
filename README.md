@@ -32,7 +32,7 @@ Also available on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
 <hr/>
 
 ## About
-LInjector was primarily developed by [ItzzExcel](https://github.com/ItzzExcel) and [Depso](https://github.com/Depthso).\
+LInjector is primarily developed by [ItzzExcel](https://github.com/ItzzExcel) and [Depso](https://github.com/Depthso).\
 It was created out of the necessity for a secure and open-source executor without the risks associated with popular ones.
 
 ## About the Structure of LInjector
