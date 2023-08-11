@@ -14,7 +14,7 @@ namespace LInjector.WPF
         public TabSystem()
         {
             InitializeComponent();
-            maintabs.Items.Add(CreateTab("", "Script" + " " + this.maintabs.Items.Count.ToString()));
+            maintabs.Items.Add(CreateTab("", "Script" + " " + (this.maintabs.Items.Count + 1).ToString()));
 
         }
 
@@ -58,8 +58,8 @@ namespace LInjector.WPF
             switch (((Button)sender).Name)
             {
                 case "AddT":
-                    maintabs.Items.Add(CreateTab("", "Script" + " " + this.maintabs.Items.Count.ToString()));
-                    CustomCw.Cw($"Added Tab: {"Script "} {this.maintabs.Items.Count.ToString()}", false, "debug");
+                    maintabs.Items.Add(CreateTab("", "Script" + " " + (this.maintabs.Items.Count+1).ToString()));
+                    CustomCw.Cw($"Added Tab: {"Script "} {(this.maintabs.Items.Count+1).ToString()}", false, "debug");
                     break;
                 case "RemoveT":
                     try
