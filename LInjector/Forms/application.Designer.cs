@@ -52,14 +52,14 @@
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.execinjPanel = new System.Windows.Forms.Panel();
             this.OptionsMenu = new System.Windows.Forms.Panel();
-            this.githubPanel = new System.Windows.Forms.Panel();
-            this.githubButton = new System.Windows.Forms.PictureBox();
-            this.terminalPanel = new System.Windows.Forms.Panel();
-            this.terminalButton = new System.Windows.Forms.PictureBox();
             this.SettingsPanel = new System.Windows.Forms.Panel();
             this.SettingsButton = new System.Windows.Forms.PictureBox();
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.InfoIcon = new System.Windows.Forms.PictureBox();
+            this.terminalPanel = new System.Windows.Forms.Panel();
+            this.terminalButton = new System.Windows.Forms.PictureBox();
+            this.githubPanel = new System.Windows.Forms.Panel();
+            this.githubButton = new System.Windows.Forms.PictureBox();
             this.dscPanel = new System.Windows.Forms.Panel();
             this.dscButton = new System.Windows.Forms.PictureBox();
             this.expandMenu = new System.Windows.Forms.Panel();
@@ -85,14 +85,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).BeginInit();
             this.execinjPanel.SuspendLayout();
             this.OptionsMenu.SuspendLayout();
-            this.githubPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
-            this.terminalPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).BeginInit();
             this.SettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).BeginInit();
+            this.terminalPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).BeginInit();
+            this.githubPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
             this.dscPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dscButton)).BeginInit();
             this.expandMenu.SuspendLayout();
@@ -263,7 +263,7 @@
             LInjectorLabel.Text = "LInjector";
             LInjectorLabel.UseMnemonic = false;
             LInjectorLabel.UseVisualStyleBackColor = false;
-            LInjectorLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorLabel_MouseDown);
+            LInjectorLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // titlebar
             // 
@@ -292,7 +292,7 @@
             this.titleDialog.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.titleDialog.Size = new System.Drawing.Size(865, 29);
             this.titleDialog.TabIndex = 6;
-            this.titleDialog.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleDialog_MouseDown);
+            this.titleDialog.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // menuSettings
             // 
@@ -303,7 +303,7 @@
             this.menuSettings.Padding = new System.Windows.Forms.Padding(10, 1, 10, 1);
             this.menuSettings.Size = new System.Drawing.Size(655, 29);
             this.menuSettings.TabIndex = 9;
-            this.menuSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuSettings_MouseDown);
+            this.menuSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // infSettings
             // 
@@ -322,7 +322,7 @@
             this.infSettings.TabIndex = 100;
             this.infSettings.Text = ". . .";
             this.infSettings.UseVisualStyleBackColor = false;
-            this.infSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.infSettings_MouseDown);
+            this.infSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // controlmenu
             // 
@@ -332,6 +332,7 @@
             this.controlmenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.controlmenu.Location = new System.Drawing.Point(897, 3);
             this.controlmenu.Name = "controlmenu";
+            this.controlmenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.controlmenu.Size = new System.Drawing.Size(90, 29);
             this.controlmenu.TabIndex = 3;
             // 
@@ -348,7 +349,7 @@
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.ForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Location = new System.Drawing.Point(58, -1);
+            this.CloseButton.Location = new System.Drawing.Point(58, 2);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(29, 29);
             this.CloseButton.TabIndex = 2;
@@ -370,7 +371,7 @@
             this.Maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Maximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Maximize.ForeColor = System.Drawing.Color.Transparent;
-            this.Maximize.Location = new System.Drawing.Point(29, -1);
+            this.Maximize.Location = new System.Drawing.Point(29, 2);
             this.Maximize.Name = "Maximize";
             this.Maximize.Size = new System.Drawing.Size(29, 29);
             this.Maximize.TabIndex = 1;
@@ -392,7 +393,7 @@
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Minimize.ForeColor = System.Drawing.Color.Transparent;
-            this.Minimize.Location = new System.Drawing.Point(0, -1);
+            this.Minimize.Location = new System.Drawing.Point(0, 2);
             this.Minimize.Name = "Minimize";
             this.Minimize.Size = new System.Drawing.Size(29, 29);
             this.Minimize.TabIndex = 0;
@@ -422,7 +423,7 @@
             this.LInjectorIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.LInjectorIcon.TabIndex = 0;
             this.LInjectorIcon.TabStop = false;
-            this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LInjectorIcon_MouseDown);
+            this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // execinjPanel
             // 
@@ -436,14 +437,14 @@
             this.execinjPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.execinjPanel.Size = new System.Drawing.Size(990, 28);
             this.execinjPanel.TabIndex = 7;
-            this.execinjPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.execinjPanel_MouseDown);
+            this.execinjPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // OptionsMenu
             // 
-            this.OptionsMenu.Controls.Add(this.githubPanel);
-            this.OptionsMenu.Controls.Add(this.terminalPanel);
             this.OptionsMenu.Controls.Add(this.SettingsPanel);
             this.OptionsMenu.Controls.Add(this.InfoPanel);
+            this.OptionsMenu.Controls.Add(this.terminalPanel);
+            this.OptionsMenu.Controls.Add(this.githubPanel);
             this.OptionsMenu.Controls.Add(this.dscPanel);
             this.OptionsMenu.Controls.Add(this.expandMenu);
             this.OptionsMenu.Dock = System.Windows.Forms.DockStyle.Right;
@@ -452,63 +453,16 @@
             this.OptionsMenu.Size = new System.Drawing.Size(168, 28);
             this.OptionsMenu.TabIndex = 11;
             // 
-            // githubPanel
-            // 
-            this.githubPanel.Controls.Add(this.githubButton);
-            this.githubPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.githubPanel.Location = new System.Drawing.Point(0, 0);
-            this.githubPanel.Name = "githubPanel";
-            this.githubPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.githubPanel.Size = new System.Drawing.Size(28, 28);
-            this.githubPanel.TabIndex = 32;
-            // 
-            // githubButton
-            // 
-            this.githubButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.githubButton.Image = global::LInjector.Properties.Resources.github_mark_white;
-            this.githubButton.Location = new System.Drawing.Point(5, 5);
-            this.githubButton.Name = "githubButton";
-            this.githubButton.Size = new System.Drawing.Size(18, 18);
-            this.githubButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.githubButton.TabIndex = 0;
-            this.githubButton.TabStop = false;
-            this.githubButton.Click += new System.EventHandler(this.githubButton_Click);
-            this.githubButton.MouseEnter += new System.EventHandler(this.githubButton_MouseEnter);
-            this.githubButton.MouseLeave += new System.EventHandler(this.githubButton_MouseLeave);
-            // 
-            // terminalPanel
-            // 
-            this.terminalPanel.Controls.Add(this.terminalButton);
-            this.terminalPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.terminalPanel.Location = new System.Drawing.Point(28, 0);
-            this.terminalPanel.Name = "terminalPanel";
-            this.terminalPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.terminalPanel.Size = new System.Drawing.Size(28, 28);
-            this.terminalPanel.TabIndex = 31;
-            // 
-            // terminalButton
-            // 
-            this.terminalButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.terminalButton.Image = global::LInjector.Properties.Resources.terminal_icon;
-            this.terminalButton.Location = new System.Drawing.Point(5, 5);
-            this.terminalButton.Name = "terminalButton";
-            this.terminalButton.Size = new System.Drawing.Size(18, 18);
-            this.terminalButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.terminalButton.TabIndex = 0;
-            this.terminalButton.TabStop = false;
-            this.terminalButton.Click += new System.EventHandler(this.terminalButton_Click);
-            this.terminalButton.MouseEnter += new System.EventHandler(this.terminalButton_MouseEnter);
-            this.terminalButton.MouseLeave += new System.EventHandler(this.terminalButton_MouseLeave);
-            // 
             // SettingsPanel
             // 
             this.SettingsPanel.Controls.Add(this.SettingsButton);
             this.SettingsPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SettingsPanel.Location = new System.Drawing.Point(56, 0);
+            this.SettingsPanel.Location = new System.Drawing.Point(0, 0);
             this.SettingsPanel.Name = "SettingsPanel";
             this.SettingsPanel.Padding = new System.Windows.Forms.Padding(5);
             this.SettingsPanel.Size = new System.Drawing.Size(28, 28);
-            this.SettingsPanel.TabIndex = 30;
+            this.SettingsPanel.TabIndex = 38;
+            this.SettingsPanel.Click += new System.EventHandler(this.SettingsButton_Click);
             // 
             // SettingsButton
             // 
@@ -528,11 +482,14 @@
             // 
             this.InfoPanel.Controls.Add(this.InfoIcon);
             this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.InfoPanel.Location = new System.Drawing.Point(84, 0);
+            this.InfoPanel.Location = new System.Drawing.Point(28, 0);
             this.InfoPanel.Name = "InfoPanel";
             this.InfoPanel.Padding = new System.Windows.Forms.Padding(5);
             this.InfoPanel.Size = new System.Drawing.Size(28, 28);
-            this.InfoPanel.TabIndex = 29;
+            this.InfoPanel.TabIndex = 37;
+            this.InfoPanel.Click += new System.EventHandler(this.InfoIcon_Click);
+            this.InfoPanel.MouseEnter += new System.EventHandler(this.Information_MouseEnter);
+            this.InfoPanel.MouseLeave += new System.EventHandler(this.Information_MouseLeave);
             // 
             // InfoIcon
             // 
@@ -546,7 +503,55 @@
             this.InfoIcon.TabStop = false;
             this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
             this.InfoIcon.MouseEnter += new System.EventHandler(this.Information_MouseEnter);
-            this.InfoIcon.MouseLeave += new System.EventHandler(this.Information_MouseLeave);
+            this.InfoIcon.MouseHover += new System.EventHandler(this.Information_MouseLeave);
+            // 
+            // terminalPanel
+            // 
+            this.terminalPanel.Controls.Add(this.terminalButton);
+            this.terminalPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.terminalPanel.Location = new System.Drawing.Point(56, 0);
+            this.terminalPanel.Name = "terminalPanel";
+            this.terminalPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.terminalPanel.Size = new System.Drawing.Size(28, 28);
+            this.terminalPanel.TabIndex = 35;
+            // 
+            // terminalButton
+            // 
+            this.terminalButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.terminalButton.Image = global::LInjector.Properties.Resources.terminal_icon;
+            this.terminalButton.Location = new System.Drawing.Point(5, 5);
+            this.terminalButton.Name = "terminalButton";
+            this.terminalButton.Size = new System.Drawing.Size(18, 18);
+            this.terminalButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.terminalButton.TabIndex = 0;
+            this.terminalButton.TabStop = false;
+            this.terminalButton.Click += new System.EventHandler(this.terminalButton_Click);
+            this.terminalButton.MouseEnter += new System.EventHandler(this.terminalButton_MouseEnter);
+            this.terminalButton.MouseLeave += new System.EventHandler(this.terminalButton_MouseLeave);
+            // 
+            // githubPanel
+            // 
+            this.githubPanel.Controls.Add(this.githubButton);
+            this.githubPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.githubPanel.Location = new System.Drawing.Point(84, 0);
+            this.githubPanel.Name = "githubPanel";
+            this.githubPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.githubPanel.Size = new System.Drawing.Size(28, 28);
+            this.githubPanel.TabIndex = 32;
+            // 
+            // githubButton
+            // 
+            this.githubButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.githubButton.Image = global::LInjector.Properties.Resources.github_mark_white;
+            this.githubButton.Location = new System.Drawing.Point(5, 5);
+            this.githubButton.Name = "githubButton";
+            this.githubButton.Size = new System.Drawing.Size(18, 18);
+            this.githubButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.githubButton.TabIndex = 0;
+            this.githubButton.TabStop = false;
+            this.githubButton.Click += new System.EventHandler(this.githubButton_Click);
+            this.githubButton.MouseEnter += new System.EventHandler(this.githubButton_MouseEnter);
+            this.githubButton.MouseLeave += new System.EventHandler(this.githubButton_MouseLeave);
             // 
             // dscPanel
             // 
@@ -655,13 +660,14 @@
             this.holder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.holder.Location = new System.Drawing.Point(5, 68);
             this.holder.Name = "holder";
+            this.holder.Padding = new System.Windows.Forms.Padding(5);
             this.holder.Size = new System.Drawing.Size(990, 427);
             this.holder.TabIndex = 8;
             // 
             // SplitCont
             // 
             this.SplitCont.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitCont.Location = new System.Drawing.Point(0, 0);
+            this.SplitCont.Location = new System.Drawing.Point(5, 5);
             this.SplitCont.Name = "SplitCont";
             // 
             // SplitCont.Panel1
@@ -674,8 +680,8 @@
             this.SplitCont.Panel2.Controls.Add(this.ScriptsList);
             this.SplitCont.Panel2.Padding = new System.Windows.Forms.Padding(3);
             this.SplitCont.Panel2MinSize = 0;
-            this.SplitCont.Size = new System.Drawing.Size(990, 427);
-            this.SplitCont.SplitterDistance = 800;
+            this.SplitCont.Size = new System.Drawing.Size(980, 417);
+            this.SplitCont.SplitterDistance = 757;
             this.SplitCont.TabIndex = 0;
             // 
             // TabsPanel
@@ -683,7 +689,7 @@
             this.TabsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabsPanel.Location = new System.Drawing.Point(1, 1);
             this.TabsPanel.Name = "TabsPanel";
-            this.TabsPanel.Size = new System.Drawing.Size(798, 425);
+            this.TabsPanel.Size = new System.Drawing.Size(755, 415);
             this.TabsPanel.TabIndex = 0;
             // 
             // ScriptsList
@@ -698,7 +704,7 @@
             this.ScriptsList.Location = new System.Drawing.Point(3, 3);
             this.ScriptsList.Name = "ScriptsList";
             this.ScriptsList.ShowScrollbar = false;
-            this.ScriptsList.Size = new System.Drawing.Size(180, 421);
+            this.ScriptsList.Size = new System.Drawing.Size(213, 411);
             this.ScriptsList.TabIndex = 0;
             this.ScriptsList.DoubleClick += new System.EventHandler(this.ScriptsList_DoubleClick);
             // 
@@ -708,18 +714,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(1000, 500);
+            this.ControlBox = false;
             this.Controls.Add(this.holder);
             this.Controls.Add(this.execinjPanel);
             this.Controls.Add(this.titlebar);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "application";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.application_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.application_MouseDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             this.EditStrip.ResumeLayout(false);
             this.FileStrip.ResumeLayout(false);
             this.titlebar.ResumeLayout(false);
@@ -730,14 +738,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);
             this.OptionsMenu.ResumeLayout(false);
-            this.githubPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
-            this.terminalPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).EndInit();
             this.SettingsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).EndInit();
             this.InfoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).EndInit();
+            this.terminalPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.terminalButton)).EndInit();
+            this.githubPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.githubButton)).EndInit();
             this.dscPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dscButton)).EndInit();
             this.expandMenu.ResumeLayout(false);
@@ -783,15 +791,15 @@
         private System.Windows.Forms.PictureBox expandButton;
         private System.Windows.Forms.Panel githubPanel;
         private System.Windows.Forms.PictureBox githubButton;
-        private System.Windows.Forms.Panel terminalPanel;
-        private System.Windows.Forms.PictureBox terminalButton;
-        private System.Windows.Forms.Panel SettingsPanel;
-        private System.Windows.Forms.PictureBox SettingsButton;
-        private System.Windows.Forms.Panel InfoPanel;
-        private System.Windows.Forms.PictureBox InfoIcon;
         private System.Windows.Forms.Panel dscPanel;
         private System.Windows.Forms.PictureBox dscButton;
         public System.Windows.Forms.Panel OptionsMenu;
         public System.Windows.Forms.SplitContainer SplitCont;
+        private System.Windows.Forms.Panel SettingsPanel;
+        private System.Windows.Forms.PictureBox SettingsButton;
+        private System.Windows.Forms.Panel InfoPanel;
+        private System.Windows.Forms.PictureBox InfoIcon;
+        private System.Windows.Forms.Panel terminalPanel;
+        private System.Windows.Forms.PictureBox terminalButton;
     }
 }

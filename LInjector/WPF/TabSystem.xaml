@@ -222,7 +222,7 @@
                             <Border CornerRadius="3 3 3 3" Name="Mainn" Width="Auto" Height="26" Margin="0" BorderThickness="0" Background="{TemplateBinding Background}">
                                 <Grid>
                                     <Border x:Name="Blueee" CornerRadius="3 3 3 3" Height="1" VerticalAlignment="Bottom" BorderThickness="0" Background="#FF3C3C3C"/>
-                                    <Border x:Name="Hoverborder" CornerRadius="0" Height="2" VerticalAlignment="Bottom" BorderThickness="0" Background="#FF3C3C3C" Width="200"/>
+                                    <Border x:Name="Hoverborder" CornerRadius="0" Height="2" VerticalAlignment="Bottom" BorderThickness="0" Background="#FF3C3C3C" Width="Auto"/>
                                 </Grid>
                             </Border>
 

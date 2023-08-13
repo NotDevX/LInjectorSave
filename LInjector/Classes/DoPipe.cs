@@ -81,7 +81,6 @@ namespace LInjector.Classes
 
         public static void PlayPipeSound(string filePath)
         {
-            //CustomCw.Cw("DoPipe", false, "debug");
 
             if (File.Exists(filePath) && new FileInfo(filePath).Length > 0)
             {
@@ -97,10 +96,6 @@ namespace LInjector.Classes
                 {
                     CustomCw.Cw($"Error playing file: {e.Message}", false, "error");
                 }
-            }
-            else
-            {
-
             }
         }
     }

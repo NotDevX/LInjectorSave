@@ -58,8 +58,8 @@ namespace LInjector.WPF
             switch (((Button)sender).Name)
             {
                 case "AddT":
-                    maintabs.Items.Add(CreateTab("", "Script" + " " + (this.maintabs.Items.Count+1).ToString()));
-                    CustomCw.Cw($"Added Tab: {"Script "} {(this.maintabs.Items.Count+1).ToString()}", false, "debug");
+                    maintabs.Items.Add(CreateTab("", "Script" + " " + (this.maintabs.Items.Count + 1).ToString()));
+                    CustomCw.Cw($"Added Tab: {"Script "} {(this.maintabs.Items.Count + 1).ToString()}", false, "debug");
                     break;
                 case "RemoveT":
                     try
@@ -74,6 +74,7 @@ namespace LInjector.WPF
                     break;
             }
         }
+
         public monaco_api CreateEditor(string Start) => new monaco_api(Start);
 
         public TabItem CreateTab(string content, string Title = "Untitled") =>

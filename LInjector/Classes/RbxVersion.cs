@@ -59,7 +59,6 @@ namespace LInjector.Classes
                 process.WaitForExit();
 
                 string output = process.StandardOutput.ReadToEnd();
-                CustomCw.Cw(output, false, "debug");
             }
         }
 

@@ -14,9 +14,12 @@ using System.Net;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using System.Windows.Threading;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+
 namespace LInjector
 {
     public partial class application : Form
@@ -40,30 +43,23 @@ namespace LInjector
         private const int cGrip = 16;
         private const int cCaption = 32;
 
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         public application()
         {
             InitializeComponent();
-            DownloadScripts();
+            (new LInjector.Classes.DropShadow()).ApplyShadows(this);
             SetStyle(ControlStyles.ResizeRedraw, true);
+            DownloadScripts();
 
             if (ArgumentHandler.SizableBool)
             {
                 FormBorderStyle = FormBorderStyle.Sizable;
                 Text = "LInjector";
             }
-        }
-
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        public async Task<string> GetMonacoContent()
-        {
-            string result = await tabSystem.current_monaco().GetText();
-            string text = JsonConvert.DeserializeObject<string>(result);
-            return text;
         }
 
         public void application_Load(object sender, EventArgs e)
@@ -110,6 +106,13 @@ namespace LInjector
             }
         }
 
+        public async Task<string> GetMonacoContent()
+        {
+            string result = await tabSystem.current_monaco().GetText();
+            string text = JsonConvert.DeserializeObject<string>(result);
+            return text;
+        }
+
         public void runAutoAttachTimer()
         {
             DispatcherTimer timer = new DispatcherTimer();
@@ -146,7 +149,6 @@ namespace LInjector
                 }
             }
         }
-        // TODO HERE
 
         public void AddScripts(dynamic ScriptsJson)
         {
@@ -186,7 +188,6 @@ namespace LInjector
                 _ = NotificationManager.FireNotification("Could not download scripts", infSettings);
             }
         }
-
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == 0x84)
@@ -248,71 +249,7 @@ namespace LInjector
         {
             WindowState = FormWindowState.Minimized;
         }
-
-        private void titleDialog_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void LInjectorIcon_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void application_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void menuSettings_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void fileNameString_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void infSettings_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void execinjPanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void LInjectorLabel_MouseDown(object sender, MouseEventArgs e)
+        public void DragWindow(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -461,6 +398,7 @@ namespace LInjector
                             string savedFileName = Path.GetFileName(saveFileDialog.FileName);
                             _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
                             CustomCw.Cw($"Saved file {savedFileName} to {saveFileDialog.FileName}", false, "debug");
+                            tabSystem.ChangeCurrentTabTitle(savedFileName);
                         }
                         catch (Exception)
                         {
