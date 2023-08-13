@@ -119,7 +119,7 @@
             EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             EditButton.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
             EditButton.ForeColor = System.Drawing.Color.White;
-            EditButton.Location = new System.Drawing.Point(147, 0);
+            EditButton.Location = new System.Drawing.Point(137, 0);
             EditButton.Name = "EditButton";
             EditButton.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             EditButton.Size = new System.Drawing.Size(53, 29);
@@ -196,7 +196,7 @@
             FileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             FileButton.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
             FileButton.ForeColor = System.Drawing.Color.White;
-            FileButton.Location = new System.Drawing.Point(94, 0);
+            FileButton.Location = new System.Drawing.Point(84, 0);
             FileButton.Name = "FileButton";
             FileButton.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             FileButton.Size = new System.Drawing.Size(53, 29);
@@ -255,9 +255,8 @@
             LInjectorLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             LInjectorLabel.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
             LInjectorLabel.ForeColor = System.Drawing.Color.White;
-            LInjectorLabel.Location = new System.Drawing.Point(10, 0);
+            LInjectorLabel.Location = new System.Drawing.Point(0, 0);
             LInjectorLabel.Name = "LInjectorLabel";
-            LInjectorLabel.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             LInjectorLabel.Size = new System.Drawing.Size(84, 29);
             LInjectorLabel.TabIndex = 6;
             LInjectorLabel.Text = "LInjector";
@@ -289,7 +288,6 @@
             this.titleDialog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.titleDialog.Location = new System.Drawing.Point(32, 3);
             this.titleDialog.Name = "titleDialog";
-            this.titleDialog.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.titleDialog.Size = new System.Drawing.Size(865, 29);
             this.titleDialog.TabIndex = 6;
             this.titleDialog.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
@@ -298,10 +296,10 @@
             // 
             this.menuSettings.Controls.Add(this.infSettings);
             this.menuSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuSettings.Location = new System.Drawing.Point(200, 0);
+            this.menuSettings.Location = new System.Drawing.Point(190, 0);
             this.menuSettings.Name = "menuSettings";
             this.menuSettings.Padding = new System.Windows.Forms.Padding(10, 1, 10, 1);
-            this.menuSettings.Size = new System.Drawing.Size(655, 29);
+            this.menuSettings.Size = new System.Drawing.Size(675, 29);
             this.menuSettings.TabIndex = 9;
             this.menuSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
@@ -318,7 +316,7 @@
             this.infSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infSettings.Location = new System.Drawing.Point(10, 1);
             this.infSettings.Name = "infSettings";
-            this.infSettings.Size = new System.Drawing.Size(635, 27);
+            this.infSettings.Size = new System.Drawing.Size(655, 27);
             this.infSettings.TabIndex = 100;
             this.infSettings.Text = ". . .";
             this.infSettings.UseVisualStyleBackColor = false;
@@ -414,9 +412,9 @@
             // LInjectorIcon
             // 
             this.LInjectorIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LInjectorIcon.Image = global::LInjector.Properties.Resources.LInjector;
+            this.LInjectorIcon.Image = global::LInjector.Properties.Resources.linj_shadow;
             this.LInjectorIcon.ImageLocation = "";
-            this.LInjectorIcon.InitialImage = global::LInjector.Properties.Resources.LInjector;
+            this.LInjectorIcon.InitialImage = null;
             this.LInjectorIcon.Location = new System.Drawing.Point(0, 0);
             this.LInjectorIcon.Name = "LInjectorIcon";
             this.LInjectorIcon.Size = new System.Drawing.Size(29, 29);
