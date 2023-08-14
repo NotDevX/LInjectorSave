@@ -24,14 +24,14 @@ namespace LInjector
 {
     public partial class application : Form
     {
-        TabSystem tabSystem = new TabSystem();
-        settings GetSettings = new settings();
-        about GetAbout = new about();
-        List<ScriptItem> ScriptsCache = new List<ScriptItem>();
-        private HttpClient client = new HttpClient();
-        private WebClient webCl = new WebClient();
+        readonly TabSystem tabSystem = new TabSystem();
+        readonly settings GetSettings = new settings();
+        readonly about GetAbout = new about();
+        readonly List<ScriptItem> ScriptsCache = new List<ScriptItem>();
+        private readonly HttpClient client = new HttpClient();
+        private readonly WebClient webCl = new WebClient();
 
-        monaco_api monaco_api = null;
+        readonly monaco_api monaco_api = null;
 
         public static bool AboutShown = false;
         public bool IsOptionsCollapsed = false;
@@ -86,11 +86,12 @@ namespace LInjector
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-
-            ElementHost host = new ElementHost();
-            host.Parent = TabsPanel;
-            host.Dock = DockStyle.Fill;
-            host.Child = tabSystem;
+            _ = new ElementHost
+            {
+                Parent = TabsPanel,
+                Dock = DockStyle.Fill,
+                Child = tabSystem
+            };
 
             if (ConfigHandler.topmost)
             { TopMost = true; }
@@ -270,7 +271,7 @@ namespace LInjector
                 var cm = tabSystem.current_monaco();
                 cm.SetText("");
                 CustomCw.Cw("TextBox Cleared.", false, "debug");
-                tabSystem.ChangeCurrentTabTitle($"Script {tabSystem.maintabs.Items.Count.ToString()}");
+                tabSystem.ChangeCurrentTabTitle($"Script {tabSystem.maintabs.Items.Count}");
             }
             catch (Exception)
             {
@@ -325,10 +326,12 @@ namespace LInjector
         {
             try
             {
-                var openFileDialog = new OpenFileDialog();
-                openFileDialog.Title = "Open Script Files | LInjector";
-                openFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
-                openFileDialog.Multiselect = false;
+                var openFileDialog = new OpenFileDialog
+                {
+                    Title = "Open Script Files | LInjector",
+                    Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*",
+                    Multiselect = false
+                };
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string fileContent = File.ReadAllText(openFileDialog.FileName);
@@ -371,10 +374,12 @@ namespace LInjector
         {
             var previousFocus = ActiveForm.ActiveControl;
 
-            var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.FileName = await tabSystem.GetCurrentTabTitle();
-            saveFileDialog.Title = "Save to File | LInjector";
-            saveFileDialog.Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*";
+            var saveFileDialog = new SaveFileDialog
+            {
+                FileName = await tabSystem.GetCurrentTabTitle(),
+                Title = "Save to File | LInjector",
+                Filter = "Script Files (*.txt;*.lua;*.luau)|*.txt;*.lua;*.luau|All files (*.*)|*.*"
+            };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {

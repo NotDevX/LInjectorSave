@@ -20,7 +20,7 @@ namespace LInjector.WPF.Classes
 
         public monaco_api(string Text)
         {
-            this.Source = new Uri("https://itzzexcel.github.io/luau-monaco");
+            this.Source = new Uri("https://itzzexcel.github.io/LInjector/");
             this.CoreWebView2InitializationCompleted += monaco_api_CoreWebView2InitializationCompleted;
             this.ToSetText = Text;
         }
