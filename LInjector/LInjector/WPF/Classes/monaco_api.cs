@@ -10,9 +10,7 @@ namespace LInjector.WPF.Classes
 
         public bool isDOMLoaded { get; set; } = false;
         private string ToSetText;
-#pragma warning disable IDE0052 // Remove unread private members
         private string LatestRecievedText;
-#pragma warning restore IDE0052 // Remove unread private members
         public bool isMinimapEnabled { get; set; }
 
         /// <summary>
