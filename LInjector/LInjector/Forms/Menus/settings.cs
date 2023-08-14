@@ -134,7 +134,7 @@ namespace LInjector.Forms.Menus
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            (new settings()).Close();
+            Hide();
         }
 
         private void Minimize_Click(object sender, EventArgs e)
