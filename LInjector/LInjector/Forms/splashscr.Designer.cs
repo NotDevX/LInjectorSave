@@ -61,7 +61,7 @@
             this.spinningRGB.Name = "spinningRGB";
             this.spinningRGB.Size = new System.Drawing.Size(780, 405);
             this.spinningRGB.TabIndex = 0;
-            this.spinningRGB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.spinningRGB_MouseDown);
+            this.spinningRGB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // linjicon
             // 
@@ -73,7 +73,7 @@
             this.linjicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.linjicon.TabIndex = 1;
             this.linjicon.TabStop = false;
-            this.linjicon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.linjicon_MouseDown);
+            this.linjicon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // splashscr
             // 
@@ -90,7 +90,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splashscr_MouseDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             this.gradientpanel.ResumeLayout(false);
             this.spinningRGB.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.linjicon)).EndInit();

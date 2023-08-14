@@ -1,12 +1,11 @@
-repeat wait() until game:IsLoaded() == true
-repeat wait() until (LInjector and LInjector.loaded) == true
+repeat wait() until (game:IsLoaded() and LInjector and LInjector.loaded)
 
 if LInjector.GuiLoaded == true then 
 	script:Remove()
 	return
 end
-LInjector.GuiLoaded = true
 
+LInjector.GuiLoaded = true
 local LInjNotification = Instance.new("ScreenGui")
 local holder_1 = Instance.new("Frame")
 local UIListLayout_1 = Instance.new("UIListLayout")
@@ -142,6 +141,10 @@ UIPadding_3.Name = crypt.generatebytes()
 UIPadding_3.Parent = container_1
 UIPadding_3.PaddingRight = UDim.new(0,20)
 
+-- Scripts:
+
+local function SAOKCV_fake_script() -- LInjNotification.scriptz
+	local scriptz = Instance.new('LocalScript', LInjNotification)
 	scriptz.Name = crypt.generatebytes()
 
 	-------------------------------------------------
@@ -200,3 +203,5 @@ UIPadding_3.PaddingRight = UDim.new(0,20)
 	HideFrame : Play ()
 	HideFrame.Completed : Wait ()
 	LInjNotification:Remove()
+end
+coroutine.wrap(SAOKCV_fake_script)()

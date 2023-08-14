@@ -14,11 +14,9 @@ using System.Net;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using System.Windows.Threading;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace LInjector
 {
@@ -174,7 +172,7 @@ namespace LInjector
             {
                 client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
 
-                dynamic BuiltinScripts = await client.GetStringAsync("https://github.com/ItzzExcel/LInjectorRedistributables/raw/main/extra/LSciprts.json");
+                dynamic BuiltinScripts = await client.GetStringAsync("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/Pinned_Scripts.json");
                 BuiltinScripts = JsonConvert.DeserializeObject(BuiltinScripts);
 
                 AddScripts(BuiltinScripts);

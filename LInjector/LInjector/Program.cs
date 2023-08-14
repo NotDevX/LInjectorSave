@@ -14,7 +14,7 @@ using System.Windows.Forms;
  *
  * Since Release v01.07.2023a, I added the "WRD/Fluxteam Module" and it should be working.
  * If you have a DLL, you can edit the source code. This is open-source.
- * The Monaco Luau syntax highlighting can be found at (https://github.com/ItzzExcel/luau-monaco).
+ * The Monaco Luau syntax highlighting can be found at (https://github.com/ItzzExcel/LInjector/tree/Monaco).
  *  
  * The main form is located at Forms/application.
  * You can also remove the Forms/splashscreen.

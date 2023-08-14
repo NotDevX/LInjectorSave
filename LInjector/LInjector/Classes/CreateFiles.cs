@@ -10,8 +10,8 @@ namespace LInjector.Classes
 {
     public static class CreateFiles
     {
-        private static WebClient webClient = new WebClient();
-        private static HttpClient httpClient = new HttpClient();
+        private static readonly WebClient webClient = new WebClient();
+        private static readonly HttpClient httpClient = new HttpClient();
         private static readonly WshShell wsh = new WshShell();
 
         public static void Create()
@@ -41,7 +41,7 @@ namespace LInjector.Classes
         public static void RedownloadModules()
         {
             var Interfacer = new Uri("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs/FluxteamAPI.dll");
-            var Module     = new Uri("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs/Module.dll");
+            var Module = new Uri("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs/Module.dll");
 
             if (Directory.Exists("Resources\\libs"))
             {

@@ -18,11 +18,12 @@ namespace LInjector.Forms.Menus
         public about()
         {
             InitializeComponent();
+            (new LInjector.Classes.DropShadow()).ApplyShadows(this);
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            (new about()).Close();
         }
 
         private void Minimize_Click(object sender, EventArgs e)
