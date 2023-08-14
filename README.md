@@ -81,9 +81,9 @@ We do not condone or support any unethical or malicious activities that may be f
 We urge all users to use LInjector only for development and utility purposes and to refrain from using it for any illegal or unethical activities. By using this development tool, users acknowledge and agree to assume all risks associated with its use.
 
 ## Used Projects in LInjector
-- LInjector uses the Fluxteam/WRD Modules to work. [Fluxus](https://fluxteam.net) | [WeAreDevs](https://wearedevs.net)
+- LInjector uses the [Fluxus](https://fluxteam.net) (based of [WeAreDevs](https://wearedevs.net)) Modules to work.
 - [The text editor is Monaco.](https://microsoft.github.io/monaco-editor/)
-- [Monaco Editor, edited by Krnl.](https://krnl.place/)
+- Monaco Editor, edited by [Krnl](https://krnl.place/) and [depthso](https://github.com/depthso)
 - [Spinning Gradient by me (you can take it and put it into your personal projects.](https://gist.github.com/ItzzExcel/6bece91fcd3388618dde3de6bcab4a60)
 - [Tab System by lxnnydev](https://github.com/lxnnydev/Winforms-Tab-System)
 - [Depso's UNC Patches](https://github.com/depthso/Roblox-UNC-Patches)
