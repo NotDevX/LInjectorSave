@@ -184,7 +184,6 @@
             // 
             // reloadBtn
             // 
-            this.reloadBtn.AutoSize = false;
             this.reloadBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.reloadBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.reloadBtn.Depth = 0;
@@ -195,7 +194,7 @@
             this.reloadBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.reloadBtn.Name = "reloadBtn";
             this.reloadBtn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.reloadBtn.Size = new System.Drawing.Size(74, 36);
+            this.reloadBtn.Size = new System.Drawing.Size(77, 36);
             this.reloadBtn.TabIndex = 7;
             this.reloadBtn.Text = "Reload";
             this.reloadBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -208,16 +207,15 @@
             this.ScriptListHandler.AutoSize = true;
             this.ScriptListHandler.Depth = 0;
             this.ScriptListHandler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ScriptListHandler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScriptListHandler.ForeColor = System.Drawing.Color.White;
-            this.ScriptListHandler.Location = new System.Drawing.Point(5, 193);
+            this.ScriptListHandler.Location = new System.Drawing.Point(5, 190);
             this.ScriptListHandler.Margin = new System.Windows.Forms.Padding(0);
-            this.ScriptListHandler.MaximumSize = new System.Drawing.Size(275, 40);
-            this.ScriptListHandler.MinimumSize = new System.Drawing.Size(275, 40);
             this.ScriptListHandler.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ScriptListHandler.MouseState = MaterialSkin.MouseState.HOVER;
             this.ScriptListHandler.Name = "ScriptListHandler";
             this.ScriptListHandler.Ripple = true;
-            this.ScriptListHandler.Size = new System.Drawing.Size(275, 40);
+            this.ScriptListHandler.Size = new System.Drawing.Size(264, 37);
             this.ScriptListHandler.TabIndex = 6;
             this.ScriptListHandler.Text = "Show Script List";
             this.ScriptListHandler.UseVisualStyleBackColor = true;
@@ -228,16 +226,15 @@
             this.TopMostHandler.AutoSize = true;
             this.TopMostHandler.Depth = 0;
             this.TopMostHandler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopMostHandler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TopMostHandler.ForeColor = System.Drawing.Color.White;
             this.TopMostHandler.Location = new System.Drawing.Point(5, 153);
             this.TopMostHandler.Margin = new System.Windows.Forms.Padding(0);
-            this.TopMostHandler.MaximumSize = new System.Drawing.Size(275, 40);
-            this.TopMostHandler.MinimumSize = new System.Drawing.Size(275, 40);
             this.TopMostHandler.MouseLocation = new System.Drawing.Point(-1, -1);
             this.TopMostHandler.MouseState = MaterialSkin.MouseState.HOVER;
             this.TopMostHandler.Name = "TopMostHandler";
             this.TopMostHandler.Ripple = true;
-            this.TopMostHandler.Size = new System.Drawing.Size(275, 40);
+            this.TopMostHandler.Size = new System.Drawing.Size(264, 37);
             this.TopMostHandler.TabIndex = 5;
             this.TopMostHandler.Text = "Top Most";
             this.TopMostHandler.UseVisualStyleBackColor = true;
@@ -248,6 +245,7 @@
             this.RPCHandler.AutoSize = true;
             this.RPCHandler.Depth = 0;
             this.RPCHandler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RPCHandler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RPCHandler.ForeColor = System.Drawing.Color.White;
             this.RPCHandler.Location = new System.Drawing.Point(5, 116);
             this.RPCHandler.Margin = new System.Windows.Forms.Padding(0);
@@ -266,6 +264,7 @@
             this.ConsoleHandler.AutoSize = true;
             this.ConsoleHandler.Depth = 0;
             this.ConsoleHandler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ConsoleHandler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConsoleHandler.ForeColor = System.Drawing.Color.White;
             this.ConsoleHandler.Location = new System.Drawing.Point(5, 79);
             this.ConsoleHandler.Margin = new System.Windows.Forms.Padding(0);
@@ -284,6 +283,7 @@
             this.SplashHandler.AutoSize = true;
             this.SplashHandler.Depth = 0;
             this.SplashHandler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SplashHandler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SplashHandler.ForeColor = System.Drawing.Color.White;
             this.SplashHandler.Location = new System.Drawing.Point(5, 42);
             this.SplashHandler.Margin = new System.Windows.Forms.Padding(0);

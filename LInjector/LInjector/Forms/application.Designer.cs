@@ -679,7 +679,7 @@
             this.SplitCont.Panel2.Padding = new System.Windows.Forms.Padding(3);
             this.SplitCont.Panel2MinSize = 0;
             this.SplitCont.Size = new System.Drawing.Size(980, 417);
-            this.SplitCont.SplitterDistance = 757;
+            this.SplitCont.SplitterDistance = 750;
             this.SplitCont.TabIndex = 0;
             // 
             // TabsPanel
@@ -687,7 +687,7 @@
             this.TabsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabsPanel.Location = new System.Drawing.Point(1, 1);
             this.TabsPanel.Name = "TabsPanel";
-            this.TabsPanel.Size = new System.Drawing.Size(755, 415);
+            this.TabsPanel.Size = new System.Drawing.Size(748, 415);
             this.TabsPanel.TabIndex = 0;
             // 
             // ScriptsList
@@ -702,7 +702,7 @@
             this.ScriptsList.Location = new System.Drawing.Point(3, 3);
             this.ScriptsList.Name = "ScriptsList";
             this.ScriptsList.ShowScrollbar = false;
-            this.ScriptsList.Size = new System.Drawing.Size(213, 411);
+            this.ScriptsList.Size = new System.Drawing.Size(220, 411);
             this.ScriptsList.TabIndex = 0;
             this.ScriptsList.DoubleClick += new System.EventHandler(this.ScriptsList_DoubleClick);
             // 
