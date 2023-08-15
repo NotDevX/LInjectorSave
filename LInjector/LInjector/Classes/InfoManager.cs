@@ -27,8 +27,6 @@ namespace LInjector.Classes
                 await Task.Delay(10);
             }
 
-            CustomCw.Cw(message, false, "debug");
-
             await Task.Delay(3000);
 
             targetControl.Text = "";

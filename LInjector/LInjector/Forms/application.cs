@@ -268,7 +268,6 @@ namespace LInjector
             {
                 var cm = tabSystem.current_monaco();
                 cm.SetText("");
-                CustomCw.Cw("TextBox Cleared.", false, "debug");
                 tabSystem.ChangeCurrentTabTitle($"Script {tabSystem.maintabs.Items.Count}");
             }
             catch (Exception)
@@ -290,8 +289,14 @@ namespace LInjector
                 var flag = FluxusAPI.is_injected(FluxusAPI.pid);
                 if (flag)
                 {
-                    FluxusAPI.run_script(FluxusAPI.pid, scriptString);
-                    CustomCw.Cw("Script executed", false, "debug");
+                    try
+                    {
+                        FluxusAPI.run_script(FluxusAPI.pid, scriptString);
+                    }
+                    catch (Exception ex)
+                    {
+                        CustomCw.Cw($"Fluxus couldn't run the script.\n{ex.Message}\nStack Trace:\n{ex.StackTrace}", false, "error");
+                    }
                 }
                 else
                 {
@@ -343,13 +348,11 @@ namespace LInjector
                     if (dialogResult == DialogResult.Yes)
                     {
                         tabSystem.add_tab_with_text(fileContent, openFileDialog.SafeFileName);
-                        CustomCw.Cw($"Added Script {openFileDialog.SafeFileName}", false, "debug");
                     }
                     else
                     {
                         tabSystem.current_monaco().SetText(fileContent);
                         tabSystem.ChangeCurrentTabTitle(openFileDialog.SafeFileName);
-                        CustomCw.Cw($"Opened Script {openFileDialog.SafeFileName}", false, "debug");
                     }
                 }
 
@@ -400,7 +403,6 @@ namespace LInjector
                             File.WriteAllText(filePath, result);
                             string savedFileName = Path.GetFileName(saveFileDialog.FileName);
                             _ = NotificationManager.FireNotification(savedFileName + " saved", infSettings);
-                            CustomCw.Cw($"Saved file {savedFileName} to {saveFileDialog.FileName}", false, "debug");
                             tabSystem.ChangeCurrentTabTitle(savedFileName);
                         }
                         catch (Exception)

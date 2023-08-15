@@ -59,7 +59,6 @@ namespace LInjector.WPF
             {
                 case "AddT":
                     maintabs.Items.Add(CreateTab("", "Script" + " " + (this.maintabs.Items.Count + 1).ToString()));
-                    CustomCw.Cw($"Added Tab: {"Script "} {(this.maintabs.Items.Count + 1).ToString()}", false, "debug");
                     break;
                 case "RemoveT":
                     try
@@ -67,7 +66,6 @@ namespace LInjector.WPF
                         if (maintabs.Items.Count > 1)
                         {
                             maintabs.Items.Remove(maintabs.SelectedItem);
-                            CustomCw.Cw("Removed Tab", false, "debug");
                         }
                     }
                     catch { }
