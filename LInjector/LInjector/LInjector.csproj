@@ -324,6 +324,7 @@
     <Compile Include="Classes\Objects\CustomListBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classes\Objects\SegoeIcons.cs" />
     <Compile Include="Classes\ProcessWatcher.cs" />
     <Compile Include="Classes\ThreadBox.cs" />
     <Compile Include="Classes\CustomCw.cs" />
