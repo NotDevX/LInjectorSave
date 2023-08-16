@@ -36,10 +36,10 @@
             this.PcitureHolder = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TextHolder = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.alphaGradientPanel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.DepsoTitle = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.alphaGradientPanel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.ItzzTitle = new System.Windows.Forms.Label();
@@ -48,17 +48,17 @@
             this.titlebar = new System.Windows.Forms.Panel();
             this.controlmenu = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.Minimize = new System.Windows.Forms.Button();
             this.icon = new System.Windows.Forms.Panel();
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
+            this.Minimize = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
             this.holder.SuspendLayout();
             this.TheOtherPanel.SuspendLayout();
             this.PcitureHolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TextHolder.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.alphaGradientPanel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.alphaGradientPanel1.SuspendLayout();
             this.titlebar.SuspendLayout();
             this.controlmenu.SuspendLayout();
@@ -157,15 +157,6 @@
             this.TextHolder.Size = new System.Drawing.Size(293, 449);
             this.TextHolder.TabIndex = 8;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.alphaGradientPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 210);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(293, 239);
-            this.panel1.TabIndex = 12;
-            // 
             // alphaGradientPanel2
             // 
             this.alphaGradientPanel2.AutoSize = true;
@@ -203,6 +194,15 @@
             this.DepsoTitle.TabIndex = 0;
             this.DepsoTitle.Text = "depso";
             this.DepsoTitle.Click += new System.EventHandler(this.DepsoTitle_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.alphaGradientPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 210);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(293, 239);
+            this.panel1.TabIndex = 12;
             // 
             // alphaGradientPanel1
             // 
@@ -279,8 +279,8 @@
             // 
             // controlmenu
             // 
-            this.controlmenu.Controls.Add(this.CloseButton);
             this.controlmenu.Controls.Add(this.Minimize);
+            this.controlmenu.Controls.Add(this.CloseButton);
             this.controlmenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.controlmenu.Location = new System.Drawing.Point(442, 3);
             this.controlmenu.Name = "controlmenu";
@@ -295,41 +295,19 @@
             this.CloseButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButton.Font = new System.Drawing.Font("Segoe Fluent Icons", 7.5F);
             this.CloseButton.ForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Location = new System.Drawing.Point(0, 0);
+            this.CloseButton.Location = new System.Drawing.Point(29, 0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(29, 29);
             this.CloseButton.TabIndex = 2;
-            this.CloseButton.Text = "❌";
+            this.CloseButton.Text = "";
             this.CloseButton.UseMnemonic = false;
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // Minimize
-            // 
-            this.Minimize.BackColor = System.Drawing.Color.Transparent;
-            this.Minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Minimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Minimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.Minimize.FlatAppearance.BorderSize = 0;
-            this.Minimize.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Minimize.ForeColor = System.Drawing.Color.Transparent;
-            this.Minimize.Location = new System.Drawing.Point(29, 0);
-            this.Minimize.Name = "Minimize";
-            this.Minimize.Size = new System.Drawing.Size(29, 29);
-            this.Minimize.TabIndex = 0;
-            this.Minimize.Text = "—";
-            this.Minimize.UseMnemonic = false;
-            this.Minimize.UseVisualStyleBackColor = false;
-            this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             // 
             // icon
             // 
@@ -352,6 +330,27 @@
             this.LInjectorIcon.TabStop = false;
             this.LInjectorIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
+            // Minimize
+            // 
+            this.Minimize.BackColor = System.Drawing.Color.Transparent;
+            this.Minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Minimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Minimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Minimize.FlatAppearance.BorderSize = 0;
+            this.Minimize.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Minimize.Font = new System.Drawing.Font("Segoe Fluent Icons", 7.5F);
+            this.Minimize.ForeColor = System.Drawing.Color.Transparent;
+            this.Minimize.Location = new System.Drawing.Point(0, 0);
+            this.Minimize.Name = "Minimize";
+            this.Minimize.Size = new System.Drawing.Size(29, 29);
+            this.Minimize.TabIndex = 3;
+            this.Minimize.Text = "";
+            this.Minimize.UseMnemonic = false;
+            this.Minimize.UseVisualStyleBackColor = false;
+            // 
             // about
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -372,9 +371,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TextHolder.ResumeLayout(false);
             this.TextHolder.PerformLayout();
+            this.alphaGradientPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.alphaGradientPanel2.ResumeLayout(false);
             this.alphaGradientPanel1.ResumeLayout(false);
             this.titlebar.ResumeLayout(false);
             this.titlebar.PerformLayout();
@@ -390,8 +389,6 @@
         private System.Windows.Forms.Panel holder;
         private System.Windows.Forms.Panel titlebar;
         private System.Windows.Forms.Panel controlmenu;
-        private System.Windows.Forms.Button CloseButton;
-        private System.Windows.Forms.Button Minimize;
         private System.Windows.Forms.Panel icon;
         private System.Windows.Forms.PictureBox LInjectorIcon;
         private System.Windows.Forms.Panel TextHolder;
@@ -408,5 +405,7 @@
         private System.Windows.Forms.Panel alphaGradientPanel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label ItzzTitle;
+        private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Button Minimize;
     }
 }

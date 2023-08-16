@@ -419,6 +419,7 @@
     <AdditionalFiles Include="Resources\Internal\SaveInstancePatch.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AdditionalFiles>
+    <None Include="Resources\Fonts\SegoeIcons.ttf" />
     <None Include="Resources\LInjector.png" />
   </ItemGroup>
   <ItemGroup>

@@ -33,7 +33,6 @@
             this.titlebar = new System.Windows.Forms.Panel();
             this.controlmenu = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.Minimize = new System.Windows.Forms.Button();
             this.icon = new System.Windows.Forms.Panel();
             this.LInjectorIcon = new System.Windows.Forms.PictureBox();
             this.holder = new System.Windows.Forms.Panel();
@@ -44,6 +43,7 @@
             this.ConsoleHandler = new MaterialSkin.Controls.MaterialSwitch();
             this.SplashHandler = new MaterialSkin.Controls.MaterialSwitch();
             this.AttachHandler = new MaterialSkin.Controls.MaterialSwitch();
+            this.Minimize = new System.Windows.Forms.Button();
             LInjectorLabel = new System.Windows.Forms.Button();
             this.titlebar.SuspendLayout();
             this.controlmenu.SuspendLayout();
@@ -92,8 +92,8 @@
             // 
             // controlmenu
             // 
-            this.controlmenu.Controls.Add(this.CloseButton);
             this.controlmenu.Controls.Add(this.Minimize);
+            this.controlmenu.Controls.Add(this.CloseButton);
             this.controlmenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.controlmenu.Location = new System.Drawing.Point(213, 3);
             this.controlmenu.Name = "controlmenu";
@@ -108,41 +108,19 @@
             this.CloseButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButton.Font = new System.Drawing.Font("Segoe Fluent Icons", 7.5F);
             this.CloseButton.ForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Location = new System.Drawing.Point(0, 0);
+            this.CloseButton.Location = new System.Drawing.Point(29, 0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(29, 29);
             this.CloseButton.TabIndex = 2;
-            this.CloseButton.Text = "❌";
+            this.CloseButton.Text = "";
             this.CloseButton.UseMnemonic = false;
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // Minimize
-            // 
-            this.Minimize.BackColor = System.Drawing.Color.Transparent;
-            this.Minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Minimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Minimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.Minimize.FlatAppearance.BorderSize = 0;
-            this.Minimize.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Minimize.ForeColor = System.Drawing.Color.Transparent;
-            this.Minimize.Location = new System.Drawing.Point(29, 0);
-            this.Minimize.Name = "Minimize";
-            this.Minimize.Size = new System.Drawing.Size(29, 29);
-            this.Minimize.TabIndex = 0;
-            this.Minimize.Text = "—";
-            this.Minimize.UseMnemonic = false;
-            this.Minimize.UseVisualStyleBackColor = false;
-            this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             // 
             // icon
             // 
@@ -315,6 +293,29 @@
             this.AttachHandler.UseVisualStyleBackColor = true;
             this.AttachHandler.CheckedChanged += new System.EventHandler(this.AttachHandler_CheckedChanged);
             // 
+            // Minimize
+            // 
+            this.Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Minimize.BackColor = System.Drawing.Color.Transparent;
+            this.Minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Minimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Minimize.FlatAppearance.BorderSize = 0;
+            this.Minimize.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Minimize.Font = new System.Drawing.Font("Segoe Fluent Icons", 7.5F);
+            this.Minimize.ForeColor = System.Drawing.Color.Transparent;
+            this.Minimize.Location = new System.Drawing.Point(0, 2);
+            this.Minimize.Name = "Minimize";
+            this.Minimize.Size = new System.Drawing.Size(29, 29);
+            this.Minimize.TabIndex = 0;
+            this.Minimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Minimize.Text = "";
+            this.Minimize.UseMnemonic = false;
+            this.Minimize.UseVisualStyleBackColor = false;
+            this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,7 +347,6 @@
         private System.Windows.Forms.Panel titlebar;
         private System.Windows.Forms.Panel controlmenu;
         private System.Windows.Forms.Button CloseButton;
-        private System.Windows.Forms.Button Minimize;
         private System.Windows.Forms.Panel icon;
         private System.Windows.Forms.PictureBox LInjectorIcon;
         private System.Windows.Forms.Panel holder;
@@ -357,5 +357,6 @@
         public MaterialSkin.Controls.MaterialSwitch TopMostHandler;
         public MaterialSkin.Controls.MaterialSwitch ScriptListHandler;
         private MaterialSkin.Controls.MaterialButton reloadBtn;
+        private System.Windows.Forms.Button Minimize;
     }
 }
