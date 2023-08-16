@@ -724,6 +724,7 @@
             this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "application";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.Text = " ";
             this.Load += new System.EventHandler(this.application_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             this.EditStrip.ResumeLayout(false);
