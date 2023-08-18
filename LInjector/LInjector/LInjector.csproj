@@ -324,7 +324,6 @@
     <Compile Include="Classes\Objects\CustomListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\Objects\SegoeIcons.cs" />
     <Compile Include="Classes\ProcessWatcher.cs" />
     <Compile Include="Classes\ThreadBox.cs" />
     <Compile Include="Classes\CustomCw.cs" />
@@ -419,7 +418,9 @@
     <AdditionalFiles Include="Resources\Internal\SaveInstancePatch.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AdditionalFiles>
-    <None Include="Resources\Fonts\SegoeIcons.ttf" />
+    <AdditionalFiles Include="Resources\Fonts\SegoeIcons.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AdditionalFiles>
     <None Include="Resources\LInjector.png" />
   </ItemGroup>
   <ItemGroup>

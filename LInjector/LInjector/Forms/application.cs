@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -102,6 +103,16 @@ namespace LInjector
             if (ConfigHandler.script_list)
             {
                 SplitCont.Panel2Collapsed = true;
+            }
+
+            PrivateFontCollection fontCollection = new PrivateFontCollection();
+            fontCollection.AddFontFile(".\\Resources\\Fonts\\SegoeIcons.ttf");
+            foreach (Control c in this.Controls)
+            {
+                if (c.Tag.ToString().Contains("SegoeIcons"))
+                {
+                    c.Font = new Font(fontCollection.Families[0], 15, FontStyle.Regular);
+                }
             }
         }
 
