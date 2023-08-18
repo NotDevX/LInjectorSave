@@ -131,22 +131,6 @@ local oldi;oldi = hookfunction(getrenv().debug.info, function(lvl, a) -- prevent
 	return oldi(lvl, a)
 end)
 
-xpcall(function()
-	hookfunction(getexecutorname, function()
-		return "LInjector UWP", LINJECTOR_VERSION
-	end)
-	hookfunction(identifyexecutor, function()
-		return "LInjector UWP", LINJECTOR_VERSION
-	end)
-end, function()
-	define(identifyexecutor, function()
-		return "LInjector UWP", LINJECTOR_VERSION
-	end)
-	define(getexecutorname, function()
-		return "LInjector UWP", LINJECTOR_VERSION
-	end)
-end)
-
 local oldg;oldg = hookfunction(getconnections, function(signal)
 	local a = oldg(signal)
 	for i,v in next, a do
@@ -171,6 +155,13 @@ end
 for _,v in next, unavailable do
 	define(v, none, t)
 end
+
+define(identifyexecutor, function()
+	return "LInjector UWP", LINJECTOR_VERSION
+end)
+define(getexecutorname, function()
+	return "LInjector UWP", LINJECTOR_VERSION
+end)
 
 define("disassemble", disassemble)
 
@@ -259,13 +250,13 @@ define("htgetf", function(url)
 	assert(typeof(url) == "string", string.format("bad argument #1 to 'htgetf' (string expected, got %s)", typeof(url)))
 	return game:HttpGetAsync(url)
 end)
-define("gbmt", function()
+--[[define("gbmt", function()
 	return {
 		__index = oldmt.__index,
 		__namecall = oldmt.__namecall,
 		__tostring = oldmt.__tostring
 	}
-end)
+end)]]
 define("getpropvalue", function(obj, prop)
 	assert(typeof(obj) == "Instance", string.format("bad argument #1 to 'getpropvalue' (Instance expected, got %s)", typeof(obj)))
 	assert(typeof(prop) == "string", string.format("bad argument #2 to 'getpropvalue' (string expected, got %s)", typeof(prop)))
