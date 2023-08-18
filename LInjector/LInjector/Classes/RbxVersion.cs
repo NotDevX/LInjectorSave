@@ -107,7 +107,7 @@ namespace LInjector.Classes
             {
                 if (!Version.Contains(content))
                 {
-                    ThreadBox.MsgThread($"Your Roblox UWP version mismatched. LInjector is only working for version {content}, update or downgrade Roblox. Trying to fetch latest Modules.", "LInjector | Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ThreadBox.MsgThread($"Your Roblox UWP version mismatched. LInjector is only working for version {content}, update or downgrade Roblox. Previous version may be operational.", "LInjector | Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     CreateFiles.RedownloadModules();
                 }
             }

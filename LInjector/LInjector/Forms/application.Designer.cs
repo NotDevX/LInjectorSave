@@ -336,7 +336,7 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.AutoSize = true;
             this.CloseButton.BackColor = System.Drawing.Color.Transparent;
             this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CloseButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
@@ -345,14 +345,14 @@
             this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Font = new System.Drawing.Font("Segoe Fluent Icons", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.ForeColor = System.Drawing.Color.Transparent;
             this.CloseButton.Location = new System.Drawing.Point(58, 2);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(29, 29);
+            this.CloseButton.Size = new System.Drawing.Size(32, 29);
             this.CloseButton.TabIndex = 2;
             this.CloseButton.Tag = "SegoeIcons";
-            this.CloseButton.Text = "";
+            this.CloseButton.Text = "❌";
             this.CloseButton.UseMnemonic = false;
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
@@ -368,14 +368,14 @@
             this.Maximize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Maximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Maximize.Font = new System.Drawing.Font("Segoe Fluent Icons", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Maximize.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Maximize.ForeColor = System.Drawing.Color.Transparent;
             this.Maximize.Location = new System.Drawing.Point(29, 2);
             this.Maximize.Name = "Maximize";
             this.Maximize.Size = new System.Drawing.Size(29, 29);
             this.Maximize.TabIndex = 1;
             this.Maximize.Tag = "SegoeIcons";
-            this.Maximize.Text = "";
+            this.Maximize.Text = "▢";
             this.Maximize.UseMnemonic = false;
             this.Maximize.UseVisualStyleBackColor = false;
             this.Maximize.Click += new System.EventHandler(this.Maximize_Click);
@@ -391,14 +391,14 @@
             this.Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimize.Font = new System.Drawing.Font("Segoe Fluent Icons", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Minimize.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 8F);
             this.Minimize.ForeColor = System.Drawing.Color.Transparent;
             this.Minimize.Location = new System.Drawing.Point(0, 2);
             this.Minimize.Name = "Minimize";
             this.Minimize.Size = new System.Drawing.Size(29, 29);
             this.Minimize.TabIndex = 0;
             this.Minimize.Tag = "SegoeIcons";
-            this.Minimize.Text = "";
+            this.Minimize.Text = "—";
             this.Minimize.UseMnemonic = false;
             this.Minimize.UseVisualStyleBackColor = false;
             this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
@@ -613,14 +613,14 @@
             this.Attach.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.Attach.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.Attach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Attach.Font = new System.Drawing.Font("Segoe Fluent Icons", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Attach.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 10F);
             this.Attach.ForeColor = System.Drawing.Color.White;
             this.Attach.Location = new System.Drawing.Point(32, 0);
             this.Attach.Name = "Attach";
             this.Attach.Size = new System.Drawing.Size(29, 28);
             this.Attach.TabIndex = 10;
             this.Attach.Tag = "SegoeIcons";
-            this.Attach.Text = "";
+            this.Attach.Text = "🧩";
             this.Attach.UseMnemonic = false;
             this.Attach.UseVisualStyleBackColor = true;
             this.Attach.Click += new System.EventHandler(this.Attach_Click);
@@ -635,13 +635,13 @@
             this.Execute.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.Execute.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.Execute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Execute.Font = new System.Drawing.Font("Segoe Fluent Icons", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Execute.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 10F);
             this.Execute.Location = new System.Drawing.Point(3, 0);
             this.Execute.Name = "Execute";
             this.Execute.Size = new System.Drawing.Size(29, 28);
             this.Execute.TabIndex = 10;
             this.Execute.Tag = "SegoeIcons";
-            this.Execute.Text = "";
+            this.Execute.Text = "▶";
             this.Execute.UseMnemonic = false;
             this.Execute.UseVisualStyleBackColor = true;
             this.Execute.Click += new System.EventHandler(this.Execute_Click);
@@ -738,6 +738,7 @@
             this.titleDialog.ResumeLayout(false);
             this.menuSettings.ResumeLayout(false);
             this.controlmenu.ResumeLayout(false);
+            this.controlmenu.PerformLayout();
             this.icon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LInjectorIcon)).EndInit();
             this.execinjPanel.ResumeLayout(false);

@@ -104,17 +104,6 @@ namespace LInjector
             {
                 SplitCont.Panel2Collapsed = true;
             }
-
-            PrivateFontCollection fontCollection = new PrivateFontCollection();
-            fontCollection.AddFontFile(".\\Resources\\Fonts\\SegoeIcons.ttf");
-            foreach (Control c in this.Controls)
-            {
-                if (c.Tag != null && c.Tag.ToString() == "SegoeIcons")
-                {
-                    c.Font = new Font(fontCollection.Families[0], c.Font.Size, FontStyle.Regular);
-                    continue;
-                }
-            }
         }
 
         public async Task<string> GetMonacoContent()
