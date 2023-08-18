@@ -109,9 +109,9 @@ namespace LInjector
             fontCollection.AddFontFile(".\\Resources\\Fonts\\SegoeIcons.ttf");
             foreach (Control c in this.Controls)
             {
-                if (c.Tag.ToString().Contains("SegoeIcons"))
+                if (c.Tag != null && c.Tag.ToString() == "SegoeIcons")
                 {
-                    c.Font = new Font(fontCollection.Families[0], 15, FontStyle.Regular);
+                    c.Font = new Font(fontCollection.Families[0], 11, FontStyle.Regular);
                 }
             }
         }
