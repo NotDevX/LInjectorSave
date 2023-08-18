@@ -368,7 +368,7 @@
             this.Maximize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Maximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Maximize.Font = new System.Drawing.Font("Segoe Fluent Icons", 7.5F);
+            this.Maximize.Font = new System.Drawing.Font("Segoe Fluent Icons", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Maximize.ForeColor = System.Drawing.Color.Transparent;
             this.Maximize.Location = new System.Drawing.Point(29, 2);
             this.Maximize.Name = "Maximize";
@@ -391,7 +391,7 @@
             this.Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimize.Font = new System.Drawing.Font("Segoe Fluent Icons", 7.5F);
+            this.Minimize.Font = new System.Drawing.Font("Segoe Fluent Icons", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Minimize.ForeColor = System.Drawing.Color.Transparent;
             this.Minimize.Location = new System.Drawing.Point(0, 2);
             this.Minimize.Name = "Minimize";
@@ -635,7 +635,7 @@
             this.Execute.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.Execute.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.Execute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Execute.Font = new System.Drawing.Font("Segoe Fluent Icons", 11.25F);
+            this.Execute.Font = new System.Drawing.Font("Segoe Fluent Icons", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Execute.Location = new System.Drawing.Point(3, 0);
             this.Execute.Name = "Execute";
             this.Execute.Size = new System.Drawing.Size(29, 28);

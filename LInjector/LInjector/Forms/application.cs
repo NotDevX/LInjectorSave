@@ -111,7 +111,8 @@ namespace LInjector
             {
                 if (c.Tag != null && c.Tag.ToString() == "SegoeIcons")
                 {
-                    c.Font = new Font(fontCollection.Families[0], 11, FontStyle.Regular);
+                    c.Font = new Font(fontCollection.Families[0], c.Font.Size, FontStyle.Regular);
+                    continue;
                 }
             }
         }
