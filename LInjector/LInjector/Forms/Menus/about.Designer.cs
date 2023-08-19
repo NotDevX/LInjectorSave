@@ -298,13 +298,13 @@
             this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Font = new System.Drawing.Font("Segoe Fluent Icons", 7.5F);
+            this.CloseButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.ForeColor = System.Drawing.Color.Transparent;
             this.CloseButton.Location = new System.Drawing.Point(29, 0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(29, 29);
             this.CloseButton.TabIndex = 2;
-            this.CloseButton.Text = "";
+            this.CloseButton.Text = "❌";
             this.CloseButton.UseMnemonic = false;
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
@@ -341,13 +341,13 @@
             this.Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimize.Font = new System.Drawing.Font("Segoe Fluent Icons", 7.5F);
+            this.Minimize.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 8F);
             this.Minimize.ForeColor = System.Drawing.Color.Transparent;
             this.Minimize.Location = new System.Drawing.Point(0, 0);
             this.Minimize.Name = "Minimize";
             this.Minimize.Size = new System.Drawing.Size(29, 29);
             this.Minimize.TabIndex = 3;
-            this.Minimize.Text = "";
+            this.Minimize.Text = "—";
             this.Minimize.UseMnemonic = false;
             this.Minimize.UseVisualStyleBackColor = false;
             // 
