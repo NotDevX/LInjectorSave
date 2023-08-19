@@ -498,9 +498,9 @@ namespace LInjector
 
         private void webView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
-            if (e.ToString() != "https://itzzexcel.github.io/luau-monaco")
+            if (e.ToString() != "https://itzzexcel.github.io/LInjector/")
             {
-                monaco_api.Source = new Uri("https://itzzexcel.github.io/luau-monaco");
+                monaco_api.Source = new Uri("https://itzzexcel.github.io/LInjector/");
             }
         }
 
