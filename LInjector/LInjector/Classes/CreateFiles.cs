@@ -64,7 +64,7 @@ namespace LInjector.Classes
                 DeleteFilesAndFoldersRecursively(subDir);
             }
 
-            Thread.Sleep(1); // This makes the difference between whether it works or not. Sleep(0) is not enough.
+            Thread.Sleep(1);
             Directory.Delete(target_dir);
         }
     }

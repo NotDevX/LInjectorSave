@@ -491,9 +491,9 @@ namespace LInjector
         private void terminalButton_Click(object sender, EventArgs e)
         {
             if (ConsoleManager.isConsoleVisible)
-                ConsoleManager.HideConsole();
+            { ConsoleManager.HideConsole(); }
             else
-                ConsoleManager.ShowConsole();
+            { ConsoleManager.ShowConsole(); }
         }
 
         private void webView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)

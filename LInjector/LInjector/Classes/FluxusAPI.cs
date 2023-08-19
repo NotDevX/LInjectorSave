@@ -20,7 +20,6 @@ using System.Windows.Forms;
 
 namespace LInjector.Classes
 {
-    // Token: 0x02000006 RID: 6
     public static class FluxusAPI
     {
         public enum Result : uint
@@ -43,47 +42,38 @@ namespace LInjector.Classes
 
         private static readonly IntPtr NULL = (IntPtr)0;
 
-        // Token: 0x06000013 RID: 19
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern IntPtr OpenProcess(uint access, bool inhert_handle, int pid);
 
-        // Token: 0x06000014 RID: 20
+
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern IntPtr VirtualAllocEx(IntPtr hProcess, IntPtr lpAddress, IntPtr dwSize,
             uint flAllocationType, uint flProtect);
 
-        // Token: 0x06000015 RID: 21
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern int WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer,
             IntPtr nSize, int lpNumberOfBytesWritten);
 
-        // Token: 0x06000016 RID: 22
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern IntPtr GetProcAddress(IntPtr hModule, string lpProcName);
 
-        // Token: 0x06000017 RID: 23
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern IntPtr GetModuleHandle(string lpModuleName);
 
-        // Token: 0x06000018 RID: 24
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern IntPtr CreateRemoteThread(IntPtr hProcess, IntPtr lpThreadAttribute, IntPtr dwStackSize,
             IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
 
-        // Token: 0x06000019 RID: 25
         [DllImport("Resources\\libs\\FluxteamAPI.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern bool run_script(IntPtr proc, int pid, string path,
             [MarshalAs(UnmanagedType.LPWStr)] string script);
 
-        // Token: 0x0600001A RID: 26
         [DllImport("Resources\\libs\\FluxteamAPI.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern bool is_injected(IntPtr proc, int pid, string path);
 
-        // Token: 0x0600001B RID: 27
         [DllImport("Resources\\libs\\FluxteamAPI.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern bool inject_dll(int pid, [MarshalAs(UnmanagedType.LPWStr)] string script);
 
-        // Token: 0x0600001C RID: 28 RVA: 0x0000287C File Offset: 0x00000A7C
         private static Result r_inject(string dll_path)
         {
             var fileInfo = new FileInfo(dll_path);
