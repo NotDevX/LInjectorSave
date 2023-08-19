@@ -498,8 +498,7 @@ namespace LInjector
 
         private void webView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
-            if (e.ToString() != "https://itzzexcel.github.io/luau-monaco" ||
-                e.ToString() != "https://lexploits.netlify.app/extra/monaco")
+            if (e.ToString() != "https://itzzexcel.github.io/luau-monaco")
             {
                 monaco_api.Source = new Uri("https://itzzexcel.github.io/luau-monaco");
             }
