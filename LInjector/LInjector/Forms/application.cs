@@ -4,6 +4,7 @@ using LInjector.WPF;
 using LInjector.WPF.Classes;
 using MaterialSkin;
 using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.WinForms;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

@@ -25,6 +25,7 @@ namespace LInjector.WPF.Classes
             this.Source = new Uri("https://itzzexcel.github.io/LInjector/");
             this.CoreWebView2InitializationCompleted += monaco_api_CoreWebView2InitializationCompleted;
             this.ToSetText = Text;
+            this.EnsureCoreWebView2Async();
         }
 
         protected virtual void OnEditorReady()
