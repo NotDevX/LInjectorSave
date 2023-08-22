@@ -45,6 +45,16 @@ namespace LInjector.Classes
             }
         }
 
+        public static string Extract(this string input, int len)
+        {
+            if (string.IsNullOrEmpty(input) || input.Length < len)
+            {
+                return input;
+            };
+
+            return input.Substring(0, len);
+        }
+
         public static void ExecutePowerShellScript(string script)
         {
             using (Process process = new Process())
@@ -89,7 +99,8 @@ namespace LInjector.Classes
         {
             var rbxverurl = "https://lexploits.netlify.app/version";
             var client = new HttpClient();
-            var content = await client.GetStringAsync(rbxverurl);
+            var asyncedstring = await client.GetStringAsync(rbxverurl);
+            string content = asyncedstring.ToString().Extract(5);
 
             if (!Directory.Exists(outputDirectory))
             {
@@ -100,14 +111,14 @@ namespace LInjector.Classes
 
             if (File.Exists(versionFilePath))
             {
-                Version = File.ReadAllText(versionFilePath);
+                Version = File.ReadAllText(versionFilePath).Extract(5);
             }
 
             if (Directory.Exists(outputDirectory))
             {
                 if (!Version.Contains(content))
                 {
-                    ThreadBox.MsgThread($"Your Roblox UWP version mismatched. LInjector is only working for version {content}, update or downgrade Roblox. Previous version may be operational.", "LInjector | Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ThreadBox.MsgThread($"Your Roblox UWP version mismatched. LInjector is only working for version {asyncedstring}, you have {Version}. update or downgrade Roblox. Previous version may be operational.", "LInjector | Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     CreateFiles.RedownloadModules();
                 }
             }
