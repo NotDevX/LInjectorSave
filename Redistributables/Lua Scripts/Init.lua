@@ -10,13 +10,6 @@
 
 local LINJECTOR_VERSION="22.08.2023"
 
-if linjector then
-	script:Remove()
-	return 
-end
-getgenv()["linjector"]=true
-
-
 loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisInstanceProtect.lua"))() -- credit to iris
 local hash=loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/HashLib.lua"), "HashLib")()
 local disassemble=loadstring(game:HttpGet("https://raw.githubusercontent.com/TheSeaweedMonster/Luau/main/decompile.lua"), "Disassembler")()
