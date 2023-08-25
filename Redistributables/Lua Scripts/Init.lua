@@ -484,7 +484,7 @@ for name, func in pairs(Functions) do
 	end)
 end
 
-define("rprintconsole",rconsoleprint)
+define("rconsoleprint",rconsoleprint)
 define("setclipboard",toclipboard)
 define("set_clipboard",toclipboard)
 define("set_clipboard",toclipboard)
@@ -587,6 +587,7 @@ information_1.BorderSizePixel=0
 information_1.Position=UDim2.new(0.49999997, 0,0.610000014, 0)
 information_1.Size=UDim2.new(0, 214,0, 78)
 information_1.Text=""
+information_1.Font=Enum.Font.Montserrat
 information_1.TextColor3=Color3.fromRGB(255,255,255)
 information_1.TextSize=12
 information_1.TextWrapped=true
