@@ -484,7 +484,7 @@ for name, func in pairs(Functions) do
 	end)
 end
 
-define("rconsoleprint",rconsoleprint)
+define("rprintconsole",rconsoleprint)
 define("setclipboard",toclipboard)
 define("set_clipboard",toclipboard)
 define("set_clipboard",toclipboard)
