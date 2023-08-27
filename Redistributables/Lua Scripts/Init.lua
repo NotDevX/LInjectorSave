@@ -8,7 +8,7 @@
  *
  * ]]
 
-local LINJECTOR_VERSION="22.08.2023"
+local LINJECTOR_VERSION="28.08.2023"
 
 loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisInstanceProtect.lua"))() -- credit to iris
 local hash=loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/HashLib.lua"), "HashLib")()
