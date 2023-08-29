@@ -199,97 +199,11 @@ define("is_protosmasher_caller", checkcaller)
 define("is_lclosure", islclosure)
 define("iswindowactive", isrbxactive)
 define("validfgwindow", isrbxactive)
-define("getprops", getproperties)
-define("gethiddenprop", gethiddenproperty)
-define("gethiddenprops", gethiddenproperties)
-define("sethiddenprop", sethiddenproperty)
-define("getpcdprop", getpcd)
 define("getsynasset", getcustomasset)
-define("htgetf", function(url)
-	assert(typeof(url) == "string", string.format("bad argument #1 to 'htgetf' (string expected, got %s)", typeof(url)))
-	return game:HttpGetAsync(url)
-end)
---[[define("gbmt", function()
-	return {
-		__index=oldmt.__index,
-		__namecall=oldmt.__namecall,
-		__tostring=oldmt.__tostring
-	}
-end)]]
-define("getpropvalue", function(obj, prop)
-	assert(typeof(obj) == "Instance", string.format("bad argument #1 to 'getpropvalue' (Instance expected, got %s)", typeof(obj)))
-	assert(typeof(prop) == "string", string.format("bad argument #2 to 'getpropvalue' (string expected, got %s)", typeof(prop)))
-	return cloneref(obj)[prop]
-end)
-define("setpropvalue", function(obj, prop, value)
-	assert(typeof(obj) == "Instance", string.format("bad argument #1 to 'setpropvalue' (Instance expected, got %s)", typeof(obj)))
-	assert(typeof(prop) == "string", string.format("bad argument #2 to 'setpropvalue' (string expected, got %s)", typeof(prop)))
-	obj=cloneref(obj)
-	local conn1=obj:GetPropertyChangedSignal(prop)
-	local conn2=obj.Changed
-	connection(conn1, false)
-	connection(conn2, false)
-	obj[prop]=value
-	connection(conn1, true)
-	connection(conn2, true)
-end)
-define("getstates", getallthreads) -- scriptware uses the term 'thread' instead of 'state'
-define("getstateenv", gettenv)
-define("getinstancefromstate", getscriptfromthread)
-define("is_redirection_enabled", function()
-	return false
-end)
-define("getspecialinfo", function(obj)
-	assert(typeof(obj) == "Instance", string.format("bad argument #1 to 'getspecialinfo' (Instance expected, got %s)", typeof(obj)))
-	local info=specialinfo[obj.ClassName]
-	local props={}
-	if info then
-		for _,v in next, info do
-			props[v]=gethiddenproperty(obj, v)
-		end
-	end
-	return props
-end)
 define("getvirtualinputmanager", function()
 	return cloneref(game:GetService("VirtualInputManager")) 
 end)
-define("isconnectionenabled", function(object)
-	assert(rawget(object, "__OBJECT") ~= nil, "bad argument #1 to 'isconnectionenabled' (synapse signal expected)")
-	return rawget(object, "Enabled")
-end)
-define("isactor", function()
-	return false
-end)
-define("checkparallel", function()
-	local suc=pcall(task.synchronize)
-	if suc then
-		task.desynchronize()
-		print("desynced")
-		return true
-	end
-	return false
-end)
-
-
-
-define("get_calling_script", getcallingscript)
-define("get_instances", getinstances)
-define("get_nil_instances", getnilinstances)
-define("get_scripts", getscripts)
-define("get_loaded_modules", getloadedmodules)
-
 local t={}
-
-define("cache_replace", cache.replace, t)
-define("cache_invalidate", cache.invalidate, t)
-define("is_cached", cache.iscached, t)
-
-define("get_thread_identity", getidentity, t)
-define("set_thread_identity", setidentity, t)
-
-define("write_clipboard", setclipboard, t)
-define("queue_on_teleport", queue_on_teleport, t)
-
 define("protect_gui", ProtectInstance, t) -- credit to iris
 define("unprotect_gui", UnProtectInstance, t)
 
@@ -354,7 +268,7 @@ define("crypt", crypt, t)
 define("crypto", crypt, t)
 define("websocket", WebSocket, t)
 
-define("secure_call", function(func, env, ...)
+--[[define("secure_call", function(func, env, ...)
 	local functype=typeof(func) 
 	local envtype=typeof(env)
 	assert(functype == "function", string.format("bad argument #1 to 'secure_call' (function expected, got %s)", functype))
@@ -372,73 +286,7 @@ define("secure_call", function(func, env, ...)
 		setfenv(1, fenv)
 		return func(...)
 	end)(...)
-end, t)
-
-local actors={}
-local on_actor_created=Instance.new("BindableEvent")
-game.DescendantAdded:Connect(function(v)
-	if v:IsA("Actor") then
-		on_actor_created:Fire(v)
-		table.insert(actors, v)
-	end
-end)
-for _,v in next, game:GetDescendants() do
-	if v:IsA("Actor") then
-		table.insert(actors, v)
-	end
-end
-define("on_actor_created", on_actor_created.Event, t)
-define("getactors", function()
-	return actors
-end)
-define("run_on_actor", function(actor, code) -- This does not actually run on the actor's state (waiting for valyse implementation)
-	assert(typeof(actor) == "Instance", ("bad argument #1 to 'run_on_actor' (Instance expected, got %s)"):format(typeof(actor)))
-	assert(actor.ClassName == "Actor", ("bad argument #1 to 'run_on_actor' (Actor expected, got %s)"):format(actor.ClassName))
-	assert(typeof(code) == "string", ("bad argument #2 to 'run_on_actor' (string expected, got %s)"):format(typeof(code)))
-
-	loadstring(code, "run_on_actor")()
-end, t)
-
-local comm_channels={}
-define("create_comm_channel", function()
-	local id=game:GetService("HttpService"):GenerateGUID(false)
-	local bindable=Instance.new("BindableEvent")
-	local object=newproxy(true)
-	getmetatable(object).__index=function(_, i)
-		if i == "bro" then
-			return bindable
-		end
-	end
-	local event=setmetatable({
-		__OBJECT=object
-	}, {
-		__type="SynSignal",
-		__index=function(self, i)
-			if i == "Connect" then
-				return function(_, callback)
-					print(callback)
-					return self.__OBJECT.bro.Event:Connect(callback)
-				end
-			elseif i == "Fire" then
-				return function(_, ...)
-					return self.__OBJECT.bro:Fire(...)
-				end
-			end
-		end,
-		__newindex=function()
-			error("SynSignal table is readonly.")
-		end
-	})
-	comm_channels[id]=event
-	return id, event
-end, t)
-define("get_comm_channel", function(id)
-	local channel=comm_channels[id]
-	if not channel then
-		error("bad argument #1 to 'get_comm_channel' (invalid communication channel)")
-	end
-	return channel
-end, t)
+end, t)]]
 
 
 define("ror", bit.rrotate, bit)
