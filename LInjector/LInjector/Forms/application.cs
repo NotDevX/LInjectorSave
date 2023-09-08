@@ -49,7 +49,6 @@ namespace LInjector
         public application()
         {
             InitializeComponent();
-            (new LInjector.Classes.DropShadow()).ApplyShadows(this);
             SetStyle(ControlStyles.ResizeRedraw, true);
             DownloadScripts();
 

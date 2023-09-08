@@ -318,7 +318,6 @@
     <Compile Include="Classes\ArgumentHandler.cs" />
     <Compile Include="Classes\ConsoleManager.cs" />
     <Compile Include="Classes\CreateFiles.cs" />
-    <Compile Include="Classes\DropShadow.cs" />
     <Compile Include="Classes\FunctionWatch.cs" />
     <Compile Include="Classes\InternalFunctions.cs" />
     <Compile Include="Classes\Objects\CustomListBox.cs">

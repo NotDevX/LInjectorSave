@@ -16,7 +16,6 @@ namespace LInjector
         public splashscr()
         {
             InitializeComponent();
-            (new LInjector.Classes.DropShadow()).ApplyShadows(this);
         }
 
         [DllImportAttribute("user32.dll")]

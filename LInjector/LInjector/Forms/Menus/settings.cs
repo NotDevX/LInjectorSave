@@ -11,7 +11,6 @@ namespace LInjector.Forms.Menus
         public settings()
         {
             InitializeComponent();
-            (new LInjector.Classes.DropShadow()).ApplyShadows(this);
         }
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
