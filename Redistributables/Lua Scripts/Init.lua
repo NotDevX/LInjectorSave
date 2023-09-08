@@ -4,7 +4,7 @@
  * ░▒█░░░░▒█░░█░▒█░░░█░█▀▀░█░░░░█░░█░░█░█▄▄▀░░░▒█▀▀░░█░▒█░█░▒█░█░░░░█░░░█▀░█░░█░█░▒█░▀▀▄░░
  * ░▒█▄▄█░▄█▄░▀░░▀░█▄█░▀▀▀░▀▀▀░░▀░░░▀▀░░▀░▀▀░░░▒█░░░░░▀▀▀░▀░░▀░▀▀▀░░▀░░▀▀▀░░▀▀░░▀░░▀░▀▀▀░░
  *
- *
+ * Created by depso
  *
  * ]]
 
@@ -620,11 +620,3 @@ local function define(name, value, parent)
 	end
 	getgenv()[name] = Function
 end
-
-
-define(identifyexecutor, function()
-	return "LInjector UWP", LINJECTOR_VERSION
-end)
-define(getexecutorname, function()
-	return "LInjector UWP", LINJECTOR_VERSION
-end)
