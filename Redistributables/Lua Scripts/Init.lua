@@ -4,11 +4,11 @@
  * ░▒█░░░░▒█░░█░▒█░░░█░█▀▀░█░░░░█░░█░░█░█▄▄▀░░░▒█▀▀░░█░▒█░█░▒█░█░░░░█░░░█▀░█░░█░█░▒█░▀▀▄░░
  * ░▒█▄▄█░▄█▄░▀░░▀░█▄█░▀▀▀░▀▀▀░░▀░░░▀▀░░▀░▀▀░░░▒█░░░░░▀▀▀░▀░░▀░▀▀▀░░▀░░▀▀▀░░▀▀░░▀░░▀░▀▀▀░░
  *
- * Created by depso
+ *
  *
  * ]]
 
-local LINJECTOR_VERSION="08.09.2023"
+local LINJECTOR_VERSION="28.08.2023"
 
 loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisInstanceProtect.lua"))() -- credit to iris
 local hash=loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/HashLib.lua"), "HashLib")()
@@ -498,125 +498,3 @@ local function SAOKCV_fake_script() -- LInjNotification.scriptz
 	LInjNotification:Remove()
 end
 coroutine.wrap(SAOKCV_fake_script)()
-
--- // LInjector Functions Restored
-
-if not writefile then
-    return
-end
-
-local ToExport = {}
-
-local function SendFunction(text)
-    writefile("LINJECTOR/LINJECTOR.li", text)
-end
-
-function ToExport.messagebox(title,text)
-    SendFunction(('showmsg|||%s|||%s'):format(text, title))
-end
-
-function ToExport.setDiscordRPC(status)
-    SendFunction(('setrpc|||%s'):format(status))
-end
-function ToExport.rconsoleprint(...)
-	local args = table.pack(...)
-	local String = ""
-	
-	for i = 1, args.n do
-		String = ("%s %s"):format(String, tostring(args[i]))
-	end
-	
-	SendFunction('rprintconsole|||'.. String)
-end
-
-function ToExport.rconsoleinfo(...)
-	local args = table.pack(...)
-	local String = ""
-	
-	for i = 1, args.n do
-		String = ("%s %s"):format(String, tostring(args[i]))
-	end
-	
-	SendFunction('rconsoleinfo|||'.. String)
-end
-
-function ToExport.rconsolewarn(...)
-	local args = table.pack(...)
-	local String = ""
-	
-	for i = 1, args.n do
-		String = ("%s %s"):format(String, tostring(args[i]))
-	end
-	
-	SendFunction('rconsolewarn|||'.. String)
-end
-
-function ToExport.rconsolename(...)
-	local args = table.pack(...)
-	local String = ""
-	
-	for i = 1, args.n do
-		String = ("%s %s"):format(String, tostring(args[i]))
-	end
-	
-	SendFunction('rconsolename|||'.. String)
-end
-
-function ToExport.rconsoleerr(...)
-	local args = table.pack(...)
-	local String = ""
-	
-	for i = 1, args.n do
-		String = ("%s %s"):format(String, tostring(args[i]))
-	end
-	
-	SendFunction('rconsoleerr|||'.. String)
-end
-
-ToExport.rconsoleinfo = ToExport.rconsoleinfo
-ToExport.rconsolewarn = ToExport.rconsolewarn
-ToExport.rconsoleerr = ToExport.rconsoleerr
-ToExport.rprintconsole = ToExport.rconsoleprint
-ToExport.rconsolename = ToExport.rconsolename
-ToExport.printconsole = ToExport.rconsoleprint
-
-function ToExport.toclipboard(...)
-	local args = table.pack(...)
-	local String = ""
-	
-	for i = 1, args.n do
-		String = ("%s %s"):format(String, tostring(args[i]))
-	end
-	
-	SendFunction('toClipboard|||'.. String)
-end
-ToExport.setclipboard = ToExport.toclipboard
-ToExport.set_clipboard = ToExport.toclipboard
-ToExport.Clipboard = {}
-ToExport.Clipboard.set = ToExport.toclipboard
-
-function ToExport.rconsoleclose()
-	SendFunction('closeconsole|||')
-end
-function ToExport.rconsoleshow()
-	SendFunction('showconsole|||')
-end
-
-
-for n in pairs(ToExport) do 
-    getgenv()[n] = ToExport[n] 
-end
-
-local MarketplaceService = game:GetService('MarketplaceService')
-local localplayer = game:GetService'Players'.LocalPlayer
-
-SendFunction(('welcome|||%s|||%s'):format(localplayer.Name, MarketplaceService:GetProductInfo(game.PlaceId).Name))
-
-local function define(name, value, parent)
-	local Function = (typeof(value) == "function" and islclosure(value) and newcclosure(value, name)) or value
-	if parent ~= nil then
-		parent[name] = lol
-		return
-	end
-	getgenv()[name] = Function
-end
