@@ -316,6 +316,7 @@ local Functions={
 	["toclipboard"]="toClipboard",
 	["rconsoleclose"]="closeconsole",
 	["rconsoleshow"]="showconsole",
+	["rconsoleclear"]="consoleclear",
 }
 
 SendFunction=function(text)
@@ -340,7 +341,7 @@ define("Clipboard",{
 	set=toclipboard
 })
 
-SendFunction(('welcome|||%s|||%s'):format(localplayer.Name, MarketplaceService:GetProductInfo(game.PlaceId).Name))
+SendFunction(('welcome|||%s|||%s'):format(localplayer.DisplayName, MarketplaceService:GetProductInfo(game.PlaceId).Name))
 
 
 -- Thank you Valyseonly
