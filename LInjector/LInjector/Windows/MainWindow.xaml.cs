@@ -94,7 +94,10 @@ namespace LInjector.Windows
             foreach (TabItem item in TabSystemz.maintabs.Items)
             {
                 var GetTextzzzz = await (item.Content as monaco_api).GetText();
-                File.WriteAllText($"{Files.savedtabspath}\\{item.Header.ToString()}", GetTextzzzz.ToString());
+                if (GetTextzzzz.Length > 1)
+                {
+                    File.WriteAllText($"{Files.savedtabspath}\\{item.Header.ToString()}", GetTextzzzz.ToString());
+                }
             }
         }
 

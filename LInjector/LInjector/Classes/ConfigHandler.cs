@@ -15,9 +15,8 @@ namespace LInjector.Classes
         public static bool debug = false;
         public static bool discord_rpc = true;
         public static bool options_collapsed = false;
-        public static bool script_list = false;
         public static bool safe_mode = false;
-        public static bool save_tabs {  get; set; }
+        public static bool save_tabs = false;
 
 
         public static void DoConfig()
@@ -77,7 +76,7 @@ namespace LInjector.Classes
                     safe_mode = true;
                 }
 
-                if (config.TryGetValue("save_tabs", out object save_tabs) && (bool)save_tabs)
+                if (config.TryGetValue("save_tabs", out object save_tabsA) && (bool)save_tabsA)
                 {
                     save_tabs = true;
                 }
