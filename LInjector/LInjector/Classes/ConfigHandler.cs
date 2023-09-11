@@ -17,6 +17,7 @@ namespace LInjector.Classes
         public static bool options_collapsed = false;
         public static bool script_list = false;
         public static bool safe_mode = false;
+        public static bool save_tabs {  get; set; }
 
 
         public static void DoConfig()
@@ -30,7 +31,8 @@ namespace LInjector.Classes
                     { "debug", false },
                     { "topmost", false },
                     { "discord_rpc", true },
-                    { "safe_mode", false }
+                    { "safe_mode", false },
+                    { "save_tabs", true }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(config, Formatting.Indented);
@@ -73,6 +75,11 @@ namespace LInjector.Classes
                 if (config.TryGetValue("safe_mode", out object safe_mode) && (bool)safe_mode)
                 {
                     safe_mode = true;
+                }
+
+                if (config.TryGetValue("save_tabs", out object save_tabs) && (bool)save_tabs)
+                {
+                    save_tabs = true;
                 }
             }
         }

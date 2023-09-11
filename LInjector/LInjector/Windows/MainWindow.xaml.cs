@@ -1,11 +1,15 @@
 ﻿using LInjector.Classes;
+using LInjector.Pages;
+using LInjector.WPF.Classes;
 using System;
+using System.Collections;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
@@ -66,6 +70,8 @@ namespace LInjector.Windows
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
+            SaveTabs();
+
             TabSystemz.Visibility = Visibility.Hidden;
             Storyboard fadeOutStoryboard = new Storyboard();
             DoubleAnimation fadeOutAnimation = new DoubleAnimation
@@ -79,19 +85,16 @@ namespace LInjector.Windows
             Storyboard.SetTargetProperty(fadeOutAnimation, new PropertyPath(Window.OpacityProperty));
             fadeOutStoryboard.Completed += OnCloseFadeoutCompleted;
             fadeOutStoryboard.Begin();
+        }
 
-            if (FluxInterfacing.is_injected(FluxInterfacing.pid))
+        private async void SaveTabs()
+        {
+            if (ConfigHandler.save_tabs == false) { return; }
+
+            foreach (TabItem item in TabSystemz.maintabs.Items)
             {
-                var processesByName = Process.GetProcessesByName("Windows10Universal");
-                foreach (var Process in processesByName)
-                {
-                    var FilePath = Process.MainModule.FileName;
-
-                    if (FilePath.Contains("ROBLOX"))
-                    {
-                        Process.Kill();
-                    }
-                }
+                var GetTextzzzz = await (item.Content as monaco_api).GetText();
+                File.WriteAllText($"{Files.savedtabspath}\\{item.Header.ToString()}", GetTextzzzz.ToString());
             }
         }
 
@@ -239,6 +242,17 @@ namespace LInjector.Windows
             RefreshScriptList();
             LogToConsole.Log("Welcome to LInjector.", ConsoleLogList);
             _ = VersionChecker.CheckVersionUWP();
+            LoadSavedTabs();
+        }
+
+        private void LoadSavedTabs()
+        {
+            if ( ConfigHandler.save_tabs == false ) { return; }
+
+            foreach (string file in Directory.EnumerateFiles(Files.savedtabspath))
+            {
+                TabSystemz.add_tab_with_text(File.ReadAllText(file), Path.GetFileName(file));
+            }
         }
 
         public void Inject()
@@ -519,6 +533,10 @@ namespace LInjector.Windows
             if (ConfigHandler.topmost)
             { TopmostToggle.IsChecked = true; }
             else { TopmostToggle.IsChecked = false; }
+
+            if (ConfigHandler.save_tabs)
+            { SaveTabsToggle.IsChecked = true; }
+            else { SaveTabsToggle.IsChecked = false; }
         }
 
         // AUTO ATTACH TOGGLE
@@ -625,6 +643,18 @@ namespace LInjector.Windows
         }
 
         private void SafeModetoggle_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ConfigHandler.SetConfigValue("safe_mode", false);
+            ConfigHandler.safe_mode = false;
+        }
+
+        private void SaveTabsToggle_Checked(object sender, RoutedEventArgs e)
+        {
+            ConfigHandler.SetConfigValue("save_tabs", true);
+            ConfigHandler.safe_mode = true;
+        }
+
+        private void SaveTabsToggle_Unchecked(object sender, RoutedEventArgs e)
         {
             ConfigHandler.SetConfigValue("safe_mode", false);
             ConfigHandler.safe_mode = false;

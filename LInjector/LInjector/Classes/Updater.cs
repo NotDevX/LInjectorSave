@@ -24,6 +24,7 @@ namespace LInjector.Classes
         public static readonly string ModulePath = ".\\Resources\\libs\\Module.dll";
         public static readonly string GitHubHash = "https://api.github.com/repos/ItzzExcel/LInjector/commits?path=Redistributables/DLLs/Module.dll&page=1&per_page=1";
         public static readonly string currentVersion = "v10.09.2023";
+        public static readonly string savedtabspath = ".\\Resources\\savedtabs";
     }
 
     public static class CreateFiles
@@ -78,6 +79,11 @@ namespace LInjector.Classes
             if (!Directory.Exists(Files.autoexecFolder))
             {
                 Directory.CreateDirectory(Files.autoexecFolder);
+            }
+
+            if (!Directory.Exists(Files.savedtabspath))
+            {
+                Directory.CreateDirectory(Files.savedtabspath);
             }
 
             if (!File.Exists(".\\Resources\\libs\\Module.dll"))
