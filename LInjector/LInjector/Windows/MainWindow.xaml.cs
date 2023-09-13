@@ -256,6 +256,16 @@ namespace LInjector.Windows
             {
                 TabSystemz.add_tab_with_text(File.ReadAllText(file), Path.GetFileName(file));
             }
+
+            DeleteSavedTabs();
+        }
+
+        private void DeleteSavedTabs()
+        {
+            foreach (var item in Directory.EnumerateFiles(Files.savedtabspath))
+            {
+                File.Delete(item);
+            }
         }
 
         public void Inject()
