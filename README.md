@@ -21,10 +21,10 @@ Also available on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
 <table>
 	<tr>
 		<td width="600">
-			<img src="https://github.com/ItzzExcel/LInjector/assets/98148217/d24106be-2142-4cbe-842d-761744e8f959" height="100%">
+			<img src="https://media.discordapp.net/attachments/1122366811229405264/1151744638399565895/image.png" height="100%">
 		</td>
 		<td width="600">
-			<img src="https://cdn.discordapp.com/attachments/1122366811229405264/1139451589187342416/image.png" height="100%">
+			<img src="https://media.discordapp.net/attachments/1122366811229405264/1151744682439753738/image.png" height="100%">
 		</td>
 	</tr>
 </table>
