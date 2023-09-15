@@ -11,9 +11,9 @@
 local EXPLOIT_NAME = "LInjector"
 local EXLPOIT_VERSION = "22.08.2023"
 
-if EXPLOIT_NAME then
+--[[if EXPLOIT_NAME then
 	return script:Remove()
-end
+end]]--
 getgenv()[EXPLOIT_NAME] = true
 
 --- Libraries
