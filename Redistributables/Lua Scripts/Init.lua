@@ -4,306 +4,117 @@
  * ░▒█░░░░▒█░░█░▒█░░░█░█▀▀░█░░░░█░░█░░█░█▄▄▀░░░▒█▀▀░░█░▒█░█░▒█░█░░░░█░░░█▀░█░░█░█░▒█░▀▀▄░░
  * ░▒█▄▄█░▄█▄░▀░░▀░█▄█░▀▀▀░▀▀▀░░▀░░░▀▀░░▀░▀▀░░░▒█░░░░░▀▀▀░▀░░▀░▀▀▀░░▀░░▀▀▀░░▀▀░░▀░░▀░▀▀▀░░
  *
- *
+ * Written By Depso
  *
  * ]]
 
-local LINJECTOR_VERSION="10.09.2023"
+local EXPLOIT_NAME = "LInjector"
+local EXLPOIT_VERSION = "22.08.2023"
 
-loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisInstanceProtect.lua"))() -- credit to iris
-local hash=loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/HashLib.lua"), "HashLib")()
-local disassemble=loadstring(game:HttpGet("https://raw.githubusercontent.com/TheSeaweedMonster/Luau/main/decompile.lua"), "Disassembler")()
+if EXPLOIT_NAME then
+	return script:Remove()
+end
+getgenv()[EXPLOIT_NAME] = true
 
-local MarketplaceService=game:GetService'MarketplaceService'
-local TweenService=game:GetService('TweenService')
+--- Libraries
+local HashIngLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/HashLib.lua"))()
+local disassemble = loadstring(game:HttpGet("https://raw.githubusercontent.com/TheSeaweedMonster/Luau/main/decompile.lua"))()
+
 local localplayer=game:GetService'Players'.LocalPlayer
+-------------
 
-local hashlibalgs={"sha1", "sha224"}
-local hashalgs={
+local hashlibalgs = {
+	"sha1", "sha224"
+}
+local hashalgs = {
 	"md5", "sha1", "sha224", "sha256", "sha384", "sha512", "sha3-256", "sha3-384", "sha3-512",
 	"md2", "haval", "ripemd128", "ripemd160", "ripemd256", "ripemd320"
 }
-local consolecolor, colors="white", {
-	['black']="black",
-	['blue']="blue",
-	['green']="green",
-	['cyan']="cyan",
-	['red']="red",
-	['magenta']="magenta",
-	['brown']="white",
-	['light_gray']="white",
-	['dark_gray']="white",
-	['light_blue']="blue",
-	['light_green']="green",
-	['light_cyan']="cyan",
-	['light_red']="red",
-	['light_magenta']="magenta",
-	['yellow']="yellow",
+local ciphers = {
+	['aes-cbc'] = "CBC",
+	['aes-cfb'] = "CFB",
+	['aes-ctr'] = "CTR",
+	['aes-ofb'] = "OFB",
+	['aes-gcm'] = "GCM"
 }
-local ciphers={
-	['aes-cbc']="CBC",
-	['aes-cfb']="CFB",
-	['aes-ctr']="CTR",
-	['aes-ofb']="OFB",
-	['aes-gcm']="GCM"
-}
-local specialinfo={
-	MeshPart={
-		"PhysicsData",
-		"InitialSize"
-	},
-	UnionOperation={
-		"AssetId",
-		"ChildData",
-		"FormFactor",
-		"InitialSize",
-		"MeshData",
-		"PhysicsData"
-	},
-	Terrain={
-		"SmoothGrid",
-		"MaterialColors"
-	}
-}
-local funcs={ 
-	"getlocal",
-	"getlocals",
-	"setlocal",
-	"getcallstack",
-	"isuntouched",
-	"setuntouched",
-	"setupvaluename",
-	"XPROTECT",
-	"getpointerfromstate",
-	"setnonreplicatedproperty",
-	"readbinarystring"
-}
-local unavailable={
-	"create_secure_function",
-	"run_secure_function",
-	"run_secure_lua",
-	"secrun"
-}
-getgenv().Drawing.Fonts={
-	['UI']=0,
-	['System']=1,
-	['Plex']=2,
-	['Monospace']=3
-}
-local none=newcclosure(function() end, "none")
 
-local function define(name, value, parent)
-	local Function=(typeof(value) == "function" and islclosure(value) and newcclosure(value, name)) or value
-	if parent ~= nil then
-		parent[name]=lol
-		return
-	end
-	getgenv()[name]=Function
+STDExport=function(text)
+	writefile("LINJECTOR/LINJECTOR.li", text)
 end
-local function connection(conn, enabled)
-	for _,v in next, getconnections(conn) do
-		if enabled then
-			v:Enable()
-		else
-			v:Disable()
-		end
-	end
+Export=function(name, value)
+	getgenv()[name] = value
 end
 
-
-for _,v in next, funcs do 
-	define(v, none)
-end
-for _,v in next, unavailable do
-	define(v, none, t)
-end
-
-define(identifyexecutor, function()
-	return "LInjector UWP", LINJECTOR_VERSION
+Export("identifyexecutor", function()
+	return EXPLOIT_NAME, EXLPOIT_VERSION
 end)
-define(getexecutorname, function()
-	return "LInjector UWP", LINJECTOR_VERSION
+Export("getexecutorname", function()
+	return EXPLOIT_NAME, EXLPOIT_VERSION
 end)
-
-define("disassemble", disassemble)
-
-define("syn_io_read", readfile)
-define("syn_io_write", writefile)
-define("syn_io_append", appendfile)
-define("syn_io_makefolder", makefolder)
-define("syn_io_listdir", listfiles)
-define("syn_io_isfile", isfile)
-define("syn_io_isfolder", isfolder)
-define("syn_io_delfile", delfile)
-define("syn_io_delfolder", delfolder)
-
-define("syn_mouse1click", mouse1click)
-define("syn_mouse1press", mouse1press)
-define("syn_mouse1release", mouse1release)
-
-define("syn_mouse2click", mouse2click)
-define("syn_mouse2press", mouse2press)
-define("syn_mouse2release", mouse2release)
-
-define("syn_mousescroll", mousescroll)
-define("syn_mousemoverel", mousemoverel)
-define("syn_mousemoveabs", mousemoveabs)
-
-define("syn_keypress", keypress)
-define("syn_keyrelease", keyrelease)
+Export("disassemble", disassemble)
 
 
-define("syn_crypt_encrypt", crypt.encrypt)
-define("syn_crypt_decrypt", crypt.decrypt)
-define("syn_crypt_b64_encode", crypt.base64encode)
-define("syn_crypt_b64_decode", crypt.base64decode)
-define("syn_crypt_random", crypt.generatekey)
-define("syn_crypt_hash", function(data)
-	return crypt.hash(data, "sha384")
-end)
-define("syn_crypt_derive", function(_, len)
-	return crypt.generatebytes(len)
-end)
+local Oldcrypt = crypt
+local NewCrypt = {}
 
-define("syn_getgenv", getgenv)
-define("syn_getrenv", getrenv)
-define("syn_getsenv", getsenv)
-define("syn_getmenv", getmenv)
-define("syn_getreg", getreg)
-define("syn_getgc", getgc)
-define("syn_getinstances", getinstances)
-define("syn_context_get", getidentity)
-define("syn_context_set", setidentity)
-define("syn_setfflag", setfflag)
-define("syn_dumpstring", dumpstring)
-define("syn_islclosure", islclosure)
-define("syn_checkcaller", checkcaller)
-define("syn_clipboard_set", setclipboard)
-define("syn_newcclosure", newcclosure)
-define("syn_decompile", decompile)
-define("syn_getloadedmodules", getloadedmodules)
-define("syn_getcallingscript", getcallingscript)
-define("syn_isactive", isrbxactive)
-define("syn_websocket_connect", function(a)
-	assert(typeof(a) == "string", string.format("bad argument #1 to 'syn_websocket_connect' (string expected, got %s)", typeof(a)))
-	return WebSocket.connect(a)
-end)
-define("syn_websocket_close", function(a)
-	assert(a.OnMessage ~= nil, "Websocket connection expected")
-	a:Close()
-end)
-
-define("is_synapse_function", isourclosure)
-define("is_protosmasher_closure", isourclosure)
-define("is_protosmasher_caller", checkcaller)
-define("is_lclosure", islclosure)
-define("iswindowactive", isrbxactive)
-define("validfgwindow", isrbxactive)
-define("getsynasset", getcustomasset)
-define("getvirtualinputmanager", function()
-	return cloneref(game:GetService("VirtualInputManager")) 
-end)
-local t={}
-define("protect_gui", ProtectInstance, t) -- credit to iris
-define("unprotect_gui", UnProtectInstance, t)
-
-
-define("is_beta", function()
-	return false
-end, t)
-
-local c=crypt
-local crypt={}
-define("encrypt", c.encrypt, crypt)
-define("decrypt", c.decrypt, crypt)
-define("hash", function(data)
-	return c.hash(data, "sha384"):lower()
-end, crypt)
-define("derive", function(_, len)
-	return c.generatebytes(len)
-end, t)
-
-define("random", c.generatebytes, crypt)
-
-local base64={}
-define("encode", c.base64encode, base64)
-define("decode", c.base64decode, base64)
-define("base64", base64, crypt)
-
-local lz4={}
-define("compress", lz4compress, lz4)
-define("decompress", lz4decompress, lz4)
-define("lz4", lz4, crypt)
-
-local custom={}
-define("encrypt", function(cipher, data, key, nonce)
-	cipher=cipher:lower()
+NewCrypt.encrypt = function(cipher, data, key, nonce)
+	cipher = cipher:lower()
 	if cipher:find("eax") or cipher:find("bf") then
 		return ""
 	end
 	return crypt.custom_encrypt(data, key, nonce, ciphers[cipher:gsub("_", "-")])
-end, custom)
-define("decrypt", function(cipher, data, key, nonce)
-	cipher=cipher:lower()
+end
+NewCrypt.decrypt = function(cipher, data, key, nonce)
+	cipher = cipher:lower()
 	if cipher:find("eax") or cipher:find("bf") then
 		return ""
 	end
 	return crypt.custom_decrypt(data, key, nonce, ciphers[cipher:gsub("_", "-")])
-end, custom)
-define("hash", function(alg, data)
-	alg=alg:lower():gsub("_", "-")
-	local HashLib=table.find(hashlibalgs, alg)
-	local SwLib=table.find(hashalgs, alg)
-	assert(HashLib or SwLib, "bad argument #1 to 'hash' (non-existant hash algorithm)")
-	if HashLib then 
+end
+NewCrypt.hash = function(alg, data)
+	alg = alg:lower():gsub("_", "-")
+
+	local HashLib = table.find(hashlibalgs, alg)
+	local SwLib = table.find(hashalgs, alg)
+	assert(HashLib or SwLib, "#1 Unknown hash algorithm")
+
+	if HashLib then
 		return hash[alg:gsub("-", "_")](data)
 	end
 	if SwLib then
-		return c.hash(data, alg):lower()
+		return Oldcrypt.hash(data, alg):lower()
 	end
-end, custom)
+end
+NewCrypt.derive = function(_, len)
+	return Oldcrypt.generatebytes(len)
+end
+NewCrypt.random = Oldcrypt.generatebytes 
+NewCrypt.generatebytes = Oldcrypt.generatebytes
 
-define("custom", custom, crypt)
-define("crypt", crypt, t)
-define("crypto", crypt, t)
-define("websocket", WebSocket, t)
+local oldRequest
+oldRequest = hookfunction(request, function(Arguments)
+    local Headers = Arguments.Headers or {}
+    Headers['User-Agent'] = EXPLOIT_NAME
+    return oldRequest({
+        Url = Arguments.Url,
+        Method = Arguments.Method or "GET",
+        Headers = Headers,
+        Cookies = Arguments.Cookies or {},
+        Body = Arguments.Body or ""
+    })
+end)
 
---[[define("secure_call", function(func, env, ...)
-	local functype=typeof(func) 
-	local envtype=typeof(env)
-	assert(functype == "function", string.format("bad argument #1 to 'secure_call' (function expected, got %s)", functype))
-	assert(envtype == "Instance", string.format("bad argument #2 to 'secure_call' (Instance expected, got %s)", envtype))
-	local envclass=env.ClassName
-	assert(envclass == "LocalScript" or envclass == "ModuleScript", string.format("bad argument #2 to 'secure_call' (LocalScript or ModuleScript expected, got %s)", envclass))
-	local _, fenv=xpcall(function()
-		return getsenv(env)
-	end, function()
-		return getfenv(func)
-	end)
-	return coroutine.wrap(function(...)
-		setidentity(2)
-		setfenv(0, fenv)
-		setfenv(1, fenv)
-		return func(...)
-	end)(...)
-end, t)]]
+Export("custom", NewCrypt)
+Export("crypt", NewCrypt)
+Export("crypto", NewCrypt)
 
+setreadonly(crypt, true)
+setreadonly(crypto, true)
+setreadonly(custom, true)
 
-define("ror", bit.rrotate, bit)
-define("rol", bit.lrotate, bit)
-define("tohex", function(a)
-	return tonumber(string.format("%08x", a % 4294967296))
-end, bit)
-
-define("syn", t)
-
-define("LInjector", {
-	loaded=true
-})
-
-setreadonly(syn, true)
-setreadonly(LInjector, true)
-setreadonly(bit, true)
+for Name, _ in next, crypt do
+	print(Name)
+end
 
 local Functions={
 	["messagebox"]="showmsg",
@@ -319,32 +130,23 @@ local Functions={
 	["rconsoleclear"]="consoleclear",
 }
 
-SendFunction=function(text)
-	writefile("LINJECTOR/LINJECTOR.li", text)
-end
-
 for name, func in pairs(Functions) do
-	define(name,function(...)
+	Export(name,function(...)
 		local String, args="",table.pack(...)
 		for i=1, args.n do
 			String=("%s|||%s"):format(String, tostring(args[i]))
 		end
-		SendFunction(('%s%s'):format(name, String))
+		STDExport(('%s%s'):format(name, String))
 	end)
 end
 
-define("rprintconsole",rconsoleprint)
-define("setclipboard",toclipboard)
-define("set_clipboard",toclipboard)
-define("set_clipboard",toclipboard)
-define("Clipboard",{
-	set=toclipboard
-})
+Export("rprintconsole",rconsoleprint)
+Export("setclipboard",toclipboard)
+Export("set_clipboard",toclipboard)
+Export("set_clipboard",toclipboard)
+Export("Clipboard",{set=toclipboard})
 
 SendFunction(('welcome|||%s|||%s'):format(localplayer.DisplayName, MarketplaceService:GetProductInfo(game.PlaceId).Name))
-
-
--- Thank you Valyseonly
 
 local LInjNotification=Instance.new("ScreenGui")
 local holder_1=Instance.new("Frame")
@@ -362,7 +164,7 @@ local UIGradient_2=Instance.new("UIGradient")
 local information_1=Instance.new("TextLabel")
 local UIPadding_2=Instance.new("UIPadding")
 local UIPadding_3=Instance.new("UIPadding")
-LInjNotification.Name=c.generatebytes()
+LInjNotification.Name=crypt.random()
 LInjNotification.Parent=game.CoreGui
 LInjNotification.DisplayOrder=2147483647
 holder_1.Parent=LInjNotification
@@ -451,7 +253,7 @@ UIPadding_3.PaddingRight=UDim.new(0,20)
 
 local function SAOKCV_fake_script() -- LInjNotification.scriptz
 	local scriptz=Instance.new('LocalScript', LInjNotification)
-	scriptz.Name=c.generatebytes()
+	scriptz.Name=crypt.random()
 	
 	local function TypeWrite (Obj, Text)
 		for I=1, #Text, 1 do
