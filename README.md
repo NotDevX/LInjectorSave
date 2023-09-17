@@ -24,7 +24,7 @@ Also available on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
 			<img src="https://media.discordapp.net/attachments/1122366811229405264/1151744638399565895/image.png" height="100%">
 		</td>
 		<td width="600">
-			<img src="https://media.discordapp.net/attachments/1122366811229405264/1151744682439753738/image.png" height="100%">
+			<img src="https://cdn.discordapp.com/attachments/1149195327086276640/1152795478031876097/image.png" height="100%">
 		</td>
 	</tr>
 </table>
