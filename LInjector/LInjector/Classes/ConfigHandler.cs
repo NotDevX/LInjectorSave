@@ -15,7 +15,6 @@ namespace LInjector.Classes
         public static bool debug = false;
         public static bool discord_rpc = true;
         public static bool options_collapsed = false;
-        public static bool safe_mode = false;
         public static bool save_tabs = false;
 
 
@@ -30,8 +29,7 @@ namespace LInjector.Classes
                     { "debug", false },
                     { "topmost", false },
                     { "discord_rpc", true },
-                    { "safe_mode", false },
-                    { "save_tabs", true }
+                    { "save_tabs", false }
                 };
 
                 string jsonString = JsonConvert.SerializeObject(config, Formatting.Indented);

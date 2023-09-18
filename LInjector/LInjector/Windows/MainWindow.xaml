@@ -28,65 +28,6 @@
             <Grid.ColumnDefinitions>
             </Grid.ColumnDefinitions>
 
-            <!-- SETTINGS GRID-->
-            <Grid x:Name="SettingsGrid" Background="#111111" Panel.ZIndex="2" Visibility="Visible" Grid.RowSpan="2" Margin="-5000, 0, 5000, 0">
-                <Border CornerRadius="0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="7*"/>
-                            <RowDefinition Height="0*"/>
-                            <RowDefinition Height="33*"/>
-                        </Grid.RowDefinitions>
-                        <Grid Background="#111111" Margin="0,35,0,2" Panel.ZIndex="100" MouseDown="DragWindow">
-                            <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
-                                <materialDesign:PackIcon Kind="Settings" Foreground="White" VerticalAlignment="Center" Width="30" Height="30"/>
-                                <Label Foreground="White" Content="Settings" VerticalAlignment="Center" FontSize="15" Margin="0 0 0 0" Width="157"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-                                <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE76B;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="ShiftToNormal" Height="38" />
-                            </StackPanel>
-                        </Grid>
-                        <Border Grid.Row="2" Background="#161616" Margin="5,0,5,5" CornerRadius="5">
-                            <Border CornerRadius="5" Margin="0,0,0,0">
-                                <Grid>
-                                    <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,0">
-                                        <StackPanel Orientation="Horizontal">
-                                            <ToggleButton Checked="AutoAttachToggle_Checked" Unchecked="AutoAttachToggle_Unchecked" Width="50" Height="50" x:Name="AutoAttachToggle"/>
-                                            <Label Content="Auto Attach" Foreground="White" FontSize="20" VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <ToggleButton Checked="SplashToggle_Checked" Unchecked="SplashToggle_Unchecked" Width="50" Height="50" x:Name="SplashToggle"/>
-                                            <Label Content="Splash Screen" Foreground="White" FontSize="20" VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <ToggleButton Checked="DebugModeToggle_Checked" Unchecked="DebugModeToggle_Unchecked" Width="50" Height="50" x:Name="DebugModeToggle"/>
-                                            <Label Content="Debug Console" Foreground="White" FontSize="20" VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <ToggleButton Width="50" Height="50" Checked="RPCToggle_Checked" Unchecked="RPCToggle_Unchecked" x:Name="RPCToggle" />
-                                            <Label Content="Discord RPC" Foreground="White" FontSize="20" VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <ToggleButton Checked="TopmostToggle_Checked" Unchecked="TopmostToggle_Unchecked" Width="50" Height="50" x:Name="TopmostToggle" />
-                                            <Label Content="Window Topmost" Foreground="White" FontSize="20" VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <ToggleButton Checked="SafeModetoggle_Checked" Unchecked="SafeModetoggle_Unchecked" Width="50" Height="50" x:Name="SafeModetoggle" />
-                                            <Label Content="Safe Mode" Foreground="White" FontSize="20" VerticalAlignment="Center"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal">
-                                            <ToggleButton Checked="SaveTabsToggle_Checked" Unchecked="SaveTabsToggle_Unchecked" Width="50" Height="50" x:Name="SaveTabsToggle"/>
-                                            <Label Content="Save Tabs" Foreground="White" FontSize="20" VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                    </ListBox>
-                                </Grid>
-                            </Border>
-                        </Border>
-                    </Grid>
-                </Border>
-            </Grid>
-
             <!-- SCRIPTS PAGE GRID -->
 
             <Grid x:Name="ScriptsGrid" Background="#111111" Panel.ZIndex="1" Visibility="Visible" Grid.RowSpan="2" Margin="-5000, 0, 5000, 0">
@@ -113,7 +54,7 @@
             </Grid>
 
             <!-- INFO PAGE GRID -->
-            <Grid x:Name="InformationGrid" Background="#111111" Panel.ZIndex="1" Visibility="Visible" Grid.RowSpan="2"  Margin="-5000,0,5000,0">
+            <Grid x:Name="InformationGrid" Background="#111111" Panel.ZIndex="1" Visibility="Hidden" Grid.RowSpan="2">
                 <Border>
                     <Grid Margin="0 30 0 0">
                         <Grid.RowDefinitions>
@@ -174,7 +115,7 @@
             <!-- TITLE BAR -->
             <Border CornerRadius="0" Background="#161616" Visibility="Visible" Panel.ZIndex="10">
                 <Grid MouseDown="DragWindow" Background="Transparent">
-                    <ListBox Background="Transparent" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0">
+                    <ListBox Background="Transparent" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0">
                         <ListBox.ItemContainerStyle>
                             <Style TargetType="{x:Type ListBoxItem}">
                                 <Setter Property="Template">
@@ -189,7 +130,7 @@
 
                         <!-- Use a horizontal StackPanel to align items horizontally -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" MouseDown="DragWindow">
-                            <Image Source="\Resources\LInjector.png" Stretch="Uniform" MaxHeight="25" MouseDown="DragWindow" />
+                            <Image Source="\Resources\LInjector.png" Stretch="Uniform" MaxHeight="25" MouseDown="DragWindow"/>
                             <Label Content="LInjector" Foreground="White" FontSize="16" Margin="5 0 0 0" FontFamily="Microsoft YaHei UI" MouseDown="DragWindow" />
                         </StackPanel>
                     </ListBox>
@@ -224,11 +165,11 @@
                         </Border>
                     </Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xED62;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="ClearEditor"          HorizontalAlignment="Right" VerticalAlignment="Stretch" />
-                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xF167;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="InfoButton_Click"     HorizontalAlignment="Right" VerticalAlignment="Stretch" />
-                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE921;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="MinimizeButton_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
-                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE922;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="MaximizeButton_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
-                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE8BB;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="ExitButton_Click"     HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xED62;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="ClearEditor"          HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
+                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xF167;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="InfoButton_Click"     HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
+                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE921;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="MinimizeButton_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
+                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE922;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="MaximizeButton_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
+                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE8BB;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="ExitButton_Click"     HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
                     </StackPanel>
                 </Grid>
             </Border>
@@ -314,7 +255,67 @@
                             <RowDefinition Height="0*"/>
                         </Grid.RowDefinitions>
                         <controls:TabSystem Padding="5" x:Name="TabSystemz" Visibility="Hidden"/>
+
+                        <!-- SETTINGS GRID -->
+                        <Grid x:Name="SettingsGrid" Background="#111111" Panel.ZIndex="2" Visibility="Collapsed" Grid.RowSpan="2">
+                            <Border CornerRadius="0" Grid.RowSpan="2">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="37"/>
+                                        <RowDefinition Height="220*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Background="#111111" Panel.ZIndex="100" Margin="0,0,0,7" Grid.Column="1">
+                                        <Grid VerticalAlignment="Top">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition Height="0*"/>
+                                            </Grid.RowDefinitions>
+                                            <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+                                                <materialDesign:PackIcon Kind="Settings" Foreground="White" VerticalAlignment="Center" Width="30" Height="30"/>
+                                                <Label Foreground="White" Content="Settings" VerticalAlignment="Center" FontSize="15" Margin="0 0 0 0" Width="157"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Height="38" Margin="686,0,0,0" Width="19">
+                                                <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE76B;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="ShiftToNormal" Height="38" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                    <Border Background="#141414" Margin="5,0,5,5" CornerRadius="5" Grid.Row="2">
+                                        <Border CornerRadius="5">
+                                            <Grid>
+                                                <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,3" materialDesign:RippleAssist.IsDisabled="True" materialDesign:ListBoxItemAssist.ShowSelection="False">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <ToggleButton Checked="AutoAttachToggle_Checked" Unchecked="AutoAttachToggle_Unchecked" Width="30" Height="30" x:Name="AutoAttachToggle"/>
+                                                        <Label Content="Auto Attach" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <ToggleButton Checked="SplashToggle_Checked" Unchecked="SplashToggle_Unchecked" Width="30" Height="30" x:Name="SplashToggle"/>
+                                                        <Label Content="Splash Screen" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <ToggleButton Checked="DebugModeToggle_Checked" Unchecked="DebugModeToggle_Unchecked" Width="30" Height="30" x:Name="DebugModeToggle"/>
+                                                        <Label Content="Debug Console" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <ToggleButton Width="30" Height="30" Checked="RPCToggle_Checked" Unchecked="RPCToggle_Unchecked" x:Name="RPCToggle" />
+                                                        <Label Content="Discord RPC" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <ToggleButton Checked="TopmostToggle_Checked" Unchecked="TopmostToggle_Unchecked" Width="30" Height="30" x:Name="TopmostToggle" />
+                                                        <Label Content="Window Topmost" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <ToggleButton Checked="SaveTabsToggle_Checked" Unchecked="SaveTabsToggle_Unchecked" Width="30" Height="30" x:Name="SaveTabsToggle"/>
+                                                        <Label Content="Save Tabs" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                    </StackPanel>
+                                                </ListBox>
+                                            </Grid>
+                                        </Border>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
                     </Grid>
+                    <!-- SETTINGS GRID ENDS -->
                 </Border>
                 <!-- EDITOR ENDS -->
 
@@ -345,17 +346,20 @@
                 <Border Background="Transparent" Margin="1,10,7,10" CornerRadius="4" Grid.Column="1" Grid.RowSpan="3">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="17*"/>
-                            <RowDefinition Height="178*"/>
-                            <RowDefinition Height="21*"/>
+                            <RowDefinition Height="28*"/>
+                            <RowDefinition Height="0*"/>
+                            <RowDefinition Height="283*"/>
+                            <RowDefinition Height="34*"/>
                         </Grid.RowDefinitions>
-                        <Border CornerRadius="4 4 0 0" Background="#141414" Margin="0,0,0,3">
+                        <Border CornerRadius="4 4 0 0" Background="#141414" Margin="0,0,0,2">
                             <Grid>
-                                <TextBox Padding="4" TextChanged="SearchScriptsBox_TextChanged" Foreground="White" Style="{StaticResource MaterialDesignTextBox}" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" x:Name="SearchScriptsBox"/>
+                                <TextBox Padding="4" TextChanged="SearchScriptsBox_TextChanged" Foreground="White" Style="{StaticResource MaterialDesignTextBox}" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" x:Name="SearchScriptsBox" BorderThickness="0">
+                                    <materialDesign:TextFieldAssist.DecorationVisibility>Hidden</materialDesign:TextFieldAssist.DecorationVisibility>
+                                </TextBox>
                             </Grid>
                         </Border>
-                        <ListBox SelectionChanged="SearchScriptsBox_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Hidden" Background="#FF141414" BorderThickness="0" Foreground="White" FontFamily="Segoe UI Semilight" x:Name="ScriptListHolder" Padding="5 5 5 5" Height="Auto" Margin="0,0,0,37" Loaded="ScriptListHolder_Loaded" Grid.Row="1" Grid.RowSpan="2"/>
-                        <Grid Background="#0F0F0F" Grid.Row="2" VerticalAlignment="Bottom" Height="38" Margin="0,5,0,0">
+                        <ListBox SelectionChanged="SearchScriptsBox_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Hidden" Background="#FF141414" BorderThickness="0" Foreground="White" FontFamily="Segoe UI Semilight" x:Name="ScriptListHolder" Padding="5 5 5 5" Height="Auto" Margin="0,1,0,3" Loaded="ScriptListHolder_Loaded" Grid.Row="2" materialDesign:RippleAssist.IsDisabled="True"/>
+                        <Grid Background="#0F0F0F" Grid.Row="3" VerticalAlignment="Center" Height="38">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="115*"/>
                                 <ColumnDefinition Width="2*"/>
@@ -369,7 +373,6 @@
                             </Button>
                         </Grid>
                     </Grid>
-
                 </Border>
                 <!-- SCRIPT LIST ENDS -->
             </Grid>

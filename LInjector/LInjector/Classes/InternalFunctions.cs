@@ -16,14 +16,13 @@ namespace LInjector.Classes
 {
     public static class InternalFunctions
     {
-        private static DirectoryInfo ScriptsFolder = new DirectoryInfo(".\\Resources\\Internal\\");
+        private static DirectoryInfo ScriptsFolder = new DirectoryInfo("Resources\\Internal\\");
         private static FileInfo[] Scripts = ScriptsFolder.GetFiles();
 
         static DispatcherTimer timer = new DispatcherTimer();
 
         public static void Load(object sender, EventArgs e)
         {
-            if (ConfigHandler.safe_mode) { return; }
 
             foreach (FileInfo file in Scripts)
             {

@@ -1,8 +1,6 @@
 ﻿using LInjector.Classes;
-using LInjector.Pages;
 using LInjector.WPF.Classes;
 using System;
-using System.Collections;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -166,15 +164,14 @@ namespace LInjector.Windows
             {
                 if (IsInfoShown == true || IsScriptsShown == true) { return; }
                 IsSettingsShown = true;
-                ObjectShift(TimeSpan.FromMilliseconds(1500), SettingsGrid, SettingsGrid.Margin, new Thickness(0, 0, 0, 0)); // SHOW
                 TabSystemz.Visibility = Visibility.Collapsed;
+                SettingsGrid.Visibility = Visibility.Visible;
             }
             else
             {
                 IsSettingsShown = false;
-                ObjectShift(TimeSpan.FromMilliseconds(1500), SettingsGrid, SettingsGrid.Margin, new Thickness(-5000, 0, 5000, 0)); // HIDE
-                Task.Delay(1500);
                 TabSystemz.Visibility = Visibility.Visible;
+                SettingsGrid.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -201,7 +198,7 @@ namespace LInjector.Windows
                     }
                     else
                     {
-                        _ = Notifications.Fire(StatusListBox, "Inject before running script", NotificationLabel);
+                        _ = Notifications.Fire(StatusListBox, "Remember to before running a script", NotificationLabel);
                     }
                 }
                 catch (Exception ex)
@@ -217,13 +214,14 @@ namespace LInjector.Windows
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _ = Notifications.Fire(StatusListBox, "Welcome to LInjector [BETA]", NotificationLabel);
 
             try
             {
-                FluxInterfacing.create_files(Path.GetFullPath(".\\Resources\\libs\\Module.dll"));
+                await Updater.CheckForUpdates();
+                FluxInterfacing.create_files(Path.GetFullPath("Resources\\libs\\Module.dll"));
             }
             catch (Exception ex)
             {
@@ -250,7 +248,7 @@ namespace LInjector.Windows
 
         private void LoadSavedTabs()
         {
-            if ( ConfigHandler.save_tabs == false ) { return; }
+            if (ConfigHandler.save_tabs == false) { return; }
 
             foreach (string file in Directory.EnumerateFiles(Files.savedtabspath))
             {
@@ -402,6 +400,7 @@ namespace LInjector.Windows
                     object selectedItem = this.ScriptListHolder.SelectedItem;
                     if (this.ScriptListHolder.Items.Count != 0)
                     {
+                        TabSystemz.ChangeCurrentTabTitle(selectedItem.ToString());
                         TabSystemz.current_monaco().SetText(File.ReadAllText(scriptfolder + (selectedItem != null ? selectedItem.ToString() : (string)null)));
                     }
                 }
@@ -449,7 +448,16 @@ namespace LInjector.Windows
 
         private void ClearEditor(object sender, RoutedEventArgs e)
         {
-            TabSystemz.current_monaco().SetText("");
+            try
+            {
+                var cm = TabSystemz.current_monaco();
+                cm.SetText("");
+                TabSystemz.ChangeCurrentTabTitle($"Script {TabSystemz.maintabs.Items.Count}");
+            }
+            catch (Exception)
+            {
+                _ = Notifications.Fire(StatusListBox, "Could not refresh the editor.", NotificationLabel);
+            }
         }
 
         private async void SaveToFileButton_Click(object sender, RoutedEventArgs e)
@@ -510,15 +518,14 @@ namespace LInjector.Windows
             {
                 if (IsSettingsShown == true || IsScriptsShown == true) { return; }
                 IsInfoShown = true;
-                ObjectShift(TimeSpan.FromMilliseconds(1500), InformationGrid, InformationGrid.Margin, new Thickness(0, 0, 0, 0)); // SHOW
                 TabSystemz.Visibility = Visibility.Collapsed;
+                InformationGrid.Visibility = Visibility.Visible;
             }
             else
             {
 
                 IsInfoShown = false;
-                ObjectShift(TimeSpan.FromMilliseconds(1500), InformationGrid, InformationGrid.Margin, new Thickness(-5000, 0, 5000, 0)); // HIDE
-                Task.Delay(1500);
+                InformationGrid.Visibility = Visibility.Collapsed;
                 TabSystemz.Visibility = Visibility.Visible;
             }
         }
@@ -640,37 +647,24 @@ namespace LInjector.Windows
             Topmost = false;
         }
 
-        // RETURN TO NORMAL:
+        // TOGGLE SETTINGS
 
         private void ShiftToNormal(object sender, RoutedEventArgs e)
         {
             ToggleControls();
         }
 
-        // SAFE MODE TOGGLE
-
-        private void SafeModetoggle_Checked(object sender, RoutedEventArgs e)
-        {
-            ConfigHandler.SetConfigValue("safe_mode", true);
-            ConfigHandler.safe_mode = true;
-        }
-
-        private void SafeModetoggle_Unchecked(object sender, RoutedEventArgs e)
-        {
-            ConfigHandler.SetConfigValue("safe_mode", false);
-            ConfigHandler.safe_mode = false;
-        }
-
+        // SAVE TABS TOGGLE
         private void SaveTabsToggle_Checked(object sender, RoutedEventArgs e)
         {
             ConfigHandler.SetConfigValue("save_tabs", true);
-            ConfigHandler.safe_mode = true;
+            ConfigHandler.save_tabs = true;
         }
 
         private void SaveTabsToggle_Unchecked(object sender, RoutedEventArgs e)
         {
-            ConfigHandler.SetConfigValue("safe_mode", false);
-            ConfigHandler.safe_mode = false;
+            ConfigHandler.SetConfigValue("save_tabs", false);
+            ConfigHandler.save_tabs = false;
         }
     }
 }
