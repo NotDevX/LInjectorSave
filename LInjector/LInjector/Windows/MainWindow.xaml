@@ -54,7 +54,7 @@
             </Grid>
 
             <!-- INFO PAGE GRID -->
-            <Grid x:Name="InformationGrid" Background="#111111" Panel.ZIndex="1" Visibility="Hidden" Grid.RowSpan="2">
+            <Grid x:Name="InformationGrid" Background="#111111" Panel.ZIndex="1" Visibility="Visible" Grid.RowSpan="2">
                 <Border>
                     <Grid Margin="0 30 0 0">
                         <Grid.RowDefinitions>
@@ -91,7 +91,7 @@
                                     </Border>
                                     <Border Grid.Row="0" BorderBrush="#2f2f2f" BorderThickness="2" CornerRadius="5" MinHeight="114" Margin="0,154,0,-104" HorizontalAlignment="Stretch">
                                         <Grid>
-                                            <StackPanel Orientation="Horizontal" Margin="0,-8,0,8">
+                                            <StackPanel Orientation="Horizontal" Margin="0,-4,0,8">
                                                 <Grid>
                                                     <Image Source="/Resources/Excel.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,14,0,0" Height="100"/>
                                                     <materialDesign:PackIcon Kind="Drawing" Foreground="#DDA4A2EC" Margin="110,22,0,0" Height="10" HorizontalAlignment="Stretch"/>
