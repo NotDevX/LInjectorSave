@@ -11,7 +11,7 @@
         mc:Ignorable="d"
         MinHeight="400"
         MinWidth="600"
-        Height="400" Width="1000" ShowInTaskbar="True" WindowStartupLocation="CenterScreen"
+        Height="400" Width="600" ShowInTaskbar="True" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         Icon="\LInjector.ico"
         ResizeMode="CanResizeWithGrip"
@@ -54,7 +54,7 @@
             </Grid>
 
             <!-- INFO PAGE GRID -->
-            <Grid x:Name="InformationGrid" Background="#111111" Panel.ZIndex="1" Visibility="Visible" Grid.RowSpan="2">
+            <Grid x:Name="InformationGrid" Background="#111111" Panel.ZIndex="1" Visibility="Hidden" Grid.RowSpan="2">
                 <Border>
                     <Grid Margin="0 30 0 0">
                         <Grid.RowDefinitions>
