@@ -39,6 +39,8 @@ namespace LInjector.WPF.Classes
             this.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
             this.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
             this.CoreWebView2.Settings.AreDevToolsEnabled = false;
+            this.CoreWebView2.Settings.IsZoomControlEnabled = false;
+            this.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
         }
 
         private void CoreWebView2_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e) => LatestRecievedText = e.TryGetWebMessageAsString();
@@ -62,13 +64,14 @@ namespace LInjector.WPF.Classes
             }
             return string.Empty;
         }
+
         public async void SetText(string text)
-        {
-            if (isDOMLoaded)
-                text = text.Replace("\\", "\\\\");
+        {   
+            text = text.Replace("\\", "\\\\");
             await CoreWebView2.ExecuteScriptAsync("editor.setValue('');");
             await CoreWebView2.ExecuteScriptAsync($"editor.setValue(`{text.Replace("`", "\\`")}`)");
         }
+
         public void AddIntellisense(string label, Types type, string description, string insert)
         {
             if (isDOMLoaded)

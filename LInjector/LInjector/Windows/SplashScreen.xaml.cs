@@ -44,7 +44,7 @@ namespace LInjector.Windows
         {
             InitializeComponent();
             CreateFiles.Create();
-            
+
             TempLog.CreateVersionFile(Files.currentVersion, "version");
             ConfigHandler.DoConfig();
             ConsoleManager.Initialize();

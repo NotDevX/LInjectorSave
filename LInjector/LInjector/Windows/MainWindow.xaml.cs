@@ -216,8 +216,6 @@ namespace LInjector.Windows
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _ = Notifications.Fire(StatusListBox, "Welcome to LInjector [BETA]", NotificationLabel);
-
             try
             {
                 await Updater.CheckForUpdates();
@@ -244,6 +242,7 @@ namespace LInjector.Windows
             LogToConsole.Log("Welcome to LInjector.", ConsoleLogList);
             _ = VersionChecker.CheckVersionUWP();
             LoadSavedTabs();
+            _ = Notifications.Fire(StatusListBox, "Welcome to LInjector [BETA]", NotificationLabel);
         }
 
         private void LoadSavedTabs()
@@ -388,7 +387,6 @@ namespace LInjector.Windows
                 }
             }
         }
-
 
         private void SearchScriptsBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
