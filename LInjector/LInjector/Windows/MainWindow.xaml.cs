@@ -212,7 +212,7 @@ namespace LInjector.Windows
             }
             catch
             {
-                _ = Notifications.Fire(StatusListBox, "I don't know what happened.", NotificationLabel);
+                _ = Notifications.Fire(StatusListBox, "Unknown error.", NotificationLabel);
             }
         }
 
