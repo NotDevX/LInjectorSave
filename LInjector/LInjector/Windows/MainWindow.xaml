@@ -206,7 +206,7 @@
                                 <Image Source="/Resources/Icons/Execute.png" Height="25" Width="25" HorizontalAlignment="Center"/>
                             </Button.Content>
                         </Button>
-                        <Button Background="#141414" Click="AttachButton_Click" BorderBrush="Transparent" Height="35" Width="35" Margin="0 5 0 0" Padding="5">
+                        <Button Background="#141414" Click="AttachButton_Click" BorderBrush="Transparent" Height="35" Width="35" Margin="0 5 0 0" Padding="5" Visibility="Collapsed">
                             <materialDesign:ButtonAssist.CornerRadius>6</materialDesign:ButtonAssist.CornerRadius>
                             <Button.Content>
                                 <Image Source="/Resources/Icons/Attach.png" Height="25" Width="25" HorizontalAlignment="Center"/>

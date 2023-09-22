@@ -198,7 +198,9 @@ namespace LInjector.Windows
                     }
                     else
                     {
-                        _ = Notifications.Fire(StatusListBox, "Remember to before running a script", NotificationLabel);
+                        Inject();
+                        await Task.Delay(1500);
+                        FluxInterfacing.run_script(FluxInterfacing.pid, scriptString);
                     }
                 }
                 catch (Exception ex)
