@@ -53,65 +53,6 @@
                 </Border>
             </Grid>
 
-            <!-- INFO PAGE GRID -->
-            <Grid x:Name="InformationGrid" Background="#111111" Panel.ZIndex="1" Visibility="Hidden" Grid.RowSpan="2">
-                <Border>
-                    <Grid Margin="0 30 0 0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="19*"/>
-                            <RowDefinition Height="131*"/>
-                        </Grid.RowDefinitions>
-                        <Grid Background="#111111" Panel.ZIndex="100" MouseDown="DragWindow" VerticalAlignment="Top" Margin="5 0 0 1">
-                            <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
-                                <materialDesign:PackIcon Kind="Info" Foreground="White" VerticalAlignment="Center" Width="30" Height="30"/>
-                                <Label Foreground="White" Content="About LInjector" VerticalAlignment="Center" FontSize="15" Margin="0 0 0 0" Width="157"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-                                <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE76B;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="InfoButton_Click" Height="50"  Visibility="Hidden" IsEnabled="False"/>
-                            </StackPanel>
-                        </Grid>
-                        <Border Background="#161616" Margin="5,45,5,5" CornerRadius="5" Grid.RowSpan="2">
-                            <Grid>
-                                <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Panel.ZIndex="3" Margin="5 5 5 5">
-                                    <Border Grid.Row="0" BorderBrush="#2f2f2f" BorderThickness="2" CornerRadius="5" MinHeight="114" MinWidth="291" MaxHeight="114" Margin="0,-2,0,2" HorizontalAlignment="Stretch">
-                                        <Grid>
-                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                                <Grid>
-                                                    <Image Source="/Resources/depso.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" Height="100"/>
-                                                    <materialDesign:PackIcon Kind="LanguageLua" Foreground="#DDA4A2EC" Margin="110,22,0,0" Height="10" HorizontalAlignment="Stretch"/>
-                                                    <materialDesign:PackIcon Kind="Code" Foreground="#DDA4A2EC" Margin="109,32,1,0" Height="10" HorizontalAlignment="Stretch"/>
-                                                    <Grid>
-                                                        <Label Content="Depso" Foreground="White" Margin="108,0,-108,0"/>
-                                                        <Label Content="Luau Development" Margin="123,15,-123,75" FontSize="10" Foreground="#DDA4A2EC"/>
-                                                        <Label Content="Programmer" Margin="123,25,-123,65" FontSize="10" Foreground="#DDA4A2EC"/>
-                                                    </Grid>
-                                                </Grid>
-                                            </StackPanel>
-                                        </Grid>
-                                    </Border>
-                                    <Border Grid.Row="0" BorderBrush="#2f2f2f" BorderThickness="2" CornerRadius="5" MinHeight="114" Margin="0,154,0,-104" HorizontalAlignment="Stretch">
-                                        <Grid>
-                                            <StackPanel Orientation="Horizontal" Margin="0,-6,0,8">
-                                                <Grid>
-                                                    <Image Source="/Resources/Excel.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,14,0,0" Height="100"/>
-                                                    <materialDesign:PackIcon Kind="Drawing" Foreground="#DDA4A2EC" Margin="110,33,0,0" Height="10" Width="10" HorizontalAlignment="Stretch"/>
-                                                    <materialDesign:PackIcon Kind="Code" Foreground="#DDA4A2EC" Margin="110,44,1,0" Height="10" Width="10" HorizontalAlignment="Stretch"/>
-                                                    <Grid Margin="0 12 0 0">
-                                                        <Label Content="Excel" Foreground="White" Margin="108,0,-108,0"/>
-                                                        <Label Content="UI Design" Margin="123,15,-123,75" FontSize="10" Foreground="#DDA4A2EC"/>
-                                                        <Label Content="Programmer" Margin="123,25,-123,65" FontSize="10" Foreground="#DDA4A2EC"/>
-                                                    </Grid>
-                                                </Grid>
-                                            </StackPanel>
-                                        </Grid>
-                                    </Border>
-                                </Grid>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                </Border>
-            </Grid>
-
             <!-- TITLE BAR -->
             <Border CornerRadius="0" Background="#161616" Visibility="Visible" Panel.ZIndex="10">
                 <Grid MouseDown="DragWindow" Background="Transparent">
@@ -166,7 +107,6 @@
                     </Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Background="Transparent" BorderBrush="Transparent" Content="&#xED62;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="ClearEditor"          HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
-                        <Button Background="Transparent" BorderBrush="Transparent" Content="&#xF167;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="InfoButton_Click"     HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
                         <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE921;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="MinimizeButton_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
                         <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE922;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="MaximizeButton_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
                         <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE8BB;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="ExitButton_Click"     HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
@@ -258,57 +198,110 @@
                         <controls:TabSystem Padding="5" x:Name="TabSystemz" Visibility="Hidden"/>
 
                         <!-- SETTINGS GRID -->
-                        <Grid x:Name="SettingsGrid" Background="#111111" Panel.ZIndex="2" Visibility="Collapsed" Grid.RowSpan="2">
+                        <Grid x:Name="SettingsGrid" Background="#111111" Panel.ZIndex="2" Visibility="Visible" Grid.RowSpan="2">
                             <Border CornerRadius="0" Grid.RowSpan="2">
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="37"/>
-                                        <RowDefinition Height="220*"/>
                                     </Grid.RowDefinitions>
-                                    <Grid Background="#111111" Panel.ZIndex="100" Margin="0,0,0,7" Grid.Column="1">
-                                        <Grid VerticalAlignment="Top">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-                                                <RowDefinition Height="0*"/>
-                                            </Grid.RowDefinitions>
-                                            <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
-                                                <materialDesign:PackIcon Kind="Settings" Foreground="White" VerticalAlignment="Center" Width="30" Height="30"/>
-                                                <Label Foreground="White" Content="Settings" VerticalAlignment="Center" FontSize="15" Margin="0 0 0 0" Width="157"/>
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Height="38" Margin="686,0,0,0" Width="19">
-                                                <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE76B;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="ShiftToNormal" Height="38" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </Grid>
-                                    <Border Background="#141414" Margin="5,0,5,5" CornerRadius="5" Grid.Row="2">
-                                        <Border CornerRadius="5">
-                                            <Grid>
-                                                <ListBox ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,3" materialDesign:RippleAssist.IsDisabled="True" materialDesign:ListBoxItemAssist.ShowSelection="False">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ToggleButton Checked="AutoAttachToggle_Checked" Unchecked="AutoAttachToggle_Unchecked" Width="30" Height="30" x:Name="AutoAttachToggle"/>
-                                                        <Label Content="Auto Attach" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
-                                                    </StackPanel>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ToggleButton Checked="SplashToggle_Checked" Unchecked="SplashToggle_Unchecked" Width="30" Height="30" x:Name="SplashToggle"/>
-                                                        <Label Content="Splash Screen" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
-                                                    </StackPanel>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ToggleButton Checked="DebugModeToggle_Checked" Unchecked="DebugModeToggle_Unchecked" Width="30" Height="30" x:Name="DebugModeToggle"/>
-                                                        <Label Content="Debug Console" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
-                                                    </StackPanel>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ToggleButton Width="30" Height="30" Checked="RPCToggle_Checked" Unchecked="RPCToggle_Unchecked" x:Name="RPCToggle" />
-                                                        <Label Content="Discord RPC" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
-                                                    </StackPanel>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ToggleButton Checked="TopmostToggle_Checked" Unchecked="TopmostToggle_Unchecked" Width="30" Height="30" x:Name="TopmostToggle" />
-                                                        <Label Content="Window Topmost" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
-                                                    </StackPanel>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ToggleButton Checked="SaveTabsToggle_Checked" Unchecked="SaveTabsToggle_Unchecked" Width="30" Height="30" x:Name="SaveTabsToggle"/>
-                                                        <Label Content="Save Tabs" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
-                                                    </StackPanel>
-                                                </ListBox>
+                                    <Border Background="#111111" Margin="5,0,5,5" CornerRadius="5" Grid.Row="1">
+                                        <Border>
+                                            <Grid Margin="0,0,0,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="193*"/>
+                                                    <ColumnDefinition Width="201*" x:Name="infocolumndef"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.ColumnSpan="2">
+                                                    <Border>
+                                                        <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,197,3" materialDesign:RippleAssist.IsDisabled="True" materialDesign:ListBoxItemAssist.ShowSelection="False">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ToggleButton Checked="AutoAttachToggle_Checked" Unchecked="AutoAttachToggle_Unchecked" Width="30" Height="30" x:Name="AutoAttachToggle"/>
+                                                                <Label Content="Auto Attach" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ToggleButton Checked="SplashToggle_Checked" Unchecked="SplashToggle_Unchecked" Width="30" Height="30" x:Name="SplashToggle"/>
+                                                                <Label Content="Splash Screen" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ToggleButton Checked="DebugModeToggle_Checked" Unchecked="DebugModeToggle_Unchecked" Width="30" Height="30" x:Name="DebugModeToggle"/>
+                                                                <Label Content="Debug Console" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ToggleButton Width="30" Height="30" Checked="RPCToggle_Checked" Unchecked="RPCToggle_Unchecked" x:Name="RPCToggle" />
+                                                                <Label Content="Discord RPC" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ToggleButton Checked="TopmostToggle_Checked" Unchecked="TopmostToggle_Unchecked" Width="30" Height="30" x:Name="TopmostToggle" />
+                                                                <Label Content="Window Topmost" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ToggleButton Checked="SaveTabsToggle_Checked" Unchecked="SaveTabsToggle_Unchecked" Width="30" Height="30" x:Name="SaveTabsToggle"/>
+                                                                <Label Content="Save Tabs" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Button Background="Transparent" BorderBrush="Transparent" Content="&#xF167;" Foreground="White" FontSize="15" FontFamily="Segoe MDL2 Assets" Click="InfoButton_Click" materialDesign:RippleAssist.IsDisabled="True" />
+                                                                <Label Content="Information" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                            </StackPanel>
+                                                        </ListBox>
+                                                    </Border>
+                                                </Grid>
+                                                <Grid x:Name="InformationGrid" Background="#141414" Panel.ZIndex="1" Visibility="Visible" Margin="7,0,0,0" Grid.Column="1">
+                                                    <Border Background="#141414">
+                                                        <Grid Margin="10 10 0 0">
+                                                            <StackPanel>
+                                                                <Grid x:Name="DepsoGrid">
+                                                                    <Grid>
+                                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                                                            <StackPanel.Resources>
+                                                                                <Style TargetType="{x:Type StackPanel}">
+                                                                                    <Setter Property="Margin" Value="0,0,0,0"/>
+                                                                                </Style>
+                                                                            </StackPanel.Resources>
+                                                                            <Image Source="\Resources\depso.png" MaxHeight="70" MaxWidth="70"/>
+                                                                            <Grid MaxHeight="70">
+                                                                                <StackPanel>
+                                                                                    <Label Foreground="White">Depso</Label>
+                                                                                    <StackPanel Orientation="Horizontal">
+                                                                                        <materialDesign:PackIcon Kind="LanguageLua" Foreground="#FF8E83DE" VerticalAlignment="Center"/>
+                                                                                        <Label Content="Luau Development" FontSize="10" Foreground="#FF8E83DE"/>
+                                                                                    </StackPanel>
+                                                                                    <StackPanel Orientation="Horizontal">
+                                                                                        <materialDesign:PackIcon Kind="Code" Foreground="#FF8E83DE" VerticalAlignment="Center"/>
+                                                                                        <Label Content="Programming" FontSize="10" Foreground="#FF8E83DE"/>
+                                                                                    </StackPanel>
+                                                                                </StackPanel>
+                                                                            </Grid>
+                                                                        </StackPanel>
+                                                                    </Grid>
+                                                                </Grid>
+                                                                <Grid x:Name="ExcelGrid" Margin="0 15 0 0">
+                                                                    <Grid>
+                                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                                                            <StackPanel.Resources>
+                                                                                <Style TargetType="{x:Type StackPanel}">
+                                                                                    <Setter Property="Margin" Value="0,0,0,0"/>
+                                                                                </Style>
+                                                                            </StackPanel.Resources>
+                                                                            <Image Source="\Resources\Excel.png" MaxHeight="70" MaxWidth="70"/>
+                                                                            <Grid MaxHeight="70">
+                                                                                <StackPanel>
+                                                                                    <Label Foreground="White">Excel</Label>
+                                                                                    <StackPanel Orientation="Horizontal">
+                                                                                        <materialDesign:PackIcon Kind="Drawing" Foreground="#FF8E83DE" VerticalAlignment="Center"/>
+                                                                                        <Label Content="UI Design" FontSize="10" Foreground="#FF8E83DE"/>
+                                                                                    </StackPanel>
+                                                                                    <StackPanel Orientation="Horizontal">
+                                                                                        <materialDesign:PackIcon Kind="Code" Foreground="#FF8E83DE" VerticalAlignment="Center"/>
+                                                                                        <Label Content="Programming" FontSize="10" Foreground="#FF8E83DE"/>
+                                                                                    </StackPanel>
+                                                                                </StackPanel>
+                                                                            </Grid>
+                                                                        </StackPanel>
+                                                                    </Grid>
+                                                                </Grid>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </Border>
+                                                </Grid>
                                             </Grid>
                                         </Border>
                                     </Border>

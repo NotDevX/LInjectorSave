@@ -14,7 +14,6 @@ namespace LInjector.Pages
         {
             InitializeComponent();
             maintabs.Items.Add(CreateTab("", "Script" + " " + (this.maintabs.Items.Count + 1).ToString()));
-
         }
 
         public monaco_api current_monaco()
