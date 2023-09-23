@@ -400,28 +400,35 @@ namespace LInjector.Classes
 
         public static bool IsOutdatedVersion(string currentVersion)
         {
-            var client = new GitHubClient(new ProductHeaderValue("CheckGitHubRelease"));
-
-            var releases = client.Repository.Release.GetAll(owner, repo).Result;
-
-            var latestRelease = releases
-                .Where(r => r.TagName.StartsWith("v"))
-                .OrderByDescending(r => r.PublishedAt)
-                .FirstOrDefault();
-
-            if (latestRelease != null)
+            try
             {
-                var latestVersion = latestRelease.TagName.TrimStart('v');
+                var client = new GitHubClient(new ProductHeaderValue("CheckGitHubRelease"));
 
-                Version current = null;
-                if (Version.TryParse(currentVersion.TrimStart('v'), out current))
+                var releases = client.Repository.Release.GetAll(owner, repo).Result;
+
+                var latestRelease = releases
+                    .Where(r => r.TagName.StartsWith("v"))
+                    .OrderByDescending(r => r.PublishedAt)
+                    .FirstOrDefault();
+
+                if (latestRelease != null)
                 {
-                    Version latest;
-                    if (Version.TryParse(latestVersion, out latest))
+                    var latestVersion = latestRelease.TagName.TrimStart('v');
+
+                    Version current = null;
+                    if (Version.TryParse(currentVersion.TrimStart('v'), out current))
                     {
-                        return current < latest;
+                        Version latest;
+                        if (Version.TryParse(latestVersion, out latest))
+                        {
+                            return current < latest;
+                        }
                     }
                 }
+            }
+            catch (RateLimitExceededException)
+            {
+                return false;
             }
 
             return false;

@@ -450,19 +450,6 @@ namespace LInjector.Windows
             }
         }
 
-        private void ClearEditor(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var cm = TabSystemz.current_monaco();
-                cm.SetText("");
-                TabSystemz.ChangeCurrentTabTitle($"Script {TabSystemz.maintabs.Items.Count}");
-            }
-            catch (Exception)
-            {
-                _ = Notifications.Fire(StatusListBox, "Could not refresh the editor.", NotificationLabel);
-            }
-        }
 
         private async void SaveToFileButton_Click(object sender, RoutedEventArgs e)
         {

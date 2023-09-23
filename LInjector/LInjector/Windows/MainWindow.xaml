@@ -106,7 +106,6 @@
                         </Border>
                     </Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                   <!-- <Button Background="Transparent"  BorderBrush="Transparent"   Content="&#xED62;" Foreground="White"   FontSize="15" FontFamily="Segoe MDL2 Assets" Click="ClearEditor"          HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" /> -->
                         <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE921;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="MinimizeButton_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
                         <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE922;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="MaximizeButton_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
                         <Button Background="Transparent" BorderBrush="Transparent" Content="&#xE8BB;" Foreground="White" FontSize="10" FontFamily="Segoe MDL2 Assets" Click="ExitButton_Click"     HorizontalAlignment="Right" VerticalAlignment="Stretch" materialDesign:RippleAssist.IsDisabled="True" />
@@ -238,8 +237,8 @@
                                                                 <Label Content="Save Tabs" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
                                                             </StackPanel>
                                                             <StackPanel Orientation="Horizontal">
-                                                                <Button Padding="0" Background="Transparent" HorizontalAlignment="Left" HorizontalContentAlignment="Left" BorderBrush="Transparent" Content="&#xF167;" Foreground="White" FontSize="20" FontFamily="Segoe MDL2 Assets" Click="InfoButton_Click" BorderThickness="1,1,1,1"/>
-                                                                <Label Content="Information" Foreground="White" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Left" BorderThickness="9,0,0,0"/>
+                                                                <Button Padding="0" Background="Transparent" HorizontalAlignment="Left" HorizontalContentAlignment="Left" BorderBrush="Transparent" Content="&#xF167;" Foreground="LightGray" FontSize="20" FontFamily="Segoe MDL2 Assets" Click="InfoButton_Click" BorderThickness="1,1,1,1"/>
+                                                                <Label Content="About" Foreground="LightGray" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Left" BorderThickness="10,0,0,0"/>
                                                             </StackPanel>
                                                         </ListBox>
                                                     </Border>
@@ -359,10 +358,10 @@
                                 <ColumnDefinition Width="2*"/>
                                 <ColumnDefinition Width="115*"/>
                             </Grid.ColumnDefinitions>
-                            <Button Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="#141414" Padding="0 0 0 0" BorderBrush="#00744CE0" x:Name="OpenFileButton" Click="OpenFileButton_Click" Height="32">
+                            <Button Margin="0,6,0,0" materialDesign:RippleAssist.IsDisabled="True" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="#141414" Padding="0 0 0 0" BorderBrush="#00744CE0" x:Name="OpenFileButton" Click="OpenFileButton_Click" Height="32">
                                 <Label Content="&#xED25;" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
                             </Button>
-                            <Button VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="#141414" BorderBrush="#00744CE0" x:Name="SaveToFileButton" Click="SaveToFileButton_Click" Height="32" Grid.Column="2" Margin="0,6,0,0">
+                            <Button VerticalAlignment="Top" materialDesign:RippleAssist.IsDisabled="True" HorizontalAlignment="Stretch" Background="#141414" BorderBrush="#00744CE0" x:Name="SaveToFileButton" Click="SaveToFileButton_Click" Height="32" Grid.Column="2" Margin="0,6,0,0">
                                 <Label Content="&#xEA35;" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
                             </Button>
                         </Grid>

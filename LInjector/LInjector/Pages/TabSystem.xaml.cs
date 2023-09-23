@@ -83,5 +83,16 @@ namespace LInjector.Pages
                 Content = CreateEditor(content),
                 IsSelected = true,
             };
+
+        private void Clear_Editor(object sender, RoutedEventArgs e)
+        {
+            var x = maintabs.SelectedContent as monaco_api;
+            try
+            {
+                x.SetText("");
+                this.ChangeCurrentTabTitle($"Script {maintabs.Items.Count}");
+            }
+            catch { }
+        }
     }
 }

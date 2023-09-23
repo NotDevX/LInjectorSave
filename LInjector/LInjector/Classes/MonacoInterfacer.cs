@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Web.WebView2.Wpf;
+using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 
 namespace LInjector.WPF.Classes
 {
-    public class monaco_api : Microsoft.Web.WebView2.Wpf.WebView2
+    public class monaco_api : WebView2
     {
         // Thanks to parex for this awesome base!
 
