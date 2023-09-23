@@ -217,8 +217,6 @@ namespace LInjector.Classes
             bool result;
             if (flag)
             {
-                ThreadBox.MsgThread("Inject API First", "Fluxus | API Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
                 result = false;
             }
             else
