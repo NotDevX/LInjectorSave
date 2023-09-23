@@ -239,11 +239,11 @@ namespace LInjector.Windows
             }
 
             TabSystemz.Visibility = Visibility.Visible;
-            ParseConfig();
             RefreshScriptList();
-            LogToConsole.Log("Welcome to LInjector.", ConsoleLogList);
-            _ = VersionChecker.CheckVersionUWP();
+            await VersionChecker.CheckVersionUWP();
             LoadSavedTabs();
+            ParseConfig();
+            LogToConsole.Log("Welcome to LInjector.", ConsoleLogList);
             _ = Notifications.Fire(StatusListBox, "Welcome to LInjector [BETA]", NotificationLabel);
         }
 
@@ -534,9 +534,9 @@ namespace LInjector.Windows
             { DebugModeToggle.IsChecked = true; }
             else { DebugModeToggle.IsChecked = false; }
 
-            if (ConfigHandler.discord_rpc)
-            { RPCToggle.IsChecked = true; }
-            else { RPCToggle.IsChecked = false; }
+            if (RPCManager.isEnabled)
+            { RPCToggle.IsChecked = true; enablerpc(); }
+            else { RPCToggle.IsChecked = false; shutdownrpc(); }
 
             if (ConfigHandler.topmost)
             { TopmostToggle.IsChecked = true; }
@@ -593,7 +593,7 @@ namespace LInjector.Windows
 
         // RPC Toggle
 
-        private void RPCToggle_Checked(object sender, RoutedEventArgs e)
+        private void enablerpc()
         {
             ConfigHandler.SetConfigValue("discord_rpc", true);
             ConfigHandler.discord_rpc = true;
@@ -601,13 +601,11 @@ namespace LInjector.Windows
 
             if (!RPCManager.client.IsInitialized)
             {
-
                 RPCManager.InitRPC();
             }
-
         }
 
-        private void RPCToggle_Unchecked(object sender, RoutedEventArgs e)
+        private void shutdownrpc()
         {
             ConfigHandler.SetConfigValue("discord_rpc", false);
             ConfigHandler.discord_rpc = false;
@@ -617,6 +615,16 @@ namespace LInjector.Windows
             {
                 RPCManager.client.Dispose();
             }
+        }
+
+        private void RPCToggle_Checked(object sender, RoutedEventArgs e)
+        {
+            enablerpc();
+        }
+
+        private void RPCToggle_Unchecked(object sender, RoutedEventArgs e)
+        {
+            shutdownrpc();
         }
 
         // TOPMOST TOGGLE
@@ -633,13 +641,6 @@ namespace LInjector.Windows
             ConfigHandler.SetConfigValue("topmost", false);
             ConfigHandler.topmost = false;
             Topmost = false;
-        }
-
-        // TOGGLE SETTINGS
-
-        private void ShiftToNormal(object sender, RoutedEventArgs e)
-        {
-            ToggleControls();
         }
 
         // SAVE TABS TOGGLE
