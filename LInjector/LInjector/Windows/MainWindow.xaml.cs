@@ -162,7 +162,7 @@ namespace LInjector.Windows
         {
             if (IsSettingsShown == false)
             {
-                if (IsInfoShown == true || IsScriptsShown == true) { return; }
+                if (IsScriptsShown == true) { return; }
                 IsSettingsShown = true;
                 TabSystemz.Visibility = Visibility.Collapsed;
                 SettingsGrid.Visibility = Visibility.Visible;
@@ -519,17 +519,14 @@ namespace LInjector.Windows
         {
             if (IsInfoShown == false)
             {
-                if (IsSettingsShown == true || IsScriptsShown == true) { return; }
+                if (IsScriptsShown == true) { return; }
                 IsInfoShown = true;
-                TabSystemz.Visibility = Visibility.Collapsed;
                 InformationGrid.Visibility = Visibility.Visible;
             }
             else
             {
-
                 IsInfoShown = false;
                 InformationGrid.Visibility = Visibility.Collapsed;
-                TabSystemz.Visibility = Visibility.Visible;
             }
         }
 

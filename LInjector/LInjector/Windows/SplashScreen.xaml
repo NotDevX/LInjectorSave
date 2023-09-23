@@ -6,16 +6,14 @@
         xmlns:local="clr-namespace:LInjector.Windows"
         mc:Ignorable="d"
         Height="450" Width="800" ShowInTaskbar="False" Topmost="True" WindowStartupLocation="CenterScreen"
-        Margin="-10px"
         AllowsTransparency="True"
         Loaded="Window_Loaded"
         Icon="\LInjector.ico"
         WindowStyle="None"
-        Background="Transparent"
-        ClipToBounds="False">
+        Background="Transparent">
     <Grid ClipToBounds="true">
         <!-- THIS BORDER EFFECT IS PART FROM COMET UPDATING SYSTEM (https://github.com/MarsQQ/Comet-Updating-System-) -->
-        <Border x:Name="SpinningBorder" Margin="-1,0,-1,-60" CornerRadius="5" VerticalAlignment="Bottom" Height="100" Panel.ZIndex="1" ClipToBounds="False">
+        <Border x:Name="SpinningBorder" Margin="-1,410,-1,0" CornerRadius="5" VerticalAlignment="Top" Height="40" Panel.ZIndex="1" ClipToBounds="False">
             <Border.Effect>
                 <BlurEffect Radius="100"/>
             </Border.Effect>
