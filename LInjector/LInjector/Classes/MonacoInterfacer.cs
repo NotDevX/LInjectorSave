@@ -66,7 +66,7 @@ namespace LInjector.WPF.Classes
         }
 
         public async void SetText(string text)
-        {   
+        {
             text = text.Replace("\\", "\\\\");
             await CoreWebView2.ExecuteScriptAsync("editor.setValue('');");
             await CoreWebView2.ExecuteScriptAsync($"editor.setValue(`{text.Replace("`", "\\`")}`)");

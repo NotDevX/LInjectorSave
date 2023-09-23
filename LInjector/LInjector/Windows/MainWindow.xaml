@@ -70,7 +70,7 @@
                         </ListBox.ItemContainerStyle>
 
                         <!-- Use a horizontal StackPanel to align items horizontally -->
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" MouseDown="DragWindow">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" MouseDown="DragWindow" Margin="5 0 0 0">
                             <Image Source="\Resources\LInjector.png" Stretch="Uniform" MaxHeight="23" MouseDown="DragWindow"/>
                             <Label Content="LInjector" Foreground="White" FontSize="14" Margin="5 0 0 0" FontFamily="Microsoft YaHei UI" MouseDown="DragWindow" />
                         </StackPanel>
@@ -214,12 +214,6 @@
                                                     <Border>
                                                         <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,197,3" materialDesign:RippleAssist.IsDisabled="True" materialDesign:ListBoxItemAssist.ShowSelection="False">
                                                             <StackPanel Orientation="Horizontal">
-                                                                <StackPanel Orientation="Horizontal">
-                                                                    <Button Padding="0" Background="Transparent" HorizontalAlignment="Left" HorizontalContentAlignment="Left" BorderBrush="Transparent" Content="&#xF167;" Foreground="White" FontSize="20" FontFamily="Segoe MDL2 Assets" Click="InfoButton_Click" BorderThickness="1,1,1,1"/>
-                                                                    <Label Content="Information" Foreground="White" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Left" BorderThickness="9,0,0,0"/>
-                                                                </StackPanel>
-                                                            </StackPanel>
-                                                            <StackPanel Orientation="Horizontal">
                                                                 <ToggleButton Checked="AutoAttachToggle_Checked" Unchecked="AutoAttachToggle_Unchecked" Width="30" Height="30" x:Name="AutoAttachToggle"/>
                                                                 <Label Content="Auto Attach" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
                                                             </StackPanel>
@@ -242,6 +236,10 @@
                                                             <StackPanel Orientation="Horizontal">
                                                                 <ToggleButton Checked="SaveTabsToggle_Checked" Unchecked="SaveTabsToggle_Unchecked" Width="30" Height="30" x:Name="SaveTabsToggle"/>
                                                                 <Label Content="Save Tabs" Foreground="White" FontSize="13" VerticalAlignment="Center"/>
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Button Padding="0" Background="Transparent" HorizontalAlignment="Left" HorizontalContentAlignment="Left" BorderBrush="Transparent" Content="&#xF167;" Foreground="White" FontSize="20" FontFamily="Segoe MDL2 Assets" Click="InfoButton_Click" BorderThickness="1,1,1,1"/>
+                                                                <Label Content="Information" Foreground="White" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Left" BorderThickness="9,0,0,0"/>
                                                             </StackPanel>
                                                         </ListBox>
                                                     </Border>

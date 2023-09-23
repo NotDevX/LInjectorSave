@@ -403,7 +403,8 @@ namespace LInjector.Windows
                         TabSystemz.ChangeCurrentTabTitle(selectedItem.ToString());
                         TabSystemz.current_monaco().SetText(File.ReadAllText(scriptfolder + (selectedItem != null ? selectedItem.ToString() : (string)null)));
                     }
-                } else
+                }
+                else
                 {
                     _ = Notifications.Fire(StatusListBox, "No scripts were found.", NotificationLabel);
                 }
