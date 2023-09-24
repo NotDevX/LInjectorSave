@@ -28,8 +28,8 @@ namespace LInjector.Classes
         public static readonly string desiredDirectoryName = "LInjector";
         public static readonly string ModulePath = "Resources\\libs\\Module.dll";
         public static readonly string savedtabspath = "Resources\\savedtabs";
-        public static readonly string GithubAPI = "https://api.github.com/repos/ItzzExcel/LInjector/commits?path={0}&page=1&per_page=1";
-        public static readonly string DLLSURl = "https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs";
+        public static readonly string GithubAPI = "https://api.github.com/repos/NotExcelz/LInjector/commits?path={0}&page=1&per_page=1";
+        public static readonly string DLLSURl = "https://raw.githubusercontent.com/NotExcelz/LInjector/master/Redistributables/DLLs";
         public static readonly string FluxusAPI = $"{DLLSURl}/FluxteamAPI.dll";
         public static readonly string ModuleAPI = $"{DLLSURl}/Module.dll";
     }
@@ -232,8 +232,8 @@ namespace LInjector.Classes
 
         public static void RedownloadModules()
         {
-            var Interfacer = new Uri("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs/FluxteamAPI.dll");
-            var Module = new Uri("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs/Module.dll");
+            var Interfacer = new Uri("https://raw.githubusercontent.com/NotExcelz/LInjector/master/Redistributables/DLLs/FluxteamAPI.dll");
+            var Module = new Uri("https://raw.githubusercontent.com/NotExcelz/LInjector/master/Redistributables/DLLs/Module.dll");
 
             if (Directory.Exists("Resources\\libs"))
             {
@@ -247,13 +247,13 @@ namespace LInjector.Classes
 
         public static void DownloadInterfacer()
         {
-            var Interfacer = new Uri("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs/FluxteamAPI.dll");
+            var Interfacer = new Uri("https://raw.githubusercontent.com/NotExcelz/LInjector/master/Redistributables/DLLs/FluxteamAPI.dll");
             webClient.DownloadFile(Interfacer, "Resources\\libs\\FluxteamAPI.dll");
         }
 
         public static void DownloadModule()
         {
-            var Module = new Uri("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs/Module.dll");
+            var Module = new Uri("https://raw.githubusercontent.com/NotExcelz/LInjector/master/Redistributables/DLLs/Module.dll");
             webClient.DownloadFile(Module, "Resources\\libs\\Module.dll");
         }
 
@@ -395,7 +395,7 @@ namespace LInjector.Classes
 
     public class CheckLatest
     {
-        private const string owner = "ItzzExcel";
+        private const string owner = "NotExcelz";
         private const string repo = "LInjector";
 
         public static bool IsOutdatedVersion(string currentVersion)

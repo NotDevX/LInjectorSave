@@ -14,8 +14,7 @@
 LInjector is an open-source interface for developers, designed to be minimal and easily customizable. <br>
 We currently support Roblox UWP. [Learn more about Hyperion Byfron](https://docs.google.com/document/d/1FRWTMnPZ-6fuyKjaT_YDU8tT1DrmLSw63YKtc2CfiMI/edit?usp=sharing).<br>
 If you have a working Dynamic-Link Library (DLL), you can edit the source code of LInjector. <br>
-LInjector uses the Monaco editor, the same one that powers Visual Studio Code, with syntax highlighting, [developed by Krnl](https://krnl.place/).
-Also available on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
+LInjector uses the Monaco editor, the same one that powers Visual Studio Code, with syntax highlighting, [developed by Krnl](https://krnl.place/) [and edited by Depso](https://github.com/depthso).
 
 ## Screenshots
 <table>
@@ -32,7 +31,7 @@ Also available on [luau-monaco](https://github.com/ItzzExcel/luau-monaco)
 <hr/>
 
 ## About
-LInjector is primarily developed by [ItzzExcel](https://github.com/ItzzExcel) and [Depso](https://github.com/Depthso).\
+LInjector is primarily developed by [Excel](https://github.com/NotExcelz) and [Depso](https://github.com/Depthso).\
 It was created out of the necessity for a secure and open-source executor without the risks associated with popular ones.
 
 ## About the Structure of LInjector
@@ -43,7 +42,7 @@ I apologize for the uncommented code. If you have any questions, you can contact
 
 ## How to Build?
 To edit the Forms, first compile. For any reason, forms can't load if not compiled. If you opened the forms before compiling, restart Visual Studio, and your problem should be fixed.
-- Clone the repository :  `gh repo clone ItzzExcel/LInjector`
+- Clone the repository :  `gh repo clone NotExcelz/LInjector`
 - Open LInjector.sln in Visual Studio 2022.
 - Set Release x86
 - Build Solution (CTRL + SHIFT + B)
@@ -84,7 +83,7 @@ We urge all users to use LInjector only for development and utility purposes and
 - LInjector uses the [Fluxus](https://fluxteam.net) (based of [WeAreDevs](https://wearedevs.net)) Modules to work.
 - [The text editor is Monaco.](https://microsoft.github.io/monaco-editor/)
 - Monaco Editor, edited by [Krnl](https://krnl.place/) and [depthso](https://github.com/depthso)
-- [Spinning Gradient by me (you can take it and put it into your personal projects.](https://gist.github.com/ItzzExcel/6bece91fcd3388618dde3de6bcab4a60)
+- [Spinning Gradient by me (you can take it and put it into your personal projects.](https://gist.github.com/NotExcelz/6bece91fcd3388618dde3de6bcab4a60)
 - [Tab System by lxnnydev](https://github.com/lxnnydev/Winforms-Tab-System)
 - [Depso's UNC Patches](https://github.com/depthso/Roblox-UNC-Patches)
 - [MastersMZ Scripts API](https://mastersmzscripts.com)
