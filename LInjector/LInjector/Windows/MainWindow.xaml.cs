@@ -350,7 +350,7 @@ namespace LInjector.Windows
 
         private void GitHubButton_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/ItzzExcel/LInjector");
+            Process.Start("https://github.com/NotExcelz/LInjector");
         }
 
         private void DiscordButton_Click(object sender, RoutedEventArgs e)
