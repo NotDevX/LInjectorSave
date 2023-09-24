@@ -7,12 +7,12 @@
 <img src="https://dcbadge.vercel.app/api/server/NQY28YSVAb">
 </a>
 </p>
-<h3 align="center">LInjector | Open-source Executor Interface for Roblox.</h3>
+<h3 align="center">LInjector | Open-source Lua Script Executor.</h3>
 
 <hr/>
 
 LInjector is an open-source interface for developers, designed to be minimal and easily customizable. <br>
-We currently support Roblox UWP. [Learn more about Hyperion Byfron](https://docs.google.com/document/d/1FRWTMnPZ-6fuyKjaT_YDU8tT1DrmLSw63YKtc2CfiMI/edit?usp=sharing).<br>
+We currently support The UWP Version. [Learn more about Hyperion Byfron](https://docs.google.com/document/d/1FRWTMnPZ-6fuyKjaT_YDU8tT1DrmLSw63YKtc2CfiMI/edit?usp=sharing).<br>
 If you have a working Dynamic-Link Library (DLL), you can edit the source code of LInjector. <br>
 LInjector uses the Monaco editor, the same one that powers Visual Studio Code, with syntax highlighting, [developed by Krnl](https://krnl.place/) [and edited by Depso](https://github.com/depthso).
 
