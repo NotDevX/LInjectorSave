@@ -284,11 +284,11 @@ namespace LInjector.Windows
                         FunctionWatch.runFuncWatch();
                         if (FluxInterfacing.pid > 0)
                         {
-                            LogToConsole.Log($"Injected to Roblox UWP with PID: {FluxInterfacing.pid}", ConsoleLogList);
+                            LogToConsole.Log($"Injected to Windows10Universal with PID: {FluxInterfacing.pid}", ConsoleLogList);
                         }
                         else
                         {
-                            LogToConsole.Log($"Roblox UWP not detected.", ConsoleLogList);
+                            LogToConsole.Log($"Windows10Universal not detected.", ConsoleLogList);
                         }
                     }
                     catch (Exception ex)

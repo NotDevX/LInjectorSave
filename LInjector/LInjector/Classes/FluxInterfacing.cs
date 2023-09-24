@@ -187,7 +187,7 @@ namespace LInjector.Classes
                     _ = Notifications.Fire((new MainWindow()).StatusListBox, "LoadLibrary failed.", App.NotificationLabel);
                     break;
                 case Result.ProcNotOpen:
-                    _ = Notifications.Fire((new MainWindow()).StatusListBox, "Couldn't find process. Make sure you have Roblox from the Microsoft Store.", App.NotificationLabel);
+                    _ = Notifications.Fire((new MainWindow()).StatusListBox, "Couldn't find process. Make sure you have the game from the Microsoft Store.", App.NotificationLabel);
                     break;
                 case Result.Unknown:
                     _ = Notifications.Fire((new MainWindow()).StatusListBox, "An unkown error has occurred.", App.NotificationLabel);

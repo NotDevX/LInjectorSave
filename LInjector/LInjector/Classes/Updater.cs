@@ -315,7 +315,7 @@ namespace LInjector.Classes
         ";
 
 
-        // This is for Hyperion Roblox (x64 Client)
+        // This is for Hyperion (x64 Client)
 
         public static async Task DlRbxVersion()
         {
@@ -326,7 +326,7 @@ namespace LInjector.Classes
                 try
                 {
                     var content = await client.GetStringAsync(rbxverurl);
-                    CustomCw.Cw($"Saving Roblox Game Client (Hyperion Release) version: {content}", false, "debug");
+                    CustomCw.Cw($"Saving the Game Client (Hyperion Release) version: {content}", false, "debug");
                     Version = content;
                     TempLog.CreateVersionFile(content, "latestrbx");
                 }
@@ -387,7 +387,7 @@ namespace LInjector.Classes
             {
                 if (!Version.Contains(content))
                 {
-                    ThreadBox.MsgThread($"Your Roblox UWP version mismatched. LInjector is only working for version {asyncedstring}, you have {Version}. Update or downgrade Roblox.", "LInjector | Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ThreadBox.MsgThread($"Your version of UWP version mismatched. LInjector is only working for version {asyncedstring}, you have {Version}. Update or downgrade Roblox.", "LInjector | Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

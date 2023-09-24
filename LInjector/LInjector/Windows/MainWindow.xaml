@@ -312,7 +312,7 @@
                 </Border>
                 <!-- EDITOR ENDS -->
 
-                <!-- ROBLOX CONSOLE COMMUNICATION BEGANS -->
+                <!-- GAME CONSOLE COMMUNICATION BEGANS -->
 
                 <Border Background="#141414" BorderThickness="1" Margin="46,2,6,10" CornerRadius="4" Padding="5" Grid.Row="2">
                     <StackPanel Orientation="Vertical">
