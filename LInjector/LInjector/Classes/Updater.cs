@@ -17,7 +17,7 @@ namespace LInjector.Classes
     public static class Files
     {
 
-        public static readonly string currentVersion = "v10.09.2023";
+        public static readonly string currentVersion = "v23.09.2023";
 
         public static readonly string localAppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         public static readonly string RobloxACFolder = Path.Combine(localAppDataFolder, "Packages", "ROBLOXCORPORATION.ROBLOX_55nm5eh3cm0pr", "AC");
