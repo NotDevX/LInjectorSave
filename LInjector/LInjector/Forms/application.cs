@@ -170,7 +170,7 @@ namespace LInjector
             {
                 client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
 
-                dynamic BuiltinScripts = await client.GetStringAsync("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/Pinned_Scripts.json");
+                dynamic BuiltinScripts = await client.GetStringAsync("https://raw.githubusercontent.com/NotExcelz/LInjector/master/Redistributables/Pinned_Scripts.json");
                 BuiltinScripts = JsonConvert.DeserializeObject(BuiltinScripts);
 
                 AddScripts(BuiltinScripts);
@@ -462,7 +462,7 @@ namespace LInjector
 
         private void githubButton_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/ItzzExcel/LInjector");
+            Process.Start("https://github.com/NotExcelz/LInjector");
         }
 
         private void githubButton_MouseEnter(object sender, EventArgs e)
@@ -495,9 +495,9 @@ namespace LInjector
 
         private void webView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
-            if (e.ToString() != "https://itzzexcel.github.io/LInjector/")
+            if (e.ToString() != "https://notexcelz.github.io/LInjector/Monaco")
             {
-                monaco_api.Source = new Uri("https://itzzexcel.github.io/LInjector/");
+                monaco_api.Source = new Uri("https://notexcelz.github.io/LInjector/Monaco");
             }
         }
 

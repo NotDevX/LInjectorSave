@@ -38,8 +38,8 @@ namespace LInjector.Classes
 
         public static void RedownloadModules()
         {
-            var Interfacer = new Uri("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs/FluxteamAPI.dll");
-            var Module = new Uri("https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs/Module.dll");
+            var Interfacer = new Uri("https://raw.githubusercontent.com/NotExcelz/LInjector/master/Redistributables/DLLs/FluxteamAPI.dll");
+            var Module = new Uri("https://raw.githubusercontent.com/NotExcelz/LInjector/master/Redistributables/DLLs/Module.dll");
 
             if (Directory.Exists("Resources\\libs"))
             {

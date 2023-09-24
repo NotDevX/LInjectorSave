@@ -32,6 +32,6 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("3.5")]
-// LInjector UI Version https://github.com/ItzzExcel/LInjector
+// LInjector UI Version https://github.com/NotExcelz/LInjector
 
 [assembly: AssemblyFileVersion("08.09.2023")] // Version format: dd/MM/yyyy, if it's December 31, 1969, the version is "31.12.1969".

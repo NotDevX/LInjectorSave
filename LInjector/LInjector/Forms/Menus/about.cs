@@ -46,7 +46,7 @@ namespace LInjector.Forms.Menus
 
         private void ItzzTitle_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/ItzzExcel");
+            Process.Start("https://github.com/NotExcelz");
         }
     }
 }

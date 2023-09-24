@@ -27,7 +27,7 @@ namespace LInjector.Classes
                 },
                 Buttons = new[]
                 {
-                        new Button { Label = "GitHub", Url = "https://github.com/ItzzExcel/LInjector" }
+                        new Button { Label = "GitHub", Url = "https://github.com/NotExcelz/LInjector" }
                 }
             };
             if (client.IsInitialized)

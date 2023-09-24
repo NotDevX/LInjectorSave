@@ -14,8 +14,8 @@ namespace LInjector.Classes
         public static readonly string workspaceFolder = Path.Combine(RobloxACFolder, "workspace");
         public static readonly string autoexecFolder = Path.Combine(RobloxACFolder, "autoexec");
         public static readonly string ModulePath = "Resources\\libs\\Module.dll";
-        public static readonly string GithubAPI = "https://api.github.com/repos/ItzzExcel/LInjector/commits?path={0}&page=1&per_page=1";
-        public static readonly string DLLSURl = "https://raw.githubusercontent.com/ItzzExcel/LInjector/master/Redistributables/DLLs";
+        public static readonly string GithubAPI = "https://api.github.com/repos/NotExcelz/LInjector/commits?path={0}&page=1&per_page=1";
+        public static readonly string DLLSURl = "https://raw.githubusercontent.com/NotExcelz/LInjector/master/Redistributables/DLLs";
         public static readonly string FluxusAPI = $"{DLLSURl}/FluxteamAPI.dll";
         public static readonly string ModuleAPI = $"{DLLSURl}/Module.dll";
     }

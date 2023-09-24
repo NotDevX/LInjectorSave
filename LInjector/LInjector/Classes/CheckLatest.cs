@@ -6,7 +6,7 @@ namespace LInjector.Classes
 {
     public class CheckLatest
     {
-        private const string owner = "ItzzExcel";
+        private const string owner = "NotExcelz";
         private const string repo = "LInjector";
 
         public static bool IsOutdatedVersion(string currentVersion)
