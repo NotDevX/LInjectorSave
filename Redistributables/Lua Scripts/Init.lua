@@ -9,7 +9,7 @@
  * ]]
 
 local EXPLOIT_NAME = "LInjector"
-local EXLPOIT_VERSION = "18.09.2023"
+local EXLPOIT_VERSION = "23.09.2023"
 
 local genv = getgenv()
 if genv[EXPLOIT_NAME] then
