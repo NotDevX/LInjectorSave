@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="70%" src="https://user-images.githubusercontent.com/98148217/236020704-b931f1b0-3c4b-4bd3-95fb-f0c22e40a093.png" title="ᵈᵉᵛʸ ʷᵃˢ ʰᵉʳᵉ">
+  <img width="70%" src="https://user-images.githubusercontent.com/98148217/236020704-b931f1b0-3c4b-4bd3-95fb-f0c22e40a093.png" title="ᵈᵉᵛʸ ʷᵃˢ ʰᵉʳᵉ also me like this :D">
 </p>
 <p align="center">
 <img src="https://dcbadge.vercel.app/api/shield/686765279363334205">
@@ -92,3 +92,5 @@ We urge all users to use LInjector only for development and utility purposes and
 <hr/>
 
 — Made with love by Excel and Depso. <3
+
+ᵈᵉᵛʸ ʷᵃˢ ʰᵉʳᵉ ᵛ²
