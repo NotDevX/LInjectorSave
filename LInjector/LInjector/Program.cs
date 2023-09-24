@@ -24,19 +24,6 @@ namespace LInjector
     {
         public void Run(string[] args)
         {
-            if (CheckLatest.IsOutdatedVersion(Program.currentVersion))
-            {
-                DialogResult outDatedResult = MessageBox.Show(
-                    "LInjector is outdated, please, re-run LInjector Updating System or download the latest release via LExploits Website.\n" +
-                    "Go to LInjector Download Page?",
-                    "LInjector | Outdated", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (outDatedResult == DialogResult.Yes)
-                {
-                    Process.Start("https://lexploits.netlify.app/extra/linjector/download/");
-                    CustomCw.Cw("LInjector is outdated", false, "warning");
-                }
-            }
-
             CreateFiles.Create();
             ConfigHandler.DoConfig();
             TempLog.CreateVersionFile(Program.currentVersion, "version");
