@@ -13,7 +13,6 @@ namespace LInjector.Pages
         public TabSystem()
         {
             InitializeComponent();
-            maintabs.Items.Add(CreateTab("", "Script" + " " + (this.maintabs.Items.Count + 1).ToString()));
         }
 
         public monaco_api current_monaco()
@@ -61,10 +60,7 @@ namespace LInjector.Pages
                 case "RemoveT":
                     try
                     {
-                        if (maintabs.Items.Count > 1)
-                        {
-                            maintabs.Items.Remove(maintabs.SelectedItem);
-                        }
+                        maintabs.Items.Remove(maintabs.SelectedItem);
                     }
                     catch { }
                     break;
